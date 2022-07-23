@@ -133,3 +133,41 @@ span.highlight {
 .bd-text {
   text-align: justify;
 }
+
+/* Counter Styling */
+.countup {
+  text-align: left;
+  margin-bottom: 0px;
+}
+.countup .timeel {
+  display: inline;
+  padding: 5px;
+  background: #1772d0;
+  margin: 0;
+  color: white;
+  min-width: 2.8rem;
+  margin-left: 0px;
+  border-radius: 0px 0 10px 0px;
+}
+.countup span[class*="timeRef"] {
+  border-radius: 0 0px 0px 0;
+  margin-left: 0;
+  background: transparent;
+  color: black;
+}
+
+a .english {
+  display: none;
+  /* position: relative; */
+}
+
+a:hover .japanese{
+ display: none;
+}
+
+a:hover .english { 
+  /* position: absolute; */
+  /* content: 'My Japanese Learning Journey'; */
+  /* font-weight: bold; */
+  display: inline;
+}
