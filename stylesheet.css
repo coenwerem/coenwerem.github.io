@@ -161,13 +161,25 @@ a .english {
   /* position: relative; */
 }
 
-a:hover .japanese{
+
+a:active .japanese{
  display: none;
 }
 
-a:hover .english { 
+a:active .english { 
   /* position: absolute; */
   /* content: 'My Japanese Learning Journey'; */
   /* font-weight: bold; */
   display: inline;
 }
+
+a:hover .japanese{
+  display: none;
+ }
+ 
+ a:hover .english { 
+   /* position: absolute; */
+   /* content: 'My Japanese Learning Journey'; */
+   /* font-weight: bold; */
+   display: inline;
+ } 
