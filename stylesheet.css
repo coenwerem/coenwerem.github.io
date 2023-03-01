@@ -88,6 +88,16 @@ body {
   transition: background 0.2s linear;
 }
 
+/* Address */
+.addr {
+  font-family: monospace;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: -0.6em;
+  /* color: #ccc; */
+}
+
 /* Dark Mode */
 .dark-mode {
 background-color: #1c1c1d;
@@ -317,6 +327,14 @@ a:hover .japanese{
   margin-top: auto;
  }
 
+ .arthr {
+  width: 45%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px; 
+  margin-bottom: 20px;
+  margin-top: auto;
+ }
+
 @media only screen and (max-width: 500px) {
 .socials {
   text-align: left;
@@ -338,6 +356,14 @@ a:hover .japanese{
   -ms-transform:scale(0.7);
   transform:scale(0.7); */
 }
+
+.arthr {
+  width: 80%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px; 
+  margin-bottom: 20px;
+  margin-top: auto;
+ }
 }
 
 /* Media Queries for Navbar */
