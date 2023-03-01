@@ -7,8 +7,12 @@
   <title>Clinton Enwerem | Personal Website </title>
 
   <meta name="author" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">  
   <script src="scripts.js"></script>
   
@@ -19,8 +23,23 @@
 </head>
 
 <body ontouchstart="">
-  <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+<!-- Navbar -->
+<div class="topnav" id="myTopnav">
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <a onclick="toggleDarkMode()" class="darkModeBtn"><i class="far fa-lightbulb"></i></a>
+  <a href="#project">Projects</a>
+  <a href="#research">Research</a>
+  <a class="active" href="#bio">About</a>
+
+
+  <!-- <a href="#cv">CV</a> -->
+  <!-- <a href="#about">Blog</a> -->
+
+</div>
+<div id="bio">
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
@@ -29,52 +48,84 @@
             <tbody>
               <tr style="padding:0px">
                 <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align:center">
-                    <name>Clinton Enwerem
-
-                    </name>
+                  <p style="text-align:center;margin-top: 3em;">
+                    <name style="font-weight: 500;">Clinton Enwerem</name> <br>
+                    <span>Research Assistant, Institute for Systems Research, UMDCP</span>
                   </p>
-                  <p class="bd-text">Hi, I'm Clinton (クリントン).
+                  <p class="headhr"></p>
+                  <heading>Bio</heading>
+                  <p class="bd-text">Hi, I'm Clinton (クリントン). 
                     <br><br>
                     I am a second-year Electrical & Computer Engineering Ph.D. student at the University
                     of Maryland, College Park, MD, USA, advised by Professor <a href="https://johnbaras.com/"
                     target="_blank">John S. Baras</a>, Distinguished University Professor and Endowed Lockheed Martin Chair
                     in Systems Engineering. My research interests lie broadly at the nexus of robotics, control theory, and multiagent systems. At UMD, I am affiliated with the <a href="https://isr.umd.edu/"
                     target="_blank">Institute for Systems Research</a> and the <a href="http://arclab.isr.umd.edu/" target="_blank">Autonomy, Robotics, & Cognition Lab</a>.</p>
+                    
+                    <details>
+                    <summary><a>More Info</a></summary>
+                    <p class="bd-text">
+                      Prior to resuming doctoral studies at UMD, I completed a year-long stint as a robotics trainee at Nigeria's foremost robotics and AI research center &mdash; <a href="https://www.rainigeria.com" target="_blank">Robotics and Artificial Intelligence Nigeria</a> (RAIN). At RAIN, I worked with Dr. <a href="https://ng.linkedin.com/in/dr-olusola-sayeed-ayoola-phd-m-sc-miet-mnse-mncs-87a639158" target="_blank">Olusola Ayoola</a> on diverse robotics projects spanning robot navigation, visual SLAM, and robot control. Before that, I worked with <a
+                      href="https://www.linkedin.com/in/ihechiluru-okoro-miet-mieee-r-eng-2865056a/">Ihechiluru Okoro</a> as a research assistant in the Control & Instrumentation Lab &mdash; at my alma mater &mdash; on topics at the intersection of robust control, observer-based compensator design, and feedback control of time-delayed
+                      systems.
+                    </p>
+  
+                    <p class="bd-text">
+                      Working under the supervision of
+                      <a href="https://ca.linkedin.com/in/udoka-nwaneto" target="_blank">Udoka Nwaneto</a>, I earned my Bachelor's Degree in Electrical Engineering from the University of Nigeria, where I specialized in Control Systems and Electric Drives.
+                    </p>
+                  </details>
+                  
+                    <!-- Older Bio Info -->
+                    <!-- <a onclick="revealExtraBio()">More Info</a>
 
-                  <p class="bd-text">
-                    Prior to resuming doctoral studies at UMD, I completed a year-long stint as a robotics trainee at Nigeria's foremost robotics and AI research center &mdash; <a href="https://www.rainigeria.com" target="_blank">Robotics and Artificial Intelligence Nigeria</a> (RAIN). At RAIN, I worked with Dr. <a href="https://ng.linkedin.com/in/dr-olusola-sayeed-ayoola-phd-m-sc-miet-mnse-mncs-87a639158" target="_blank">Olusola Ayoola</a> on diverse robotics projects spanning robot navigation, visual SLAM, and robot control. Before that, I worked with <a
-                    href="https://www.linkedin.com/in/ihechiluru-okoro-miet-mieee-r-eng-2865056a/">Ihechiluru Okoro</a> as a research assistant in the Control & Instrumentation Lab &mdash; at my alma mater &mdash; on topics at the intersection of robust control, observer-based compensator design, and feedback control of time-delayed
-                    systems.
-                  </p>
-
-                  <p class="bd-text">
-                    Working under the supervision of
-                    <a href="https://ca.linkedin.com/in/udoka-nwaneto" target="_blank">Udoka Nwaneto</a>, I earned my Bachelor's Degree in Electrical Engineering from the University of Nigeria, where I specialized in Control Systems and Electric Drives.
-
-                  </p>
-                  <p style="text-align:center">
-                    <a href="mailto:enwerem@umd.edu">Email</a> &nbsp/&nbsp
-                    <a href="data/Clinton_Enwerem_CV.pdf">CV</a>
-                    &nbsp/&nbsp
-                    <a href="https://scholar.google.com/citations?user=fnsAFv8AAAAJ&hl=en">Google Scholar</a>
-                    &nbsp/&nbsp
-                    <a href="https://github.com/coenwerem/">Github</a> &nbsp/&nbsp
-                    <a href="https://www.linkedin.com/in/clinton-enwerem">LinkedIn</a>
-                  </p>
+                    <div id="extraBio" style="display:none;">
+                      <p class="bd-text">
+                        Prior to resuming doctoral studies at UMD, I completed a year-long stint as a robotics trainee at Nigeria's foremost robotics and AI research center &mdash; <a href="https://www.rainigeria.com" target="_blank">Robotics and Artificial Intelligence Nigeria</a> (RAIN). At RAIN, I worked with Dr. <a href="https://ng.linkedin.com/in/dr-olusola-sayeed-ayoola-phd-m-sc-miet-mnse-mncs-87a639158" target="_blank">Olusola Ayoola</a> on diverse robotics projects spanning robot navigation, visual SLAM, and robot control. Before that, I worked with <a
+                        href="https://www.linkedin.com/in/ihechiluru-okoro-miet-mieee-r-eng-2865056a/">Ihechiluru Okoro</a> as a research assistant in the Control & Instrumentation Lab &mdash; at my alma mater &mdash; on topics at the intersection of robust control, observer-based compensator design, and feedback control of time-delayed
+                        systems.
+                      </p>
+    
+                      <p class="bd-text">
+                        Working under the supervision of
+                        <a href="https://ca.linkedin.com/in/udoka-nwaneto" target="_blank">Udoka Nwaneto</a>, I earned my Bachelor's Degree in Electrical Engineering from the University of Nigeria, where I specialized in Control Systems and Electric Drives.
+                      </p>
+                    </div> -->
+                  <!-- <br> -->
+                  <br>
+                  <!-- Socials -->
+                  <div class="socials">
+                    <a href="mailto:enwerem@umd.edu""><i class="far fa-envelope fa-3x"></i></a> 
+                    &nbsp&nbsp&nbsp&nbsp
+                    <a href="data/Clinton_Enwerem_CV.pdf"><i class="ai ai-cv ai-3x"></i></a>
+                    &nbsp&nbsp&nbsp&nbsp
+                    <a href="https://scholar.google.com/citations?user=fnsAFv8AAAAJ&hl=en"><i class="ai ai-google-scholar ai-3x"></i></a>
+                    &nbsp&nbsp
+                    <a href="https://github.com/coenwerem/"><i class="fab fa-github fa-3x"></i></a> 
+                    &nbsp&nbsp&nbsp&nbsp
+                    <a href="https://www.linkedin.com/in/clinton-enwerem"><i class="fab fa-linkedin fa-3x"></i></a>
+                  </div>
                 </td>
                 <td style="padding:2.5%;width:40%;max-width:40%">
-                  <img style="width:100%;max-width:100%" alt="profile photo"
-                      src="images/CE_pic.png" class="hoverZoomLink">
+                  <div id="profile-img"><img style="width:100%;max-width:100%" alt="profile photo" src="images/CE_pic.png" class="hoverZoomLink"></div><br>
                 </td>
               </tr>
-            </tbody>
+              </tbody>
           </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- News -->
+  <div id="news">
           <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
+                  <p class="pagediv"></p>
                   <heading>News</heading>
                   <!-- <p class="bd-text">
                     <ul style="padding-left: 1em;">
@@ -105,21 +156,25 @@
               </tr>
             </tbody>
           </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Research</heading>
-                  <p class="bd-text">
-                    I work in the general areas of control theory, multiagent systems, and robotics. On the whole, my research is centered around the coordination and control of networked (engineered and human-robot) multiagent systems in dynamic environments. In particular, my current work is focused on topics such as formation control, consensus, multiagent decision-making, and safety-critical control for interacting agents, with applications to robotics.  
-                </td>
-              </tr> 
-            </tbody>
-          </table>
+        </div>
+
+        <!-- Research -->
+         <div id="research">
+            <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:20px;width:100%;vertical-align:middle">
+                    <p class="pagediv"></p>
+                    <heading>Research</heading>
+                    <p class="bd-text">
+                      I work in the general areas of control theory, multiagent systems, and robotics. On the whole, my research is centered around the coordination and control of networked (engineered and human-robot) multiagent systems in dynamic environments. In particular, my current work is focused on topics such as formation control, consensus, multiagent decision-making, and safety-critical control for interacting agents, with applications to robotics.  
+                  </td>
+                </tr> 
+              </tbody>
+            </table>
 
           <table
-          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tbody>
             <tr>
               <td style="padding-left:20px;width:100%;vertical-align:middle">
@@ -130,8 +185,8 @@
           </tbody>
         </table>
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table
+        style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr onmouseout="refnerf_stop()" onmouseover="refnerf_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
@@ -175,7 +230,7 @@
           </table>
 
           <table
-          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tbody>
 
             <tr onmouseout="refnerf_stop()" onmouseover="refnerf_start()">
@@ -220,7 +275,7 @@
 
           </tbody>
         </table>
-
+      </div>
           <!-- <table
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
@@ -307,24 +362,27 @@
             </tbody>
           </table> -->
 
+          
           <!-- Projects -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Projects</heading>
-                  <p class="bd-text">
-                    Here's a (sub) collection of my recent
-                    course, research, and personal projects:
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div id="project">
+            <table
+            style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:20px;width:100%;vertical-align:middle">
+                    <p class="pagediv"></p>
+                    <heading>Projects</heading>
+                    <p class="bd-text">
+                      Here's a (sub) collection of my recent
+                      course, research, and personal projects:
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           
           <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
               <tr onmouseout="refnerf_stop()" onmouseover="refnerf_start()">
@@ -356,7 +414,7 @@
           </table>
           
           <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
               <tr onmouseout="refnerf_stop()" onmouseover="refnerf_start()">
@@ -395,7 +453,7 @@
           </table>
 
           <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
               <tr onmouseout="refnerf_stop()" onmouseover="refnerf_start()">
@@ -424,14 +482,16 @@
 
             </tbody>
           </table>
+        </div>
 
           <!-- Misc -->
-  
+        <div id="misc">
           <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
+                  <p class="pagediv"></p>
                   <heading>Misc.</heading>
                   <p class="bd-text">
                     Outside work, I have interests in Japanese, new-age music, and the literary arts.
@@ -441,6 +501,7 @@
               </tr>
             </tbody>
           </table>
+        </div>
           <!-- <table
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
@@ -518,17 +579,17 @@
   </td>
   </tr>
   </table>  -->
-  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:2em;margin-bottom: 0.3em;">
     <tr>
       <td style="padding:0px">
         <br>
         <p style="text-align:center;font-size:small;">
-          Website template from <a href="https://jonbarron.info/">Jon Barron</a>
+          Website <a href="https://github.com/coenwerem/coenwerem.github.io">source code</a> adapted from <a href="https://jonbarron.info/">this</a> template
         </p>
       </td>
     </tr>
   </table>
-
+<br>
 
 </body>
 
