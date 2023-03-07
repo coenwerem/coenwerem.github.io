@@ -335,7 +335,7 @@ a:hover .japanese{
   margin-top: auto;
  }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
 .socials {
   text-align: left;
   margin-left: -1.5em;
@@ -448,9 +448,23 @@ a:hover .japanese{
   font-weight: bolder;
 }
 
-/* Hide the link that should open and close the topnav on small screens */
+/* Hide the link that should open and close the topnav on small screens
 .dark-mode .topnav .icon {
   display: none;
+} */
+
+@media screen and (max-width: 600px) {
+  .dark-mode .topnav.responsive {position: relative;} /* Change this to  fixed to have persistent navbar */
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .dark-mode .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
  /* Navbar CSS end* dark theme aware/
 
