@@ -221,6 +221,11 @@ subheading {
   font-size: 18px;
 }
 
+subsubheading {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
 papertitle {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 14px;
