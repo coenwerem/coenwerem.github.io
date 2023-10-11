@@ -60,16 +60,18 @@
                   <p>Topic: Multi-Agent Safety-Critical Control for Complex Safety Requirements via Non-Smoooth Barrier Certificates.</p>
                   <p>Student: Clinton Enwerem (<a style="font-family: monospace;" href="mailto:enwerem@umd.edu">enwerem at umd dot edu</a>) </p>
                   <p class="headhr"></p>
-                  <heading>Motivation</heading>
+                  <heading>Motivation & Summary</heading>
                   <p class="bd-text">
                     Intelligent cyber-physical systems, such as teams of aerial robots or autonomous vehicle platoons, face a fundamental challenge: they must safely navigate complex environments while completing their objectives efficiently. This challenge is non-trivial, as the sub-tasks that constitute the ensemble's objective may often be conflicting, so that it becomes imperative to conduct appropriate trade-offs between tasks. The inherent uncertainty in each agent's model and operational vicinity also imposes additional constraints on the multiagent system, making safe multiagent control an acute problem. </p>
                     
                     <p class="bd-text">To further motivate the importance of safety, consider a platoon of connected autonomous vehicles on a busy highway, dispatched during trial runs to collect real-world driving data and validate new software. Besides achieving this tasking, the vehicles must remain within communication range, avoid accidents, and adhere to traffic regulations while also maintaining rider comfort. Despite sporting an array of exotic sensors and computing hardware, the vehicle ensemble may fail to achieve this mission under unfamiliar and challenging settings, leading to catastrophic [<a id="cruisecrash">1</a>] and sometimes fatal [<a id="teslacrash">2</a>] consequences. Endowing intelligent collectives with the ability to safely complete missions with competing requirements is, thus, an important consideration.</p>
-                  <br>
+
+                  <p class="bd-text">
+                    In this project, we consider the problem of synthesizing control policies for collectives subject to complex safety constraints using Boolean logical composition of control barrier functions (CBFs) and model-predictive control. Due to the general non-smooth nature of the resulting Boolean-composed CBF, we also explore smoothing strategies to enable optimization-based control synthesis. Finally, as a proof of concept, we hope to validate the above ideas on a single-integrator collective.
+                  </p>
                   
                 </td>
                 <td style="padding:2.5%;width:40%;max-width:40%">
-                  <!-- <div id="profile-img"><img style="width:100%;max-width:100%" alt="profile photo" src="images/CE_pic.png" class="hoverZoomLink"></div> -->
                   <br>
                 </td>
               </tr>
@@ -91,7 +93,7 @@
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
                   <p class="pagediv"></p>
-                  <heading>Mathematical Preliminaries</heading>
+                  <heading>Mathematical Preliminaries & Problem Definition</heading>
                   <p class="bd-text">
                     We consider nonlinear affine-in-control systems represented by dynamics of the form
                     (subscript \(i\) denotes the \(i^{th}\) agent):
@@ -121,15 +123,15 @@
                 <tr>
                   <td style="padding:20px;width:100%;vertical-align:middle">
                     <p class="pagediv"></p>
-                    <heading>Approach</heading>
+                    <heading>Key Results & Approach</heading>
+                    
+                    It is widely known that affine-in-control nonlinear dynamical systems can be forced to desired states via controllers synthesized from CBf-constrained quadratic programs. However, when several safety requirements must be met, one runs the risk of landing at an intractable quadratic program. Perfoming minimum or maximum operations over the set of associated CBFs also poses the challenge of being non-smooth so that one cannot apply a gradient-based synthesis approach. Moreover, composing CBFs via Boolean logic also leads one to a non-smooth CBF [<a id="glot17">4</a>], motivating the need for gradient-free or appropriate smoothing techniques.</p>
                     <p class="bd-text">
-                    To synthesize controllers satisfying the foregoing requirements, we will adopt the following approach, similar in spirit to [<a id="glot17">4</a>] and decribed (roughly) as follows:
+                    Thus, to synthesize controllers satisfying the foregoing requirements, we will adopt the following approach, similar in spirit to [<a id="glot17">4</a>] and decribed (roughly) as follows:
                     <ol style="padding-left: 10pt;">
                         <li> Elect barrier functions capturing each safety requirement and perform compositions via Boolean logic to obtain a single CBF for the ensemble.</li>
-                        <!-- <li> Obt</li> -->
-                        <li> Consider the system as an ensemble and adopt some robust control approach to find controllers satisfying (4).</li>
+                        <li> Consider the system as an ensemble and adopt robust model-predictive control to find controllers satisfying (4).</li>
                     </ol>
-
                     </p>
                   </td>
                 </tr> 
@@ -139,7 +141,51 @@
 <!-- ----------------------------------->
 <!-- Approach (End) -->
 <!-- ----------------------------------->
-       
+
+<!-- ----------------------------------->
+<!-- Connections to Decision-Making->
+<!-- ----------------------------------->
+<div id="decision-making-arc">
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr>
+        <td style="padding:20px;width:100%;vertical-align:middle">
+          <p class="pagediv"></p>
+          <heading>Connections to Decision-Making</heading>
+          <p class="bd-text">
+          Since robots are embodied autonomous agents fitted with components to interact with the material world, it is important to incorporate safety constraints into their planning and decision-making modules. The need for safety becomes all the more important in robot teams, where safe coordination at the agent level does not necessarily translate to the same for the ensemble. In the literature, a common approach for ensuring multi-agent safety is through the imposition of constraints for collision avoidance. However, as recent mishaps involving autonomous vehicles have shown [<a id="cruisecrash">1</a>, <a id="teslacrash">2</a>], notions of safety in practical settings are typically not singular and may often be conflicting. CBFs are a popular technique for safety-aware controller synthesis. However, little research is available in the literature on their utility in multi-agent systems with complex safety requirements, thus motivating the focus for this project.
+          </p>
+        </td>
+      </tr> 
+    </tbody>
+  </table>
+</div>
+<!-- ----------------------------------->
+<!-- Connections to Decision-Making >
+<!-- ----------------------------------->
+
+<!-- ----------------------------------->
+<!-- Applications (Begin) -->
+<!-- ----------------------------------->
+<div id="apps">
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr>
+        <td style="padding:20px;width:100%;vertical-align:middle">
+          <p class="pagediv"></p>
+          <heading>Applications</heading>
+          <p class="bd-text">
+          While we aim to consider two independent constraints in this project, we note that real-life safety constraints will mostly be more involved. However, the methods here can easily be scaled to address more complicated constraints, captured by appropriate CBFs. Nevertheless, progress in the aforementioned front can be applied to collective robot control under varied tasking, autonomous vehicle platooning, time-optimal, resource-robust, and fault-tolerant control for networked cyber-physical systems, among other applications.
+          </p>
+        </td>
+      </tr> 
+    </tbody>
+  </table>
+</div>
+<!-- ----------------------------------->
+<!-- Applications (End) -->
+<!-- ----------------------------------->
+
 <!-- ----------------------------------->
 <!-- References (Begin) -->
 <!-- ----------------------------------->
