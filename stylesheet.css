@@ -66,43 +66,67 @@
 }
 
 a {
-  color: #1f77b4;
+  color: #B509AC;
   text-decoration: none;
 }
 
 a:focus,
 a:hover {
-  color: #f09228;
-  text-decoration: none;
+  color: #B509AC;
+  text-decoration: underline;
 }
 
 body {
   background-color: white;
   color: black;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: "CMU Sans Serif", sans-serif;
+  font-size: 16px;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   transition: background 0.2s linear;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make the container at least the height of the viewport */
+}
+
+.content-wrap {
+  flex: 1; /* Allow the content to grow and take up available space */
+}
+
 /* Address */
-.addr {
-  font-family: monospace;
+.addr-box {
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  margin-bottom: -0.6em;
+  margin-bottom: -0.3em;
+  margin-top: 1em;
   /* color: #ccc; */
 }
 
-/* Dark Mode */
-.dark-mode {
-background-color: #1c1c1d;
-color: white;
-  
+.addr-header {
+  font-family: monospace;
+  margin-bottom: -0.3em;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.addr-text {
+  font-family: monospace;
+  margin-bottom: -0.3em;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.addr-email {
+  font-family: monospace;
+  margin-bottom: -0.3em;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .darkModeBtn {
@@ -115,20 +139,49 @@ padding: -30px;
  /* Add a black background color to the top navigation */
  .topnav {
   background-color: #fff;
-  overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Style the links inside the navigation bar */
+.dark-mode .topnav {
+  background-color: #1c1c1d;
+}
+
+/* Nav content wrapper */
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 60px; /* Fixed height for consistency */
+}
+
+/* Nav links container */
+.nav-links {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px; /* Consistent spacing between items */
+}
+
+/* Basic link styling */
 .topnav a {
-  float: right;
   color: #000;
-  text-align: center;
-  padding: 20px 15px 10px 30px;
+  padding: 0 15px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.dark-mode .topnav a {
+  color: #fff;
 }
 
 /* Change the color of links on hover */
@@ -172,7 +225,7 @@ padding: -30px;
   text-align: center;
   padding: 20px 15px 10px 30px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 /* Change the color of links on hover */
@@ -190,50 +243,59 @@ padding: -30px;
   color: #fff;
 }
 
-
- /* Navbar CSS end*/
-
+/* Navbar CSS end*/
 td,
 th,
 tr,
 p,
 a {
-font-family: 'Lato', Verdana, Helvetica, sans-serif;
+font-family: "CMU Sans Serif", sans-serif;
 font-size: 14px
 }
 
 strong {
-font-family: 'Lato', Verdana, Helvetica, sans-serif;
+font-family: "CMU Sans Serif", sans-serif;
 font-size: 14px;
 }
 
 .socials {
 text-align:center;
+margin: 3rem 0;
+padding: 1rem 0;
+position: relative;
+width: 100%;
+background: inherit;
+transition: background 0.2s linear;
+}
+
+.socials i {
+font-size: 2rem;
+margin: 0 1rem;
 }
 
 heading {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
+  font-family: "CMU Sans Serif", sans-serif;
+  font-size: 20px;
 }
 
 subheading {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 18px;
-}
-
-subsubheading {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "CMU Sans Serif", sans-serif;
   font-size: 16px;
 }
 
-papertitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+subsubheading {
+  font-family: "CMU Sans Serif", sans-serif;
   font-size: 14px;
+}
+
+papertitle {
+  font-family: "CMU Sans Serif", sans-serif;
+  font-size: 12px;
   font-weight: 700
 }
 
 name {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "CMU Sans Serif", sans-serif;
   font-size: 32px;
 }
 
@@ -264,6 +326,8 @@ span.highlight {
 
 .bd-text {
   text-align: justify;
+  line-height: 1.2;
+  margin-top: 1.25rem;
 }
 
 /* Counter Styling */
@@ -288,57 +352,59 @@ span.highlight {
   color: black;
 }
 
-a .english {
-  display: none;
-  /* position: relative; */
-}
-
-
-a:active .japanese{
- display: none;
-}
-
-a:active .english { 
-  /* position: absolute; */
-  /* content: 'My Japanese Learning Journey'; */
-  /* font-weight: bold; */
-  display: inline;
-}
-
-a:hover .japanese{
-  display: none;
- }
- 
- a:hover .english { 
-   /* position: absolute; */
-   /* content: 'My Japanese Learning Journey'; */
-   /* font-weight: bold; */
-   display: inline;
- } 
-
 .pagediv {
-  width: auto;
-  border-bottom: 1px solid #ccc;
-  /* padding-bottom: -35px;  */
-  margin-bottom: 20px;
-  margin-top: auto;
- }
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  margin-top: -1rem;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
 
- .headhr {
+.dark-mode .pagediv {
   width: auto;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #aaa;
+  margin-top: -1rem;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.headhr {
+  width: auto;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 15px; 
   margin-bottom: 20px;
   margin-top: auto;
- }
+}
 
- .arthr {
+.dark-mode .headhr {
+  width: auto;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 15px; 
+  margin-bottom: 20px;
+  margin-top: auto;
+}
+
+.arthr {
+width: 40%;
+border-bottom: 1px solid #ddd;
+padding-bottom: 15px; 
+margin-bottom: 20px;
+margin-top: auto;
+}
+
+.dark-mode .arthr {
   width: 40%;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #aaa;
   padding-bottom: 15px; 
   margin-bottom: 20px;
   margin-top: auto;
- }
+  }
 
 @media only screen and (max-width: 600px) {
 .socials {
@@ -395,18 +461,9 @@ a:hover .japanese{
     text-align: left;
   }
 }
+/*  ********************************************************************************* */
+/*  ********************************************************************************* */
 /* Theme aware css */
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: white;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #1c1c1d;
-    color: white;
-  }
 
   /* Redefine dark mode in dark theme aware css */
 /* Dark Mode */
@@ -434,7 +491,7 @@ a:hover .japanese{
   text-align: center;
   padding: 20px 15px 10px 30px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 /* Change the color of links on hover */
@@ -491,7 +548,7 @@ a:hover .japanese{
   text-align: center;
   padding: 20px 15px 10px 30px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 /* Change the color of links on hover */
@@ -515,4 +572,738 @@ a:hover .japanese{
   display: none;
 }
  /* Navbar CSS end*/
+
+/* Default (light mode) link colors */
+a {
+  color: #B509AC;  /* Default link color */
+  text-decoration: none;
 }
+
+a:focus,
+a:hover {
+  color: #B509AC;  /* Hover color for light mode */
+  text-decoration: underline;
+}
+
+/* Dark mode link colors */
+.dark-mode a {
+  color: #52BCDC;  /* Brighter blue for dark mode */
+  text-decoration: none;
+}
+
+.dark-mode a:focus,
+.dark-mode a:hover {
+  color: #52BCDC;  /* Lighter orange for dark mode hover */
+  text-decoration: underline;
+}
+
+/* Hide dark mode icon by default */
+.dark-mode-icon {
+  display: none;
+}
+
+/* Show dark mode icon and hide light mode icon when in dark mode */
+.dark-mode .dark-mode-icon {
+  display: inline-block;
+}
+
+.dark-mode .light-mode-icon {
+  display: none;
+}
+
+/* Navbar container */
+.topnav {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.dark-mode .topnav {
+  background-color: #1c1c1d;
+}
+
+/* Nav content wrapper */
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Nav links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Basic link styling */
+.topnav a {
+  color: #000;
+  padding: 20px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.dark-mode .topnav a {
+  color: #fff;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.dark-mode .dropdown-content {
+  background-color: #1c1c1d;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  padding: 12px 16px;
+  display: block;
+  text-align: left;
+}
+
+/* Mobile menu icon */
+.icon {
+  display: none;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 600px) {
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .icon {
+    display: block;
+  }
+  
+  .topnav.responsive .nav-links {
+    display: flex;
+  }
+  
+  .nav-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+  }
+  
+  .dropdown {
+    width: 100%;
+  }
+}
+
+/* For default and manual dark mode */
+.table td {
+    color: black;
+    transition: color 0.2s linear;
+    line-height: 1.4;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.dark-mode .table td {
+    color: white;
+}
+
+/* Uniform text sizes */
+body, p, td, th, tr, a, li {
+    font-size: 16px;  /* Base font size */
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nav-link {
+    font-size: 16px;
+}
+
+/* Consistent section spacing */
+#news {
+    margin-bottom: 3rem;  /* Space after news section */
+}
+
+.socials {
+    text-align: center;
+    margin: 1rem 0;  /* Equal spacing above and below socials */
+    padding: 1rem 0;
+}
+
+footer {
+    /* margin-top: 3rem;  Space before footer */
+    /* position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    /* padding: 1rem 0; Padding for styling */
+    margin-top: 2em;
+}
+
+/* Make socials sticky across pages */
+.socials {
+    position: relative;  /* Changed from fixed to allow proper spacing */
+    width: 100%;
+    background: inherit;  /* Inherit background color for theme compatibility */
+    transition: background 0.2s linear;
+}
+
+/* Adjust icon sizes in socials for consistency */
+.socials i {
+    font-size: 2rem;  /* Uniform icon size */
+    margin: 0 1rem;   /* Equal spacing between icons */
+}
+
+/* Year badges styling */
+.year-badge {
+    background-color: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s linear;
+    display: block;
+    width: max-content;
+}
+
+.pb-text {
+  text-align: justify;
+}
+.submitted-in-review {
+  background-color: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s linear;
+  width: 100%; /* Force line break after text */
+}
+
+/* Dark mode styling for year badges */
+.dark-mode .year-badge {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .submitted-in-review {
+    background-color: #2d2d2d;
+}
+
+/* Dark mode colors */
+.dark-mode {
+    background-color: #1c1c1d;
+    color: white;
+}
+
+.badge-paper {
+    background-color:  rgba(181, 9, 172, 0.18); /* Pastel version of #52BCDC */
+    color: #B509AC;
+}
+
+.badge-talk {
+  background-color:  rgba(179, 177, 195, 0.18)  ; /* Pastel version of #52BCDC */
+  color: #4c4a69;
+}
+
+.badge-milestone {
+    background-color: rgba(150, 120, 200, 0.18); /* A pastel purple */
+    color: #9678c8; /* A matching purple text color */
+}
+
+.badge-internship {
+  background-color: rgb(81, 128, 113, 0.18); /* A pastel purple */
+  color: #518071; /* A matching green text color */
+}
+
+.badge-award {
+    background-color: rgba(240, 117, 0, 0.2);  /* Pastel orange */
+    color: #fa7b2b;
+}
+
+/* News badge colors - Dark mode */
+.dark-mode .badge-paper {
+    background-color: rgba(82, 188, 220, 0.15);  /* Pastel version of #B509AC */
+    color: #52BCDC;
+}
+
+.dark-mode .badge-talk {
+  background-color:  rgba(179, 177, 195, 0.2)  ; /* Pastel version of #52BCDC */
+  color: #cbc8f0;
+}
+
+.dark-mode .badge-milestone {
+    background-color: rgba(120, 90, 180, 0.15); /* A darker pastel purple for dark mode */
+    color: #785ab4; /* A matching darker purple text color */
+}
+
+.dark-mode .badge-internship {
+  background-color: rgb(81, 128, 113, 0.15); /* A pastel purple */
+  color: #74bca5; /* A matching green text color */
+}
+
+.dark-mode .badge-award {
+    background-color: rgba(240, 146, 40, 0.15);  /* Keep pastel orange */
+    color: #ff914e;
+}
+
+/* Style for horizontal rules that responds to theme */
+hr {
+    border-top: 1px solid var(--text-color) !important;
+    opacity: 0.2;
+}
+
+/* Add these styles for text line height */
+.tab-pane .bd-text {
+    line-height: 1.4;
+    margin-bottom: 1em;
+}
+
+.table td {
+    line-height: 1.2 !important;
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+}
+
+/* Update HR styling for theme responsiveness */
+hr {
+    border-color: #ccc !important;
+    opacity: 0.2;
+}
+
+.dark-mode hr {
+    border-color: #555 !important;
+}
+
+/* nav-tabs */
+/* Light */
+.nav-tabs {
+  border-bottom: 1px solid var(--border-color);
+  background-color: transparent;
+  transition: border-color 0.2s linear;
+}
+
+.nav-tabs .nav-link {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid transparent;
+  transition: color 0.2s linear, border-color 0.2s linear;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: var(--border-color);
+  color: #B509AC;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: transparent;
+  color: #B509AC;
+  border-color: var(--border-color);
+  border-bottom-color: var(--bg-color);
+}
+
+/* Dark */
+.dark-mode .nav-tabs {
+  border-bottom: 1px solid var(--border-color);
+  background-color: transparent;
+  transition: border-color 0.2s linear;
+}
+
+.dark-mode .nav-tabs .nav-link {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: color 0.2s linear, border-color 0.2s linear;
+}
+
+.dark-mode .nav-tabs .nav-link:hover {
+  color: #52BCDC;
+  border-color: var(--border-color);
+  border-bottom-color: transparent;
+  text-decoration: none;
+}
+
+.dark-mode .nav-tabs .nav-link.active {
+  background-color: transparent;
+  color: #52BCDC;
+  border-color: var(--border-color);
+  border-bottom-color: #1c1c1d;
+  text-decoration: none;
+}
+
+.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.dark-mode .navbar-toggler {
+  border-color: #E5E5E5;
+  background-color: #1c1c1d;
+} 
+
+.sub-heading {
+  color: #aaa;
+  font-weight: 500;
+  font-size: 16pt;
+  float: left;
+  margin-bottom: 0; 
+  position: relative;
+  top: -0.5em;  
+  text-transform: lowercase;
+  }
+
+/* Styles for project page cards */
+.project-section {
+color: #aaa;
+    font-weight: 500;
+    font-size: 16pt;
+    float: right;
+    margin-bottom: 0;  
+    position: relative;
+    top: -0.5em;  
+    text-transform: lowercase;
+}
+
+/* Cards */
+.card {
+  background-color: transparent;
+  border-color: var(--border-color);
+  height: 100%;  /* Make all cards same height */
+  display: flex;
+  flex-direction: column;
+  max-width: 260px;
+  height: 100%;
+}
+
+.dark-mode .card {
+  background-color: transparent;
+  border-color: var(--border-color);
+  height: 100%;  /* Make all cards same height */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Card body and image */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 160px;  /* Fixed height for images */
+  object-fit: cover;  /* Avoid image distortion */
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  /* margin: auto; */
+}
+
+/* Card links (Light) */
+.card-link {
+  background-color: transparent;
+  color: #B509AC;
+  border: 1px solid transparent;
+  transition: color 0.2s linear, border-color 0.2s linear;
+  margin-top: auto;
+}
+
+.card-link:hover {
+  color: #B509AC;
+  text-decoration: underline;
+}
+
+.card-link.active {
+  background-color: transparent;
+  color: #B509AC;
+  text-decoration: none;
+}
+
+/* Card links (Dark) */
+.dark-mode .card-link {
+  background-color: transparent;
+  color: #52BCDC;
+  border: 1px solid transparent;
+  transition: color 0.2s linear, border-color 0.2s linear;
+  margin-top: auto;
+}
+
+.dark-mode .card-link:hover {
+  color: #52BCDC;
+  text-decoration: underline;
+}
+
+.dark-mode .card-link.active {
+  background-color: transparent;
+  color: #52BCDC;
+  text-decoration: none;
+}
+
+/* Card Title */
+.card-title {
+  color: var(--text-color);
+  font-size: 16px;
+  flex: 1;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2; /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
+  margin-bottom: -1rem;
+  font-weight: 550;
+}
+
+.dark-mode .card-title {
+  color: #fff;
+  font-size: 16px;
+  flex: 1;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2; /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
+  margin-bottom: -1rem;
+  font-weight: 550;
+}
+
+/* Card Text */
+.card-text {
+  color: var(--text-color);
+  font-size: 14px;
+  text-align: justify;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-line-clamp: 4; /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
+  margin-bottom: 1rem;
+}
+
+.dark-mode .card-text {
+  color: #fff;
+  font-size: 14px;
+  text-align: justify;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-line-clamp: 4; /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
+  margin-bottom: 1rem;
+}
+
+/* Card icons */
+.card-icon {
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  float: left;
+}
+
+.card-icon:hover {
+  color: #B509AC;
+  text-decoration: none;
+}
+
+/* Dark theme variant */
+.dark-mode .card-icon {
+  color: #fff; /* Adjust color for dark mode */
+}
+
+.dark-mode .card-icon:hover {
+  color: #52BCDC; /* Keep the same hover color or adjust as needed */
+  text-decoration: none;
+}
+
+/* Fix navbar theme responsiveness */
+.navbar {
+    background-color: #fff !important;
+    transition: background-color 0.2s linear;
+}
+
+.dark-mode .navbar {
+    background-color: #1c1c1d !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,0.8) !important;
+    transition: color 0.2s linear;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #B509AC !important;
+  transition: color 0.2s linear;
+}
+
+.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+.dark-mode .navbar-light .navbar-nav .nav-link:hover {
+  color: #52BCDC !important;
+  text-decoration: none;
+}
+
+.navbar-light .navbar-brand {
+    color: rgba(0,0,0,0.9) !important;
+    transition: color 0.2s linear;
+}
+
+.dark-mode .navbar-light .navbar-brand {
+    color: rgba(255,255,255,0.9) !important;
+}
+
+.dark-mode .navbar-light .navbar-brand:hover {
+  color: rgba(255,255,255,0.9) !important;
+  text-decoration: none;
+}
+
+.navbar {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 70px;
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+}
+
+.dark-mode .navbar {
+    border-bottom-color: #aaa;
+}
+
+/* Ensure navbar content is properly aligned */
+.navbar-brand {
+    margin-left: 0;
+}
+
+.navbar .container {
+    max-width: none;
+    padding: 0;
+}
+
+.dark-mode .footer-text {
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer-text {
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.footer-text-ref {
+    color: #B509AC;
+    font-size: 14px;
+}
+
+.dark-mode .footer-text-ref {
+  color: #52BCDC;
+  font-size: 14px;
+}
+
+.footer-text-ref:focus .footer-text-ref:hover {
+    color: #B509AC;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.dark-mode .footer-text-ref:focus .footer-text-ref:hover {
+    color: #52BCDC;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.social-icon {
+    font-size: 2rem;
+    margin: 0 8px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: #B509AC;
+    text-decoration: none;
+}
+
+.social-icon:active {
+  color: #B509AC;
+  text-decoration: none;
+}
+
+/* Dark theme variant */
+.dark-mode .social-icon {
+    color: #fff; /* Adjust color for dark mode */
+    text-decoration: none;
+}
+
+.dark-mode .social-icon:hover {
+    color: #52BCDC; /* Keep the same hover color or adjust as needed */
+    text-decoration: none;
+}
+
+.dark-mode .social-icon:active {
+  color: #52BCDC; /* Keep the same hover color or adjust as needed */
+  text-decoration: none;
+}
+
+/* Light and dark mode variables */
+:root {
+    --bg-color: #ffffff; /* Light mode background color */
+    --border-color: #cccccc; /* Light mode border color */
+    --text-color: #000000; /* Light mode text color */
+    --label-bg-color: #e0e0e0; /* Light mode label background color */
+    --label-text-color: #333333; /* Light mode label text color */
+    --theme-primary: #B509AC; /* Updated primary theme color */
+    --paper-bg: #b8c9e6;
+    --milestone-bg: #c3e6c3;
+    --award-bg: #e6d5b8;
+}
+[data-theme="dark"] {
+    --bg-color: #1c1c1d; /* Dark mode background color */
+    --border-color: #555555; /* Dark mode border color */
+    --text-color: #ffffff; /* Dark mode text color */
+    --label-bg-color: #2d2d2d; /* Dark mode label background color */
+    --label-text-color: #ffffff; /* Dark mode label text color */
+    --theme-primary: #52BCDC; /* Updated primary theme color for dark mode */
+    --paper-bg: #4a5d82;    /* More saturated blue */
+    --milestone-bg: #4a724a; /* More saturated green */
+    --award-bg: #826b41;     /* More saturated gold */
+
+  }

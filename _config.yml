@@ -3,44 +3,21 @@
 #
 
 # Name of your site (displayed in the header)
-name: Clinton Enwerem | Personal Website
+name: Clinton Enwerem
 
 # Short bio or description (displayed in the header)
-# description: the profile of an engineer, researcher and software developer
+description: Doctoral Student in Control, RL, & Robotics
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: images/CE_pic.png
+avatar: images/CE_web_wb.png
 
-#
 # Flags below are optional
-#
-
-# Includes an icon in the footer for each username you enter
-footer-links:
-  dribbble:
-  email: 
-  facebook:
-  flickr:
-  github: coenwerem
-  instagram: 
-  linkedin:
-  pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter:
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
-
-
-# Enter your Disqus shortname (not your username) to enable commenting on posts
-# You can find your shortname on the Settings page of your Disqus account
-disqus:
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics:
 # excerpt_separator: <!--more-->
 
-# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
+# Your website URL 
 # Used for Sitemap.xml and your RSS feed
 url: "https://clintonenwerem.com" # the base hostname & protocol for your site
 
