@@ -297,6 +297,13 @@ span.highlight {
   margin-top: 1.25rem;
 }
 
+.bd-text-misc {
+  text-align: justify;
+  line-height: 1.2;
+  margin-top: -.5rem;
+  margin-bottom: 0%;
+}
+
 /* Counter Styling */
 .countup {
   text-align: left;
@@ -371,7 +378,38 @@ margin-top: auto;
   padding-bottom: 15px; 
   margin-bottom: 20px;
   margin-top: auto;
+}
+
+.bio-image-container {
+  text-align: center; 
+  margin-top: 4em;
+}
+
+.bio-image {
+  width:90%;
+  max-width:90%;
+  filter: grayscale(90%);
+}
+
+/* Add this media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .bio-image {
+    width: 35%; /* Reduce image width on smaller screens */
+    max-width: 35%;
   }
+  
+  .bio-image-container {
+    margin-top: 2em; /* Reduce top margin on smaller screens */
+  }
+}
+
+/* Even smaller screens */
+@media only screen and (max-width: 480px) {
+  .bio-image {
+    width: 25%; /* Further reduce image width on mobile */
+    max-width: 25%;
+  }
+}
 
 @media only screen and (max-width: 600px) {
 .socials {
@@ -761,36 +799,47 @@ footer {
     margin: 0 1rem;   /* Equal spacing between icons */
 }
 
-/* Year badges styling */
-.year-badge {
-    background-color: #f0f0f0;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.2s linear;
-    display: block;
-    width: max-content;
-}
-
 .pb-text {
   text-align: justify;
 }
-.submitted-in-review {
-  background-color: #f0f0f0;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.2s linear;
-  width: 100%; /* Force line break after text */
+/* Section headings (Submitted/In Review, Peer-Reviewed) */
+.submitted-in-review, .peer-reviewed {
+    background-color: var(--theme-primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.2s linear;
+    display: inline-block;
+    margin-bottom: .5rem;
 }
 
-/* Dark mode styling for year badges */
+/* Year badges */
+.year-badge {
+    background-color: var(--bg-color);
+    color: var(--theme-primary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.2s linear;
+    display: block;
+    border: 1px solid var(--theme-primary);
+    width: max-content;
+}
+
+/* Dark mode adjustments */
+.dark-mode .submitted-in-review,
+.dark-mode .peer-reviewed {
+    background-color: var(--theme-primary);
+    color: white;
+}
+
 .dark-mode .year-badge {
-    background-color: #2d2d2d;
-}
-
-.dark-mode .submitted-in-review {
-    background-color: #2d2d2d;
+    background-color: transparent;
+    color: var(--theme-primary);
+    border-color: var(--theme-primary);
 }
 
 /* Dark mode colors */
@@ -967,6 +1016,91 @@ color: #aaa;
     text-transform: lowercase;
 }
 
+.publication-entry {
+  margin-bottom: 1.5rem;
+}
+
+.pub-main-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.pub-content {
+  flex: 1;
+  padding: 0 0 0 0;
+  text-align: justify;
+}
+
+.misc-main-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.misc-content {
+  flex: 1;
+  padding: 0.15rem 0 0 0;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.venue-badge {
+  background-color: var(--badge-paper-bg);
+  color: var(--theme-primary);
+  padding: 0.2rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: center;
+  border: 1px solid var(--theme-primary);
+  width: max-content;
+}
+
+.pub-links-row {
+  margin-left: 76px;
+  margin-top: -.8rem;
+}
+
+.pub-links-row .btn-link {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--theme-primary);
+}
+
+.pub-links-row .btn-link:hover {
+  text-decoration: underline;
+}
+
+.pub-links-row .btn-link[data-toggle="collapse"] {
+  padding: 0;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-right: 1rem;
+  color: var(--theme-primary);
+}
+
+.pub-links-row .btn-link:hover[data-toggle="collapse"] {
+  text-decoration: underline;
+}
+
+.pub-links-row .collapse {
+  margin-top: 0.5rem;
+  background-color: var(--bg-color);
+}
+
+.collapse pre {
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.03);
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
 /* Cards */
 .card {
   background-color: transparent;
@@ -1121,12 +1255,40 @@ color: #aaa;
 
 /* Fix navbar theme responsiveness */
 .navbar {
-    background-color: #fff !important;
-    transition: background-color 0.2s linear;
+  background-color: #fff !important;
+  transition: background-color 0.2s linear;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 70px;
 }
 
 .dark-mode .navbar {
     background-color: #1c1c1d !important;
+    border-bottom-color: #aaa;
+}
+
+.navbar-collapse {
+  justify-content: flex-end !important;
+  max-width: 800px;  /* Match your content max-width */
+  margin: 0 auto;    /* Center the container */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .navbar {
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+  
+  .navbar-collapse {
+      justify-content: center !important;
+  }
+  
+  .navbar-nav {
+      width: 100%;
+      justify-content: center;
+  }
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -1160,18 +1322,6 @@ color: #aaa;
 .dark-mode .navbar-light .navbar-brand:hover {
   color: rgba(255,255,255,0.9) !important;
   text-decoration: none;
-}
-
-.navbar {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 70px;
-    border-bottom: 1px solid #ddd;
-    margin: 0;
-}
-
-.dark-mode .navbar {
-    border-bottom-color: #aaa;
 }
 
 /* Ensure navbar content is properly aligned */
@@ -1262,7 +1412,7 @@ color: #aaa;
     --milestone-bg: #c3e6c3;
     --award-bg: #e6d5b8;
 }
-[data-theme="dark"] {
+.dark-mode {
     --bg-color: #1c1c1d; /* Dark mode background color */
     --border-color: #555555; /* Dark mode border color */
     --text-color: #ffffff; /* Dark mode text color */
