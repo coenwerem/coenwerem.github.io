@@ -41,8 +41,8 @@ a:hover {
 }
 
 body {
-  background-color: white;
-  color: black;
+  background-color: var(--bg-color);
+    color: var(--text-color);
   font-family: "CMU Sans Serif", sans-serif;
   font-size: 16px;
   justify-content: center;
@@ -1407,7 +1407,16 @@ color: #aaa;
     --milestone-bg: #c3e6c3;
     --award-bg: #e6d5b8;
 }
-.dark-mode {
+
+/* Apply transitions to all elements */
+* {
+  transition: background-color 0.01s ease,
+              color 0.01s ease,
+              border-color 0.01s ease,
+              box-shadow 0.01s ease;
+}
+
+[data-theme="dark"] {
     --bg-color: #1c1c1d; /* Dark mode background color */
     --border-color: #555555; /* Dark mode border color */
     --text-color: #ffffff; /* Dark mode text color */
