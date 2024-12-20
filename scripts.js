@@ -1,69 +1,27 @@
 function revealExtraBio() {
   var x = document.getElementById("extraBio");
   if (x.style.display === "none") {
-    x.style.display = "block";
+      x.style.display = "block";
   } else {
-    x.style.display = "none";
+      x.style.display = "none";
   }
-};
-
-// Theme storage utilities
-const themeStorage = {
-  isLocal: window.location.protocol === 'file:',
-  
-  // Get theme preference
-  get: function() {
-      try {
-          if (this.isLocal) {
-              return document.cookie.split('; ')
-                  .find(row => row.startsWith('theme='))
-                  ?.split('=')[1] || null;
-          }
-          return localStorage.getItem('theme');
-      } catch (e) {
-          console.warn('Storage access failed:', e);
-          return null;
-      }
-  },
-  
-  // Set theme preference
-  set: function(theme) {
-      try {
-          if (this.isLocal) {
-              document.cookie = `theme=${theme};path=/;max-age=31536000`;
-          } else {
-              localStorage.setItem('theme', theme);
-          }
-      } catch (e) {
-          console.warn('Storage access failed:', e);
-      }
-  }
-};
-
-// Get preferred theme
-function getPreferredTheme() {
-  const savedTheme = themeStorage.get();
-  if (savedTheme) {
-      return savedTheme;
-  }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-// Toggle theme
+// Theme management
+function setTheme(isDark) {
+  document.body.classList.toggle('dark-mode', isDark);
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
 function toggleDarkMode() {
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-  
-  document.documentElement.setAttribute('data-theme', newTheme);
-  document.body.classList.toggle('dark-mode', newTheme === 'dark');
-  themeStorage.set(newTheme);
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(currentTheme === 'light');
 }
 
 // Initialize theme
 document.addEventListener('DOMContentLoaded', () => {
-  const theme = getPreferredTheme();
-  document.documentElement.setAttribute('data-theme', theme);
-  document.body.classList.toggle('dark-mode', theme === 'dark');
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(savedTheme === 'dark');
 });
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
