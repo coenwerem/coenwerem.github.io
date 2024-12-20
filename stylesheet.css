@@ -828,7 +828,7 @@ footer {
 .dark-mode .submitted-in-review,
 .dark-mode .peer-reviewed {
     background-color: var(--theme-primary);
-    color: white;
+    color: #1c1c1c;
 }
 
 .dark-mode .year-badge {
