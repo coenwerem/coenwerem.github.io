@@ -7,38 +7,48 @@ function revealExtraBio() {
   }
 };
 
+// Theme state fallback if localStorage is blocked
+let currentTheme = 'light';
+
 // Check for saved theme preference, otherwise use system preference
 function getPreferredTheme() {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-      return savedTheme;
-  }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    try {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            currentTheme = savedTheme;
+            return savedTheme;
+        }
+    } catch (e) {
+        console.warn('localStorage is not accessible:', e);
+    }
+    
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    currentTheme = systemDark ? 'dark' : 'light';
+    return currentTheme;
 }
-
-// Apply theme
-function applyTheme(theme) {
-  document.body.classList.toggle('dark-mode', theme === 'dark');
-  localStorage.setItem('theme', theme);
-}
-
-// Initialize theme on page load
-document.addEventListener('DOMContentLoaded', () => {
-  applyTheme(getPreferredTheme());
-});
 
 // Toggle theme
 function toggleDarkMode() {
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-  
-  // Update both data-theme and class
-  document.documentElement.setAttribute('data-theme', newTheme);
-  document.body.classList.toggle('dark-mode', newTheme === 'dark');
-  
-  // Save preference
-  localStorage.setItem('theme', newTheme);
+    try {
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        document.body.classList.toggle('dark-mode', currentTheme === 'dark');
+        localStorage.setItem('theme', currentTheme);
+    } catch (e) {
+        console.warn('localStorage is not accessible:', e);
+        // Still toggle theme even if storage fails
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        document.body.classList.toggle('dark-mode', currentTheme === 'dark');
+    }
 }
+
+// Initialize theme
+document.addEventListener('DOMContentLoaded', () => {
+    const theme = getPreferredTheme();
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+});
 
 
 
