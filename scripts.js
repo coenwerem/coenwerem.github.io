@@ -7,10 +7,40 @@ function revealExtraBio() {
   }
 };
 
+// Check for saved theme preference, otherwise use system preference
+function getPreferredTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+      return savedTheme;
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+// Apply theme
+function applyTheme(theme) {
+  document.body.classList.toggle('dark-mode', theme === 'dark');
+  localStorage.setItem('theme', theme);
+}
+
+// Initialize theme on page load
+document.addEventListener('DOMContentLoaded', () => {
+  applyTheme(getPreferredTheme());
+});
+
+// Toggle theme
 function toggleDarkMode() {
-  var element = document.body;
-  element.classList.toggle("dark-mode");
-};
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  // Update both data-theme and class
+  document.documentElement.setAttribute('data-theme', newTheme);
+  document.body.classList.toggle('dark-mode', newTheme === 'dark');
+  
+  // Save preference
+  localStorage.setItem('theme', newTheme);
+}
+
+
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
