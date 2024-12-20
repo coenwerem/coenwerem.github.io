@@ -1408,7 +1408,7 @@ color: #aaa;
     --award-bg: #e6d5b8;
 }
 
-[data-theme="dark"] {
+.dark-mode {
     --bg-color: #1c1c1d; /* Dark mode background color */
     --border-color: #555555; /* Dark mode border color */
     --text-color: #ffffff; /* Dark mode text color */
