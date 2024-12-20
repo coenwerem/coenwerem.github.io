@@ -37,7 +37,6 @@ a {
   text-decoration: none;
 }
 
-a:focus,
 a:hover {
   color: #B509AC;
   text-decoration: underline;
@@ -584,7 +583,6 @@ a {
   text-decoration: none;
 }
 
-a:focus,
 a:hover {
   color: #B509AC;  /* Hover color for light mode */
   text-decoration: underline;
@@ -596,7 +594,6 @@ a:hover {
   text-decoration: none;
 }
 
-.dark-mode a:focus,
 .dark-mode a:hover {
   color: #52BCDC;  /* Lighter orange for dark mode hover */
   text-decoration: underline;
@@ -1354,13 +1351,13 @@ color: #aaa;
   font-size: 14px;
 }
 
-.footer-text-ref:focus .footer-text-ref:hover {
+.footer-text-ref:hover {
     color: #B509AC;
     font-size: 14px;
     text-decoration: underline;
 }
 
-.dark-mode .footer-text-ref:focus .footer-text-ref:hover {
+.dark-mode .footer-text-ref:hover {
     color: #52BCDC;
     font-size: 14px;
     text-decoration: underline;
