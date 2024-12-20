@@ -391,8 +391,8 @@ margin-top: auto;
 /* Add this media query for smaller screens */
 @media only screen and (max-width: 768px) {
   .bio-image {
-    width: 35%; /* Reduce image width on smaller screens */
-    max-width: 35%;
+    width: 45%; /* Reduce image width on smaller screens */
+    max-width: 45%;
   }
   
   .bio-image-container {
@@ -403,8 +403,8 @@ margin-top: auto;
 /* Even smaller screens */
 @media only screen and (max-width: 480px) {
   .bio-image {
-    width: 25%; /* Further reduce image width on mobile */
-    max-width: 25%;
+    width: 35%; /* Further reduce image width on mobile */
+    max-width: 35%;
   }
 }
 
