@@ -377,6 +377,34 @@ margin-top: auto;
   margin-top: auto;
 }
 
+/* Base styling for the GIF containers */
+.embed-responsive {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Media queries for responsive sizing */
+@media only screen and (max-width: 768px) {
+  .embed-responsive {
+      max-width: 200px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .embed-responsive {
+      max-width: 150px;
+  }
+  
+  .embed-responsive-item {
+      width: 100%;
+      height: auto;
+  }
+  
+  .col-md-4 {
+      margin-bottom: 2rem;
+  }
+}
+
 .bio-image-container {
   text-align: center; 
   margin-top: 4em;
@@ -403,8 +431,8 @@ margin-top: auto;
 /* Even smaller screens */
 @media only screen and (max-width: 480px) {
   .bio-image {
-    width: 35%; /* Further reduce image width on mobile */
-    max-width: 35%;
+    width: 40%; /* Further reduce image width on mobile */
+    max-width: 40%;
   }
 }
 
