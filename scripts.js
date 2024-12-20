@@ -7,21 +7,14 @@ function revealExtraBio() {
   }
 }
 
-// Theme management
-function setTheme(isDark) {
-  document.body.classList.toggle('dark-mode', isDark);
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
+// Simple theme toggle
 function toggleDarkMode() {
-  const currentTheme = localStorage.getItem('theme') || 'dark';
-  setTheme(currentTheme === 'light');
+  document.body.classList.toggle('dark-mode');
 }
 
-// Initialize theme
+// Initialize theme to dark mode by default
 document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  setTheme(savedTheme === 'dark');
+  document.body.classList.add('dark-mode');
 });
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
