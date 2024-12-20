@@ -7,50 +7,64 @@ function revealExtraBio() {
   }
 };
 
-// Theme state fallback if localStorage is blocked
-let currentTheme = 'light';
+// Theme storage utilities
+const themeStorage = {
+  isLocal: window.location.protocol === 'file:',
+  
+  // Get theme preference
+  get: function() {
+      try {
+          if (this.isLocal) {
+              return document.cookie.split('; ')
+                  .find(row => row.startsWith('theme='))
+                  ?.split('=')[1] || null;
+          }
+          return localStorage.getItem('theme');
+      } catch (e) {
+          console.warn('Storage access failed:', e);
+          return null;
+      }
+  },
+  
+  // Set theme preference
+  set: function(theme) {
+      try {
+          if (this.isLocal) {
+              document.cookie = `theme=${theme};path=/;max-age=31536000`;
+          } else {
+              localStorage.setItem('theme', theme);
+          }
+      } catch (e) {
+          console.warn('Storage access failed:', e);
+      }
+  }
+};
 
-// Check for saved theme preference, otherwise use system preference
+// Get preferred theme
 function getPreferredTheme() {
-    try {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            currentTheme = savedTheme;
-            return savedTheme;
-        }
-    } catch (e) {
-        console.warn('localStorage is not accessible:', e);
-    }
-    
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    currentTheme = systemDark ? 'dark' : 'light';
-    return currentTheme;
+  const savedTheme = themeStorage.get();
+  if (savedTheme) {
+      return savedTheme;
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 // Toggle theme
 function toggleDarkMode() {
-    try {
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        document.body.classList.toggle('dark-mode', currentTheme === 'dark');
-        localStorage.setItem('theme', currentTheme);
-    } catch (e) {
-        console.warn('localStorage is not accessible:', e);
-        // Still toggle theme even if storage fails
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        document.body.classList.toggle('dark-mode', currentTheme === 'dark');
-    }
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  document.body.classList.toggle('dark-mode', newTheme === 'dark');
+  themeStorage.set(newTheme);
 }
 
 // Initialize theme
 document.addEventListener('DOMContentLoaded', () => {
-    const theme = getPreferredTheme();
-    document.documentElement.setAttribute('data-theme', theme);
-    document.body.classList.toggle('dark-mode', theme === 'dark');
+  const theme = getPreferredTheme();
+  document.documentElement.setAttribute('data-theme', theme);
+  document.body.classList.toggle('dark-mode', theme === 'dark');
 });
-
-
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
