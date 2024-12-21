@@ -405,6 +405,372 @@ margin-top: auto;
   }
 }
 
+/* CV-specific styling */
+.cv-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.cv-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  .cv-container {
+      height: calc(100vh - 120px);
+  }
+  
+  .cv-frame {
+      height: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .cv-container {
+      height: calc(100vh - 100px);
+  }
+}
+
+.section {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section h2 {
+  color: var(--theme-primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.cv-year-badge {
+  background-color: var(--bg-color);
+  color: var(--theme-primary);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--theme-primary);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  height: fit-content;
+}
+
+.author-name {
+  font-weight: bold;
+}
+
+.social-link {
+  color: var(--theme-primary);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: var(--theme-secondary);
+  text-decoration: none;
+}
+
+/* CV Download Button */
+.cv-download-btn {
+  top: 40px;  
+  z-index: 1000;
+  float: left;
+  margin-left: -10rem;
+}
+
+.cv-download-btn a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--theme-primary);
+  text-decoration: none;
+  padding: 10px;
+  transition: transform 0.2s;
+}
+
+.cv-download-btn a:hover {
+  transform: scale(1.1);
+  color: var(--theme-primary);
+}
+
+.download-text {
+  font-size: 1rem;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* Media Query for mobile */
+@media (max-width: 768px) {
+  .cv-download-btn {
+      top: 0px;
+      float: left;
+      margin-left: -2rem;
+      margin-top: 0rem;
+  }
+
+  .download-text {
+    font-size: .5rem;
+    margin-top: 0px;
+    text-align: center;
+  }
+}
+
+/* CV-specific styles */
+.cv-content {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* CV section headings */
+.cv-title {
+  font-size: 2rem;
+  color: var(--theme-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  color: var(--theme-primary);
+  margin-top: 2rem;
+  margin-bottom: .8rem;
+  border-bottom: 2px solid var(--theme-primary);
+  padding-bottom: 0.25rem;
+}
+
+.subsection-heading {
+  font-size: 1.25rem;
+  color: var(--theme-primary);
+  margin-top: 1.5rem;
+  margin-bottom: .8rem;
+  border-bottom: 2px solid var(--theme-primary);
+  padding-bottom: 0.25rem;
+}
+
+.subsubsection-heading {
+  font-size: 1.1rem;
+  color: var(--theme-primary);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cv-content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.cv-content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* CV content elements */
+.cv-content p {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-align: justify;
+}
+
+.cv-content ul {
+  margin-bottom: 0.5rem;
+  padding-left: 1.1rem;
+}
+
+
+.contact-info p {
+  font-size: 1.2rem;
+  margin: 0;
+  margin-top: -.5rem;
+}
+
+.contact-info a {
+  font-size: 0.9rem;
+
+}
+
+.cv-content li {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0rem;
+  /* margin-bottom: 0rem; */
+  line-height: 1.2;
+}
+
+.cv-year {
+  min-width: 6.5rem;
+  color: var(--theme-primary);
+  font-weight: 500;
+}
+
+.cv-year-season {
+  min-width: 6.5rem;
+  color: var(--theme-primary);
+  font-weight: 500;
+  margin: 0%;
+  padding: 0%;
+}
+
+.cv-entry-season {
+  display: inline-block;
+  text-align: justify;
+  margin-left: 0;
+}
+
+.cv-entry {
+  flex: 1;
+}
+
+.cv-item {
+  margin-bottom: 1.5rem;
+}
+
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.cv-role {
+  flex: 1;
+  font-weight: bold;
+  margin-left: 2rem;
+}
+
+.cv-description {
+  margin-left: calc(100px + 2rem);
+}
+
+/* Dark mode adjustments */
+.dark-mode .cv-year {
+  color: var(--theme-primary);
+}
+
+
+
+/* Responsive CV styles */
+@media screen and (max-width: 768px) {
+  .cv-content {
+      padding: 1rem;
+  }
+  
+  .cv-title {
+      font-size: 1.75rem;
+  }
+
+
+  .contact-info p {
+    font-size: 0.8rem;
+    margin: 0;
+    margin-top: -.35rem;
+  }
+
+ .contact-info a {
+    font-size: 0.65rem;
+  }
+
+  .section-heading {
+      font-size: 1.25rem;
+  }
+  
+  .subsection-heading {
+      font-size: 1.1rem;
+  }
+
+  .subsubsection-heading {
+    font-size: 0.9rem;
+  }
+  
+  /* CV content elements */
+  .cv-content p {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-size: 0.8rem;
+  }
+
+  .cv-content ul {
+    margin-bottom: 0.5rem;
+    padding-left: 1.1rem;
+    font-size: 0.8rem;
+  }
+
+  .cv-content li {
+    margin-bottom: 0rem;
+    line-height: 1.2;
+    font-size: 0.8rem;
+  }
+
+  .cv-content a {
+    margin-bottom: 0rem;
+    line-height: 1.2;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cv-content {
+      padding: 0.75rem;
+  }
+  
+  .cv-title {
+      font-size: 1.5rem;
+  }
+
+  .contact-info p {
+    font-size: 0.65rem;
+    margin: 0;
+    margin-top: -.25rem;
+  }
+
+ .contact-info a {
+    font-size: 0.55rem;
+    padding: 0;
+  }
+  
+  .section-heading {
+      font-size: 1.1rem;
+  }
+  
+  .subsection-heading {
+      font-size: 1rem;
+  }
+
+  .subsubsection-heading {
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark mode adjustments for CV */
+.dark-mode .cv-content {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dark-mode .cv-title,
+.dark-mode .section-heading,
+.dark-mode .subsection-heading {
+  color: var(--theme-primary);
+}
+
+/* Bio Image */
+
 .bio-image-container {
   text-align: center; 
   margin-top: 4em;
