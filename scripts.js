@@ -1,9 +1,12 @@
 // Function to apply the correct theme based on the user's preference or system setting
 function applyTheme(theme) {
+  // Remove both dark and light mode classes to prevent conflicts
+  document.body.classList.remove('dark-mode', 'light-mode');
+  
   if (theme) {
     document.body.classList.add(theme);
   } else {
-    document.body.classList.add('light-mode'); // Default to light mode
+    document.body.classList.add('light-mode'); // Default to light mode if no theme is set
   }
 }
 
@@ -23,7 +26,7 @@ function toggleDarkMode() {
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme'); // Check if user has saved their theme preference
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // Check user's system theme preference
-
+  
   if (savedTheme) {
     applyTheme(savedTheme); // Apply saved theme
   } else {
