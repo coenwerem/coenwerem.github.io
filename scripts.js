@@ -1,3 +1,47 @@
+// Function to apply the correct theme based on the user's preference or system setting
+function applyTheme(theme) {
+  if (theme) {
+    document.body.classList.add(theme);
+  } else {
+    document.body.classList.add('light-mode'); // Default to light mode
+  }
+}
+
+// Function to toggle between light and dark modes
+function toggleDarkMode() {
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  if (isDarkMode) {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light-mode'); // Save light mode preference
+  } else {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark-mode'); // Save dark mode preference
+  }
+}
+
+// Initialize theme based on user's saved preference or system setting
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme'); // Check if user has saved their theme preference
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // Check user's system theme preference
+
+  if (savedTheme) {
+    applyTheme(savedTheme); // Apply saved theme
+  } else {
+    // If no saved theme, apply the system default (dark if the system prefers it)
+    applyTheme(prefersDark ? 'dark-mode' : 'light-mode');
+  }
+});
+
+// Handle system theme change
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  const newTheme = e.matches ? 'dark-mode' : 'light-mode';
+  const savedTheme = localStorage.getItem('theme'); // Only override if no saved preference
+  if (!savedTheme) {
+    applyTheme(newTheme);
+  }
+});
+
+// Your existing functions
 function revealExtraBio() {
   var x = document.getElementById("extraBio");
   if (x.style.display === "none") {
@@ -7,17 +51,6 @@ function revealExtraBio() {
   }
 }
 
-// Simple theme toggle
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-}
-
-// Initialize theme to dark mode by default
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('dark-mode');
-});
-
-/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -29,35 +62,22 @@ function myFunction() {
 
 // Load the navbar
 document.addEventListener('DOMContentLoaded', function() {
-  // Get the current path and calculate depth
   const pathArray = window.location.pathname.split('/');
   const projectsIndex = pathArray.indexOf('projects');
-  
-  // Calculate path to root based on depth
   const pathToRoot = projectsIndex !== -1 ? '../' : './';
-  
-  // Fetch navbar from correct location
   fetch(pathToRoot + 'navbar.html')
       .then(response => response.text())
       .then(data => {
-          // Create temporary container
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = data;
-          
-          // Update all nav links with correct paths
           const links = tempDiv.querySelectorAll('a');
           links.forEach(link => {
               const href = link.getAttribute('href');
               if (href && !href.startsWith('http') && !href.startsWith('#')) {
-                  // Add path to root for all relative links
                   link.href = pathToRoot + href;
               }
           });
-          
-          // Insert navbar
           document.getElementById('navbar-placeholder').innerHTML = tempDiv.innerHTML;
-          
-          // Highlight current page
           const currentPage = pathArray[pathArray.length - 1];
           const navLinks = document.querySelectorAll('.nav-link');
           navLinks.forEach(link => {
@@ -71,21 +91,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Load the footer
 document.addEventListener('DOMContentLoaded', function() {
-  // Get path depth
   const pathArray = window.location.pathname.split('/');
   const projectsIndex = pathArray.indexOf('projects');
-  
-  // Calculate path to root
   const pathToRoot = projectsIndex !== -1 ? '../' : './';
-  
-  // Fetch footer
   fetch(pathToRoot + 'footer.html')
       .then(response => response.text())
       .then(data => {
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = data;
-          
-          // Update social media links
           const links = tempDiv.querySelectorAll('a');
           links.forEach(link => {
               const href = link.getAttribute('href');
@@ -93,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   link.href = pathToRoot + href;
               }
           });
-          
           document.getElementById('footer-placeholder').innerHTML = tempDiv.innerHTML;
       })
       .catch(error => console.error('Error loading footer:', error));
