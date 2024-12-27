@@ -14,6 +14,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
   
     <script src="scripts.js"></script>
 </head>
@@ -26,7 +30,7 @@
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-8 text-center mx-auto">
-                    <span class="cv-title">Academic CV</span>
+                    <span class="cv-title">Academic CV<a href="#footnote1"><sup style="vertical-align: super; font-size: smaller;">*</sup></a></span>
                     <div class="contact-info">
                         <p>2239 A. V. Williams Bldg.</p>
                         <p>8223 Paint Branch Dr, College Park, MD 20742</p>
@@ -55,7 +59,17 @@
             </div>
     </div>
 
-    <div class="col-12"><br></div>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="footer-bd-text">
+                    <sup id="footnote1">*</sup>HTML5 CV generated using my package, <a href="https://github.com/coenwerem/md2html5cv" target="_blank" class="footer-bd-text-ref">md2html5cv</a>.
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
     <div id="footer-placeholder"></div>
 </body>
 </html>
