@@ -12,19 +12,19 @@ Systems & Control, Reinforcement Learning, Robotics.
 
 #### Preprints/Articles In Review
 
-- 2024 **Clinton Enwerem**, Aniruddh G Puranic, John S Baras, and Calin Belta. Safety-Aware Reinforcement Learning via Risk-Sensitive Quantile Regression Deep Q-Networks, 2024.
+- 2024 **Clinton Enwerem**, Aniruddh G Puranic, John S Baras, and Calin Belta. *Safety-Aware Reinforcement Learning via Risk-Sensitive Quantile Regression Deep Q-Networks*, 2024.
 
-- 2024 **Clinton Enwerem**, Erfaun Noorani, John S. Baras, and Brian M. Sadler. Robust Stochastic Shortest-Path Planning via Risk-Sensitive Incremental Sampling, 2024. To appear in the Proceedings of the 2024 Conference on Decision and Control (CDC).
+- 2024 **Clinton Enwerem**, Erfaun Noorani, John S. Baras, and Brian M. Sadler. *Robust Stochastic Shortest-Path Planning via Risk-Sensitive Incremental Sampling*, 2024. To appear in the Proceedings of the 2024 Conference on Decision and Control (CDC).
 
 #### In Conference Proceedings
 
-- 2024 **Clinton Enwerem** and John S. Baras. Safe Collective Control under Noisy Inputs and Competing Constraints via Non-Smooth Barrier Functions, 2024. In the Proceedings of the 2024 European Control Conference.
+- 2024 **Clinton Enwerem** and John S. Baras. *Safe Collective Control under Noisy Inputs and Competing Constraints via Non-Smooth Barrier Functions*, 2024. In the Proceedings of the 2024 European Control Conference.
 
-- 2023 **Clinton Enwerem** and John S. Baras. Consensus-Based Leader-Follower Formation Tracking for Control-Affine Nonlinear Multiagent Systems. 9th International Conference on Control, Decision and Information Technologies, 2023.
+- 2023 **Clinton Enwerem** and John S. Baras. *Consensus-Based Leader-Follower Formation Tracking for Control-Affine Nonlinear Multiagent Systems*. 9th International Conference on Control, Decision and Information Technologies, 2023.
 
 #### Journal Articles
 
-- 2024 **Clinton Enwerem** and John S. Baras. Formation Tracking for a Class of Uncertain Multiagent Systems: A Distributed Kalman Filtering Approach. IEEE Control Systems Letters, volume 8, 2024.
+- 2024 **Clinton Enwerem** and John S. Baras. *Formation Tracking for a Class of Uncertain Multiagent Systems: A Distributed Kalman Filtering Approach*. IEEE Control Systems Letters, volume 8, 2024.
 
 ### Research Experience
 
