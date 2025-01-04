@@ -913,7 +913,14 @@ margin-top: auto;
 .bio-image {
   width:90%;
   max-width:90%;
-  filter: grayscale(90%);
+  filter: grayscale(45%) contrast(91%);
+  
+}
+
+.dark-mode .bio-image {
+  width:90%;
+  max-width:90%;
+  filter: grayscale(45%);
 }
 
 /* Add this media query for smaller screens */
