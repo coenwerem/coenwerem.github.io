@@ -933,11 +933,25 @@ margin-top: auto;
   .bio-image-container {
     margin-top: 2em; /* Reduce top margin on smaller screens */
   }
+
+  .dark-mode .bio-image {
+    width: 45%; /* Reduce image width on smaller screens */
+    max-width: 45%;
+  }
+  
+  .dark-mode .bio-image-container {
+    margin-top: 2em; /* Reduce top margin on smaller screens */
+  }
 }
 
 /* Even smaller screens */
 @media only screen and (max-width: 480px) {
   .bio-image {
+    width: 40%; /* Further reduce image width on mobile */
+    max-width: 40%;
+  }
+
+  .dark-mode .bio-image {
     width: 40%; /* Further reduce image width on mobile */
     max-width: 40%;
   }
