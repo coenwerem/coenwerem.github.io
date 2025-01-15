@@ -69,6 +69,7 @@ body {
   font-weight: 500;
   margin-bottom: -0.3em;
   margin-top: 1em;
+  margin-left: -1em;
   /* color: #ccc; */
 }
 
@@ -907,19 +908,20 @@ margin-top: auto;
 /* Bio Image */
 .bio-image-container {
   text-align: center; 
-  margin-top: 4em;
+  margin-top: 7em;
+  margin-left: -1em;
 }
 
 .bio-image {
-  width:80%;
-  max-width:80%;
+  width:75%;
+  max-width:75%;
   filter: grayscale(45%) contrast(91%);
   
 }
 
 .dark-mode .bio-image {
-  width:80%;
-  max-width:80%;
+  width:75%;
+  max-width:75%;
   filter: grayscale(45%);
 }
 
@@ -931,17 +933,26 @@ margin-top: auto;
   }
   
   .bio-image-container {
-    margin-top: 2em; /* Reduce top margin on smaller screens */
+    text-align: center; 
+    margin-top: 9em;
+    margin-left: -4em;
   }
 
   .dark-mode .bio-image {
     width: 45%; /* Reduce image width on smaller screens */
     max-width: 45%;
   }
-  
-  .dark-mode .bio-image-container {
-    margin-top: 2em; /* Reduce top margin on smaller screens */
+
+  .addr-box {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: -0.3em;
+    margin-top: 1em;
+    margin-left: -4em;
+    /* color: #ccc; */
   }
+  
 }
 
 /* Even smaller screens */
@@ -954,6 +965,22 @@ margin-top: auto;
   .dark-mode .bio-image {
     width: 40%; /* Further reduce image width on mobile */
     max-width: 40%;
+  }
+
+  .bio-image-container {
+    text-align: center; 
+    margin-top: 1em;
+    margin-left: auto;
+  }
+
+  .addr-box {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: -0.3em;
+    margin-top: 1em;
+    margin-left: auto;
+    /* color: #ccc; */
   }
 }
 
