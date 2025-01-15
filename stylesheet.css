@@ -911,15 +911,15 @@ margin-top: auto;
 }
 
 .bio-image {
-  width:90%;
-  max-width:90%;
+  width:80%;
+  max-width:80%;
   filter: grayscale(45%) contrast(91%);
   
 }
 
 .dark-mode .bio-image {
-  width:90%;
-  max-width:90%;
+  width:80%;
+  max-width:80%;
   filter: grayscale(45%);
 }
 
