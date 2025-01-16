@@ -398,7 +398,7 @@ margin-top: auto;
   
   .embed-responsive-item {
       width: 100%;
-      height: auto;
+      height: 100%;
   }
   
   .col-md-4 {
