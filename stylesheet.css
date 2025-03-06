@@ -938,14 +938,14 @@ margin-top: auto;
 .bio-image {
   width:75%;
   max-width:75%;
-  filter: grayscale(45%) contrast(91%);
+  filter: grayscale(100%) blur(200px);/* contrast(91%); */
   
 }
 
 .dark-mode .bio-image {
   width:75%;
   max-width:75%;
-  filter: grayscale(45%);
+  filter: grayscale(100%) blur(200px);
 }
 
 /* Add this media query for smaller screens */
