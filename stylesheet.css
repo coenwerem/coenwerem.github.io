@@ -936,15 +936,15 @@ margin-top: auto;
 }
 
 .bio-image {
-  width:75%;
-  max-width:75%;
+  width:70%;
+  max-width:70%;
   filter: grayscale(95%) blur(0px);/* contrast(91%); */
   
 }
 
 .dark-mode .bio-image {
-  width:75%;
-  max-width:75%;
+  width:70%;
+  max-width:70%;
   filter: grayscale(100%) blur(0px);
 }
 
