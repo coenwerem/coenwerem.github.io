@@ -44,7 +44,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
   }
 });
 
-// Your existing functions
+// Function to reveal extra bio
 function revealExtraBio() {
   var x = document.getElementById("extraBio");
   if (x.style.display === "none") {
@@ -112,4 +112,36 @@ document.addEventListener('DOMContentLoaded', function() {
           document.getElementById('footer-placeholder').innerHTML = tempDiv.innerHTML;
       })
       .catch(error => console.error('Error loading footer:', error));
+});
+
+// Function to handle active state persistence
+document.addEventListener('DOMContentLoaded', function () {
+  // Set the active class to the current page item on load
+  const currentPage = window.location.pathname; // Get the current page URL
+  const navItems = document.querySelectorAll('.navbar-nav .nav-item');
+
+  navItems.forEach(item => {
+    const link = item.querySelector('a');
+    if (link && link.href.includes(currentPage)) {
+      item.classList.add('active'); // Mark the current page as active
+    } else {
+      item.classList.remove('active'); // Remove active class from other items
+    }
+  });
+
+  // Ensure the toggle button (if clicked) does not interfere with active class on other items
+  document.querySelector('#toggleDropdown').addEventListener('click', function (event) {
+    // Prevent the toggle button from causing issues with the active state of other items
+    setTimeout(() => {
+      const currentPage = window.location.pathname;
+      navItems.forEach(item => {
+        const link = item.querySelector('a');
+        if (link && link.href.includes(currentPage)) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }, 50); // Delay to allow the toggle button to finish its action
+  });
 });
