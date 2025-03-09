@@ -938,14 +938,14 @@ margin-top: auto;
 .bio-image {
   width:70%;
   max-width:70%;
-  filter: grayscale(95%) blur(0px);/* contrast(91%); */
+  filter: grayscale(var(--grayscale-factor)) blur(0px);/* contrast(91%); */
   
 }
 
 .dark-mode .bio-image {
   width:70%;
   max-width:70%;
-  filter: grayscale(100%) blur(0px);
+  filter: grayscale(var(--grayscale-factor)) blur(0px);
 }
 
 /* Add this media query for smaller screens */
@@ -1542,7 +1542,7 @@ hr {
   border-bottom-color: transparent;
 }
 
-.nav-tabs .nav-link.active {
+.nav-tabs .nav-link:active {
   background-color: transparent;
   color: #B509AC;
   border-color: var(--border-color);
@@ -1849,12 +1849,13 @@ color: #aaa;
 
 /* Fix navbar theme responsiveness */
 .navbar {
-  background-color: #fff !important;
+  background-color: #fafafa !important;
   transition: background-color 0.2s linear;
   border-bottom: 1px solid #ddd;
   width: 100%;
   padding-left: 70px;
   padding-right: 70px;
+  padding-bottom: var(--navbar-bottom-margin);
 }
 
 .dark-mode .navbar {
@@ -1895,6 +1896,30 @@ color: #aaa;
   transition: color 0.2s linear;
 }
 
+/* Apply the border directly on the active item */
+/* .navbar-light .navbar-nav .active a { */
+  /* color: #B509AC !important; */
+/* } */
+
+/* Exclude the #toggleDropdown item from the active color */
+.navbar-light .navbar-nav .active a:not(#toggleDropdown a) {
+  color: #B509AC !important;
+}
+
+.nav-item.active {
+  position: relative;
+}
+
+.nav-item.active::after {
+  position: absolute;
+  content: '';
+  border-bottom: var(--navbar-border-line-width) inset #B509AC;
+  width: var(--navbar-border-width);            /* Adjust width of the border */
+  transform: translateX(-50%);
+  bottom: calc(-1 * var(--navbar-bottom-margin));          /* Position the border below the text */
+  left: 50%;
+}
+
 .dark-mode .navbar-light .navbar-nav .nav-link {
     color: rgba(255,255,255,0.8) !important;
 }
@@ -1903,6 +1928,21 @@ color: #aaa;
   color: #52BCDC !important;
   text-decoration: none;
 }
+
+/* Exclude the #toggleDropdown item from the active color */
+.dark-mode .navbar-light .navbar-nav .active a:not(#toggleDropdown a) {
+  color: #52BCDC !important;
+}
+
+.dark-mode .nav-item.active::after {
+  position: absolute;
+  content: '';
+  border-bottom: var(--navbar-border-line-width) inset #52BCDC;
+  width: var(--navbar-border-width);            /* Adjust width of the border */
+  transform: translateX(-50%);
+  bottom: calc(-1 * var(--navbar-bottom-margin)); 
+  left: 50%;
+} 
 
 .navbar-light .navbar-brand {
     color: rgba(0,0,0,0.9) !important;
@@ -1916,6 +1956,11 @@ color: #aaa;
 .dark-mode .navbar-light .navbar-brand:hover {
   color: rgba(255,255,255,0.9) !important;
   text-decoration: none;
+}
+
+/* Change color of nav-item depending on active state */
+.nav-tabs .nav-item .active a {
+  color: #B509AC !important;
 }
 
 /* Ensure navbar content is properly aligned */
@@ -2055,6 +2100,11 @@ font-size: 12px;
     --paper-bg: #b8c9e6;
     --milestone-bg: #c3e6c3;
     --award-bg: #e6d5b8;
+    --grayscale-factor: 90%;
+    --navbar-border-line-width: 0px;
+    --navbar-border-width: 80%;
+    --navbar-bottom-margin: 0.1em;
+
 }
 
 .dark-mode {
@@ -2067,5 +2117,6 @@ font-size: 12px;
     --paper-bg: #4a5d82;    /* More saturated blue */
     --milestone-bg: #4a724a; /* More saturated green */
     --award-bg: #826b41;     /* More saturated gold */
+    --grayscale-factor: 100%;
 
   }
