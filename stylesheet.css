@@ -1896,11 +1896,6 @@ color: #aaa;
   transition: color 0.2s linear;
 }
 
-/* Apply the border directly on the active item */
-/* .navbar-light .navbar-nav .active a { */
-  /* color: #B509AC !important; */
-/* } */
-
 /* Exclude the #toggleDropdown item from the active color */
 .navbar-light .navbar-nav .active a:not(#toggleDropdown a) {
   color: #B509AC !important;
@@ -1956,11 +1951,6 @@ color: #aaa;
 .dark-mode .navbar-light .navbar-brand:hover {
   color: rgba(255,255,255,0.9) !important;
   text-decoration: none;
-}
-
-/* Change color of nav-item depending on active state */
-.nav-tabs .nav-item .active a {
-  color: #B509AC !important;
 }
 
 /* Ensure navbar content is properly aligned */
