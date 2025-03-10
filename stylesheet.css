@@ -42,14 +42,16 @@ a:hover {
 
 body {
   background-color: var(--bg-color);
-    color: var(--text-color);
+  color: var(--text-color);
   font-family: "CMU Sans Serif", sans-serif;
   font-size: 16px;
   justify-content: center;
   align-items: center;
   height: 100%;
   margin: 0;
-  transition: background 0.2s linear;
+  /* transition: background 0.2s linear; */
+  /* transition: background-color 0.3s ease, color 0.3s ease; */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page-container {
