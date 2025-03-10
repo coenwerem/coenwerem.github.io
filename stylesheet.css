@@ -1036,6 +1036,33 @@ margin-top: auto;
   margin-bottom: 20px;
   margin-top: auto;
  }
+
+ .bio-image {
+  width: 40%; /* Further reduce image width on mobile */
+  max-width: 40%;
+}
+
+.dark-mode .bio-image {
+  width: 40%; /* Further reduce image width on mobile */
+  max-width: 40%;
+}
+
+.bio-image-container {
+  text-align: center; 
+  margin: 1em auto;
+}
+
+.addr-box {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  /* margin-bottom: -0.3em;
+  margin-top: 1em;
+  margin-left: -1em; */
+  margin: 2em auto;
+  /* color: #ccc; */
+}
+
 }
 
 /* Media Queries for Navbar */
@@ -1542,7 +1569,7 @@ hr {
   border-bottom-color: transparent;
 }
 
-.nav-tabs .nav-link:active {
+.nav-tabs .nav-link.active {
   background-color: transparent;
   color: #B509AC;
   border-color: var(--border-color);
@@ -2058,7 +2085,7 @@ font-size: 12px;
     text-decoration: none;
 }
 
-.social-icon:active {
+.social-icon.active {
   color: #B509AC;
   text-decoration: none;
 }
@@ -2074,7 +2101,7 @@ font-size: 12px;
     text-decoration: none;
 }
 
-.dark-mode .social-icon:active {
+.dark-mode .social-icon.active {
   color: #52BCDC; /* Keep the same hover color or adjust as needed */
   text-decoration: none;
 }
