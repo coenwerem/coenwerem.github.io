@@ -1,14 +1,26 @@
 // Function to apply the correct theme based on the user's preference or system setting
+// function applyTheme(theme) {
+//   // Remove both dark and light mode classes to prevent conflicts
+//   document.body.classList.remove('dark-mode', 'light-mode');
+  
+//   if (theme) {
+//     document.body.classList.add(theme);
+//   } else {
+//     document.body.classList.add('light-mode'); // Default to light mode if no theme is set
+//   }
+// }
+// Function to apply the correct theme based on the user's preference or system setting
 function applyTheme(theme) {
   // Remove both dark and light mode classes to prevent conflicts
   document.body.classList.remove('dark-mode', 'light-mode');
-  
+
   if (theme) {
     document.body.classList.add(theme);
   } else {
     document.body.classList.add('light-mode'); // Default to light mode if no theme is set
   }
 }
+
 
 // Function to toggle between light and dark modes
 function toggleDarkMode() {
@@ -23,17 +35,46 @@ function toggleDarkMode() {
 }
 
 // Initialize theme based on user's saved preference or system setting
-document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme'); // Check if user has saved their theme preference
+// document.addEventListener('DOMContentLoaded', () => {
+//   const savedTheme = localStorage.getItem('theme'); // Check if user has saved their theme preference
+//   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // Check user's system theme preference
+  
+//   if (savedTheme) {
+//     applyTheme(savedTheme); // Apply saved theme
+//   } else {
+//     // If no saved theme, apply the system default (dark if the system prefers it)
+//     applyTheme(prefersDark ? 'dark-mode' : 'light-mode');
+//   }
+// });
+// Initialize theme based on user's saved preference or system setting
+// document.addEventListener('DOMContentLoaded', () => {
+//   const savedTheme = localStorage.getItem('theme'); // Check if user has saved their theme preference
+//   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // Check user's system theme preference
+
+//   // Apply the theme as soon as possible
+//   if (savedTheme) {
+//     applyTheme(savedTheme); // Apply saved theme
+//   } else {
+//     // If no saved theme, apply the system default (dark if the system prefers it)
+//     applyTheme(prefersDark ? 'dark-mode' : 'light-mode');
+//   }
+
+//   // Once the theme is applied, make the page visible
+//   document.body.style.visibility = 'visible';
+// });
+(function() {
+  const savedTheme = localStorage.getItem('theme'); // Check if the user has saved their theme preference
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // Check user's system theme preference
   
-  if (savedTheme) {
-    applyTheme(savedTheme); // Apply saved theme
-  } else {
-    // If no saved theme, apply the system default (dark if the system prefers it)
-    applyTheme(prefersDark ? 'dark-mode' : 'light-mode');
-  }
-});
+  // If no theme is saved, use the system default (dark if system prefers dark)
+  const themeToApply = savedTheme || (prefersDark ? 'dark-mode' : 'light-mode');
+  
+  // Apply the theme as soon as possible before the page is fully rendered
+  document.body.classList.add(themeToApply);
+
+  // Reveal the content after theme is applied
+  document.body.style.visibility = 'visible';
+})();
 
 // Handle system theme change
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
