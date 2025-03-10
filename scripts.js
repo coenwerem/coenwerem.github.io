@@ -65,83 +65,111 @@ function myFunction() {
 
 // Load the navbar
 document.addEventListener('DOMContentLoaded', function() {
-  const pathArray = window.location.pathname.split('/');
-  const projectsIndex = pathArray.indexOf('projects');
-  const pathToRoot = projectsIndex !== -1 ? '../' : './';
+  const pathArray = window.location.pathname.split('/').pop() || 'index.html'; // Get the current page name
+  const projectsIndex = pathArray.indexOf('projects'); // Check if it's the "projects" page
+  const pathToRoot = projectsIndex !== -1 ? '../' : './'; // Set the relative path based on whether it's the "projects" page or not
+
+  // Fetch the navbar HTML file
   fetch(pathToRoot + 'navbar.html')
-      .then(response => response.text())
-      .then(data => {
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = data;
-          const links = tempDiv.querySelectorAll('a');
-          links.forEach(link => {
-              const href = link.getAttribute('href');
-              if (href && !href.startsWith('http') && !href.startsWith('#')) {
-                  link.href = pathToRoot + href;
-              }
-          });
-          document.getElementById('navbar-placeholder').innerHTML = tempDiv.innerHTML;
-          const currentPage = pathArray[pathArray.length - 1];
-          const navLinks = document.querySelectorAll('.nav-link');
-          navLinks.forEach(link => {
-              if (link.getAttribute('href').endsWith(currentPage)) {
-                  link.parentElement.classList.add('active');
-              }
-          });
-      })
-      .catch(error => console.error('Error loading navbar:', error));
+    .then(response => response.text())
+    .then(data => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = data; // Insert the navbar HTML into a temporary div
+
+      // Update the href links to ensure they are correct relative paths
+      const links = tempDiv.querySelectorAll('a');
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#')) {
+          link.href = pathToRoot + href;
+        }
+      });
+
+      // Insert the updated navbar into the placeholder
+      document.getElementById('navbar-placeholder').innerHTML = tempDiv.innerHTML;
+
+      // Determine the current page and set the active class
+      const currentPage = pathArray; // Use the full current page name
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-item a');
+      // console.log('Current Page: ', currentPage);
+      // console.log('Nav Links: ', Array.from(navLinks));
+
+      // Iterate over each navbar link and add the active class to the current page
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.endsWith(currentPage)) {
+          link.parentElement.classList.add('active'); // Add the active class to the parent <li> of the link
+        } else {
+          link.parentElement.classList.remove('active'); // Remove active class from other links
+        }
+      });
+    })
+    .catch(error => console.error('Error loading navbar:', error));
 });
 
 // Load the footer
 document.addEventListener('DOMContentLoaded', function() {
   const pathArray = window.location.pathname.split('/');
   const projectsIndex = pathArray.indexOf('projects');
-  const pathToRoot = projectsIndex !== -1 ? '../' : './';
+  const pathToRoot = projectsIndex !== -1 ? '../' : './'; // Set relative path based on the current page
+
+  // Fetch and load the footer HTML
   fetch(pathToRoot + 'footer.html')
-      .then(response => response.text())
-      .then(data => {
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = data;
-          const links = tempDiv.querySelectorAll('a');
-          links.forEach(link => {
-              const href = link.getAttribute('href');
-              if (href && !href.startsWith('http') && !href.startsWith('#')) {
-                  link.href = pathToRoot + href;
-              }
-          });
-          document.getElementById('footer-placeholder').innerHTML = tempDiv.innerHTML;
-      })
-      .catch(error => console.error('Error loading footer:', error));
+    .then(response => response.text())
+    .then(data => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = data;
+
+      // Update all relative links to use the correct root path
+      const links = tempDiv.querySelectorAll('a');
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#')) {
+          link.href = pathToRoot + href;
+        }
+      });
+
+      // Insert the loaded footer into the placeholder element
+      document.getElementById('footer-placeholder').innerHTML = tempDiv.innerHTML;
+    })
+    .catch(error => console.error('Error loading footer:', error));
 });
 
 // Function to handle active state persistence
 document.addEventListener('DOMContentLoaded', function () {
-  // Set the active class to the current page item on load
-  const currentPage = window.location.pathname; // Get the current page URL
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html'; // Get current page filename
   const navItems = document.querySelectorAll('.navbar-nav .nav-item');
 
+  // Set active class on initial load
   navItems.forEach(item => {
     const link = item.querySelector('a');
-    if (link && link.href.includes(currentPage)) {
-      item.classList.add('active'); // Mark the current page as active
-    } else {
-      item.classList.remove('active'); // Remove active class from other items
+    if (link && link.getAttribute('href') && link.getAttribute('href') !== '#') { // Ignore links with '#' (e.g., dark mode toggle)
+      const href = link.getAttribute('href').split('/').pop(); // Get just the filename from href
+      if (href === currentPage) {
+        item.classList.add('active'); // Mark current page item as active
+      } else {
+        item.classList.remove('active'); // Remove active class from other items
+      }
     }
   });
 
-  // Ensure the toggle button (if clicked) does not interfere with active class on other items
-  document.querySelector('#toggleDropdown').addEventListener('click', function (event) {
-    // Prevent the toggle button from causing issues with the active state of other items
-    setTimeout(() => {
-      const currentPage = window.location.pathname;
-      navItems.forEach(item => {
-        const link = item.querySelector('a');
-        if (link && link.href.includes(currentPage)) {
-          item.classList.add('active');
-        } else {
-          item.classList.remove('active');
-        }
+  // Add event listener with passive option for the toggle button
+  const toggleButton = document.querySelector('#toggleDropdown');
+  if (toggleButton) {
+    toggleButton.addEventListener('click', function (event) {
+      requestAnimationFrame(() => {
+        navItems.forEach(item => {
+          const link = item.querySelector('a');
+          if (link && link.getAttribute('href') && link.getAttribute('href') !== '#') {
+            const href = link.getAttribute('href').split('/').pop();
+            if (href === currentPage) {
+              item.classList.add('active');
+            } else {
+              item.classList.remove('active');
+            }
+          }
+        });
       });
-    }, 50); // Delay to allow the toggle button to finish its action
-  });
+    }, { passive: true });
+  }
 });
