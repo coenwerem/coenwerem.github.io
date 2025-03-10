@@ -91,9 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Determine the current page and set the active class
       const currentPage = pathArray; // Use the full current page name
       const navLinks = document.querySelectorAll('.navbar-nav .nav-item a');
-      // console.log('Current Page: ', currentPage);
-      // console.log('Nav Links: ', Array.from(navLinks));
-
+      const navTabLinks = document.querySelectorAll('.nav .nav-tabs .nav-item a');
+      
       // Iterate over each navbar link and add the active class to the current page
       navLinks.forEach(link => {
         const href = link.getAttribute('href');
@@ -101,6 +100,22 @@ document.addEventListener('DOMContentLoaded', function() {
           link.parentElement.classList.add('active'); // Add the active class to the parent <li> of the link
         } else {
           link.parentElement.classList.remove('active'); // Remove active class from other links
+        }
+      });
+
+      // Get the current tab from the URL fragment
+      const currentTab = document.querySelector('.nav-tabs .nav-link.active').getAttribute('href').replace('#', ''); // Default to the active tab if no fragment is present
+      
+      // Iterate over each nav tab link and add the active class based on the URL fragment
+      navTabLinks.forEach(tabLink => {
+        const tabId = tabLink.getAttribute('href').replace('#', ''); // Extract tab ID from the href attribute
+
+        if (tabId === currentTab) {  // Check if the current tab matches the fragment
+          tabLink.classList.add('active'); // Add the active class to the tab link
+          tabLink.setAttribute('aria-selected', 'true'); // Set the aria-selected attribute
+        } else {
+          tabLink.classList.remove('active'); // Remove active class from other tabs
+          tabLink.setAttribute('aria-selected', 'false'); // Set the aria-selected attribute
         }
       });
     })
