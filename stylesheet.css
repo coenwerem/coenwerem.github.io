@@ -1481,14 +1481,40 @@ footer {
   color: #4c4a69;
 }
 
-.badge-milestone {
+.badge-epoch {
     background-color: rgba(150, 120, 200, 0.18); /* A pastel purple */
     color: #9678c8; /* A matching purple text color */
+}
+
+.badge-code {
+  background-color: rgba(51, 77, 197, 0.18); /* A pastel purple */
+  color: #10223d; /* A matching green text color */
 }
 
 .badge-internship {
   background-color: rgb(81, 128, 113, 0.18); /* A pastel purple */
   color: #518071; /* A matching green text color */
+}
+
+.badge-award {
+    background-color: rgba(240, 117, 0, 0.2);  /* Pastel orange */
+    color: #fa7b2b;
+}
+
+/* News badge colors - Dark mode */
+.dark-mode .badge-paper {
+    background-color: rgba(82, 188, 220, 0.15);  /* Pastel version of #B509AC */
+    color: #52BCDC;
+}
+
+.dark-mode .badge-talk {
+  background-color:  rgba(179, 177, 195, 0.2)  ; /* Pastel version of #52BCDC */
+  color: #cbc8f0;
+}
+
+.dark-mode .badge-epoch {
+    background-color: rgba(120, 90, 180, 0.15); /* A darker pastel purple for dark mode */
+    color: #9678c8; /* A matching darker purple text color */
 }
 
 .badge-award {
