@@ -940,14 +940,14 @@ margin-top: auto;
 .bio-image {
   width:70%;
   max-width:70%;
-  filter: grayscale(var(--grayscale-factor)) blur(0px);/* contrast(91%); */
+  /*filter: grayscale(var(--grayscale-factor)) blur(0px); contrast(91%); */
   
 }
 
 .dark-mode .bio-image {
   width:70%;
   max-width:70%;
-  filter: grayscale(var(--grayscale-factor)) blur(0px);
+  /*filter: grayscale(var(--grayscale-factor)) blur(0px); */
 }
 
 /* Add this media query for smaller screens */
@@ -2165,3 +2165,4 @@ font-size: 12px;
     --grayscale-factor: 100%;
 
   }
+
