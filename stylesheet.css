@@ -364,6 +364,43 @@ span.highlight {
   margin-top: auto;
 }
 
+.headhr-subh {
+  width: 0;
+  border-bottom: 0.1px solid #ddd;
+  padding-bottom: 1rem; 
+}
+
+.keyword {
+  color: #B509AC;
+}
+
+.dark-mode .keyword {
+  color: #52BCDC;
+}
+
+ul.resapp {
+  list-style-type: square;
+  list-style-position: inside;  
+  margin: 0;  
+  padding: 0;  
+  text-align: justify; 
+  width: 100%; 
+}
+
+ul.resapp > li {
+  width: 100%; 
+}
+
+ul.resapp > li::marker {
+  color: #B509AC;
+  margin: 0;
+}
+
+.dark-mode .resapp > li::marker {
+  color: #52BCDC;
+  margin: 0;
+}
+
 .arthr {
 width: 40%;
 border-bottom: 1px solid #ddd;
@@ -635,7 +672,6 @@ margin-top: auto;
   margin-bottom: 0.5rem;
   padding-left: 1.1rem;
 }
-
 
 .contact-info p {
   font-size: 1.2rem;
