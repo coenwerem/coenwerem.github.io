@@ -4,7 +4,7 @@ Systems & Control, Reinforcement Learning, Robotics.
 
 ### Education
 
-- 2021-Date **PhD, Electrical & Computer Engineering**, University of Maryland, College Park, MD, USA. Expected Spring 2026. Advisors: Professor John S. Baras and Professor Calin Belta.
+- 2021-Date **PhD, Electrical & Computer Engineering**, University of Maryland, College Park, MD, USA.  Advisors: Professor John S. Baras and Professor Calin Belta.
 
 - 2014-2018 **B.Eng., Electrical Engineering**, University of Nigeria, Nsukka, Enugu, Nigeria. GPA: 3.84/4 (First-Class Honors). Emphasis: Control Theory.
 

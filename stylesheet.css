@@ -971,8 +971,6 @@ margin-top: auto;
   text-align: center; 
   margin-top: 7em;
   margin-left: -1em;
-  width: 180px;      
-  height: 180px;
 }
 
 .bio-image {
@@ -999,8 +997,6 @@ margin-top: auto;
     text-align: center; 
     margin-top: 9em;
     margin-left: -4em;
-    width: 100px;      
-    height: 100px;
   }
 
   .dark-mode .bio-image {
@@ -1036,8 +1032,6 @@ margin-top: auto;
     text-align: center; 
     margin-top: 1em;
     margin-left: auto;
-    width: 20px;      
-    height: 20px;
   }
 
   .addr-box {
@@ -1094,8 +1088,6 @@ margin-top: auto;
 .bio-image-container {
   text-align: center; 
   margin: 1em auto;
-  width: 10px;      
-  height: 10px;
 }
 
 .addr-box {
