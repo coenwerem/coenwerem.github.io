@@ -144,21 +144,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      // Get the current tab from the URL fragment
-      const currentTab = document.querySelector('.nav-tabs .nav-link.active').getAttribute('href').replace('#', ''); // Default to the active tab if no fragment is present
-      
-      // Iterate over each nav tab link and add the active class based on the URL fragment
-      navTabLinks.forEach(tabLink => {
-        const tabId = tabLink.getAttribute('href').replace('#', ''); // Extract tab ID from the href attribute
-
-        if (tabId === currentTab) {  // Check if the current tab matches the fragment
-          tabLink.classList.add('active'); // Add the active class to the tab link
-          tabLink.setAttribute('aria-selected', 'true'); // Set the aria-selected attribute
-        } else {
-          tabLink.classList.remove('active'); // Remove active class from other tabs
-          tabLink.setAttribute('aria-selected', 'false'); // Set the aria-selected attribute
-        }
-      });
+      // Get the current tab from the URL fragment (only present on pages with nav-tabs)
+      const activeTabEl = document.querySelector('.nav-tabs .nav-link.active');
+      if (activeTabEl) {
+        const currentTab = activeTabEl.getAttribute('href').replace('#', '');
+        navTabLinks.forEach(tabLink => {
+          const tabId = tabLink.getAttribute('href').replace('#', '');
+          if (tabId === currentTab) {
+            tabLink.classList.add('active');
+            tabLink.setAttribute('aria-selected', 'true');
+          } else {
+            tabLink.classList.remove('active');
+            tabLink.setAttribute('aria-selected', 'false');
+          }
+        });
+      }
     })
     .catch(error => console.error('Error loading navbar:', error));
 });

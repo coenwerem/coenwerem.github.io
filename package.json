@@ -1,0 +1,19 @@
+{
+  "name": "coenwerem-github-io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build scripts for clintonenwerem.com — CV/résumé HTML and PDF generation",
+  "scripts": {
+    "build": "bash build.sh",
+    "build:html": "bash build.sh --html",
+    "cv": "node data/cv/generate-cv.js",
+    "resume": "node data/resume/generate-resume.js",
+    "pdf": "node data/scripts/generate-pdf.js",
+    "sync": "node data/scripts/sync-publications.js"
+  },
+  "dependencies": {
+    "marked": "^11.0.0",
+    "node-html-parser": "^7.1.0",
+    "puppeteer-core": "^24.0.0"
+  }
+}
