@@ -18,7 +18,7 @@ Systems & Control, Dexterous Robotic Manipulation, Motion Planning.
 
 #### In Conference Proceedings
 
-- 2025 **Clinton Enwerem**, Aniruddh G. Puranic, John S. Baras, and Calin Belta, Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Value Iteration and Quantile Regression. To appear in the proceedings of the 64th IEEE Conference on Decision and Control (CDC), 2025.
+- 2025 **Clinton Enwerem**, Aniruddh G. Puranic, John S. Baras, and Calin Belta, Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Value Iteration and Quantile Regression. In the proceedings of the 64th IEEE Conference on Decision and Control (CDC), 2025.
 
 - 2024 **Clinton Enwerem**, Erfaun Noorani, John S. Baras, and Brian M. Sadler, Robust Stochastic Shortest-Path Planning via Risk-Sensitive Incremental Sampling, In the proceedings of the 63rd IEEE Conference on Decision and Control (CDC), 2024.
 
