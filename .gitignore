@@ -4,9 +4,7 @@ images/.DS_Store
 
 # NodeJS and npm
 node_modules/
-package.json
 package-lock.json
-*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

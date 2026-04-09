@@ -51,10 +51,12 @@
                           <name style="font-weight: 500;">Research</name>
                         </p>
                         <p class="headhr"></p>
+                        <span class="project-section">overview & theory</span>
+                        <p class="headhr-subh"></p>
                         <p class="bd-text">
                           I develop optimization-based <span class="keyword">motion planning</span> and <span class="keyword">control algorithms</span> for <span class="keyword">safe</span> and <span class="keyword">robust physical autonomy</span> in <span class="keyword">uncertain</span> (dynamic and partially-observed) environments. My research integrates <span class="keyword">stochastic optimization</span>, <span class="keyword">risk-sensitive distributional reinforcement learning</span> (DRL), and safety-critical control using methods such as <span class="keyword">quadratic optimization</span> and <span class="keyword">stochastic model predictive control</span> (MPC) to improve decision-making for embodied, intelligent, and self-governing (single or multi-robot) systems. As autonomous systems increasingly make their way into human environments, my research is also devoted (in part) to the design of <span class="keyword">uncertainty-aware decision-making algorithms</span> that not only <span class="keyword">guarantee satisfactory performance</span> on prescribed task metrics but also ensure <span class="keyword">robustness</span> and <span class="keyword">computational efficiency</span>.
       
-                          To validate my theoretical and algorithmic ideas, I employ high-fidelity physics simulators (Isaac Sim), RL sandboxes (OpenAI Gym and Safety Gymnasium), and real robotic systems, leveraging tools such as Pinocchio, TensorFlow, PyTorch, Mosek, osqp, and ROS 2.
+                          To validate my theoretical and algorithmic ideas, I employ high-fidelity physics simulators (MuJoCo, Isaac Sim), RL sandboxes (OpenAI Gym and Safety Gymnasium), and real robotic systems, leveraging tools such as Pinocchio, TensorFlow, PyTorch, Mosek, osqp, and ROS 2.
                         </p>
                         <!-- Applications -->
                         <span class="project-section">Applications</span>
@@ -62,33 +64,26 @@
                         <p class="bd-text">
                         Results from my research find application in:
                           <ul class="resapp">
-                            <li>Robust navigation for mobile robots (ground and aerial) in structured or unstructured environments</li>
+                            <!-- <li>Robust navigation for mobile robots (ground and aerial) in structured or unstructured environments</li> -->
                             <li>Dexterous manipulation using robotic manipulators fitted with high-DoF anthropomorphic grippers</li>
-                            <li>Distributed and decentralized coordination of mobile multi-robot systems.</li>
+                            <li>Distributed and decentralized coordination of multi-manipulation systems.</li>
+                            <li>Motion planning and control for ground robot navigation in constrained spaces.</li>
                             <!-- <li>Safe and uncertainty-aware automated vehicle (AV) navigation in urban traffic.</li> -->
                           </ul>
                         </p>
                         <!-- <heading>Research Videos</heading><br> -->
                         <div class="row mb-4">
-                          <div class="col-md-3">
-<!--                             <a href="https://youtu.be/MexN4PLl7Qg" target="_blank" class="video-link"> -->
-                              <div class="embed-responsive embed-responsive-1by1">
-                                <img class="embed-responsive-item" src="videos/safe-rl.gif" alt="Demonstration of Risk-Aware QR-DQN in action" style="filter: brightness(1);">
-<!--                                 <div class="overlay-text">Go To Video</div> -->
-                              </div>
-                            </a>
-                            <p class="text-center mt-2">Robot Navigation</p>
-                          </div>
+                          
                           <div class="col-md-3">
                             <div class="embed-responsive embed-responsive-1by1">
-                              <img class="embed-responsive-item" src="videos/hand_ik.gif" alt="Hand IK Demo"
+                              <img class="embed-responsive-item" src="videos/grasp_trace.gif" alt="Hand IK Demo"
                               style="filter: brightness(1.1);">
                             </div>
                             <p class="text-center mt-2">Grasp Planning</p>
                           </div>
                           <div class="col-md-3">
                             <div class="embed-responsive embed-responsive-1by1">
-                              <img class="embed-responsive-item" src="videos/hw_pnp_demo.gif"
+                              <img class="embed-responsive-item" src="videos/vargrasp_mustard.gif"
                                 alt="Safety-Critical Control Demo" width="auto" height="auto">
                             </div>
                             <p class="text-center mt-2">Manipulator Control</p>
@@ -99,13 +94,59 @@
                                 alt="Multi-Quadrotor Control Demo" width="auto" height="auto"
                                 style="filter: brightness(1);">
                             </div>
-                            <p class="text-center mt-2">Multi-Agent Systems</p>
+                            <p class="text-center mt-2">Bimanual Coordination</p>
+                          </div>
+                          <div class="col-md-3">
+<!--                             <a href="https://youtu.be/MexN4PLl7Qg" target="_blank" class="video-link"> -->
+                              <div class="embed-responsive embed-responsive-1by1">
+                                <img class="embed-responsive-item" src="videos/safe-rl.gif" alt="Demonstration of Risk-Aware QR-DQN in action" style="filter: brightness(1);">
+<!--                                 <div class="overlay-text">Go To Video</div> -->
+                              </div>
+                            </a>
+                            <p class="text-center mt-2">Robot Navigation</p>
                           </div>
                         </div>
 
                         <span class="sub-heading">Publications</span>
                         <p class="headhr"></p>
-
+                        <heading><span class="submitted-in-review">Under Review</span></heading>
+                        <div class="publication-entry">
+                        <span class="project-section">2026</span>
+                          <p class="headhr"></p>
+                        <div class="publication-entry">
+                          <div class="pub-main-row">
+                            <span class="venue-badge">arXiV</span>
+                            <div class="pub-content">
+                              <span style="font-weight:bold;">Clinton Enwerem</span>, John S. Baras, and Calin Belta, &ldquo;Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty,&rdquo; arXiv preprint, 2026.
+                            </div>
+                          </div>
+                          <div class="pub-links-row">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                              data-target="#bib-arXiV-belmppi-2026" aria-expanded="false" aria-controls="bib-arXiV-belmppi-2026">
+                              bibtex
+                            </button>
+                            <a href="https://arxiv.org/pdf/2604.03868" target="_blank" class="btn btn-link">paper</a>
+                            <!-- <a href="#" class="btn btn-link">code</a> -->
+                            <div class="collapse" id="bib-arXiV-belmppi-2026">
+                              <div class="card card-body">
+                                <pre><code>@online{enweremRiskConstrainedBeliefOptimization2026,
+title = {Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty},
+author = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
+year = {2026},
+eprint = {2604.03868},
+eprinttype = {arXiv},
+eprintclass = {cs.RO},
+doi = {10.48550/arXiv.2604.03868},
+url = {http://arxiv.org/abs/2604.03868},
+urldate = {2026-04-07},
+pubstate = {prepublished},
+keywords = {Computer Science - Robotics, Electrical Engineering and Systems Science - Systems and Control},
+}</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                         
                         <heading><span class="peer-reviewed">Peer-Reviewed</span></heading>
                         <div class="publication-entry">

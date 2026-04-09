@@ -1,6 +1,6 @@
 ### Research Interests
 
-Systems & Control, Reinforcement Learning, Robotics.
+Systems & Control, Dexterous Robotic Manipulation, Motion Planning.
 
 ### Education
 
@@ -12,19 +12,23 @@ Systems & Control, Reinforcement Learning, Robotics.
 
 #### Preprints/Articles In Review
 
-- 2024 **Clinton Enwerem**, Aniruddh G Puranic, John S Baras, and Calin Belta. *Safety-Aware Reinforcement Learning via Risk-Sensitive Quantile Regression Deep Q-Networks*, 2024.
+- 2026 **Clinton Enwerem**, John S. Baras, and Calin Belta, “Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty,” arXiv preprint, 2026.
 
-- 2024 **Clinton Enwerem**, Erfaun Noorani, John S. Baras, and Brian M. Sadler. *Robust Stochastic Shortest-Path Planning via Risk-Sensitive Incremental Sampling*, 2024. To appear in the Proceedings of the 2024 Conference on Decision and Control (CDC).
+- 2023 **Clinton Enwerem**, John S. Baras, and Danilo Romero, "Distributed Optimal Formation Control for an Uncertain Multiagent System in the Plane," arXiv:2301.05841 [cs, eess], Jan. 2023.
 
 #### In Conference Proceedings
 
-- 2024 **Clinton Enwerem** and John S. Baras. *Safe Collective Control under Noisy Inputs and Competing Constraints via Non-Smooth Barrier Functions*, 2024. In the Proceedings of the 2024 European Control Conference.
+- 2025 **Clinton Enwerem**, Aniruddh G. Puranic, John S. Baras, and Calin Belta, Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Value Iteration and Quantile Regression. To appear in the proceedings of the 64th IEEE Conference on Decision and Control (CDC), 2025.
 
-- 2023 **Clinton Enwerem** and John S. Baras. *Consensus-Based Leader-Follower Formation Tracking for Control-Affine Nonlinear Multiagent Systems*. 9th International Conference on Control, Decision and Information Technologies, 2023.
+- 2024 **Clinton Enwerem**, Erfaun Noorani, John S. Baras, and Brian M. Sadler, Robust Stochastic Shortest-Path Planning via Risk-Sensitive Incremental Sampling, In the proceedings of the 63rd IEEE Conference on Decision and Control (CDC), 2024.
+
+- 2024 **Clinton Enwerem** and John S Baras. Safe Collective Control under Noisy Inputs and Competing Constraints via Non-Smooth Barrier Functions. In the 2024 European Control Conference (ECC), pp. 3762–3768. IEEE, 2024.
+
+- 2023 **Clinton Enwerem** and John S. Baras, "Consensus-Based Leader-Follower Formation Tracking for Control-Affine Nonlinear Multiagent Systems," in the 9th International Conference on Control, Decision and Information Technologies (CoDIT), Rome, Italy: IEEE, Jul. 2023, pp. 1226–1231. doi: 10.1109/CoDIT58514.2023.10284199.
 
 #### Journal Articles
 
-- 2024 **Clinton Enwerem** and John S. Baras. *Formation Tracking for a Class of Uncertain Multiagent Systems: A Distributed Kalman Filtering Approach*. IEEE Control Systems Letters, volume 8, 2024.
+- 2024 **Clinton Enwerem** and John S. Baras, Formation Tracking for a Class of Uncertain Multiagent Systems: A Distributed Kalman Filtering Approach, IEEE Control Systems Letters, Volume 8, 2024.
 
 ### Research Experience
 
@@ -56,7 +60,7 @@ Systems & Control, Reinforcement Learning, Robotics.
 
 #### 6-8/2022 Research Intern
 
-- Worked in collaboration with the MATRIX Lab (https://matrix.umd.edu) on problems encompassing multiagent cooperative control, formation control, and target tracking under sensor uncertainty. Supervisor: Dr. Danilo Romero.
+- Worked in collaboration with the [MATRIX Lab](https://matrix.umd.edu) on problems encompassing multiagent cooperative control, formation control, and target tracking under sensor uncertainty. Supervisor: Dr. Danilo Romero.
 
 #### Robotics & Artificial Intelligence Nigeria (RAIN), Ibadan, Nigeria
 #### 3/2020-2/2021 Robotics Trainee
@@ -92,6 +96,8 @@ Systems & Control, Reinforcement Learning, Robotics.
 
 ### Talks
 
+- 2025 "Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Value Iteration and Quantile Regression." To be delivered at the 64th Conference on Decision & Control.
+
 - 2024 "Robust Stochastic Shortest-Path Planning via Risk-Sensitive Incremental Sampling." Delivered at the 63rd Conference on Decision & Control, Milan, Italy.
 
 - 2023 "Consensus-Based Leader-Follower Formation Tracking for Control-Affine Nonlinear Multiagent Systems." Delivered at the 9th International Conference on Control, Decision, and Information Technologies.
@@ -114,5 +120,5 @@ Systems & Control, Reinforcement Learning, Robotics.
 
 ### Academic Service
 
-- 2023-2024 Peer Reviewer: Heliyon, MED'23, ECC'24, ACC'25, L4DC'25.
+- 2023-2025 Peer Reviewer: Heliyon, MED'23, ECC'24, ACC'25, L4DC'25.
 

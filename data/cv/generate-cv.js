@@ -2,11 +2,7 @@ const fs = require('fs');
 const { marked, Renderer } = require('marked');
 const path = require('path');
 
-// Configure marked options
-marked.use({
-    mangle: false,
-    headerIds: false
-});
+// Note: mangle/headerIds options removed in marked v9+; not needed with custom renderer.
 
 function formatContent(content) {
     return content
@@ -16,68 +12,34 @@ function formatContent(content) {
 
 const renderer = new Renderer();
 // Custom strong renderer
+// marked v9+: receives the rendered inner HTML string, not a token object
 renderer.strong = function(text) {
-    return `<span style="font-weight: bold;">${text.text.toString()}</span>`;
+    return `<span style="font-weight: bold;">${text}</span>`;
 };
 
+// marked v9+: listitem receives (body, task, checked) where body is already-rendered HTML
 renderer.listitem = function(text) {
+    // `text` is the rendered inner HTML of the list item (not a token object)
+    const str = text;
+
     const datePatterns = {
         yearToDate: /^(\d{4})-Date(.*)/,
         singleYear: /^(\d{4})(.*)/,
         monthYearRange: /^(\d{1,2})\/(\d{4})-(\d{1,2})\/(\d{4})\s+(.+)$/, // 9/2018-3/2021 Content
-        yearRangeMonth: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s*(.*)/,         // 8-10/2017 Content
-        yearRangeMonthTwo: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s*(.*)/,        // 6-8/2023 Content
-        yearToYear: /^(\d{4})-(\d{4})(.*)/,  // Correct regex for year-to-year pattern
+        yearRangeMonth: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s*(.*)/,           // 8-10/2017 Content
+        yearRangeMonthTwo: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s*(.*)/,         // 6-8/2023 Content
+        yearToYear: /^(\d{4})-(\d{4})(.*)/,
         monthYearToDate: /^(\d{1,2})\/(\d{4})-Date(.*)/,
-        seasonYear: /^(Fall|Spring|Summer)\s*(\d{4}):/,  
+        seasonYear: /^(Fall|Spring|Summer)\s*(\d{4}):/,
         skillsStr: /^([A-Za-z0-9\s]+):\s*(.*)/,
         monthRangeYear: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s+([^\n]+)(?:\n(.*))?/,
         monthYearToMonthYear: /^(\d{1,2})\/(\d{4})-(\d{1,2})\/(\d{4})\s*(.*)/,
         shortMonthRange: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s+(.+)$/,
     };
 
-    // Date patterns for headers
-    const headerDatePatterns = {
-        shortMonthRange: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s+(.+)$/,     // 6-8/2023 Research Assistant
-        monthYearRange: /^(\d{1,2})\/(\d{4})-(\d{1,2})\/(\d{4})\s+(.+)$/, // 9/2018-3/2021 Research Assistant
-    };
-
-    const str = text.text.toString();
-
-    // For depth 4 headers (####), check for date patterns
-    if (text.depth === 4) {
-        // Try short month range (6-8/2023)
-        let match = str.match(headerDatePatterns.shortMonthRange);
-        if (match) {
-            const [_, startMonth, endMonth, year, role] = match;
-            return `<h4 class="subsubsection-heading">
-                <span class="cv-year">${startMonth}-${endMonth}/${year}</span>
-                <span class="cv-role">${role}</span>
-            </h4>`;
-        }
-
-        // Try month/year range (9/2018-3/2021)
-        match = str.match(headerDatePatterns.monthYearRange);
-        if (match) {
-            const [_, startMonth, startYear, endMonth, endYear, role] = match;
-            return `<h4 class="subsubsection-heading">
-                <span class="cv-year">${startMonth}/${startYear}-${endMonth}/${endYear}</span>
-                <span class="cv-role">${role}</span>
-            </h4>`;
-        }
-
-        // If no date pattern matches, return as regular header
-        return `<h4 class="subsubsection-heading">${str}</h4>`;
-    }
-
-    // Check if the string starts with a heading marker (e.g., ####, ###, etc.)
-    const isHeading = str.startsWith('####') || str.startsWith('###') || str.startsWith('##') || str.startsWith('#');
-    let processedStr = str;
-
-    // If it's a heading, remove the heading markers and process the content
-    if (isHeading) {
-        processedStr = str.replace(/^#+\s*/, ''); // Remove the heading markers (e.g., '#### ' or '### ')
-    }
+    // Strip <p> wrapper that marked adds around loose-list items so date
+    // patterns can match regardless of whether the list is tight or loose.
+    const processedStr = str.replace(/^<p>([\s\S]*?)<\/p>\n?$/, '$1').trim();
     
     // Try each pattern in order
     // Handle month/year to month/year format (e.g., 3/2020-2/2021)
@@ -99,8 +61,8 @@ renderer.listitem = function(text) {
     }
 
     // For year-to-year pattern
-    if (datePatterns.yearToYear.test(str)) {
-        const [_, yearFrom, yearTo, content] = str.match(datePatterns.yearToYear);
+    if (datePatterns.yearToYear.test(processedStr)) {
+        const [_, yearFrom, yearTo, content] = processedStr.match(datePatterns.yearToYear);
         const formattedContent = content.replace(/\*\*(.*?)\*\*/g, '<span style="font-weight: bold;">$1</span>');
         return `<li>
             <span class="cv-year">${yearFrom}-${yearTo}</span>
@@ -148,8 +110,8 @@ renderer.listitem = function(text) {
         </li>`;
     }
 
-    if (datePatterns.yearToDate.test(str)) {
-        const [_, year, content] = str.match(datePatterns.yearToDate);
+    if (datePatterns.yearToDate.test(processedStr)) {
+        const [_, year, content] = processedStr.match(datePatterns.yearToDate);
         const formattedContent = content.replace(/\*\*(.*?)\*\*/g, '<span style="font-weight: bold;">$1</span>');
         return `<li>
             <span class="cv-year">${year}-Date</span>
@@ -157,8 +119,8 @@ renderer.listitem = function(text) {
         </li>`;
     }
     
-    if (datePatterns.singleYear.test(str)) {
-        const [_, year, content] = str.match(datePatterns.singleYear);
+    if (datePatterns.singleYear.test(processedStr)) {
+        const [_, year, content] = processedStr.match(datePatterns.singleYear);
         const formattedContent = content.replace(/\*\*(.*?)\*\*/g, '<span style="font-weight: bold;">$1</span>');
         return `<li>
             <span class="cv-year">${year}</span>
@@ -166,8 +128,8 @@ renderer.listitem = function(text) {
         </li>`;
     }
 
-    if (datePatterns.skillsStr.test(str)) {
-        const [_, skillcat, skills] = str.match(datePatterns.skillsStr);
+    if (datePatterns.skillsStr.test(processedStr)) {
+        const [_, skillcat, skills] = processedStr.match(datePatterns.skillsStr);
         const formattedSkill = skills.replace(/LATEX/g, '<span style="font-weight: 500;">\\(\\mathsf{\\LaTeX}\\)</span>')
         return `<li>
             <span class="cv-year">${skillcat}</span>
@@ -187,26 +149,24 @@ renderer.listitem = function(text) {
     }
     
     // If none of the above, return the string as is
-    return `<li class="cv-role-content">${str}</li>`;
+    return `<li class="cv-role-content">${processedStr}</li>`;
 };
 
-renderer.heading = function (text) {
-    if (!text.text) {
-        console.error('Renderer.heading received undefined value.');
+// marked v9+: heading receives (text, level, raw) where text is rendered inline HTML
+renderer.heading = function (text, level, raw) {
+    if (!text) {
         return '';
     }
-    const cleanText = text.text.toString();
+    const cleanText = text;
 
-    // Date patterns for headers
+    // Date patterns for depth-4 sub-headings
     const headerDatePatterns = {
         monthYearToDate: /^(\d{1,2})\/(\d{4})-Date\s+(.+)$/,
-        shortMonthRange: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s+(.+)$/,     // 6-8/2023 Research Assistant
-        monthYearRange: /^(\d{1,2})\/(\d{4})-(\d{1,2})\/(\d{4})\s+(.+)$/, // 9/2018-3/2021 Research Assistant
+        shortMonthRange: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s+(.+)$/,
+        monthYearRange:  /^(\d{1,2})\/(\d{4})-(\d{1,2})\/(\d{4})\s+(.+)$/,
     };
 
-    // For depth 4 headers (####), check for date patterns
-    if (text.depth === 4) {
-        // Try short month range (6-8/2023)
+    if (level === 4) {
         let match = cleanText.match(headerDatePatterns.shortMonthRange);
         if (match) {
             const [_, startMonth, endMonth, year, role] = match;
@@ -216,7 +176,6 @@ renderer.heading = function (text) {
             </h4>`;
         }
 
-        // Try month/year range (9/2018-3/2021)
         match = cleanText.match(headerDatePatterns.monthYearRange);
         if (match) {
             const [_, startMonth, startYear, endMonth, endYear, role] = match;
@@ -226,7 +185,6 @@ renderer.heading = function (text) {
             </h4>`;
         }
 
-        // Try month/year range (9/2018-3/2021)
         match = cleanText.match(headerDatePatterns.monthYearToDate);
         if (match) {
             const [_, month, year, role] = match;
@@ -236,22 +194,14 @@ renderer.heading = function (text) {
             </h4>`;
         }
 
-        // If no date pattern matches, return as regular header
         return `<h4 class="subsubsection-heading">${cleanText}</h4>`;
     }
 
-
-    switch (text.depth) {
-        case 1:
-            return `<h1 class="cv-title">${cleanText}</h1>`;
-        case 2:
-            return `<h2 class="section-heading">${cleanText}</h2>`;
-        case 3:
-            return `<h3 class="subsection-heading">${cleanText}</h3>`;
-        case 4:
-            return `<h4 class="subsubsection-heading">${cleanText}</h4>`;
-        default:
-            return `<h${text.depth}>${cleanText}</h${text.depth}>`;
+    switch (level) {
+        case 1:  return `<h1 class="cv-title">${cleanText}</h1>`;
+        case 2:  return `<h2 class="section-heading">${cleanText}</h2>`;
+        case 3:  return `<h3 class="subsection-heading">${cleanText}</h3>`;
+        default: return `<h${level}>${cleanText}</h${level}>`;
     }
 };
 
