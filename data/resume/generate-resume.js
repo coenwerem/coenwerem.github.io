@@ -27,7 +27,8 @@ renderer.strong = function (text) {
 };
 
 renderer.listitem = function (text) {
-    const str = text;  // text is the rendered inner HTML string in marked v9+
+    // marked v9+ wraps loose-list items in <p>…</p>; strip the wrapper
+    const str = text.replace(/^<p>([\s\S]*)<\/p>\s*$/, '$1');
 
     const patterns = {
         monthYearToMonthYear: /^(\d{1,2})\/(\d{4})-(\d{1,2})\/(\d{4})\s*(.*)/,

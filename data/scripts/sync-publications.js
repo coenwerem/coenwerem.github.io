@@ -43,6 +43,9 @@ function htmlToMd(html) {
   // Keep ordinal superscript text ("th", "rd", etc.) but drop the tag
   s = s.replace(/<sup>([\s\S]*?)<\/sup>/gi, '$1');
 
+  // Convert <a href="...">text</a> to Markdown [text](url)
+  s = s.replace(/<a\b[^>]*href=["']([^"']*)["'][^>]*>([\s\S]*?)<\/a>/gi, '[$2]($1)');
+
   // Strip all remaining HTML tags
   s = s.replace(/<[^>]+>/g, '');
 
@@ -129,20 +132,57 @@ function extractEntries(html) {
 }
 
 // ---------------------------------------------------------------------------
-// Render a sorted list of entries as Markdown list items, newest first
+// Extract <!-- cv-only --> entries from the existing CV.md publications block
+// so they survive the sync (these are entries not sourced from research.html).
 // ---------------------------------------------------------------------------
-function renderList(arr) {
-  if (!arr.length) return '';
-  // Sort descending by year (entries are usually already in that order but
-  // we make it explicit so new entries added at the bottom still sort right)
-  const sorted = [...arr].sort((a, b) => +b.year - +a.year);
-  return sorted.map(e => `- ${e.year} ${e.text}`).join('\n\n');
+function extractCvOnlyFromCvMd() {
+  const result = { preprints: [], confs: [], journals: [] };
+  let src;
+  try { src = fs.readFileSync(CV_MD, 'utf8'); } catch { return result; }
+
+  const start = src.indexOf('### Selected Publications');
+  if (start === -1) return result;
+
+  const after = src.indexOf('\n### ', start + 1);
+  const block = after !== -1 ? src.slice(start, after) : src.slice(start);
+
+  let section = '';
+  const lines = block.split('\n');
+
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].includes('Preprints/Articles In Review'))    section = 'preprints';
+    else if (lines[i].includes('In Conference Proceedings'))  section = 'confs';
+    else if (lines[i].includes('Journal Articles'))           section = 'journals';
+    else if (lines[i].includes('<!-- cv-only -->') && section) {
+      const clean = lines[i].replace(/\s*<!-- cv-only -->\s*/, '').trim();
+      if (clean) result[section].push(clean);
+    }
+  }
+  return result;
+}
+
+// ---------------------------------------------------------------------------
+// Render a sorted list of entries as Markdown list items, newest first.
+// Optionally merges in cv-only entries (preserved across syncs).
+// ---------------------------------------------------------------------------
+function renderList(arr, cvOnlyEntries) {
+  const htmlItems = [...arr].sort((a, b) => +b.year - +a.year)
+    .map(e => ({ year: +e.year, text: `- ${e.year} ${e.text}` }));
+
+  const cvItems = (cvOnlyEntries || []).map(text => {
+    const m = text.match(/^- (\d{4})/);
+    return { year: m ? +m[1] : 0, text: `${text} <!-- cv-only -->` };
+  });
+
+  const all = [...htmlItems, ...cvItems].sort((a, b) => b.year - a.year);
+  if (!all.length) return '';
+  return all.map(e => e.text).join('\n\n');
 }
 
 // ---------------------------------------------------------------------------
 // Build the complete ### Selected Publications block
 // ---------------------------------------------------------------------------
-function renderPubBlock(entries) {
+function renderPubBlock(entries, cvOnly) {
   const preprints = [];
   const confs     = [];
   const journals  = [];
@@ -163,15 +203,15 @@ function renderPubBlock(entries) {
     '',
     '#### Preprints/Articles In Review',
     '',
-    renderList(preprints),
+    renderList(preprints, cvOnly.preprints),
     '',
     '#### In Conference Proceedings',
     '',
-    renderList(confs),
+    renderList(confs, cvOnly.confs),
     '',
     '#### Journal Articles',
     '',
-    renderList(journals),
+    renderList(journals, cvOnly.journals),
     '',
   ];
 
@@ -210,7 +250,8 @@ function updateCvMd(newBlock) {
 try {
   const html    = fs.readFileSync(HTML, 'utf8');
   const entries = extractEntries(html);
-  const block   = renderPubBlock(entries);
+  const cvOnly  = extractCvOnlyFromCvMd();
+  const block   = renderPubBlock(entries, cvOnly);
   updateCvMd(block);
 } catch (err) {
   console.error('sync-publications error:', err.message);

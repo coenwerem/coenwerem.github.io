@@ -609,22 +609,49 @@ margin-top: auto;
   margin-bottom: 2rem;
 }
 
-.section-heading {
-  font-size: 1.5rem;
+/* Header-specific title: tighter spacing before contact-info */
+.cv-header-title {
+  font-size: 2rem;
   color: var(--theme-primary);
-  margin-top: 2rem;
-  margin-bottom: .8rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.cv-header-title .cv-header-name {
+  font-weight: 700;
+}
+
+.cv-header-title .cv-header-sep {
+  margin: 0 0.5rem;
+  color: var(--text-color);
+  opacity: 0.4;
+}
+
+.contact-info {
+  margin-bottom: 1.5rem;
+}
+
+.section-heading {
+  font-size: 1.3rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: var(--theme-primary);
+  margin-top: 1.8rem;
+  margin-bottom: .6rem;
   border-bottom: 2px solid var(--theme-primary);
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.2rem;
 }
 
 .subsection-heading {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
   color: var(--theme-primary);
-  margin-top: 1.5rem;
-  margin-bottom: .8rem;
+  margin-top: 1.2rem;
+  margin-bottom: .5rem;
   border-bottom: 2px solid var(--theme-primary);
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.2rem;
 }
 
 .subsubsection-heading {
@@ -681,7 +708,10 @@ margin-top: auto;
 
 .contact-info a {
   font-size: 0.9rem;
+}
 
+.contact-icons a {
+  white-space: nowrap;
 }
 
 .cv-content li {
@@ -694,6 +724,12 @@ margin-top: auto;
 
 .cv-content li.cv-role-content {
   display: block;
+}
+
+.cv-content li.cv-role-content::before {
+  content: "\2022";
+  margin-right: 0.4rem;
+  color: var(--text-color);
 }
 
 .cv-year {
@@ -758,6 +794,10 @@ margin-top: auto;
   }
   
   .cv-title {
+      font-size: 1.75rem;
+  }
+
+  .cv-header-title {
       font-size: 1.75rem;
   }
 
@@ -855,6 +895,10 @@ margin-top: auto;
       font-size: 1.5rem;
   }
 
+  .cv-header-title {
+      font-size: 1.5rem;
+  }
+
   .contact-info p {
     font-size: 0.65rem;
     margin: 0;
@@ -921,6 +965,7 @@ margin-top: auto;
 }
 
 .dark-mode .cv-title,
+.dark-mode .cv-header-title,
 .dark-mode .section-heading,
 .dark-mode .subsection-heading {
   color: var(--theme-primary);
@@ -2254,7 +2299,8 @@ font-size: 12px;
   .section-heading,
   .subsection-heading,
   .subsubsection-heading,
-  .cv-title {
+  .cv-title,
+  .cv-header-title {
     color: #000000 !important;
     border-color: #888888 !important;
   }
