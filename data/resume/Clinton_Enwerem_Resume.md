@@ -55,11 +55,11 @@ Doctoral candidate in Electrical & Computer Engineering at the University of Mar
 
 #### 9/2025-12/2025 Graduate Teaching Assistant
 
-- ENEE467: Robotics Project Laboratory (Prof. Calin Belta). Mentored 50+ students in kinematics, 3D perception, motion planning, and ROS 2 control. Built reproducible Docker-based labs.
+- ENEE467 — Robotics Project Laboratory (Prof. Calin Belta). Mentored 50+ students in kinematics, 3D perception, motion planning, and ROS 2 control. Built reproducible Docker-based labs.
 
 #### 2/2025-5/2025 Graduate Teaching Fellow
 
-- ENEE661: Nonlinear Control Systems (Prof. John S. Baras). Led problem-solving sessions on Lyapunov stability, input-to-state stability, and nonlinear analysis.
+- ENEE661 — Nonlinear Control Systems (Prof. John S. Baras). Led problem-solving sessions on Lyapunov stability, input-to-state stability, and nonlinear analysis.
 
 ## Projects
 

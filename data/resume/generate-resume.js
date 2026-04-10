@@ -35,7 +35,7 @@ renderer.listitem = function (text) {
         shortMonthRange:      /^(\d{1,2})-(\d{1,2})\/(\d{4})\s+(.+)$/,
         yearToYear:           /^(\d{4})-(\d{4})(.*)/,
         seasonYear:           /^(Fall|Spring|Summer)\s*(\d{4}):/,
-        skillsStr:            /^([A-Za-z0-9\s/()]+):\s*(.*)/,
+        skillsStr:            /^([A-Za-z0-9\s/()&;]+):\s*(.*)/,
         yearToDate:           /^(\d{4})-Date(.*)/,
         singleYear:           /^(\d{4})(.*)/,
     };
