@@ -93,25 +93,25 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 #### 9/2025-12/2025 Graduate Teaching Assistant
 
-- ENEE467: Robotics Project Laboratory (with Prof. Calin Belta).
+- ENEE467 — Robotics Project Laboratory (with Prof. Calin Belta).
 - Mentored 50+ undergraduate students in kinematics, 3D perception, motion planning, and ROS 2 control.
 - Built reproducible Docker-based labs and testing pipelines.
 - Led weekly lab sessions and provided technical feedback on documentation and debugging.
 
 #### 2/2025-5/2025 Graduate Teaching Fellow
 
-- ENEE661: Nonlinear Control Systems (with Prof. John S. Baras).
+- ENEE661 — Nonlinear Control Systems (with Prof. John S. Baras).
 - Led problem-solving sessions and discussions on nonlinear analysis and control, covering phase-plane and bifurcation analysis, and stability concepts including Lyapunov, input-to-state, L2, and L-infinity stability.
 
 ### Technical Skills
 
 - Robotics: ROS 2, MuJoCo, GraspIt!.
 - RL: OpenAI Gym, Safety Gymnasium.
-- Robots: UR3e, xArm7, LEAP Hand, RealHand L6.
+- Robots \& EoATs: UR3e, xArm7, LEAP Hand, RealHand L6.
 - Tools: Git, GitHub, GitLab, Docker.
 - Programming: Python, C++, MATLAB, Bash.
 - Optimization: CVXPY, Gurobi, Mosek, Pyomo.
-- Perception and ML: PyTorch, OpenCV, TensorFlow.
+- Perception \& ML: PyTorch, OpenCV, TensorFlow.
 
 ### Honors & Awards
 
