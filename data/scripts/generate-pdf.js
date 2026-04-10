@@ -35,6 +35,10 @@ async function generatePdf(browser, sourceHtml, outputPdf) {
 
     const page = await browser.newPage();
 
+    // Set a desktop-width viewport so responsive breakpoints
+    // (which shrink fonts to 0.8rem) do not activate.
+    await page.setViewport({ width: 1200, height: 800 });
+
     // Force light mode so the PDF always uses the light-mode palette.
     await page.emulateMediaFeatures([
         { name: 'prefers-color-scheme', value: 'light' },
@@ -53,7 +57,7 @@ async function generatePdf(browser, sourceHtml, outputPdf) {
         path: outputPdf,
         format: 'A4',
         printBackground: false,   // @media print already zeroes backgrounds
-        margin: { top: '20mm', right: '30mm', bottom: '20mm', left: '30mm' },
+        margin: { top: '19mm', right: '29mm', bottom: '18mm', left: '29mm' },
         displayHeaderFooter: false,
         preferCSSPageSize: false,
         scale: 1,

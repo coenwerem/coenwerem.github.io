@@ -11,7 +11,7 @@ Doctoral candidate in Electrical & Computer Engineering at the University of Mar
 
 - Robotics: ROS 2, MuJoCo, GraspIt!, Isaac Sim
 - RL/ML: PyTorch, OpenAI Gym, Safety Gymnasium, TensorFlow, OpenCV
-- Robots: UR3e, xArm7, LEAP Hand, RealHand L6
+- Robots/EoATs: UR3e, xArm7, LEAP Hand, RealHand L6
 - Programming: Python, C++, MATLAB, Bash
 - Optimization: CVXPY, Gurobi, Mosek
 - Tools: Git, GitHub, Docker, LaTeX
