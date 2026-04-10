@@ -2328,9 +2328,30 @@ font-size: 12px;
   }
 
   /* Comfortable print font sizes */
-  body, p, li, td, th {
-    font-size: 11pt !important;
+  body, p, li, td, th,
+  .cv-content li,
+  .cv-content p,
+  .cv-content a,
+  .cv-content .cv-role-content,
+  .cv-entry,
+  .cv-year,
+  .cv-year-season,
+  .cv-entry-season,
+  .cv-role,
+  .subsubsection-heading .cv-year,
+  .subsubsection-heading .cv-role,
+  .contact-info p,
+  .contact-info a {
+    font-size: 12pt !important;
     line-height: 1.4 !important;
+  }
+
+  .section-heading {
+    font-size: 16pt !important;
+  }
+
+  .subsection-heading {
+    font-size: 13pt !important;
   }
 
   /* Remove Bootstrap container width cap and padding for print */

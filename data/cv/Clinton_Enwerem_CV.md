@@ -107,11 +107,11 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 - Robotics: ROS 2, MuJoCo, GraspIt!.
 - RL: OpenAI Gym, Safety Gymnasium.
-- Robots \& EoATs: UR3e, xArm7, LEAP Hand, RealHand L6.
+- Robots/EoATs: UR3e, xArm7, LEAP Hand, RealHand L6.
 - Tools: Git, GitHub, GitLab, Docker.
 - Programming: Python, C++, MATLAB, Bash.
 - Optimization: CVXPY, Gurobi, Mosek, Pyomo.
-- Perception \& ML: PyTorch, OpenCV, TensorFlow.
+- Perception/ML: PyTorch, OpenCV, TensorFlow.
 
 ### Honors & Awards
 
