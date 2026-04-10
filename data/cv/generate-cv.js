@@ -30,7 +30,7 @@ renderer.listitem = function(text) {
         yearRangeMonthTwo: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s*(.*)/,         // 6-8/2023 Content
         yearToYear: /^(\d{4})-(\d{4})(.*)/,
         monthYearToDate: /^(\d{1,2})\/(\d{4})-Date(.*)/,
-        seasonYear: /^(Fall|Spring|Summer)\s*(\d{4}):/,
+        seasonYear: /^(Fall|Spring|Summer|Winter)\s*(\d{4}):/,
         skillsStr: /^([A-Za-z0-9\s]+):\s*(.*)/,
         monthRangeYear: /^(\d{1,2})-(\d{1,2})\/(\d{4})\s+([^\n]+)(?:\n(.*))?/,
         monthYearToMonthYear: /^(\d{1,2})\/(\d{4})-(\d{1,2})\/(\d{4})\s*(.*)/,
@@ -74,7 +74,7 @@ renderer.listitem = function(text) {
     if (datePatterns.seasonYear.test(processedStr)) {
         const [_, season, year] = processedStr.match(datePatterns.seasonYear);
         return `<li>
-            <span class="cv-year-season">${season} ${year.replace(/^[ ]+|[ ]+$/g,'')}</span><span class="cv-entry-season">${processedStr.replace(/^(Fall|Spring|Summer)\s*\d{4}/, '').replace(/^[ ]+|[ ]+$/g,'').replace(':','')}</span>
+            <span class="cv-year-season">${season} ${year.replace(/^[ ]+|[ ]+$/g,'')}</span><span class="cv-entry-season">${processedStr.replace(/^(Fall|Spring|Summer|Winter)\s*\d{4}/, '').replace(/^[ ]+|[ ]+$/g,'').replace(':','')}</span>
         </li>`;
     }
 

@@ -1,18 +1,22 @@
 ### Research Interests
 
-Systems & Control, Dexterous Robotic Manipulation, Motion Planning.
+Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertainty Estimation.
 
 ### Education
 
-- 2021-Date **PhD, Electrical & Computer Engineering**, University of Maryland, College Park, MD, USA.  Advisors: Professor John S. Baras and Professor Calin Belta.
+- 2021-Date **PhD, Electrical & Computer Engineering**, University of Maryland, College Park, MD, USA. Advisors: Professor John S. Baras and Professor Calin Belta. Relevant Coursework: Decision-Making for Robotics, Network Control Systems, Decision Making Under Uncertainty, Random Processes, Advanced Digital Signal Processing, Nonlinear Control Systems, Optimal Control, System Theory, Convex Optimization, Formal Methods for Control & Dynamical Systems, Multimodal Foundational Models.
 
-- 2014-2018 **B.Eng., Electrical Engineering**, University of Nigeria, Nsukka, Enugu, Nigeria. GPA: 3.84/4 (First-Class Honors). Emphasis: Control Theory.
+- 2014-2018 **B.Eng., Electrical Engineering**, University of Nigeria, Nsukka, Enugu, Nigeria. Graduated with Highest Honors. Emphasis: Control Theory. Completed coursework in engineering numerical analysis, control systems, electrical machines and drives, computer architecture, electronics, and communication systems.
 
 ### Selected Publications
 
 #### Preprints/Articles In Review
 
-- 2026 **Clinton Enwerem**, John S. Baras, and Calin Belta, “Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty,” arXiv preprint, 2026.
+- 2026 **Clinton Enwerem**, John S. Baras, and Calin Belta, “Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty,” arXiv preprint, 2026. [arXiv link](https://arxiv.org/abs/2604.03868)
+
+- 2026 **Clinton Enwerem** et al. To be announced, Submitted March 2026. <!-- cv-only -->
+
+- 2026 **Clinton Enwerem** et al. To be announced, Submitted February 2026. <!-- cv-only -->
 
 - 2023 **Clinton Enwerem**, John S. Baras, and Danilo Romero, "Distributed Optimal Formation Control for an Uncertain Multiagent System in the Plane," arXiv:2301.05841 [cs, eess], Jan. 2023.
 
@@ -36,41 +40,83 @@ Systems & Control, Dexterous Robotic Manipulation, Motion Planning.
 
 #### 8/2021-Date Graduate Research Assistant
 
-- Research Foci: Safety-Critical Control, Robust Motion Planning, Risk-Sensitive Reinforcement Learning.
+- Collaborate with PI, postdoctoral scholars, and graduate researchers to design novel robust grasping and manipulation algorithms for robotic arms equipped with anthropomorphic hands.
+- Implement ROS 2-compliant software in Python and C++ for proposed grasp planning and control methods.
+- Validate algorithms through large-scale simulation using high-fidelity simulators (MuJoCo, Isaac Sim) and RL sandboxes (OpenAI Gym, Safety Gymnasium).
+- Author conference and journal papers, technical reports, and presentations to communicate research results.
 
 #### Electrical Engineering Department, University of Nigeria, Enugu, Nigeria
 
 #### 9/2018-3/2021 Research Assistant
 
-- Research Topics: Robust Control, Observer-Based Compensator Design, Feedback Linearization.
+- Developed open-source software implementing Active Disturbance Rejection Control (ADRC) for robust motor control.
+- Co-authored and published a journal paper reporting experimental and theoretical findings.
 
 #### 8-10/2017 Undergraduate Research Assistant
 
-- Research Topics: Feedback Control, Time-Delayed Systems, System Identification.
+- Designed a feedback control algorithm for first-order-plus-dead-time processes; implementation and accompanying paper available online.
 
 ### Professional Experience
 
 #### Institute for Systems Research, College Park, MD
 
-#### 6-8/2023 Research Assistant
+#### 6-8/2023 Summer Research Assistant
 
-- Formulated a multi-agent safety-critical control problem as a chance-constrained and dynamic mathematical program, wrote software to validate approach, and prepared a research paper to summarize results. Supervisor: Professor John S. Baras.
+- Formulated a multi-agent safety-critical control problem as a chance-constrained mathematical program. Supervisor: Professor John S. Baras.
+- Proposed a novel solution based on Boolean-composed control barrier certificates.
+- Wrote software to validate approach, and prepared a research paper to summarize results.
 
-#### ISR & University System of Maryland at Southern Maryland, California, MD
+#### [MATRIX Lab](https://matrix.umd.edu), USM at Southern Maryland, California, MD
 
 #### 6-8/2022 Research Intern
 
-- Worked in collaboration with the [MATRIX Lab](https://matrix.umd.edu) on problems encompassing multiagent cooperative control, formation control, and target tracking under sensor uncertainty. Supervisor: Dr. Danilo Romero.
+- Conducted system identification experiments to validate a quadrotor model. Supervisor: Dr. Danilo Romero.
+- Developed a Lagrangian-based optimal swarm control algorithm for coordinating 10 Crazyflie quadrotors tasked with formation tracking under localization uncertainty.
+- Wrote ROS-compliant and performant software (Python) implementing the control algorithm, and prepared a research paper and a technical report to summarize research findings.
+
+#### Kognitive Robotics, Lagos, Nigeria
+
+#### 3/2020-2/2021 Robotics Engineer
+
+- Engineered the complete power and sensor-actuator interface circuitry for a mobile robot from scratch, using Altium for schematic capture and PCB design.
+- Supported robot hardware and ROS(1)-compliant software realization efforts for the company's MVP.
 
 #### Robotics & Artificial Intelligence Nigeria (RAIN), Ibadan, Nigeria
+
 #### 3/2020-2/2021 Robotics Trainee
 
-- Saw varied robotics and IoT projects through hardware and software development stages comprising computer-aided design, prototyping, firmware development, and product testing.
+- Contributed to robotics and IoT projects across hardware and software stacks, encompassing computer-aided design, rapid prototyping, sensor fusion, control firmware development, and product testing.
+
+### Teaching Experience
+
+#### ECE Department, University of Maryland
+
+#### 9/2025-12/2025 Graduate Teaching Assistant
+
+- ENEE467: Robotics Project Laboratory (with Prof. Calin Belta).
+- Mentored 50+ undergraduate students in kinematics, 3D perception, motion planning, and ROS 2 control.
+- Built reproducible Docker-based labs and testing pipelines.
+- Led weekly lab sessions and provided technical feedback on documentation and debugging.
+
+#### 2/2025-5/2025 Graduate Teaching Fellow
+
+- ENEE661: Nonlinear Control Systems (with Prof. John S. Baras).
+- Led problem-solving sessions and discussions on nonlinear analysis and control, covering phase-plane and bifurcation analysis, and stability concepts including Lyapunov, input-to-state, L2, and L-infinity stability.
+
+### Technical Skills
+
+- Robotics: ROS 2, MuJoCo, GraspIt!.
+- RL: OpenAI Gym, Safety Gymnasium.
+- Robots: UR3e, xArm7, LEAP Hand, RealHand L6.
+- Tools: Git, GitHub, GitLab, Docker.
+- Programming: Python, C++, MATLAB, Bash.
+- Optimization: CVXPY, Gurobi, Mosek, Pyomo.
+- Perception and ML: PyTorch, OpenCV, TensorFlow.
 
 ### Honors & Awards
 
 - 2024 IEEE CSS Student Travel and Workshop Support: Conference travel award to attend CDC'24.
-- 2022 2022-2023 Microsoft Diversity in Robotics & Autonomy PhD Fellowship.
+- 2022 Microsoft Diversity in Robotics & Autonomy PhD Fellowship (2022-2023), MRC & Microsoft.
 - 2022 ROSCon Diversity Scholarship: Travel grant to attend ROSCon 2022 in Kyoto, Japan.
 - 2021 Finalist, Engineers' League, Pan-African Robotics Competition, Rwanda.
 - 2021 CIT Dean's Fellowship, Carnegie Mellon University, Africa Campus, Kigali, Rwanda.
@@ -81,44 +127,25 @@ Systems & Control, Dexterous Robotic Manipulation, Motion Planning.
 - 2016-2018 Agbami Science & Technology Scholarship, Chevron: Merit-based undergraduate scholarship.
 - 2015-2018 MTN Foundation Scholarship: Nationwide merit-based undergraduate scholarship.
 
-### Technical Skills
+### Professional Training & Development
 
-- Robotics Tools: ROS(2), Gazebo/Ignition, RViz2, Isaac Sim. 
-- Statistics: JAGS.
-- Robots: Crazyflie 2.X, Turtlebot2, UR5. 
-- Optimization: Gurobi, Pyomo, Mosek.
-- Programming: Python, Matlab, C++, Bash, LATEX, Tk, R. 
-- Web: HTML, CSS, JS, Markdown.
-- Frameworks: Jupyter, TensorFlow, OpenCV, PyTorch. 
-- RL Sandboxes: Safety Gymnasium, OpenAI Gym.
-- Engineering: MCUs, Prototyping, CAD, Simulink. 
-- Version Control: git, GitHub, GitLab.
+#### 1/2020-2/2021 Certificate in Robot Development & Automation, RAIN
 
-### Talks
-
-- 2025 "Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Value Iteration and Quantile Regression." To be delivered at the 64th Conference on Decision & Control.
-
-- 2024 "Robust Stochastic Shortest-Path Planning via Risk-Sensitive Incremental Sampling." Delivered at the 63rd Conference on Decision & Control, Milan, Italy.
-
-- 2023 "Consensus-Based Leader-Follower Formation Tracking for Control-Affine Nonlinear Multiagent Systems." Delivered at the 9th International Conference on Control, Decision, and Information Technologies.
-
-### Relevant Courses
-
-#### Doctoral
-
-- Fall 2023: Decision-Making for Robotics.
-- Spring 2023: Network Control Systems, Decision Making Under Uncertainty: RL, Control, & Games.
-- Fall 2022: Random Processes in Communication & Control, Advanced Digital Signal Processing.
-- Spring 2022: Nonlinear Control Systems, Optimal Control.
-- Fall 2021: System Theory, Convex Optimization.
+- Completed graduate-level coursework and projects in robotics, control theory, ML, and IoT.
 
 #### Open Courseware
 
-- Summer 2023: Bayesian Statistics by the University of California San Diego (with honors).
-- Summer 2022: Autonomous Navigation for Flying Robots by the Technical University of Munich.
-- Spring 2022: Principles of Robot Autonomy I & II by Stanford University.
+- Fall 2025: Robot Learning (USC).
+- Summer 2025: Planning & Learning in Robotics (UCSD), Principles of Robot Autonomy I & II (Stanford).
+- Summer 2023: Bayesian Statistics (UCSD, Coursera).
+- Summer 2022: Autonomous Navigation for Flying Robots (TUM, edX).
 
-### Academic Service
+### Professional Service, Outreach, & Mentoring
 
-- 2023-2025 Peer Reviewer: Heliyon, MED'23, ECC'24, ACC'25, L4DC'25.
+- 2023-2026 Peer Reviewer: Heliyon, MED'23, ECC'24, ACC'25, L4DC'25, CDC'25, CDC'26.
+- 2021-Date Member, Black in Robotics (BiR): U.S.-based organization promoting Black representation in robotics.
+- 2021-2022 Mentor, EducationUSA & iScholar Initiative: Guided STEM graduates from underrepresented backgrounds to secure fully-funded graduate admissions at Stanford, Purdue, and Penn State.
 
+### Miscellany
+
+- Languages: English (Fluent; TOEFL iBT: 110/120), Japanese (Conversational).
