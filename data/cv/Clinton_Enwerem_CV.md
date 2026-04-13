@@ -4,9 +4,9 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 ### Education
 
-- 2021-Date **PhD, Electrical & Computer Engineering**, University of Maryland, College Park, MD, USA. Advisors: Professor John S. Baras and Professor Calin Belta. Relevant Coursework: Decision-Making for Robotics, Network Control Systems, Decision Making Under Uncertainty, Random Processes, Advanced Digital Signal Processing, Nonlinear Control Systems, Optimal Control, System Theory, Convex Optimization, Formal Methods for Control & Dynamical Systems, Multimodal Foundational Models.
+- 2021-Date **PhD, Electrical & Computer Engineering**, University of Maryland, College Park, MD, USA. Advisors: Professor John S. Baras and Professor Calin Belta. Relevant Coursework: *Decision-Making for Robotics, Network Control Systems, Decision Making Under Uncertainty, Random Processes, Advanced Digital Signal Processing, Nonlinear Control Systems, Optimal Control, System Theory, Convex Optimization, Formal Methods for Control & Dynamical Systems, Multimodal Foundational Models.*
 
-- 2014-2018 **B.Eng., Electrical Engineering**, University of Nigeria, Nsukka, Enugu, Nigeria. Graduated with Highest Honors. Emphasis: Control Theory. Completed coursework in engineering numerical analysis, control systems, electrical machines and drives, computer architecture, electronics, and communication systems.
+- 2014-2018 **B.Eng., Electrical Engineering**, University of Nigeria, Nsukka, Enugu, Nigeria. Graduated with Highest Honors. Emphasis: Control Theory. *Completed coursework in engineering numerical analysis, control systems, electrical machines and drives, computer architecture, electronics, and communication systems.*
 
 ### Selected Publications
 
@@ -94,8 +94,8 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 #### 9/2025-12/2025 Graduate Teaching Assistant
 
 - ENEE467 — Robotics Project Laboratory (with Prof. Calin Belta).
-- Mentored 50+ undergraduate students in kinematics, 3D perception, motion planning, and ROS 2 control.
-- Built reproducible Docker-based labs and testing pipelines.
+- Mentored 50+ undergraduate students in  kinematics, 3D perception, motion planning, and control.
+- Built reproducible Docker-based labs and testing pipelines spannig topics in manipulator kinematics, 3D perception, motion planning, robot control, and autonomous manipulation.
 - Led weekly lab sessions and provided technical feedback on documentation and debugging.
 
 #### 2/2025-5/2025 Graduate Teaching Fellow
@@ -107,10 +107,10 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 - Robotics: ROS 2, MuJoCo, GraspIt!.
 - RL: OpenAI Gym, Safety Gymnasium.
-- Robots/EoATs: UR3e, xArm7, LEAP Hand, RealHand L6.
-- Tools: Git, GitHub, GitLab, Docker.
-- Programming: Python, C++, MATLAB, Bash.
-- Optimization: CVXPY, Gurobi, Mosek, Pyomo.
+- Robots/EoATs: UR3e/UR5, xArm7, LEAP Hand, RealHand L6, Robotiq Hand-E.
+- Tools: git, GitHub, GitLab, Docker.
+- Programming: Python, C++, Matlab, Bash.
+- Optimization: cvxpy, Gurobi, Mosek, Pyomo.
 - Perception/ML: PyTorch, OpenCV, TensorFlow.
 
 ### Honors & Awards
@@ -142,7 +142,7 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 ### Professional Service, Outreach, & Mentoring
 
-- 2023-2026 Peer Reviewer: Heliyon, MED'23, ECC'24, ACC'25, L4DC'25, CDC'25, CDC'26.
+- 2023-2026 Peer Reviewer: Heliyon, MED&rsquo;23, ECC&rsquo;24, ACC&rsquo;25, L4DC&rsquo;25, CDC&rsquo;25, CDC&rsquo;26, Elsevier (Robotics and Autonomous Systems).
 - 2021-Date Member, Black in Robotics (BiR): U.S.-based organization promoting Black representation in robotics.
 - 2021-2022 Mentor, EducationUSA & iScholar Initiative: Guided STEM graduates from underrepresented backgrounds to secure fully-funded graduate admissions at Stanford, Purdue, and Penn State.
 

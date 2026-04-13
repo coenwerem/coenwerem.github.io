@@ -594,9 +594,9 @@ margin-top: auto;
 .cv-content {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
   background-color: var(--bg-color);
   color: var(--text-color);
 }
@@ -677,9 +677,9 @@ margin-top: auto;
 }
 
 .cv-content-wrapper {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 .cv-content {

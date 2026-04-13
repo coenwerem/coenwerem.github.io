@@ -57,7 +57,7 @@ async function generatePdf(browser, sourceHtml, outputPdf) {
         path: outputPdf,
         format: 'A4',
         printBackground: false,   // @media print already zeroes backgrounds
-        margin: { top: '19mm', right: '29mm', bottom: '18mm', left: '29mm' },
+        margin: { top: '19mm', right: '29mm', bottom: '18mm', left: '30mm' },
         displayHeaderFooter: false,
         preferCSSPageSize: false,
         scale: 1,
