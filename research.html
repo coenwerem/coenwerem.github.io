@@ -53,22 +53,24 @@
                         <p class="headhr"></p>
                         <span class="project-section">overview & theory</span>
                         <p class="headhr-subh"></p>
-                        <p class="bd-text">
-                          I develop optimization-based <span class="keyword">motion planning</span> and <span class="keyword">control algorithms</span> for <span class="keyword">safe</span> and <span class="keyword">robust physical autonomy</span> in <span class="keyword">uncertain</span> (dynamic and partially-observed) environments. My research integrates <span class="keyword">stochastic optimization</span>, <span class="keyword">risk-sensitive distributional reinforcement learning</span> (DRL), and safety-critical control using methods such as <span class="keyword">quadratic optimization</span> and <span class="keyword">stochastic model predictive control</span> (MPC) to improve decision-making for embodied, intelligent, and self-governing (single or multi-robot) systems. As autonomous systems increasingly make their way into human environments, my research is also devoted (in part) to the design of <span class="keyword">uncertainty-aware decision-making algorithms</span> that not only <span class="keyword">guarantee satisfactory performance</span> on prescribed task metrics but also ensure <span class="keyword">robustness</span> and <span class="keyword">computational efficiency</span>.
-      
-                          To validate my theoretical and algorithmic ideas, I employ high-fidelity physics simulators (MuJoCo, Isaac Sim), RL sandboxes (OpenAI Gym and Safety Gymnasium), and real robotic systems (several serial-chain robotic manipulators fitted with anthropomorphic end-effectors), leveraging tools such as Pinocchio, TensorFlow, PyTorch, Mosek, osqp, and ROS 2.
-                        </p>
+                          <p class="bd-text">
+                          I develop optimization-based <span class="keyword">motion planning</span> and <span class="keyword">control algorithms</span> for <span class="keyword">safe</span> and <span class="keyword">robust physical autonomy</span> in <span class="keyword">uncertain</span>, dynamic, and partially observed environments. My work integrates <span class="keyword">stochastic optimization</span>, <span class="keyword">risk-sensitive distributional reinforcement learning</span> (DRL), and safety-critical control through methods such as <span class="keyword">quadratic optimization</span>, <span class="keyword">model predictive path integral control</span> (MPPI), and <span class="keyword">stochastic model predictive control</span> (MPC) to enable principled decision-making for embodied, intelligent, and autonomous (single- and multi-robot) systems. 
+
+                          I focus on <span class="keyword">uncertainty-aware decision-making</span> with explicit performance and safety objectives, designing algorithms that provide <span class="keyword">task-level performance guarantees</span> while maintaining <span class="keyword">robustness</span> and <span class="keyword">computational tractability</span> in real-world settings.
+
+                          I validate these methods in high-fidelity simulation (MuJoCo, Isaac Sim), reinforcement learning environments (OpenAI Gym, Safety Gymnasium), and on real robotic platforms, including serial-chain manipulators equipped with high-DoF anthropomorphic end-effectors.
+                          </p>
                         <!-- Applications -->
                         <span class="project-section">Applications</span>
                         <p class="headhr-subh"></p>
                         <p class="bd-text">
-                        Results from my research find application in:
+                          The risk-sensitive decision-theoretic foundations of my work have been instantiated through stochastic optimal control and sampling-based methods, including <span class="keyword">model predictive path integral control</span> (MPPI), across several application domains:
                           <ul class="resapp">
-                            <!-- <li>Robust navigation for mobile robots (ground and aerial) in structured or unstructured environments</li> -->
-                            <li>Dexterous manipulation using robotic manipulators fitted with high-DoF anthropomorphic grippers</li>
-                            <li>Distributed and decentralized coordination of multi-manipulation systems.</li>
-                            <li>Motion planning and control for ground robot navigation in constrained spaces.</li>
-                            <!-- <li>Safe and uncertainty-aware automated vehicle (AV) navigation in urban traffic.</li> -->
+                            <li><span style="font-weight:bold;">Multi-finger grasp generation</span> under variable object pose and uncertain friction
+                            <li><span style="font-weight:bold;">Collision-free dexterous manipulation</span> using robot arms fitted with anthropomorphic end-effectors</li>
+                            <li><span style="font-weight:bold;">Imitation learning</span> from uncertainty-aware expert trajectories in stochastic environments</li>
+                            <!-- <li><span style="font-weight:bold;">Decentralized coordination</span> of multi-manipulator systems</li> -->
+                            <li><span style="font-weight:bold;">Safe motion planning and control</span> for wheeled robot navigation in obstacle-rich environments</li>
                           </ul>
                         </p>
                         <!-- <heading>Research Videos</heading><br> -->
@@ -76,31 +78,38 @@
                           
                           <div class="col-md-3">
                             <div class="embed-responsive embed-responsive-1by1">
-                              <img class="embed-responsive-item" src="videos/grasp_trace.gif" alt="Hand IK Demo"
+                              <img class="embed-responsive-item" src="videos/grasp_trace.gif" alt="GraspIt Demo"
                               style="filter: brightness(1.1);">
                             </div>
-                            <p class="text-center mt-2">Grasp Planning</p>
+                            <p class="text-center mt-2 px-auto">Grasp Synthesis</p>
                           </div>
                           <div class="col-md-3">
                             <div class="embed-responsive embed-responsive-1by1">
-                              <img class="embed-responsive-item" src="videos/vargrasp_mustard.gif"
+                              <img class="embed-responsive-item" src="videos/cylinder_full.gif" alt="GraspIt Demo"
+                              style="filter: brightness(1.1);">
+                            </div>
+                            <p class="text-center mt-2 px-auto">Learned Policy Rollout</p>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="embed-responsive embed-responsive-1by1">
+                              <img class="embed-responsive-item" src="videos/safe_teleop_xarm_dimos_demo.gif"
                                 alt="Safety-Critical Control Demo" width="auto" height="auto">
                             </div>
-                            <p class="text-center mt-2">Dexterous Manipulation</p>
+                            <p class="text-center mt-2">Safe Manipulation</p>
                           </div>
+                          <!--
                           <div class="col-md-3">
                             <div class="embed-responsive embed-responsive-1by1">
                               <img class="embed-responsive-item" src="images/biman.png"
-                                alt="Multi-Quadrotor Control Demo" width="auto" height="auto"
+                                alt="Two-Arm Manipulation" width="auto" height="auto"
                                 style="filter: brightness(1);">
                             </div>
-                            <p class="text-center mt-2">Dual-Arm Manipulation</p>
+                            <p class="text-center mt-2">Dual-Arm Coordination</p>
                           </div>
+                          -->
                           <div class="col-md-3">
-<!--                             <a href="https://youtu.be/MexN4PLl7Qg" target="_blank" class="video-link"> -->
                               <div class="embed-responsive embed-responsive-1by1">
                                 <img class="embed-responsive-item" src="videos/safe-rl.gif" alt="Demonstration of Risk-Aware QR-DQN in action" style="filter: brightness(1);">
-<!--                                 <div class="overlay-text">Go To Video</div> -->
                               </div>
                             </a>
                             <p class="text-center mt-2">Robot Navigation</p>

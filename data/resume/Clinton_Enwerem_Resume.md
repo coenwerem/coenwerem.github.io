@@ -63,7 +63,7 @@ Doctoral candidate in Electrical & Computer Engineering at the University of Mar
 
 ## Projects
 
-- `simple_urdf_parser` — Compact URDF parsing toolkit for fast forward kinematics and model inspection. (Python) [GitHub](https://github.com/coenwerem/simple_urdf_parser)
+- `simple_urdf_parser` — Compact URDF parsing toolkit for fast manipulator kinematics and C-space sampling. (Python) [GitHub](https://github.com/coenwerem/simple_urdf_parser)
 - `Imitation Learning for Grasp Stabilization` — Trained neural policies (MLP and LSTM) via behavior cloning from expert demonstrations to stabilize grasps under perturbations using tactile and proprioceptive observations. (Python, PyTorch, MuJoCo)
 
 ## Honors & Awards
