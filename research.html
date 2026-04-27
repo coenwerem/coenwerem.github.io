@@ -54,23 +54,34 @@
                         <span class="project-section">overview & theory</span>
                         <p class="headhr-subh"></p>
                           <p class="bd-text">
-                          I develop optimization-based <span class="keyword">motion planning</span> and <span class="keyword">control algorithms</span> for <span class="keyword">safe</span> and <span class="keyword">robust physical autonomy</span> in <span class="keyword">uncertain</span>, dynamic, and partially observed environments. My work integrates <span class="keyword">stochastic optimization</span>, <span class="keyword">risk-sensitive distributional reinforcement learning</span> (DRL), and safety-critical control through methods such as <span class="keyword">quadratic optimization</span>, <span class="keyword">model predictive path integral control</span> (MPPI), and <span class="keyword">stochastic model predictive control</span> (MPC) to enable principled decision-making for embodied, intelligent, and autonomous (single- and multi-robot) systems. 
+                          I develop <span class="keyword">robot learning</span> methods for
+                          <span class="keyword">contact-rich dexterous manipulation</span> under
+                          <span class="keyword">uncertainty</span>. My work focuses on learned policies that use
+                          vision, proprioception, and tactile feedback to grasp, stow, and manipulate objects when
+                          object pose, friction, contact modes, and target geometry are only partially observed.
 
-                          I focus on <span class="keyword">uncertainty-aware decision-making</span> with explicit performance and safety objectives, designing algorithms that provide <span class="keyword">task-level performance guarantees</span> while maintaining <span class="keyword">robustness</span> and <span class="keyword">computational tractability</span> in real-world settings.
+                          I am especially interested in <span class="keyword">risk-aware policy execution</span>:
+                          rather than asking a robot to blindly execute a learned action sequence, I study how it can
+                          estimate contact uncertainty, detect when a policy is entering a likely failure mode, and
+                          trigger recovery, replanning, or information-gathering actions. This connects
+                          <span class="keyword">tactile-visual policy learning</span>,
+                          <span class="keyword">belief estimation</span>,
+                          <span class="keyword">distributional reinforcement learning</span>, and
+                          <span class="keyword">risk-sensitive control</span> for robust physical autonomy.
 
-                          I validate these methods in high-fidelity simulation (MuJoCo, Isaac Sim), reinforcement learning environments (OpenAI Gym, Safety Gymnasium), and on real robotic platforms, including serial-chain manipulators equipped with high-DoF anthropomorphic end-effectors.
+                          I validate these ideas in MuJoCo, Isaac Sim, reinforcement-learning environments, and on
+                          real robot platforms equipped with anthropomorphic or tactile-sensorized dexterous hands.
                           </p>
                         <!-- Applications -->
                         <span class="project-section">Applications</span>
                         <p class="headhr-subh"></p>
                         <p class="bd-text">
-                          Risk-sensitive planning and control undergird systems I have built for:
+                          I apply these ideas to robot learning systems for:
                           <ul class="resapp">
-                            <li><span style="font-weight:bold;">Robust multi-finger grasp generation</span> under variable object pose and uncertain friction
-                            <li><span style="font-weight:bold;">Collision-free dexterous manipulation</span> using robot arms fitted with anthropomorphic end-effectors</li>
-                            <li><span style="font-weight:bold;">Imitation learning</span> from uncertainty-aware expert trajectories in stochastic environments</li>
-                            <!-- <li><span style="font-weight:bold;">Decentralized coordination</span> of multi-manipulator systems</li> -->
-                            <li><span style="font-weight:bold;">Safe wheeled robot navigation</span> in obstacle-rich environments</li>
+                            <li><span style="font-weight:bold;">Tactile-visual dexterous grasping</span> under uncertain object pose, friction, and contact modes</li>
+                            <li><span style="font-weight:bold;">Risk-aware policy execution</span> for learned manipulation policies that must detect and recover from likely failures</li>
+                            <li><span style="font-weight:bold;">Learning from uncertainty-aware expert demonstrations</span> for contact-rich manipulation tasks</li>
+                            <li><span style="font-weight:bold;">Safe robot navigation and control</span> using distributional reinforcement learning and risk-sensitive planning</li>
                           </ul>
                         </p>
                         <!-- <heading>Research Videos</heading><br> -->
@@ -81,21 +92,21 @@
                               <img class="embed-responsive-item" src="videos/robust_grasp_mj.gif" alt="GraspIt Demo"
                               style="filter: brightness(1.1);">
                             </div>
-                            <p class="text-center mt-2 px-auto">Robust Grasp Synthesis</p>
+                            <p class="text-center mt-2 px-auto">Risk-Aware Dexterous Grasping</p>
                           </div>
                           <div class="col-md-3 mx-0 px-2">
                             <div class="embed-responsive embed-responsive-1by1">
                               <img class="embed-responsive-item" src="videos/cylinder_full.gif" alt="GraspIt Demo"
                               style="filter: brightness(1.1);">
                             </div>
-                            <p class="text-center mt-2 px-auto">Learned Policy Rollout</p>
+                            <p class="text-center mt-2 px-auto">Learned Manipulation Policy</p>
                           </div>
                           <div class="col-md-3 mx-0 px-2">
                             <div class="embed-responsive embed-responsive-1by1">
                               <img class="embed-responsive-item" src="videos/safe_teleop_xarm_dimos_demo.gif"
                                 alt="Safety-Critical Control Demo" width="auto" height="auto">
                             </div>
-                            <p class="text-center mt-2">Safe Manipulator Control</p>
+                            <p class="text-center mt-2">Safe Tactile-Visual Manipulation</p>
                           </div>
                           <!--
                           <div class="col-md-3 mx-0 px-2">
@@ -112,7 +123,7 @@
                                 <img class="embed-responsive-item" src="videos/safe-rl.gif" alt="Demonstration of Risk-Aware QR-DQN in action" style="filter: brightness(1);">
                               </div>
                             </a>
-                            <p class="text-center mt-2">Robot Navigation</p>
+                            <p class="text-center mt-2">Risk-Aware Robot Learning</p>
                           </div>
                         </div>
 
