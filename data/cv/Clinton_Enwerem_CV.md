@@ -12,6 +12,8 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 #### Preprints/Articles In Review
 
+- 2026 **Clinton Enwerem**, Shreya Kalyanaraman, John S. Baras, and Calin Belta, “Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty,” arXiv preprint, 2026. Extended preprint with additional experiments, analysis, and discussion. [arXiv link](https://arxiv.org/abs/2604.25897)
+
 - 2026 **Clinton Enwerem**, John S. Baras, and Calin Belta, “Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty,” arXiv preprint, 2026. [arXiv link](https://arxiv.org/abs/2604.03868)
 
 - 2026 **Clinton Enwerem** et al. To be announced, Submitted March 2026. <!-- cv-only -->
