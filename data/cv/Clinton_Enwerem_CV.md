@@ -16,10 +16,6 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 - 2026 **Clinton Enwerem**, John S. Baras, and Calin Belta, “Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty,” arXiv preprint, 2026. [arXiv link](https://arxiv.org/abs/2604.03868)
 
-- 2026 **Clinton Enwerem** et al. To be announced, Submitted March 2026. <!-- cv-only -->
-
-- 2026 **Clinton Enwerem** et al. To be announced, Submitted February 2026. <!-- cv-only -->
-
 - 2023 **Clinton Enwerem**, John S. Baras, and Danilo Romero, "Distributed Optimal Formation Control for an Uncertain Multiagent System in the Plane," arXiv:2301.05841 [cs, eess], Jan. 2023.
 
 #### In Conference Proceedings
