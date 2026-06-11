@@ -2324,15 +2324,15 @@ font-size: 12px;
 
 .dark-mode {
     /* PhyDex theme — dark mode (zinc-neutral palette) */
-    --bg-primary: #18181b;
-    --bg-secondary: #1e1e22;
-    --bg-card: #242428;
-    --bg-card-img: #1c1c20;
+    --bg-primary: #22272e;
+    --bg-secondary: #2d333b;
+    --bg-card: #2d333b;
+    --bg-card-img: #2d333b;
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --text-caption: #d4d4d8;
-    --border-color: #2e2e33;
+    --border-color: #444c56;
     --tab-active: hsl(210, 70%, 65%);
     --link-color: hsl(210, 70%, 65%);
     --shadow-sm: 0 1px 4px rgba(0,0,0,0.5);
@@ -2342,7 +2342,7 @@ font-size: 12px;
     --bg-color: var(--bg-primary);
     --text-color: var(--text-primary);
     --theme-primary: var(--link-color);
-    --label-bg-color: #1c1c20;
+    --label-bg-color: #373e47;
     --label-text-color: var(--text-muted);
     --highlight-bg: #3d3010;
     --navbar-bg: var(--bg-secondary);
