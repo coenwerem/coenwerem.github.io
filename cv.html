@@ -11,14 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="stylesheet.css">
     <style>
-      body {
-        visibility: hidden;
-      }
+      html { background-color: #f8f8f8; }
+      html.dark-mode { background-color: #18181b; }
+      body { visibility: hidden; }
       .dark-mode, .light-mode {
         visibility: visible;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
     </style>
+    <script>
+      (function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();
+    </script>
     <script type="text/javascript" id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
@@ -76,6 +79,9 @@
 <h3 class="subsection-heading">Selected Publications</h3><h4 class="subsubsection-heading">Preprints/Articles In Review</h4><ul>
 <li>
             <span class="cv-year">2026</span>
+            <span class="cv-entry"> <span style="font-weight: bold;">Clinton Enwerem</span>, John S. Baras, and Calin Belta, “EquiDexFlow: Contact-Grounded SE(3)-Equivariant Dexterous Grasp Generative Flows,” arXiv preprint, 2026. <a href="#">arXiv link</a></span>
+        </li><li>
+            <span class="cv-year">2026</span>
             <span class="cv-entry"> <span style="font-weight: bold;">Clinton Enwerem</span>, Shreya Kalyanaraman, John S. Baras, and Calin Belta, “Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty,” arXiv preprint, 2026. Extended preprint with additional experiments, analysis, and discussion. <a href="https://arxiv.org/abs/2604.25897">arXiv link</a></span>
         </li><li>
             <span class="cv-year">2026</span>
@@ -107,7 +113,7 @@
                 <span class="cv-year">8/2021-Date</span>
                 <span class="cv-role">Graduate Research Assistant</span>
             </h4><ul>
-<li class="cv-role-content">Collaborate with PI, postdoctoral scholars, and graduate researchers to design novel robust grasping and manipulation algorithms for robotic arms equipped with anthropomorphic hands.</li><li class="cv-role-content">Implement ROS 2-compliant software in Python and C++ for proposed grasp planning and control methods.</li><li class="cv-role-content">Validate algorithms through large-scale simulation using high-fidelity simulators (MuJoCo, Isaac Sim) and RL sandboxes (OpenAI Gym, Safety Gymnasium).</li><li class="cv-role-content">Author conference and journal papers, technical reports, and presentations to communicate research results.</li></ul>
+<li class="cv-role-content">Collaborate with PI, postdoctoral scholars, and graduate researchers to design novel robust grasping and manipulation algorithms for robotic arms equipped with anthropomorphic hands.</li><li class="cv-role-content">Implement ROS 2-compliant software in Python and C++ for proposed grasp planning and control methods.</li><li class="cv-role-content">Validate algorithms through large-scale simulation using high-fidelity simulators (MuJoCo, Drake) and RL sandboxes (OpenAI Gym, Safety Gymnasium).</li><li class="cv-role-content">Author conference and journal papers, technical reports, and presentations to communicate research results.</li></ul>
 <h4 class="subsubsection-heading">Electrical Engineering Department, University of Nigeria, Enugu, Nigeria</h4><h4 class="subsubsection-heading">
                 <span class="cv-year">9/2018-3/2021</span>
                 <span class="cv-role">Research Assistant</span>
@@ -151,7 +157,7 @@
 <h3 class="subsection-heading">Technical Skills</h3><ul>
 <li>
             <span class="cv-year">Robotics</span>
-            <span class="cv-entry">ROS 2, MuJoCo, GraspIt!.</span>
+            <span class="cv-entry">ROS 2, MuJoCo, Drake, GraspIt!.</span>
         </li><li>
             <span class="cv-year">RL</span>
             <span class="cv-entry">OpenAI Gym, Safety Gymnasium.</span>

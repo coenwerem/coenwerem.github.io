@@ -6,19 +6,20 @@
     <title>Clinton Enwerem | Misc.</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
-      body {
-        visibility: hidden;
-      }
-      
+      html { background-color: #f8f8f8; }
+      html.dark-mode { background-color: #18181b; }
+      body { visibility: hidden; }
       .dark-mode, .light-mode {
         visibility: visible;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
-      
     </style>
+    <script>
+      (function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();
+    </script>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -36,32 +37,31 @@
     <div class="page-container">
       <div class="content-wrap">
         <div id="misc">
-          <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:0px">
-                  <table
-                    style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                    <tbody>
-                      <tr style="padding:0px">
-                        <td style="padding:2.5%;width:100%;vertical-align:middle">
-                          <p style="text-align:center;margin-top: 3em;">
-                            <name style="font-weight: 500;">Miscellany</name>
-                          </p>
-                          <p class="headhr"></p>
-                            <p class="bd-text">
-                            An overview of miscellaneous items related to my professional and personal interests. 
-                            </p>
-                        </td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
           <div class="container">
+            <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>
+                <tr style="padding:0px">
+                  <td style="padding:0px">
+                    <table
+                      style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                      <tbody>
+                        <tr style="padding:0px">
+                          <td style="padding:2.5%;width:100%;vertical-align:middle">
+                            <p style="text-align:center;margin-top: 3em;">
+                              <name style="font-weight: 500;">Miscellany</name>
+                            </p>
+                            <p class="headhr"></p>
+                              <p class="bd-text">
+                              An overview of miscellaneous items related to my professional and personal interests.
+                              </p>
+                          </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
               
 
               <!-- Peer Review -->

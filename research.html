@@ -7,16 +7,17 @@
   <title>Clinton Enwerem | Research</title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <style>
-    body {
-      visibility: hidden;
-    }
-    
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #18181b; }
+    body { visibility: hidden; }
     .dark-mode, .light-mode {
       visibility: visible;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-    
   </style>
+  <script>
+    (function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();
+  </script>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -53,64 +54,89 @@
                         <p class="headhr"></p>
                         <span class="project-section">overview & theory</span>
                         <p class="headhr-subh"></p>
-                          <p class="bd-text">
-                          I develop <span class="keyword">robot learning</span> methods for <span class="keyword">contact-rich dexterous manipulation</span> under <span class="keyword">uncertainty</span>. My work focuses on learned policies that use vision, proprioception, and tactile feedback to grasp, stow, and manipulate objects when object pose, friction, contact modes, and target geometry are only partially observed.
+                        <p class="bd-text">
+                          I study <span class="keyword">contact-rich dexterous manipulation</span> under <span class="keyword">uncertainty</span>, connecting ideas from <span class="keyword">risk-sensitive control</span> and planning, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to make manipulation with multi-fingered hands more reliable when object pose, friction, contact modes, and target geometry are only partially observed.
 
-                          I am especially interested in <span class="keyword">risk-aware policy execution</span>, 
-                          and study how robots can estimate uncertainty from multiple sources (proprioceptive, perceptual, and tactile) 
-                          during learned manipulation, recognize when a policy is entering a likely failure mode, and decide when to recover,
-                          replan, or gather more information. My work connects
-                          <span class="keyword">visuo-tactile policy learning</span>,
-                          <span class="keyword">belief estimation</span>,
-                          <span class="keyword">distributional reinforcement learning</span>, and
-                          <span class="keyword">risk-sensitive control</span> to build more robust systems for physical autonomy.
+                          My published work addresses robust stochastic planning, safe control via <span class="keyword">distributional reinforcement learning</span>, and multi-agent coordination under uncertainty. Building on these foundations, my current focus is on <span class="keyword">grasp synthesis</span>, <span class="keyword">visuo-tactile policy learning</span>, and uncertainty-aware decision-making for dexterous manipulation&mdash;studying how robots can estimate uncertainty from proprioceptive, perceptual, and tactile feedback, recognize when a policy is entering a likely failure mode, and decide when to recover, replan, or gather more information.
 
-                          I validate these ideas in MuJoCo, Isaac Sim, reinforcement-learning environments, and on
+                          I validate these ideas in MuJoCo, Drake, reinforcement-learning environments, and on
                           real robot platforms equipped with anthropomorphic and tactile-sensorized dexterous hands.
-                          </p>
+                        </p>
                           
                         <!-- Applications -->
                         <span class="project-section">Applications</span>
                         <p class="headhr-subh"></p>
                         <p class="bd-text">
-                          I apply the aforementioned ideas to deliver solutions to dexterous manipulation problems spanning:
-                          <ul class="resapp">
-                            <li><span style="font-weight:bold;">Robust visuo-tactile dexterous grasping</span> under uncertain object pose, friction, and contact modes</li>
-                            <li><span style="font-weight:bold;">Reach-aware, scene-aware, collision-free, and executable</span> multifingered grasp generation</li>
-                            <li><span style="font-weight:bold;">Risk-aware execution</span> for learned manipulation policies that anticipate and recover from likely failures</li>
-                            <li><span style="font-weight:bold;">Learning from uncertainty-aware expert demonstrations</span> for contact-rich manipulation tasks</li>
-                          </ul>
+                          I apply the aforementioned ideas to deliver solutions to dexterous manipulation problems
+                          spanning:
                         </p>
-                        <!-- <heading>Research Videos</heading><br> -->
-                        <div class="row mb-4">
-                          
-                          <div class="col-md-3 mx-0 px-2">
-                            <div class="embed-responsive embed-responsive-1by1">
-                              <img class="embed-responsive-item" src="videos/robust_grasp_mj.gif" alt="MuJoCo belief-space grasping demo"
-                              style="filter: brightness(1.1);">
-                            </div>
-                            <p class="text-center mt-2 px-auto">Robust Dexterous Grasping</p>
-                          </div>
-                          <div class="col-md-3 mx-0 px-2">
-                              <div class="embed-responsive embed-responsive-1by1">
-                                <img class="embed-responsive-item" src="videos/graspit_box_120.gif" alt="Reach-aware grasp planning demo" style="filter: brightness(1);">
+
+                        <!-- Application 1: Robust Dexterous Grasping -->
+                        <div class="sw-entry">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="aspect-ratio:16/9;">
+                                <img src="videos/robust_grasp_mj.gif" alt="MuJoCo belief-space grasping demo"
+                                  style="filter: brightness(1.1);">
                               </div>
-                            </a>
-                            <p class="text-center mt-2">Reach-Aware Grasp Synthesis and Execution</p>
-                          </div>
-                          <div class="col-md-3 mx-0 px-2">
-                            <div class="embed-responsive embed-responsive-1by1">
-                              <img class="embed-responsive-item" src="videos/cylinder_full.gif" alt="GraspIt Demo"
-                              style="filter: brightness(1.1);">
                             </div>
-                            <p class="text-center mt-2 px-auto">Policy Learning from Multimodal Data</p>
-                          </div>
-                          <div class="col-md-3 mx-0 px-2">
-                            <div class="embed-responsive embed-responsive-1by1">
-                              <img class="embed-responsive-item" src="videos/safe_teleop_xarm_dimos_demo.gif"
-                                alt="Safe manipulator control demo" width="auto" height="auto">
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Robust Dexterous Grasping &amp; Manipulation</p>
+                              <p class="sw-subtitle">Robust visuo-tactile dexterous grasping under uncertain object
+                                pose, friction, and contact modes.</p>
                             </div>
-                            <p class="text-center mt-2">Collision-Free Manipulator Control</p>
+                          </div>
+                        </div>
+
+                        <!-- Application 2: Reach-Aware Grasp Synthesis -->
+                        <div class="sw-entry">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="aspect-ratio:16/9;">
+                                <img src="videos/graspit_box_120.gif" style="object-fit:cover;object-position:center calc(98%);" alt="Reach-aware grasp planning demo">
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Reach-Aware SE(3)-Equivariant Grasp Synthesis</p>
+                              <p class="sw-subtitle">Reach-aware, scene-aware, collision-free, and executable
+                                multifingered grasp generation.</p>
+                              <div class="sw-links">
+                                <a href="https://equidexflow.github.io" target="_blank"><i class="fas fa-globe"></i>
+                                  EquiDexFlow</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Application 3: Policy Learning from Multimodal Data -->
+                        <div class="sw-entry">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="aspect-ratio:16/9;">
+                                <img src="videos/cylinder_full.gif" alt="Policy learning demo"
+                                  style="filter: brightness(1.1);">
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Diffusion Policy Learning from Multimodal Data</p>
+                              <p class="sw-subtitle">Learning from uncertainty-aware expert demonstrations for
+                                contact-rich manipulation tasks.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Application 4: Collision-Free Manipulator Control -->
+                        <div class="sw-entry" style="border-bottom:none;padding-bottom:0;margin-bottom:2rem;">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="aspect-ratio:16/9;">
+                                <img src="videos/safe_teleop_xarm_dimos_demo.gif" alt="Safe manipulator control demo">
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Tools for Dexterous Data Generation, Collection, &amp; Policy Execution</p>
+                              <p class="sw-subtitle">Scene-aware and collision-free VR-assisted data collection and risk-aware execution for learned manipulation policies.</p>
+                            </div>
                           </div>
                         </div>
 
@@ -120,6 +146,38 @@
                         <div class="publication-entry">
                         <span class="project-section">2026</span>
                           <p class="headhr"></p>
+                        <div class="publication-entry">
+                          <div class="pub-main-row">
+                            <span class="venue-badge">arXiV</span>
+                            <div class="pub-content">
+                              <span style="font-weight:bold;">Clinton Enwerem</span>, John S. Baras, and Calin Belta, &ldquo;EquiDexFlow: Contact-Grounded SE(3)-Equivariant Dexterous Grasp Generative Flows,&rdquo; arXiv preprint, 2026. <a href="#">arXiv link</a>
+                            </div>
+                          </div>
+                          <div class="pub-links-row">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                              data-target="#bib-arXiV-equidexflow-2026" aria-expanded="false" aria-controls="bib-arXiV-equidexflow-2026">
+                              bibtex
+                            </button>
+                            <a href="#" class="btn btn-link">paper</a>
+                            <a href="https://equidexflow.github.io" target="_blank" class="btn btn-link">project</a>
+                            <div class="collapse" id="bib-arXiV-equidexflow-2026">
+                              <div class="card card-body">
+                                <pre><code>@online{enweremEquiDexFlowContactGroundedSE32026,
+title = {EquiDexFlow: Contact-Grounded SE(3)-Equivariant Dexterous Grasp Generative Flows},
+author = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
+year = {2026},
+eprint = {},
+eprinttype = {arXiv},
+eprintclass = {cs.RO},
+doi = {},
+url = {},
+pubstate = {prepublished},
+keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
+}</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div class="publication-entry">
                           <div class="pub-main-row">
                             <span class="venue-badge">arXiV</span>
