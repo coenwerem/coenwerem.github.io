@@ -2532,3 +2532,78 @@ font-size: 12px;
     padding-right: 0 !important;
   }
 }
+
+/* Click-to-enlarge lightbox (ported from the EquiDexFlow project page) */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.82);
+  padding: 4vmin;
+  cursor: zoom-out;
+}
+.lightbox-overlay.is-open {
+  display: flex;
+}
+.lightbox-overlay video,
+.lightbox-overlay img {
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  background: #fff;
+}
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.85;
+}
+.lightbox-close:hover {
+  opacity: 1;
+}
+
+/* Per-clip "expandable" badge + external hint */
+.zoom-cue {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.78rem;
+  pointer-events: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.sw-video:hover .zoom-cue,
+.embed-responsive:hover .zoom-cue {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.zoom-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted, #717171);
+  font-style: italic;
+  margin: 0 0 0.6rem 0;
+}
+.zoom-hint i {
+  margin-right: 0.4rem;
+  opacity: 0.85;
+}

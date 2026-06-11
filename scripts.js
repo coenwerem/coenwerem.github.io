@@ -216,3 +216,71 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+// Click-to-enlarge lightbox for demo media (ported from the EquiDexFlow project page).
+// Targets the demo gifs/videos in research/software cards (.sw-video img), the index
+// research row (.embed-responsive-item), and anything explicitly tagged .zoomable / .hw-vid.
+document.addEventListener('DOMContentLoaded', function () {
+  var overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><div class="lightbox-content"></div>';
+  document.body.appendChild(overlay);
+  var content = overlay.querySelector('.lightbox-content');
+
+  function closeLightbox() {
+    overlay.classList.remove('is-open');
+    content.innerHTML = '';
+  }
+
+  var media = document.querySelectorAll('.hw-vid, .zoomable, .sw-video img, .embed-responsive-item');
+  media.forEach(function (el) {
+    el.style.cursor = 'zoom-in';
+
+    // Per-clip cue: a small expand badge in the corner so users see it's expandable.
+    var container = el.parentElement;
+    if (container && !container.querySelector('.zoom-cue')) {
+      if (getComputedStyle(container).position === 'static') {
+        container.style.position = 'relative';
+      }
+      var cue = document.createElement('span');
+      cue.className = 'zoom-cue';
+      cue.setAttribute('aria-hidden', 'true');
+      cue.innerHTML = '<i class="fas fa-expand"></i>';
+      container.appendChild(cue);
+    }
+
+    el.addEventListener('click', function () {
+      var node;
+      if (el.tagName.toLowerCase() === 'video') {
+        var source = el.querySelector('source');
+        var src = (source && source.getAttribute('src')) || el.getAttribute('src');
+        node = document.createElement('video');
+        node.autoplay = true;
+        node.loop = true;
+        node.muted = true;
+        node.controls = true;
+        node.setAttribute('playsinline', '');
+        var s = document.createElement('source');
+        s.setAttribute('src', src);
+        s.setAttribute('type', 'video/mp4');
+        node.appendChild(s);
+      } else {
+        node = document.createElement('img');
+        node.setAttribute('src', el.getAttribute('src'));
+        node.setAttribute('alt', el.getAttribute('alt') || '');
+      }
+      content.innerHTML = '';
+      content.appendChild(node);
+      overlay.classList.add('is-open');
+    });
+  });
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay || e.target.classList.contains('lightbox-close') || e.target.classList.contains('lightbox-content')) {
+      closeLightbox();
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+});
+
