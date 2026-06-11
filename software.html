@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinton Enwerem | Software</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+      html { background-color: #f8f8f8; }
+      html.dark-mode { background-color: #18181b; }
+      body { visibility: hidden; }
+      .dark-mode, .light-mode {
+        visibility: visible;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+    </style>
+    <script>
+      (function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();
+    </script>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Academic Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+  <!-- Navbar placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <div class="page-container">
+    <div class="content-wrap">
+      <div id="software">
+        <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tbody>
+            <tr style="padding:0px">
+              <td style="padding:0px">
+                <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                  <tbody>
+                    <tr style="padding:0px">
+                      <td style="padding:2.5%;width:100%;vertical-align:middle">
+                        <p style="text-align:center;margin-top: 3em;">
+                          <name style="font-weight: 500;">Software</name>
+                        </p>
+                        <p class="headhr"></p>
+                        <p class="bd-text">
+                          Open-source tools and libraries from my research.
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="container" style="max-width:800px;">
+
+          <!-- EquiDexFlow -->
+          <div class="sw-entry">
+            <div class="row align-items-start">
+              <div class="col-md-4 col-5">
+                <div class="sw-video">
+                  <img src="videos/graspit_box_120.gif" alt="EquiDexFlow demo" style="width:100%;height:100%;object-fit:cover;object-position:center calc(95% + 10px);">
+                </div>
+              </div>
+              <div class="col-md-8 col-7 sw-details">
+                <p class="sw-title"><a href="https://equidexflow.github.io" target="_blank">EquiDexFlow</a></p>
+                <p class="sw-subtitle">Contact-grounded SE(3)-equivariant flow matching for generating reach-aware, collision-free dexterous grasps.</p>
+                <div class="sw-links">
+                  <a href="https://equidexflow.github.io" target="_blank"><i class="fas fa-globe"></i> project page</a>
+                  <a href="#"><i class="ai ai-arxiv"></i> paper</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simple URDF Parser -->
+          <div class="sw-entry">
+            <div class="row align-items-start">
+              <div class="col-md-4 col-5">
+                <div class="sw-video">
+                  <img src="videos/urdf_parser_ik.gif" alt="URDF Parser IK demo" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+              </div>
+              <div class="col-md-8 col-7 sw-details">
+                <p class="sw-title"><a href="https://github.com/coenwerem/simple_urdf_parser" target="_blank">Simple URDF Parser</a></p>
+                <p class="sw-subtitle">A lightweight Python library for parsing URDF files with FK/IK solvers, Jacobian analysis, and an interactive 3D visualizer.</p>
+                <div class="sw-links">
+                  <a href="https://github.com/coenwerem/simple_urdf_parser" target="_blank"><i class="fab fa-github"></i> code</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+  </div>
+
+    <!-- Required Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JavaScript -->
+    <script src="scripts.js"></script>
+
+</body>
+</html>

@@ -11,27 +11,20 @@
 // }
 // Function to apply the correct theme based on the user's preference or system setting
 function applyTheme(theme) {
-  // Remove both dark and light mode classes to prevent conflicts
+  var t = theme || 'light-mode';
+  document.documentElement.classList.remove('dark-mode', 'light-mode');
   document.body.classList.remove('dark-mode', 'light-mode');
-
-  if (theme) {
-    document.body.classList.add(theme);
-  } else {
-    document.body.classList.add('light-mode'); // Default to light mode if no theme is set
-  }
+  document.documentElement.classList.add(t);
+  document.body.classList.add(t);
 }
 
 
 // Function to toggle between light and dark modes
 function toggleDarkMode() {
-  const isDarkMode = document.body.classList.contains('dark-mode');
-  if (isDarkMode) {
-    document.body.classList.remove('dark-mode');
-    localStorage.setItem('theme', 'light-mode'); // Save light mode preference
-  } else {
-    document.body.classList.add('dark-mode');
-    localStorage.setItem('theme', 'dark-mode'); // Save dark mode preference
-  }
+  var isDark = document.body.classList.contains('dark-mode');
+  var next = isDark ? 'light-mode' : 'dark-mode';
+  applyTheme(next);
+  localStorage.setItem('theme', next);
 }
 
 // Initialize theme based on user's saved preference or system setting
@@ -63,16 +56,9 @@ function toggleDarkMode() {
 //   document.body.style.visibility = 'visible';
 // });
 (function() {
-  const savedTheme = localStorage.getItem('theme'); // Check if the user has saved their theme preference
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // Check user's system theme preference
-  
-  // If no theme is saved, use the system default (dark if system prefers dark)
-  const themeToApply = savedTheme || (prefersDark ? 'dark-mode' : 'light-mode');
-  
-  // Apply the theme as soon as possible before the page is fully rendered
-  document.body.classList.add(themeToApply);
-
-  // Reveal the content after theme is applied
+  var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark-mode' : 'light-mode');
+  document.documentElement.classList.add(t);
+  document.body.classList.add(t);
   document.body.style.visibility = 'visible';
 })();
 
@@ -229,3 +215,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { passive: true });
   }
 });
+

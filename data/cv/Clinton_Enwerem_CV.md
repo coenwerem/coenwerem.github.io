@@ -12,6 +12,8 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 #### Preprints/Articles In Review
 
+- 2026 **Clinton Enwerem**, John S. Baras, and Calin Belta, “EquiDexFlow: Contact-Grounded SE(3)-Equivariant Dexterous Grasp Generative Flows,” arXiv preprint, 2026. [arXiv link](#)
+
 - 2026 **Clinton Enwerem**, Shreya Kalyanaraman, John S. Baras, and Calin Belta, “Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty,” arXiv preprint, 2026. Extended preprint with additional experiments, analysis, and discussion. [arXiv link](https://arxiv.org/abs/2604.25897)
 
 - 2026 **Clinton Enwerem**, John S. Baras, and Calin Belta, “Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty,” arXiv preprint, 2026. [arXiv link](https://arxiv.org/abs/2604.03868)
@@ -40,7 +42,7 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 - Collaborate with PI, postdoctoral scholars, and graduate researchers to design novel robust grasping and manipulation algorithms for robotic arms equipped with anthropomorphic hands.
 - Implement ROS 2-compliant software in Python and C++ for proposed grasp planning and control methods.
-- Validate algorithms through large-scale simulation using high-fidelity simulators (MuJoCo, Isaac Sim) and RL sandboxes (OpenAI Gym, Safety Gymnasium).
+- Validate algorithms through large-scale simulation using high-fidelity simulators (MuJoCo, Drake) and RL sandboxes (OpenAI Gym, Safety Gymnasium).
 - Author conference and journal papers, technical reports, and presentations to communicate research results.
 
 #### Electrical Engineering Department, University of Nigeria, Enugu, Nigeria
@@ -103,7 +105,7 @@ Robot Learning, Dexterous Robotic Grasping & Manipulation, Multi-Modal Uncertain
 
 ### Technical Skills
 
-- Robotics: ROS 2, MuJoCo, GraspIt!.
+- Robotics: ROS 2, MuJoCo, Drake, GraspIt!.
 - RL: OpenAI Gym, Safety Gymnasium.
 - Robots/EoATs: UR3e/UR5, xArm7, LEAP Hand, RealHand L6, Robotiq Hand-E.
 - Tools: git, GitHub, GitLab, Docker.

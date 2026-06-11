@@ -7,16 +7,17 @@
   <title>Clinton Enwerem | Personal Website </title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <style>
-    body {
-      visibility: hidden;
-    }
-    
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #18181b; }
+    body { visibility: hidden; }
     .dark-mode, .light-mode {
       visibility: visible;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-    
   </style>
+  <script>
+    (function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -67,7 +68,7 @@
                                 of Maryland (UMD), College Park, MD, USA, working with Professor <a href="https://johnbaras.com/"
                                 target="_blank">John S. Baras</a>, Distinguished University Professor and Endowed Lockheed Martin Chair
                                 in Systems Engineering, and Professor <a href="https://calinbelta.com/"
-                                target="_blank">Calin Belta</a>, Brendan Iribe Endowed Professor of ECE and Computer Science. I work on <span class="bd-text" style="font-weight: bold;">robot learning for contact-rich dexterous manipulation</span>, with a focus on policies that remain reliable under uncertain object pose, friction, tactile feedback, and contact modes. My research combines visuo-tactile policy learning, uncertainty-aware decision making, and risk-sensitive evaluation to make learned manipulation systems more robust to execution-time disturbances. At UMD, I am affiliated with the <a href="https://isr.umd.edu/" target="_blank">Institute for Systems Research</a>, the <a href="https://exact.umd.edu/">EXplainable and Assured Control for AuTonomy</a> (EXACT) lab, the Systems Engineering and Integration lab, and the <a href="https://robotics.umd.edu"
+                                target="_blank">Calin Belta</a>, Brendan Iribe Endowed Professor of ECE and Computer Science. I work on <span class="bd-text" style="font-weight: bold;">contact-rich dexterous manipulation under uncertainty</span>, drawing on risk-sensitive control, belief-space planning, and policy learning to make multi-fingered robot hands more reliable when object pose, friction, and contact modes are only partially known. At UMD, I am affiliated with the <a href="https://isr.umd.edu/" target="_blank">Institute for Systems Research</a>, the <a href="https://exact.umd.edu/">EXplainable and Assured Control for AuTonomy</a> (EXACT) lab, the Systems Engineering and Integration lab, and the <a href="https://robotics.umd.edu"
                                 target="_blank">Maryland Robotics Center</a> (MRC). I have also received the Dean's Fellowship from UMD's Graduate School and the <a href="https://robotics.umd.edu/node/1367" target="_blank">Microsoft Diversity in Robotics and Autonomy PhD Fellowship</a>, awarded through a collaboration between <a href="https://www.microsoft.com/" target="_blank">Microsoft Corporation</a> and MRC.</p>
                             </div>
                             <div class="tab-pane fade" id="before-umd" role="tabpanel" aria-labelledby="before-umd-tab">
@@ -108,7 +109,67 @@
         </div>
       </div>
     </div>
-    
+
+    <!-- ----------------------------------->
+    <!-- Research Summary -->
+    <!-- ----------------------------------->
+    <div id="research-summary">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:2.5%;width:100%;vertical-align:middle">
+                    <span class="sub-heading">Research</span>
+                    <p class="headhr"></p>
+                    <p class="bd-text">
+                      I study contact-rich dexterous manipulation under uncertainty, connecting risk-sensitive control and planning, belief estimation, and policy learning to build manipulation systems that handle uncertain object pose, friction, contact modes, and target geometry. I validate these ideas in MuJoCo, Drake, and on real robot platforms.
+                    </p>
+                    <div class="row mb-4">
+                      <div class="col-md-3 mx-0 px-2">
+                        <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
+                          <img class="embed-responsive-item"
+                            style="object-fit:cover;object-position:center 10%;width:100%;height:100%;filter:brightness(1.1);"
+                            src="videos/robust_grasp_mj.gif" alt="MuJoCo belief-space grasping demo">
+                        </div>
+                        <p class="text-center mt-2 px-auto">Robust Dexterous Grasping</p>
+                      </div>
+                      <div class="col-md-3 mx-0 px-2">
+                        <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
+                          <img class="embed-responsive-item"
+                            style="object-fit:cover;object-position:center calc(95% + 10px);width:100%;height:100%;"
+                            src="videos/graspit_box_120.gif" alt="EquiDexFlow demo — SE(3)-equivariant reach-aware grasp synthesis">
+                        </div>
+                        <p class="text-center mt-2">SE(3)-Equivariant, Reach-Aware Grasp Synthesis</p>
+                      </div>
+                      <div class="col-md-3 mx-0 px-2">
+                        <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
+                          <img class="embed-responsive-item"
+                            style="object-fit:cover;object-position:center 22%;width:100%;height:100%;filter:brightness(1.1);"
+                            src="videos/cylinder_full.gif" alt="Policy learning demo">
+                        </div>
+                        <p class="text-center mt-2 px-auto">Policy Learning from Multimodal Data</p>
+                      </div>
+                      <div class="col-md-3 mx-0 px-2">
+                        <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
+                          <img class="embed-responsive-item"
+                            style="object-fit:cover;object-position:center 30%;width:100%;height:100%;"
+                            src="videos/safe_teleop_xarm_dimos_demo.gif" alt="Safe manipulator control demo">
+                        </div>
+                        <p class="text-center mt-2">Safe Data Collection &amp; Policy Rollout</p>
+                      </div>
+                    </div>
+                    <p style="text-align:right;margin-top:-0.5rem;"><a href="research.html">Publications and more &rarr;</a></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="news">
       <div class="container">
         <div class="row">
@@ -122,6 +183,14 @@
                     <table class="table table-sm table-borderless" style="max-width:800px;margin:auto;">
                       <tbody>
                         <tr>
+                          <td><span class="badge badge-model">[model]</span></td>
+                          <td>If you work on learning-based dexterous manipulation, check out <a href="https://equidexflow.github.io" target="_blank">EquiDexFlow</a>, our flow-matching based grasp synthesis model for generating contact-aware, SE(3)-equivariant multi-fingered grasps.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-paper">[preprint]</span></td>
+                          <td>New work on variational neural belief representations that encode dexterous-grasping uncertainty from multiple sensing modalities, enabling gradient-based, uncertainty-aware grasp-quality maximization beyond what standard techniques allow. A preprint is available on <a href="https://arxiv.org/abs/2604.25897" target="_blank">arXiv</a>.</td>
+                        </tr>
+                        <tr>
                           <td><span class="badge badge-paper">[preprint]</span></td>
                           <td>New work coalescing risk-constrained optimization with belief-space model predictive path integral (MPPI) control applied to vision-guided dexterous object stowing under uncertain target region geometry. A preprint is available on <a href="https://arxiv.org/abs/2604.03868" target="_blank">arXiv</a>.</td>
                         </tr>
@@ -132,30 +201,6 @@
                         <tr>
                           <td><span class="badge badge-epoch">[epoch]</span></td>
                           <td>I passed my research proposal exam and advanced to doctoral candidacy.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-talk">[talk]</span></td>
-                          <td>I presented a poster and delivered a talk on our robust path planning work at CDC'24 in Milan.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-award">[award]</span></td>
-                          <td>I received the IEEE CSS <a href="https://cdc2024.ieeecss.org/students/student-travel-support" target="_blank">Student Travel and Workshop Support Award</a> to attend CDC'24.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[paper]</span></td>
-                          <td>Our <a href="https://arxiv.org/abs/2408.08668" target="_blank">paper</a> on robust path planning has been accepted for presentation at <a href="https://cdc2024.ieeecss.org/" target="_blank">CDC'24</a>.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[paper]</span></td>
-                          <td>One <a href="https://ieeexplore.ieee.org/abstract/document/10591027" target="_blank">paper</a> accepted for presentation at <a href="https://ecc24.euca-ecc.org/" target="_blank">ECC'24</a>. You can read a preprint on <a href="https://arxiv.org/abs/2311.03284" target="_blank">arXiV</a>.</td> 
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[paper]</span></td>
-                          <td>Our <a href="https://ieeexplore.ieee.org/abstract/document/10433084" target="_blank">paper</a> on distributed Kalman filtering for formation control has been accepted for publication in the <a href="https://lctiss.com" target="_blank">IEEE-LCSS</a> journal.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[paper]</span></td>
-                          <td>Our <a href="https://ieeexplore.ieee.org/abstract/document/10284199" target="_blank">paper</a> on "Consensus-Based Leader-Follower Formation Tracking for Control-Affine Nonlinear Multiagent Systems" has been accepted for presentation at <a href="https://codit2023.com" target="_blank">CoDIT'23</a>. A preprint is available on <a href="https://arxiv.org/pdf/2309.09156" target="_blank">arXiV</a>.</td> 
                         </tr>
                       </tbody>
                     </table>

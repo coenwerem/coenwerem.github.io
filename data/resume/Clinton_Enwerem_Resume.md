@@ -1,6 +1,6 @@
 ## Summary
 
-Doctoral candidate in Electrical & Computer Engineering at the University of Maryland researching robot learning, dexterous robotic grasping and manipulation, and multi-modal uncertainty estimation. Experienced in designing and implementing robust grasp planning and control algorithms for robotic arms with anthropomorphic hands, validated through high-fidelity simulation (MuJoCo, Isaac Sim) and real hardware (UR3e, xArm7, LEAP Hand). Seeking research engineering, applied ML, or robotics roles.
+Doctoral candidate in Electrical & Computer Engineering at the University of Maryland researching robot learning, dexterous robotic grasping and manipulation, and multi-modal uncertainty estimation. Experienced in designing and implementing robust grasp planning and control algorithms for robotic arms with anthropomorphic hands, validated through high-fidelity simulation (MuJoCo, Drake) and real hardware (UR3e, xArm7, LEAP Hand). Seeking research engineering, applied ML, or robotics roles.
 
 ## Education
 
@@ -9,7 +9,7 @@ Doctoral candidate in Electrical & Computer Engineering at the University of Mar
 
 ## Skills
 
-- Robotics: ROS 2, MuJoCo, GraspIt!, Isaac Sim
+- Robotics: ROS 2, MuJoCo, GraspIt!, Drake
 - RL/ML: PyTorch, OpenAI Gym, Safety Gymnasium, TensorFlow, OpenCV
 - Robots/EoATs: UR3e, xArm7, LEAP Hand, RealHand L6
 - Programming: Python, C++, MATLAB, Bash
@@ -31,7 +31,7 @@ Doctoral candidate in Electrical & Computer Engineering at the University of Mar
 
 - Collaborate with PI, postdocs, and graduate researchers to design novel robust grasping and manipulation algorithms for robotic arms equipped with anthropomorphic hands.
 - Implement ROS 2-compliant software in Python and C++ for grasp planning and control.
-- Validate algorithms through large-scale simulation in MuJoCo and Isaac Sim, and RL sandboxes (OpenAI Gym, Safety Gymnasium).
+- Validate algorithms through large-scale simulation in MuJoCo and Drake, and RL sandboxes (OpenAI Gym, Safety Gymnasium).
 - Author conference and journal papers, technical reports, and presentations.
 
 ## Professional Experience
