@@ -2290,7 +2290,7 @@ font-size: 12px;
 
 /* Light and dark mode variables */
 :root {
-    /* PhyDex theme — light mode (steel-blue hue 210, sat 50%) */
+    /* Site theme — light mode (steel-blue hue 210, sat 50%) */
     --bg-primary: #f8f8f8;
     --bg-secondary: #f0f0f0;
     --bg-card: #f8f8f8;
@@ -2323,7 +2323,7 @@ font-size: 12px;
 }
 
 .dark-mode {
-    /* PhyDex theme — dark mode (zinc-neutral palette) */
+    /* Site theme — dark mode (soft blue-gray palette) */
     --bg-primary: #22272e;
     --bg-secondary: #2d333b;
     --bg-card: #2d333b;
