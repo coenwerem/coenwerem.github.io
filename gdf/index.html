@@ -13,7 +13,7 @@
   <!-- Social link previews -->
   <meta property="og:title" content="Grasp Execution Without a Planner: Configuration-Space Grasp Distance Fields with Certified Safety &amp; Guaranteed Quality">
   <meta property="og:description"
-    content="A configuration-space grasp distance field followed by a stationary feedback law under control-barrier certificates, with every executed grasp evaluated under the same risk-adjusted force-closure margin that certified its descriptor.">
+    content="A configuration-space grasp distance field, a stationary feedback law that follows its negative gradient under control-barrier certificates, and every executed grasp evaluated under the same risk-adjusted force-closure margin that certified its descriptor.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/gdf/">
   <meta property="og:image" content="https://clintonenwerem.com/gdf/static/images/field_execution.png">
@@ -172,8 +172,8 @@
               The standard architecture for multifingered grasp execution plans a collision-free
               trajectory to a selected grasp pose and tracks it with a feedback law, and a moved object
               or a disturbed state forces a costly replanning step. We remove the replanning step
-              entirely. The target becomes a set of grasp configurations, over which we define a smooth
-              softmin distance field in the configuration space of the arm-hand system, and our
+              entirely and represent the target as a set of grasp configurations, over which we define
+              a smooth softmin distance field in the configuration space of the arm-hand system. Our
               controller follows the field's negative gradient with a stationary feedback law while a
               CBF-CLF quadratic program keeps every step inside the safe set.
             </p>
@@ -317,8 +317,8 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Interactive Playback</h2>
       <p class="has-text-justified content gdf-lead">
-        The panel below plays back a recorded trial. You can select a trial, move the slider along the timeline, and read the field
-        value, the minimum barrier margin, and the number of contacts across the four execution modes, reach,
+        The panel below plays back a recorded trial. The tabs switch the trial, the slider scrubs the timeline, and the readout
+        reports the field value, the minimum barrier margin, and the number of contacts across the four execution modes, reach,
         close, hold, and lift.
       </p>
 
