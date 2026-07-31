@@ -70,12 +70,12 @@
             <div class="row align-items-start">
               <div class="col-md-4 col-5">
                 <div class="sw-video">
-                  <img class="zoomable" src="videos/dynamic.gif" alt="Grasp Distance Fields logo" style="width:100%;height:100%;object-fit:contain;">
+                  <video class="zoomable" src="videos/static_dynamic_grasp.mp4" poster="videos/static_dynamic_grasp_poster.jpg" autoplay loop muted playsinline aria-label="Side-by-side grasp execution runs, a static two-obstacle scene and a moving obstacle" style="width:100%;height:100%;object-fit:cover;"></video>
                 </div>
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="/gdf">Grasp Distance Fields</a></p>
-                <p class="sw-subtitle">Planner-free dexterous grasp execution. A configuration-space grasp distance field descended by a stationary feedback law under control-barrier certificates, with the executed wrap re-scored by the same min-weight program that certified the template. Includes an interactive replay of the recorded run logs.</p>
+                <p class="sw-subtitle">Planner-free dexterous grasp execution. Our controller follows the negative gradient of a smooth grasp distance field in configuration space with a stationary feedback law, a CBF-CLF quadratic program keeps every step inside the safe set, and we evaluate every executed grasp under the same risk-adjusted force-closure margin that certified its descriptor.</p>
                 <div class="sw-links">
                   <a href="/gdf"><i class="fas fa-globe"></i> project page</a>
                 </div>
@@ -113,7 +113,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/vnb-grasp" target="_blank">VNB-Grasp</a></p>
-                <p class="sw-subtitle">A differentiable Gaussian-mixture belief over contact parameters and object pose that yields pathwise CVaR gradients for risk-sensitive dexterous grasping, packaged with a MuJoCo benchmark that scores friction sensitivity and perturbation survival.</p>
+                <p class="sw-subtitle">A differentiable Gaussian-mixture belief over contact parameters and object pose that yields pathwise CVaR gradients for risk-sensitive dexterous grasping, packaged with a MuJoCo benchmark that scores friction sensitivity and perturbation tolerance.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/vnb-grasp" target="_blank"><i class="fab fa-github"></i> code</a>
                   <a href="http://arxiv.org/abs/2604.25897"><i class="ai ai-arxiv"></i> paper</a>

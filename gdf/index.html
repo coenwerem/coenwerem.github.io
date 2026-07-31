@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="Grasp Distance Fields cast grasp execution as a stationary feedback law on a smooth softmin distance field over certified pregrasp configurations in the joint space of an arm-hand system, filtered by a control-barrier quadratic program, with no planner and no stored trajectory.">
+    content="Grasp execution as a stationary feedback law on a smooth softmin distance field over certified pregrasp configurations in the joint space of an arm-hand system, filtered by a control-barrier quadratic program, with no planner and no stored trajectory.">
   <meta name="keywords"
     content="grasp distance fields, grasp execution, control barrier functions, reactive control, configuration space, dexterous grasping, force closure, min-weight metric, safe execution, underactuated hand">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Grasp Distance Fields: Grasp Execution Without a Planner</title>
 
   <!-- Social link previews -->
-  <meta property="og:title" content="Grasp Distance Fields: Grasp Execution Without a Planner: Configuration-Space Grasp Distance Fields with Certified Safety &amp; Guaranteed Quality">
+  <meta property="og:title" content="Grasp Execution Without a Planner: Configuration-Space Grasp Distance Fields with Certified Safety &amp; Guaranteed Quality">
   <meta property="og:description"
     content="A configuration-space grasp distance field followed by a stationary feedback law under control-barrier certificates, with every executed grasp evaluated under the same risk-adjusted force-closure margin that certified its descriptor.">
   <meta property="og:type" content="website">
@@ -88,13 +88,13 @@
                     <span>arXiv (coming soon)</span>
                   </a>
                 </span>
-                <!-- Interactive replay -->
+                <!-- Interactive playback -->
                 <span class="link-block">
                   <a href="#replay" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-play"></i>
                     </span>
-                    <span>Interactive Replay</span>
+                    <span>Interactive Playback</span>
                   </a>
                 </span>
                 <!-- Videos -->
@@ -122,15 +122,15 @@
         <div class="gdf-vids">
           <figure class="gdf-vid">
             <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
-            <figcaption><span class="gdf-cap-lead">Tabletop arm-hand system</span>. The sphere sits behind the 6 x 6 x 50 cm obstacle pair, our controller deviates 20.5 cm around the obstacle, the hand closes on three contacts, and the sphere rises 12 cm.</figcaption>
+            <figcaption><span class="gdf-cap-lead">Tabletop arm-hand system</span>. The object starts behind the 6 x 6 x 50 cm obstacle pair, the palm deviates 20.5 cm around the obstacle, the hand closes on three contacts, and the object rises 12 cm.</figcaption>
           </figure>
           <figure class="gdf-vid">
             <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
-            <figcaption><span class="gdf-cap-lead">Moving obstacle</span>. A 5 x 5 x 45 cm obstacle crosses the approach path mid-reach at 0.05 m/s, the palm deviates up to 19.1 cm around it, and the lift completes with surface clearance positive throughout.</figcaption>
+            <figcaption><span class="gdf-cap-lead">Moving obstacle</span>. A 5 x 5 x 45 cm obstacle crosses the approach path mid-reach at 0.05 m/s, the palm deviates up to 19.1 cm around it, and our controller completes the lift with surface clearance positive throughout.</figcaption>
           </figure>
           <figure class="gdf-vid">
             <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
-            <figcaption><span class="gdf-cap-lead">Unitree G1</span>, identical controller code. The cube sits behind a 4 x 4 x 36 cm obstacle on the palm-to-object line, the palm deviates 9.7 cm, and the cube rises 12 cm with the torso rotation under 18 degrees.</figcaption>
+            <figcaption><span class="gdf-cap-lead">Unitree G1</span>, identical controller architecture. The object starts behind a 4 x 4 x 36 cm obstacle on the palm-to-object line, the palm deviates 9.7 cm, and the object rises 12 cm with the torso rotation under 18 degrees.</figcaption>
           </figure>
         </div>
       </div>
@@ -211,15 +211,16 @@
           <h2 class="title is-3 has-text-centered">GDF's Working Principle</h2>
           <div class="content has-text-justified">
             <p>
-              The target is a set, not a pose. Over pregrasp configurations $q^{\text{pre}}_i$ the field
-              is a log-sum-exp softmin under a diagonal metric that weights the arm above the hand,
+              The target is a set of certified pregrasp configurations rather than a single pose. Over
+              pregrasp configurations $q^{\text{pre}}_i$, the field is a log-sum-exp softmin under a
+              diagonal metric that weights the arm above the hand,
               $d_G(q) = -\tfrac{1}{\rho}\log \sum_i \exp(-\rho\,\lVert q^{\text{pre}}_i - q\rVert_\Lambda)$.
               It tracks the true set distance within $\log N/\rho$, its gradient is a convex
               combination of unit directions, and the negative gradient points toward whichever
               candidate lies nearest with no selection step. A control-barrier quadratic program with a
-              linear class-$\mathcal{K}$ rate filters the nominal command, and an admission test keeps
-              only descriptors whose risk-adjusted force-closure margin clears the synthesis threshold,
-              and the target set therefore holds only certified grasps.
+              linear class-$\mathcal{K}$ rate filters the nominal command. An admission test eliminates
+              any candidate whose pregrasp or closure violates a barrier constraint, and the target set
+              therefore contains only certified grasps.
             </p>
           </div>
 
@@ -257,7 +258,7 @@
                   <i class="fas fa-certificate fa-2x"></i>
                 </span>
                 <h4 class="title is-6">Wrench Certificate</h4>
-                <p>We evaluate the executed grasp under the same risk-adjusted force-closure margin that certified its descriptor. Quality is measured, not assumed.</p>
+                <p>We evaluate the executed grasp under the same risk-adjusted force-closure margin that certified its descriptor, and we report the share of the synthesized margin the executed grasp keeps.</p>
               </div>
             </div>
             <div class="column is-one-fifth">
@@ -276,7 +277,7 @@
               alt="Dense planar slices of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles and a certificate strip beneath"
               class="zoomable gdf-teaser-img">
             <figcaption class="teaser-caption">
-              Our controller follows a smooth distance field toward a set of certified grasps and passes between two obstacles to grasp the object behind them. From the start of execution to the lift, every barrier constraint remains nonnegative, and the realized grasp keeps its certified quality margin through the lift.
+              Our controller follows a smooth distance field toward a set of certified grasps, steering the arm-hand system between two obstacles to grasp the object behind them. From the start of execution to the lift, every barrier constraint remains nonnegative, and the realized grasp keeps its certified quality margin through the lift.
             </figcaption>
           </figure>
 
@@ -289,19 +290,19 @@
             </figure>
             <figure class="gdf-tl-frame">
               <img src="./static/images/timelapse/tl_close.jpg"
-                alt="Tabletop two-obstacle trial at the close mode, the hand closing around the sphere"
+                alt="Tabletop two-obstacle trial at the close mode, the hand closing around the object"
                 class="zoomable">
               <figcaption><span class="gdf-tl-chip gdf-tl-chip--orange"></span>Close</figcaption>
             </figure>
             <figure class="gdf-tl-frame">
               <img src="./static/images/timelapse/tl_contact.jpg"
-                alt="Tabletop two-obstacle trial at the hold mode, the hand holding the sphere on the table"
+                alt="Tabletop two-obstacle trial at the hold mode, the hand holding the object on the table"
                 class="zoomable">
               <figcaption><span class="gdf-tl-chip gdf-tl-chip--ok"></span>Hold</figcaption>
             </figure>
             <figure class="gdf-tl-frame">
               <img src="./static/images/timelapse/tl_lift.jpg"
-                alt="Tabletop two-obstacle trial at the lift mode, the sphere raised 12 cm above the table"
+                alt="Tabletop two-obstacle trial at the lift mode, the object raised 12 cm above the table"
                 class="zoomable">
               <figcaption><span class="gdf-tl-chip gdf-tl-chip--lift"></span>Lift</figcaption>
             </figure>
@@ -311,13 +312,13 @@
     </div>
   </section>
 
-  <!-- Interactive replay -->
+  <!-- Interactive playback -->
   <section class="section" id="replay">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Interactive Replay</h2>
+      <h2 class="title is-3 has-text-centered">Interactive Playback</h2>
       <p class="has-text-justified content gdf-lead">
-        Each panel below plays back a recorded trial. You can select a trial, move the slider along the timeline, and read the field
-        value, the minimum barrier margin, and the number of contacts as the controller moves through the four execution modes, reach,
+        The panel below plays back a recorded trial. You can select a trial, move the slider along the timeline, and read the field
+        value, the minimum barrier margin, and the number of contacts across the four execution modes, reach,
         close, hold, and lift.
       </p>
 
@@ -329,17 +330,17 @@
               <button class="gdf-tab" role="tab" data-run="dyn" aria-selected="false">Moving obstacle</button>
               <button class="gdf-tab" role="tab" data-run="g1" aria-selected="false">G1 humanoid</button>
             </div>
-            <p class="gdf-scenecap">Top-down map of the workspace. The palm follows the grasp field, the shaded well around the target, and deviates around the obstacles to reach the object behind them. The bar at the right edge is the lift height.</p>
+            <p class="gdf-scenecap">Top-down map of the workspace. The palm follows the grasp field, the shaded well around the target, and deviates around the obstacles to reach the object behind them. The bar at the right edge shows the lift height.</p>
             <div class="gdf-legend">
               <span><span class="gdf-chip gdf-chip--blue"></span>reach</span>
               <span><span class="gdf-chip gdf-chip--orange"></span>close</span>
               <span><span class="gdf-chip gdf-chip--ok"></span>hold</span>
               <span><span class="gdf-chip gdf-chip--lift"></span>lift</span>
             </div>
-            <canvas id="scene" height="360" aria-label="Top-down workspace replay of the grasp run"></canvas>
+            <canvas id="scene" height="360" aria-label="Top-down workspace playback of the grasp run"></canvas>
             <div class="gdf-controls">
-              <button class="gdf-playbtn" id="play" aria-label="Play or pause the replay">&#9654;</button>
-              <input type="range" id="scrub" min="0" max="100" value="0" step="1" aria-label="Scrub the replay">
+              <button class="gdf-playbtn" id="play" aria-label="Play or pause the playback">&#9654;</button>
+              <input type="range" id="scrub" min="0" max="100" value="0" step="1" aria-label="Scrub the playback">
             </div>
             <div class="gdf-readout">
               <span>t <span id="tval">0.00</span> s</span>
@@ -348,7 +349,7 @@
               <span>minimum barrier <span id="minh">0.000</span> m</span>
               <span>contacts <span class="gdf-pips" id="pips"></span></span>
             </div>
-            <div class="gdf-chartlabel">minimum barrier margin over time. Green above the zero line is safe margin, the brief red interval at the start is the home-posture self-collision pair recovering, and the bands mark the modes.</div>
+            <div class="gdf-chartlabel">minimum barrier margin over time. Green above the zero line is safe margin, the brief red interval at the start is the home-posture self-collision margin recovering, and the bands mark the modes.</div>
             <canvas class="gdf-chart" id="timeline" height="150" aria-label="Barrier clearance and modes over time"></canvas>
             <p class="gdf-runfacts" id="facts"></p>
           </div>
@@ -363,7 +364,7 @@
       <h2 class="title is-3 has-text-centered">Certified-Descriptor Evaluation</h2>
       <div class="content has-text-justified gdf-prose">
         <p>
-          The descriptor evaluation executes certified grasp records over 50 objects, four primitive
+          We execute certified grasp records over 50 objects, four primitive
           shapes, 17 YCB household objects, and 29 adversarial EGAD meshes, each behind a rectangular
           obstacle placed next to its approach path. Our controller completes the reach-grasp-lift
           sequence on 46, 37 of the 48 evaluated grasps satisfy the risk-adjusted margin
@@ -391,10 +392,10 @@
         </table>
       </div>
       <p class="content gdf-footnote">
-        Every failure is a failure of convergence, never of safety. In two trials the hand never
-        attains three contacts within the horizon and the trial ends in close, in two the controller
-        reaches hold but never satisfies the lift guard, and the quadratic program remains feasible at
-        every step of every trial.
+        Every failure is a failure of convergence, never of safety. In two trials, the hand never
+        attains three contacts within the horizon and the trial ends in close, in the other two, our
+        controller reaches hold but never satisfies the lift guard, and the quadratic program remains
+        feasible at every step of every trial.
       </p>
     </div>
   </section>
@@ -405,31 +406,32 @@
       <h2 class="title is-3 has-text-centered">Results</h2>
       <div class="content has-text-justified gdf-prose-wide">
         <p>
-          <strong>The object hides behind the obstacles.</strong> The first replay tab and video show
-          the reference scene, a 6 by 6 by 50 cm obstacle pair with the sphere placed so that no
-          unobstructed approach exists. Our controller deviates 20.5 cm around the obstacle, both
-          obstacle constraints stay positive from the start pose onward with a minimum of 6.7 mm, and
-          the executed grasp keeps 91 percent of its descriptor's force-closure margin. A
-          scene-placement search maps the boundary of the trapped region, a 50 cm column on the
-          approach path leaves the closed loop trapped in every trial, and in the reported scene the
-          trajectory deviates around a first obstacle before reaching the obstacle on its line.
+          <strong>The reference scene admits no unobstructed approach.</strong> The first playback tab
+          and video show a 6 by 6 by 50 cm obstacle pair with the object behind it, and the
+          gap between the obstacles is the only route. The palm deviates 20.5 cm around the obstacle,
+          both obstacle constraints stay positive from the start pose onward with a minimum of 6.7 mm,
+          and the executed grasp keeps 91 percent of its descriptor's force-closure margin. We map the
+          boundary of the trapped region with a scene-placement search, a 50 cm column on the approach
+          path leaves the closed loop trapped in every trial, and in the reported scene, the trajectory
+          deviates around a first obstacle before reaching the obstacle on its line.
         </p>
         <p>
-          <strong>Moving obstacles run on the same constraints.</strong> Our controller updates the
-          obstacle poses at every control step, and the 5 by 5 by 45 cm obstacle crossing the approach
-          path in the second tab needs no new constraints. The palm deviates up to 19.1 cm, 14.9 cm by
+          <strong>Our controller handles a moving obstacle with no new constraints.</strong> It updates
+          the obstacle poses at every control step as the 5 by 5 by 45 cm obstacle crosses the approach
+          path in the second tab. The palm deviates up to 19.1 cm, 14.9 cm by
           the point-to-path measure, and surface clearance stays positive with a minimum of 8.4 mm.
-          The case also measures the time-derivative term the program does not include. With no
-          obstacle-velocity contribution, an active constraint falls below zero by at most the approach
-          speed over the barrier rate, 6.6 mm measured against the 10 mm bound and the 1.5 cm margin.
+          We also use this case to measure the effect of the time-derivative term the program does not
+          include. With no obstacle-velocity contribution, an active constraint falls below zero by at
+          most the approach speed over the barrier rate, 6.6 mm measured against the 10 mm bound and
+          the 1.5 cm margin.
         </p>
         <p>
           <strong>The same controller runs on a humanoid.</strong> The third tab and video play back a
           Unitree G1 with the same hand merged at the right wrist, three torso joints joining the
-          seven-joint arm chain, and a grasp record synthesized for that platform. The controller code
-          is identical, and only the description and scene data change. A 4 by 4 by 36 cm obstacle
-          stands on the palm-to-object line, the palm deviates up to 9.7 cm, and the cube rises 12 cm
-          with the torso rotation under 18 degrees.
+          seven-joint arm chain, and a grasp record synthesized for that platform. Our controller
+          architecture is identical, and only the description and scene data change. A 4 by 4 by 36 cm obstacle
+          stands on the palm-to-object line, the palm deviates up to 9.7 cm, and the object
+          rises 12 cm with the torso rotation under 18 degrees.
         </p>
       </div>
       <figure class="gdf-figure">
@@ -482,7 +484,7 @@
     </div>
   </footer>
 
-  <!-- Interactive replay engine, recorded run logs replayed on a canvas -->
+  <!-- Interactive playback engine, recorded run logs played back on a canvas -->
   <script defer src="./static/js/replay.js?v=20260731f"></script>
 
 </body>
