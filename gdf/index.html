@@ -122,15 +122,15 @@
         <div class="gdf-vids">
           <figure class="gdf-vid">
             <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
-            <figcaption><span class="gdf-cap-lead">Tabletop arm-hand system</span>. The object starts behind the 6 x 6 x 50 cm obstacle pair, the palm deviates 20.5 cm around the obstacle, the hand closes on three contacts, and the object rises 12 cm.</figcaption>
+            <figcaption><span class="gdf-cap-lead">Tabletop arm-hand system</span>. The palm deviates 20.5 cm around the obstacle pair, the minimum obstacle constraint stays at +6.7 mm, and the executed grasp keeps 91 percent of its certified margin through the 12 cm lift.</figcaption>
           </figure>
           <figure class="gdf-vid">
             <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
-            <figcaption><span class="gdf-cap-lead">Moving obstacle</span>. A 5 x 5 x 45 cm obstacle crosses the approach path mid-reach at 0.05 m/s, the palm deviates up to 19.1 cm around it, and our controller completes the lift with surface clearance positive throughout.</figcaption>
+            <figcaption><span class="gdf-cap-lead">Moving obstacle</span>. The obstacle crosses the approach path at 0.05 m/s, the palm deviates up to 19.1 cm, and surface clearance stays positive with a minimum of +8.4 mm.</figcaption>
           </figure>
           <figure class="gdf-vid">
             <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
-            <figcaption><span class="gdf-cap-lead">Unitree G1</span>, identical controller architecture. The object starts behind a 4 x 4 x 36 cm obstacle on the palm-to-object line, the palm deviates 9.7 cm, and the object rises 12 cm with the torso rotation under 18 degrees.</figcaption>
+            <figcaption><span class="gdf-cap-lead">Unitree G1</span>, identical controller architecture. The palm deviates 9.7 cm around the obstacle, the minimum obstacle constraint is +3.8 mm, and the torso rotation stays under 18 degrees through the 12 cm lift.</figcaption>
           </figure>
         </div>
       </div>
@@ -277,7 +277,7 @@
               alt="Dense planar slices of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles and a certificate strip beneath"
               class="zoomable gdf-teaser-img">
             <figcaption class="teaser-caption">
-              Our controller follows a smooth distance field toward a set of certified grasps, steering the arm-hand system between two obstacles to grasp the object behind them. From the start of execution to the lift, every barrier constraint remains nonnegative, and the realized grasp keeps its certified quality margin through the lift.
+              Our controller steers the arm-hand system between two obstacles to a certified grasp. Every barrier constraint remains nonnegative from the start pose through the lift, and the realized grasp keeps its certified quality margin.
             </figcaption>
           </figure>
 
@@ -330,7 +330,7 @@
               <button class="gdf-tab" role="tab" data-run="dyn" aria-selected="false">Moving obstacle</button>
               <button class="gdf-tab" role="tab" data-run="g1" aria-selected="false">G1 humanoid</button>
             </div>
-            <p class="gdf-scenecap">Top-down map of the workspace. The palm follows the grasp field, the shaded well around the target, and deviates around the obstacles to reach the object behind them. The bar at the right edge shows the lift height.</p>
+            <p class="gdf-scenecap">Top-down map of the workspace. The palm follows the grasp field, the shaded well around the target, and the bar at the right edge shows the lift height.</p>
             <div class="gdf-legend">
               <span><span class="gdf-chip gdf-chip--blue"></span>reach</span>
               <span><span class="gdf-chip gdf-chip--orange"></span>close</span>
@@ -438,10 +438,9 @@
         <img src="./static/images/field_execution.png" class="zoomable gdf-fig-img"
           alt="Four dense planar slices of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles, and a certificate strip beneath">
         <figcaption class="has-text-centered gdf-figcap">
-          Grasp execution through contact and lift. Dense planar slices show the clearance field the
-          obstacle, wall, and object constraints induce over the workspace at the four mode transitions
-          of a two-obstacle trial, the palm path passes between the obstacles colored by the field
-          value, and the strip beneath holds the per-step certificates.
+          Grasp execution through contact and lift. Planar slices show the clearance field at the four
+          mode transitions of a two-obstacle trial, the palm path is colored by the field value, and
+          the strip beneath holds the per-step certificates.
         </figcaption>
       </figure>
     </div>
