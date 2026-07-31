@@ -1,0 +1,116 @@
+/* GDF interactive replay widget, scoped under .gdf-scope so it never
+   collides with Bulma. CSS variables live on :root and are keyed to the
+   site theme toggle through [data-theme="dark"], the same attribute the
+   house index.js sets, so the canvas follows the site light and dark
+   modes. The replay.js reads these variables off documentElement. */
+
+.gdf-scope{font-family:inherit;color:var(--ink)}
+.gdf-brand{color:var(--accent);font-weight:800;letter-spacing:.01em}
+
+:root{--surface:#f7f8f9; --panel:#ffffff; --ink:#171b21; --ink2:#4a5361; --muted:#7a8494;
+  --line:#dfe3e9; --blue:#1253b4; --orange:#bf360c; --ok:#2e7d32; --lift:#7c4d97;
+  --band-reach:#e3ecf7; --band-close:#fdeee6; --band-hold:#e8f2e9; --band-lift:#f3e9f5;
+  --focus:#1253b4;}
+:root[data-theme="light"]{--surface:#f7f8f9; --panel:#ffffff; --ink:#171b21; --ink2:#4a5361; --muted:#7a8494;
+  --line:#dfe3e9; --blue:#1253b4; --orange:#bf360c; --ok:#2e7d32; --lift:#7c4d97;
+  --band-reach:#e3ecf7; --band-close:#fdeee6; --band-hold:#e8f2e9; --band-lift:#f3e9f5;
+  --focus:#1253b4;}
+:root[data-theme="dark"]{--surface:#14181f; --panel:#1a1f28; --ink:#e8ebef; --ink2:#aab3c0; --muted:#7a8494;
+  --line:#2a313c; --blue:#5c8fdd; --orange:#e06a3c; --ok:#79c07d; --lift:#b284dc;
+  --band-reach:rgba(92,143,221,.14); --band-close:rgba(224,106,60,.14);
+  --band-hold:rgba(121,192,125,.14); --band-lift:rgba(178,132,220,.14);
+  --focus:#5c8fdd;}
+.gdf-scope .gdf-wrap{max-width:760px;margin:0 auto;padding:0 18px 72px}
+.gdf-scope .gdf-panelwrap{max-width:920px;margin:0 auto;padding:0 10px}
+.gdf-scope .gdf-mono{font-family:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace}
+.gdf-scope .gdf-eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;text-transform:uppercase;
+  letter-spacing:.14em;font-size:12px;color:var(--ink2);margin:40px 0 10px}
+.gdf-scope h1{font-size:clamp(27px,6vw,34px);line-height:1.15;margin:0 0 6px;text-wrap:balance;font-weight:700}
+.gdf-scope .gdf-subtitle{font-size:clamp(17px,3.4vw,20px);color:var(--ink2);margin:0 0 14px;text-wrap:balance}
+.gdf-scope .gdf-authors{font-size:14.5px;color:var(--muted);margin:0 0 6px}
+.gdf-scope h2{font-size:22px;line-height:1.25;margin:44px 0 10px;text-wrap:balance}
+.gdf-scope p{margin:0 0 14px;max-width:66ch}
+.gdf-scope .gdf-note{font-size:14px;color:var(--muted)}
+.gdf-scope .gdf-panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;
+  padding:14px 14px 12px;margin:18px 0}
+.gdf-scope .gdf-vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.gdf-scope .gdf-vid{margin:0}
+.gdf-scope .gdf-vid video{width:100%;display:block;border-radius:4px;background:#e8e8e8}
+.gdf-scope .gdf-vid figcaption{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5}
+.gdf-scope .gdf-vid figcaption .gdf-cap-lead{font-weight:700;color:var(--ink)}
+.gdf-scope .gdf-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.gdf-scope .gdf-tab{font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.03em;
+  padding:9px 13px;border:1px solid var(--line);border-radius:4px;background:transparent;
+  color:var(--ink2);cursor:pointer;min-height:38px}
+.gdf-scope .gdf-tab[aria-selected="true"]{border-color:var(--blue);color:var(--ink);
+  box-shadow:inset 0 -2px 0 var(--blue)}
+.gdf-scope .gdf-tab:focus-visible, .gdf-scope button:focus-visible, .gdf-scope input:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.gdf-scope #scene{display:block;width:100%;border-radius:4px}
+.gdf-scope .gdf-controls{display:flex;align-items:center;gap:12px;margin:10px 0 4px}
+.gdf-scope .gdf-playbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:var(--panel);color:var(--ink);cursor:pointer;font-size:15px;flex:none;
+  display:flex;align-items:center;justify-content:center}
+.gdf-scope input[type=range]{flex:1;accent-color:var(--blue);height:34px;margin:0}
+.gdf-scope .gdf-readout{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;
+  font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--ink2);
+  font-variant-numeric:tabular-nums;margin:2px 0 10px}
+.gdf-scope .gdf-modepill{padding:2px 10px;border-radius:99px;font-weight:600;color:var(--ink)}
+.gdf-scope .gdf-legend{display:flex;gap:16px;font-family:ui-monospace,Menlo,monospace;font-size:12px;
+  color:var(--ink2);margin:8px 0 2px;align-items:center}
+.gdf-scope .gdf-chip{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.gdf-scope canvas.gdf-chart{display:block;width:100%}
+.gdf-scope .gdf-chartlabel{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--muted);margin:6px 0 2px}
+.gdf-scope .gdf-runfacts{font-size:14px;color:var(--ink2);margin:10px 2px 0;max-width:none}
+.gdf-scope .gdf-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:18px 0}
+.gdf-scope .gdf-tile{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.gdf-scope .gdf-tile .v{font-family:ui-monospace,Menlo,monospace;font-size:26px;font-weight:600;
+  font-variant-numeric:tabular-nums;line-height:1.1}
+.gdf-scope .gdf-tile .k{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.35}
+.gdf-scope .gdf-tablewrap{overflow-x:auto;margin:14px 0}
+.gdf-scope table{border-collapse:collapse;font-size:14.5px;min-width:430px}
+.gdf-scope th, .gdf-scope td{padding:7px 14px 7px 0;text-align:right;border-bottom:1px solid var(--line);
+  font-variant-numeric:tabular-nums}
+.gdf-scope th:first-child, .gdf-scope td:first-child{text-align:left}
+.gdf-scope th{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--muted);font-weight:500}
+.gdf-scope tr.total td{font-weight:700;border-top:1.5px solid var(--ink2)}
+.gdf-scope figure{margin:20px 0}
+.gdf-scope figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:4px;background:#fff}
+.gdf-scope figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+.gdf-scope .gdf-formula{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;background:var(--panel);
+  border:1px solid var(--line);border-radius:4px;padding:10px 14px;margin:10px 0 16px;
+  overflow-x:auto;white-space:nowrap}
+.gdf-scope footer{margin-top:56px;border-top:1px solid var(--line);padding-top:18px;
+  font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){
+  .gdf-scope .gdf-playbtn{opacity:.9}
+}
+
+/* Page-level layout helpers, so the markup keeps no inline attributes
+   and the house linter reports zero hits on the page. Each class holds
+   exactly what the former inline declaration held. */
+.gdf-subtitle-tight{margin-top:-0.25rem;font-weight:400}
+.gdf-affil{margin-top:0.25rem}
+.gdf-hero-note{margin-top:0.75rem;color:var(--text-muted)}
+.gdf-teaser-img{width:100%;display:block;margin:0 auto;background:#fff;border-radius:8px}
+.gdf-lead{max-width:720px;margin:0 auto 1.5rem}
+.gdf-prose{max-width:760px;margin:0 auto}
+.gdf-prose-wide{max-width:800px;margin:0 auto}
+.gdf-table-wrap{max-width:640px;margin:1.25rem auto 0}
+.gdf-total-row{font-weight:700}
+.gdf-footnote{max-width:760px;margin:1rem auto 0;font-size:.9rem;color:var(--text-muted)}
+.gdf-figure{margin:1.5rem 0}
+.gdf-figure-next{margin:2rem 0 0}
+.gdf-fig-img{width:100%;height:auto;border-radius:6px;background:#fff}
+.gdf-figcap{margin-top:.6rem;color:var(--text-muted);font-size:.9rem}
+.gdf-attrib{font-size:.85rem;color:#888}
+.gdf-scope .gdf-chip--blue{background:var(--blue)}
+.gdf-scope .gdf-chip--orange{background:var(--orange)}
+
+/* new top-down replay pieces */
+.gdf-scope .gdf-chip--ok{background:var(--ok)}
+.gdf-scope .gdf-chip--lift{background:var(--lift)}
+.gdf-scope .gdf-scenecap{font-size:13px;color:var(--muted);margin:0 0 8px;line-height:1.5}
+.gdf-scope .gdf-pips{display:inline-flex;gap:4px;vertical-align:middle}
+.gdf-scope .gdf-pip{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--muted);display:inline-block}
+.gdf-scope .gdf-pip.is-on{background:var(--ok);border-color:var(--ok)}

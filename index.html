@@ -45,7 +45,7 @@
                         <td style="padding:2.5%;width:63%;vertical-align:middle">
                           <p style="text-align:center;margin-top: 2em;">
                             <name style="font-weight: 500; display: block;">Clinton Enwerem</name>
-                            <span>Doctoral Candidate in ECE | Robot Learning for Dexterous Manipulation under Multimodal Uncertainty</span>
+                            <span>Doctoral Candidate in ECE | Robot Learning for Safe Whole-Body Dexterous Locomanipulation</span>
                           </p>
                           <p class="headhr" style="margin-top: -1em;"></p>
                           <!-- nav tabs -->
@@ -68,7 +68,7 @@
                                 of Maryland (UMD), College Park, MD, USA, working with Professor <a href="https://johnbaras.com/"
                                 target="_blank">John S. Baras</a>, Distinguished University Professor and Endowed Lockheed Martin Chair
                                 in Systems Engineering, and Professor <a href="https://calinbelta.com/"
-                                target="_blank">Calin Belta</a>, Brendan Iribe Endowed Professor of ECE and Computer Science. I work on <span class="bd-text" style="font-weight: bold;">contact-rich dexterous manipulation under uncertainty</span>, drawing on risk-sensitive control, belief-space planning, and policy learning to make multi-fingered robot hands more reliable when object pose, friction, and contact modes are only partially known. At UMD, I am affiliated with the <a href="https://isr.umd.edu/" target="_blank">Institute for Systems Research</a>, the <a href="https://exact.umd.edu/">EXplainable and Assured Control for AuTonomy</a> (EXACT) lab, the Systems Engineering and Integration lab, and the <a href="https://robotics.umd.edu"
+                                target="_blank">Calin Belta</a>, Brendan Iribe Endowed Professor of ECE and Computer Science. I work on <span class="bd-text" style="font-weight: bold;">contact-rich dexterous locomanipulation under uncertainty</span>, drawing on safe and risk-sensitive control, belief-space kinodynamic motion planning, and policy learning to make dexterous locomanipulation more reliable when object pose, friction, and contact modes are only partially known. At UMD, I am affiliated with the <a href="https://isr.umd.edu/" target="_blank">Institute for Systems Research</a>, the <a href="https://exact.umd.edu/">EXplainable and Assured Control for AuTonomy</a> (EXACT) lab, the Systems Engineering and Integration lab, and the <a href="https://robotics.umd.edu"
                                 target="_blank">Maryland Robotics Center</a> (MRC). I have also received the Dean's Fellowship from UMD's Graduate School and the <a href="https://robotics.umd.edu/node/1367" target="_blank">Microsoft Diversity in Robotics and Autonomy PhD Fellowship</a>, awarded through a collaboration between <a href="https://www.microsoft.com/" target="_blank">Microsoft Corporation</a> and MRC.</p>
                             </div>
                             <div class="tab-pane fade" id="before-umd" role="tabpanel" aria-labelledby="before-umd-tab">
@@ -96,10 +96,10 @@
           <div id="profile-img" class="bio-image-container">
             <img class="bio-image" alt="profile photo" src="images/CE-web-circ.png" class="hoverZoomLink">
           </div>
-          <!-- Office Address (rarely here these days) -->
+          <!-- Office Address -->
           <div class="addr-box">
             <p class="addr-header">Contact Info</p>
-            <p class="addr-text">2239 A.V. Williams Bldg.</p>
+            <p class="addr-text">4448 A.V. Williams Bldg.</p>
             <p class="addr-text">8223 Paint Branch Dr</p>
             <p class="addr-text">College Park, MD 20740</p>
             <p class="addr-email"><a href="#"><i class="fa fa-inbox fa-1x"></i><span style="font-weight:500;"> (research):</span> <span style="font-weight:bold;">enwerem</span> [at] <span style="font-weight:bold;">umd</span> [dot] <span style="font-weight:bold;">edu</span></a></p>
@@ -124,41 +124,43 @@
                     <span class="sub-heading">Research</span>
                     <p class="headhr"></p>
                     <p class="bd-text">
-                      I study contact-rich dexterous manipulation under uncertainty, connecting risk-sensitive control and planning, belief estimation, and policy learning to build manipulation systems that handle uncertain object pose, friction, contact modes, and target geometry. I validate these ideas in MuJoCo, Drake, and on real robot platforms.
+                      I study contact-rich dexterous locomanipulation under uncertainty, connecting CBF-based safe control, risk-sensitive planning, latent uncertainty estimation, and safe policy learning to build locomanipulation systems that handle uncertain object pose, friction, contact modes, and target geometry, as well as potentially destabilizing object wrenches arising from whole-body motion. I validate these ideas in MuJoCo, Drake, and on real robot platforms.
                     </p>
                     <p class="zoom-hint"><i class="fas fa-expand"></i> Click any clip to enlarge.</p>
                     <div class="row mb-4">
                       <div class="col-md-3 mx-0 px-2">
                         <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
-                          <img class="embed-responsive-item"
-                            style="object-fit:cover;object-position:center 10%;width:100%;height:100%;filter:brightness(1.1);"
-                            src="videos/robust_grasp_mj.gif" alt="MuJoCo belief-space grasping demo">
+                          <video class="embed-responsive-item zoomable"
+                            style="object-fit:cover;width:100%;height:100%;"
+                            src="videos/static_dynamic_grasp.mp4" poster="videos/static_dynamic_grasp_poster.jpg"
+                            autoplay loop muted playsinline aria-label="Safe dexterous grasp execution demo: static and dynamic environments"></video>
                         </div>
-                        <p class="text-center mt-2 px-auto">Robust Dexterous Grasping</p>
+                        <p class="text-center mt-2 px-auto">Safe, Quality-Preserving Dexterous Grasping</p>
                       </div>
                       <div class="col-md-3 mx-0 px-2">
                         <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
-                          <img class="embed-responsive-item"
-                            style="object-fit:cover;object-position:center calc(95% + 10px);width:100%;height:100%;"
-                            src="videos/graspit_box_120.gif" alt="EquiDexFlow demo — SE(3)-equivariant reach-aware grasp synthesis">
+                          <video class="embed-responsive-item zoomable"
+                            style="object-fit:cover;width:100%;height:100%;"
+                            src="videos/equidexflow_equivariance.mp4" poster="videos/equidexflow_equivariance_poster.jpg"
+                            autoplay loop muted playsinline aria-label="EquiDexFlow equivariance demo: the same object grasped at 0 and 120 degrees"></video>
                         </div>
                         <p class="text-center mt-2">SE(3)-Equivariant, Reach-Aware Grasp Synthesis</p>
                       </div>
                       <div class="col-md-3 mx-0 px-2">
                         <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
                           <img class="embed-responsive-item"
-                            style="object-fit:cover;object-position:center 22%;width:100%;height:100%;filter:brightness(1.1);"
-                            src="videos/cylinder_full.gif" alt="Policy learning demo">
+                            style="object-fit:cover;object-position:center 30%;width:100%;height:100%;"
+                            src="videos/safe_teleop_xarm_dimos_demo.gif" alt="VR-assisted teleoperation data collection demo">
                         </div>
-                        <p class="text-center mt-2 px-auto">Policy Learning from Multimodal Data</p>
+                        <p class="text-center mt-2 px-auto">Safe Dexterous Data Collection</p>
                       </div>
                       <div class="col-md-3 mx-0 px-2">
                         <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
                           <img class="embed-responsive-item"
-                            style="object-fit:cover;object-position:center 30%;width:100%;height:100%;"
-                            src="videos/safe_teleop_xarm_dimos_demo.gif" alt="Safe manipulator control demo">
+                            style="object-fit:cover;width:100%;height:100%;"
+                            src="videos/g1.gif" alt="Safe autonomous policy execution demo (simulation)">
                         </div>
-                        <p class="text-center mt-2">Safe Data Collection &amp; Policy Rollout</p>
+                        <p class="text-center mt-2 px-auto">Safe Whole-Body Dexterous Manipulation</p>
                       </div>
                     </div>
                     <p style="text-align:right;margin-top:-0.5rem;"><a href="research.html">Publications and more &rarr;</a></p>
@@ -184,16 +186,24 @@
                     <table class="table table-sm table-borderless" style="max-width:800px;margin:auto;">
                       <tbody>
                         <tr>
+                          <td><span class="badge badge-paper">[preprint]</span></td>
+                          <td>We introduced a framework for safe and planner-free dexterous grasping with quality sublevel-set forward invariance: <a href="/gdf">Grasp Distance Fields</a>.</td>
+                        </tr>
+                        <tr>
                           <td><span class="badge badge-paper">[paper]</span></td>
-                          <td>Our paper introducing neural belief representations for robust dexterous grasping under multimodal uncertainty has been accepted to <a href="https://2026.ieee-iros.org/">IROS 2026</a>. An extended preprint is available on <a href="https://arxiv.org/abs/2604.25897" target="_blank">arXiv</a>.</td></td>
+                          <td>Our <a href="https://arxiv.org/abs/2604.03868" target="_blank">paper</a> introducing a CVaR-based belief-space MPPI algorithm for safe control has been accepted for presentation at <a href="https://cdc2026.ieeecss.org/" target="_blank">CDC 2026</a>.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-paper">[preprint]</span></td>
+                          <td>We posted a new <a href="https://arxiv.org/abs/2607.25049" target="_blank">preprint</a> introducing <span style="font-weight:bold;">FIRMGrasp</span>, a Friction-Informed Risk Margin (&epsilon;<sup>(&beta;)</sup>) for robust grasp synthesis. Grasps certified by &epsilon;<sup>(&beta;)</sup> achieve a 70% lift success rate under lateral pull, versus 25% for grasps certified by the nominal Ferrari-Canny margin but are rejected by &epsilon;<sup>(&beta;)</sup>.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-paper">[paper]</span></td>
+                          <td><span style="font-weight:bold;">VNB-Grasp</span>, our variational neural belief framework for robust dexterous grasping under multimodal uncertainty, has been accepted to <a href="https://2026.ieee-iros.org/" target="_blank">IROS 2026</a>. Links: <a href="https://www.github.com/coenwerem/vnb-grasp" target="_blank">code</a>, <a href="https://arxiv.org/abs/2604.25897" target="_blank">Preprint (arXiv)</a>.</td>
                         </tr>
                         <tr>
                           <td><span class="badge badge-model">[model]</span></td>
                           <td>If you work on learning-based dexterous manipulation, check out <a href="https://equidexflow.github.io" target="_blank">EquiDexFlow</a>, our SE(3)-equivariant flow-matching model for synthesizing contact-aware multi-fingered grasps.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[preprint]</span></td>
-                          <td>New work coalescing risk-constrained optimization with belief-space model predictive path integral (MPPI) control applied to vision-guided dexterous object stowing under uncertain target region geometry. A preprint is available on <a href="https://arxiv.org/abs/2604.03868" target="_blank">arXiv</a>.</td>
                         </tr>
                         <tr>
                           <td><span class="badge badge-paper">[paper]</span></td>

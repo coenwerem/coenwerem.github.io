@@ -55,20 +55,18 @@
                         <span class="project-section">overview & theory</span>
                         <p class="headhr-subh"></p>
                         <p class="bd-text">
-                          I study <span class="keyword">contact-rich dexterous manipulation</span> under <span class="keyword">uncertainty</span>, connecting ideas from <span class="keyword">risk-sensitive control</span> and planning, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to make manipulation with multi-fingered hands more reliable when object pose, friction, contact modes, and target geometry are only partially observed.
+                          I study <span class="keyword">contact-rich dexterous locomanipulation</span> under <span class="keyword">uncertainty</span>, connecting ideas from <span class="keyword">optimization-based control</span>, <span class="keyword">risk-sensitive optimization</span>, <span>kinodynamic motion planning</span>, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to make manipulation with multi-fingered hands more reliable when object pose, friction, contact modes, and target geometry are only partially observed.
 
-                          My published work addresses robust stochastic planning, safe control via <span class="keyword">distributional reinforcement learning</span>, and multi-agent coordination under uncertainty. Building on these foundations, my current focus is on <span class="keyword">grasp synthesis</span>, <span class="keyword">visuo-tactile policy learning</span>, and uncertainty-aware decision-making for dexterous manipulation&mdash;studying how robots can estimate uncertainty from proprioceptive, perceptual, and tactile feedback, recognize when a policy is entering a likely failure mode, and decide when to recover, replan, or gather more information.
+                          My early to mid-career doctoral work studied robust stochastic planning, safe control via <span class="keyword">distributional reinforcement learning</span>, and multi-agent coordination under uncertainty. More recently, I have taken a certain interest in <span class="keyword">dexterous grasp synthesis</span>, safe hand control, <span class="keyword">visuo-tactile policy learning</span>, and uncertainty-aware decision-making for dexterous manipulation, studying how robots (serial chains, humanoids, and mobile manipulators) can estimate uncertainty from proprioceptive, perceptual, and tactile feedback and synthesize controls that balance potentially conflicting performance and safety specifications.
 
-                          I validate these ideas in MuJoCo, Drake, reinforcement-learning environments, and on
-                          real robot platforms equipped with anthropomorphic and tactile-sensorized dexterous hands.
+                          I validate these ideas using optimization modeling frameworks (CaSaDi) and QP solvers (qpsolvers, ipopt), dynamics libraries (Pinocchio), physics-based simulators (MuJoCo, Drake), reinforcement-learning environments (Safety Gymnasium, OpenAI Gym), and on physical serial/branched chains equipped with proprioception-only and tactile-sensorized multi-fingered hands.
                         </p>
                           
                         <!-- Applications -->
                         <span class="project-section">Applications</span>
                         <p class="headhr-subh"></p>
                         <p class="bd-text">
-                          I apply the aforementioned ideas to deliver solutions to dexterous manipulation problems
-                          spanning:
+                          I target problems in dexterous manipulation and locomanipulation spanning:
                         </p>
                         <p class="zoom-hint"><i class="fas fa-expand"></i> Click any clip to enlarge.</p>
 
@@ -82,9 +80,15 @@
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Robust Dexterous Grasping &amp; Manipulation</p>
-                              <p class="sw-subtitle">Robust visuo-tactile dexterous grasping under uncertain object
-                                pose, friction, and contact modes.</p>
+                              <p class="sw-title">
+                                Robust Grasping &amp; Dexterous Manipulation</p>
+                              <p class="sw-subtitle">Robust visuo-tactile dexterous grasping under uncertain object pose, friction, and contact modes.</p>
+                              <div class="sw-links">
+                                <a href="https://arxiv.org/abs/2607.25049" target="_blank"><i class="ai ai-arxiv"></i>
+                                  FIRMGrasp</a>
+                                <a href="https://github.com/coenwerem/vnb-grasp" target="_blank"><i class="fab fa-github"></i>
+                                  VNB-Grasp</a>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -94,7 +98,7 @@
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="aspect-ratio:16/9;">
-                                <img src="videos/graspit_box_120.gif" style="object-fit:cover;object-position:center calc(98%);" alt="Reach-aware grasp planning demo">
+                                <video class="zoomable" src="videos/equidexflow_equivariance.mp4" poster="videos/equidexflow_equivariance_poster.jpg" autoplay loop muted playsinline aria-label="EquiDexFlow equivariance demo: the same object grasped at 0 and 120 degrees" style="object-fit:cover;"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -110,43 +114,115 @@
                         </div>
 
                         <!-- Application 3: Policy Learning from Multimodal Data -->
+                        <!-- Application 4: Safe Dexterous Manipulation -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="aspect-ratio:16/9;">
-                                <img src="videos/cylinder_full.gif" alt="Policy learning demo"
-                                  style="filter: brightness(1.1);">
+                                <video class="zoomable" src="videos/static_dynamic_grasp.mp4" poster="videos/static_dynamic_grasp_poster.jpg" autoplay loop muted playsinline aria-label="Safe dexterous grasp execution demo: static and dynamic environments" style="object-fit:cover;"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Diffusion Policy Learning from Multimodal Data</p>
-                              <p class="sw-subtitle">Learning from uncertainty-aware expert demonstrations for
-                                contact-rich manipulation tasks.</p>
+                              <p class="sw-title">Safe Autonomous Full-Body Dexterous Grasping & Manipulation</p>
+                              <p class="sw-subtitle">Risk-aware, collision-free, and quality-margin-perserving full-body dexterous manipulation.</p>
+                              <div class="sw-links">
+                                <a href="https://arxiv.org/abs/2604.03868" target="_blank"><i class="ai ai-arxiv"></i>
+                                  Belief-Space CVaR-MPPI Controller</a>
+                                <a href="/gdf" target="_blank"><i class="fas fa-globe"></i>
+                                GDF</a>
+                              </div>
                             </div>
                           </div>
                         </div>
 
-                        <!-- Application 4: Collision-Free Manipulator Control -->
+                        <!-- Application 5: Safe Dexterous Data Collection -->
+                        <div class="sw-entry">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="aspect-ratio:16/9;">
+                                <img src="videos/safe_teleop_xarm_dimos_demo.gif" alt="VR-assisted teleoperation data collection demo">
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Safe Dexterous Data Collection &amp; Manipulation Policy Execution</p>
+                              <p class="sw-subtitle">Scene-aware and collision-free VR-assisted teleoperation for demonstration data collection and policy execution.</p>
+                              <div class="sw-links">
+                                <a href="/gdf" target="_blank"><i class="fas fa-globe"></i>
+                                GDF</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- Application 6: Safe Dexterous Locomanipulation -->
                         <div class="sw-entry" style="border-bottom:none;padding-bottom:0;margin-bottom:2rem;">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="aspect-ratio:16/9;">
-                                <img src="videos/safe_teleop_xarm_dimos_demo.gif" alt="Safe manipulator control demo">
+                                <img src="videos/g1.gif" alt="Safe whole-body dexterous locomanipulation demo on the Unitree G1">
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Dexterous Data Generation, Data Collection, &amp; Policy Execution</p>
-                              <p class="sw-subtitle">Scene-aware and collision-free VR-assisted data collection and risk-aware execution for learned manipulation policies.</p>
+                              <p class="sw-title">Safe & Wrench-Aware Dexterous Locomanipulation</p>
+                              <p class="sw-subtitle">Tools for scene-aware and natural gait-grasp generation, optimization, and control.</p>
+                              <div class="sw-links">
+                                <a href="/gdf" target="_blank"><i class="fas fa-globe"></i>
+                                GDF</a>
+                              </div>
                             </div>
                           </div>
                         </div>
+                  
 
                         <span class="sub-heading">Publications</span>
                         <p class="headhr"></p>
                         <heading><span class="submitted-in-review">Preprints (Submitted/Under Review)</span></heading>
                         <div class="publication-entry">
                         <span class="project-section">2026</span>
-                          <p class="headhr"></p>
+                          <p class="headhr"></p>    
+                        <div class="publication-entry">
+                          <div class="pub-main-row">
+                            <span class="venue-badge">arXiV</span>
+                            <div class="pub-content">
+                              <span style="font-weight:bold;">Clinton Enwerem</span>, John S. Baras, and Calin Belta, &ldquo;Grasp Execution Without a Planner: Configuration-Space Grasp Distance Fields with Certified Safety &amp; Guaranteed Quality,&rdquo; 2026.
+                            </div>
+                          </div>
+                          <div class="pub-links-row">
+                            <a href="/gdf" class="btn btn-link">project page</a>
+                          </div>
+                        </div>
+                        <div class="publication-entry">
+                          <div class="pub-main-row">
+                            <span class="venue-badge">arXiV</span>
+                            <div class="pub-content">
+                              <span style="font-weight:bold;">Clinton Enwerem</span>, John S. Baras, and Calin Belta, &ldquo;FIRMGrasp: A Friction-Informed Risk Margin for Robust Grasp Synthesis,&rdquo; arXiv preprint, 2026. <a href="https://arxiv.org/abs/2607.25049" target="_blank">arXiv link</a>
+                            </div>
+                          </div>
+                          <div class="pub-links-row">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                              data-target="#bib-arXiV-firm-2026" aria-expanded="false" aria-controls="bib-arXiV-firm-2026">
+                              bibtex
+                            </button>
+                            <a href="https://arxiv.org/abs/2607.25049" target="_blank" class="btn btn-link">arXiv</a>
+                            <a href="data/papers/2607.25049.pdf" target="_blank" class="btn btn-link">pdf</a>
+                            <div class="collapse" id="bib-arXiV-firm-2026">
+                              <div class="card card-body">
+                                <pre><code>@online{enweremFIRMRobustGraspSynthesis2026,
+title = {FIRMGrasp: A Friction-Informed Risk Margin for Robust Grasp Synthesis},
+author = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
+year = {2026},
+eprint = {2607.25049},
+eprinttype = {arXiv},
+eprintclass = {cs.RO},
+doi = {},
+url = {https://arxiv.org/abs/2607.25049},
+pubstate = {prepublished},
+keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
+}</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div class="publication-entry">
                           <div class="pub-main-row">
                             <span class="venue-badge">arXiV</span>
@@ -159,8 +235,10 @@
                               data-target="#bib-arXiV-equidexflow-2026" aria-expanded="false" aria-controls="bib-arXiV-equidexflow-2026">
                               bibtex
                             </button>
-                            <a href="http://arxiv.org/abs/2606.12728" class="btn btn-link">paper</a>
-                            <a href="http://equidexflow.github.io" target="_blank" class="btn btn-link">project</a>
+                            <a href="http://arxiv.org/pdf/2606.12728" class="btn btn-link">arXiv</a>
+                            <a href="data/papers/2606.12728.pdf" target="_blank" class="btn btn-link">pdf</a>
+                            <a href="https://github.com/coenwerem/equidexflow" target="_blank" class="btn btn-link">code</a>
+                            <a href="http://equidexflow.github.io" target="_blank" class="btn btn-link">project page</a>
                             <div class="collapse" id="bib-arXiV-equidexflow-2026">
                               <div class="card card-body">
                                 <pre><code>@online{enweremEquiDexFlowContactGroundedSE32026,
@@ -179,315 +257,12 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
                             </div>
                           </div>
                         </div>
-                        <div class="publication-entry">
-                          <div class="pub-main-row">
-                            <span class="venue-badge">arXiV</span>
-                            <div class="pub-content">
-                              <span style="font-weight:bold;">Clinton Enwerem</span>, John S. Baras, and Calin Belta, &ldquo;Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty,&rdquo; arXiv preprint, 2026. <a href="https://arxiv.org/abs/2604.03868">arXiv link</a>
-                            </div>
-                          </div>
-                          <div class="pub-links-row">
-                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                              data-target="#bib-arXiV-belmppi-2026" aria-expanded="false" aria-controls="bib-arXiV-belmppi-2026">
-                              bibtex
-                            </button>
-                            <a href="https://arxiv.org/pdf/2604.03868" target="_blank" class="btn btn-link">paper</a>
-                            <!-- <a href="#" class="btn btn-link">code</a> -->
-                            <div class="collapse" id="bib-arXiV-belmppi-2026">
-                              <div class="card card-body">
-                                <pre><code>@online{enweremRiskConstrainedBeliefOptimization2026,
-title = {Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty},
-author = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
-year = {2026},
-eprint = {2604.03868},
-eprinttype = {arXiv},
-eprintclass = {cs.RO},
-doi = {10.48550/arXiv.2604.03868},
-url = {http://arxiv.org/abs/2604.03868},
-urldate = {2026-04-07},
-pubstate = {prepublished},
-keywords = {Computer Science - Robotics, Electrical Engineering and Systems Science - Systems and Control},
-}</code></pre>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                         
+                        <!-- PEER-REVIEWED:auto-generated:start -->
                         <heading><span class="peer-reviewed">Peer-Reviewed</span></heading>
-                        <div class="publication-entry">
-                          <span class="project-section">2026</span>
-                          <p class="headhr"></p>
-                          <div class="publication-entry">
-                            <div class="pub-main-row">
-                            <span class="venue-badge">IROS</span>
-                            <div class="pub-content">
-                              <span style="font-weight:bold;">Clinton Enwerem</span>, Shreya Kalyanaraman, John S. Baras, and Calin Belta, &ldquo;Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty,&rdquo; 2026. <span style="font-style:oblique;">To appear in the Proceedings of the 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</span>. <a href="https://arxiv.org/abs/2604.25897" target="_blank">arXiv link</a>
-                            </div>
-                          </div>
-                          <div class="pub-links-row">
-                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                              data-target="#bib-iros-vmbgrasps-2026" aria-expanded="false" aria-controls="bib-iros-vmbgrasps-2026">
-                              bibtex
-                            </button>
-                            <a href="https://arxiv.org/pdf/2604.25897" target="_blank" class="btn btn-link">paper</a>
-                            <!-- <a href="#" class="btn btn-link">code</a> -->
-                            <div class="collapse" id="bib-iros-vmbgrasps-2026">
-                              <div class="card card-body">
-                                <pre><code>@inproceedings{enweremVariationalNeuralBeliefParameterizations2026,
-title = {Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty},
-author = {Enwerem, Clinton and Kalyanaraman, Shreya and Baras, John S. and Belta, Calin},
-year = {2026},
-booktitle = {Proceedings of the 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-eprint = {2604.25897},
-eprinttype = {arXiv},
-eprintclass = {cs.RO},
-doi = {10.48550/arXiv.2604.25897},
-url = {http://arxiv.org/abs/2604.25897},
-urldate = {2026-04-28},
-pubstate = {forthcoming},
-keywords = {Computer Science - Robotics, Computer Science - Machine Learning, Electrical Engineering and Systems Science - Systems and Control},
-}</code></pre>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+<!-- PEER-REVIEWED:auto-generated:end -->
 
-                          <span class="project-section">2025</span>
-                          <p class="headhr"></p>
-                          <div class="publication-entry">
-                            <div class="pub-main-row">
-                            <span class="venue-badge">CDC</span>
-                            <div class="pub-content">
-                              <span style="font-weight:bold;">Clinton Enwerem</span>, Aniruddh G. Puranic, John S. Baras, and Calin Belta, Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Value Iteration and Quantile Regression. In the proceedings of the 64<sup>th</sup> IEEE Conference on Decision
-                              and Control (CDC), 2025.
-                            </div>
-                          </div>
-                          <div class="pub-links-row">
-                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                              data-target="#bib-cdc-2025" aria-expanded="false" aria-controls="bib-cdc-2025">
-                              bibtex
-                            </button>
-                            <a href="https://arxiv.org/pdf/2506.06954" target="_blank" class="btn btn-link">paper</a>
-                            <!-- <a href="#" class="btn btn-link">code</a> -->
-                            <div class="collapse" id="bib-cdc-2025">
-                              <div class="card card-body">
-                                <pre><code>@online{enweremSafetyAwareRLforControl2025,
-title = {Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Value Iteration and Quantile Regression},
-author = {Enwerem, Clinton and Puranic, Aniruddh G. and Baras, John S. and Belta, Calin},
-year = {2025},
-eprint = {2506.06954},
-eprinttype = {arXiv},
-eprintclass = {cs.LG},
-doi = {10.48550/arXiv.2506.06954},
-url = {http://arxiv.org/abs/2506.06954},
-urldate = {2025-06-08},
-pubstate = {prepublished},
-keywords = {Computer Science - Machine Learning,Computer Science - Robotics},
-}</code></pre>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                          
-                          <span class="project-section">2024</span>
-                          <p class="headhr"></p>
-                          <div class="publication-entry">
-                            <div class="pub-main-row">
-                            <span class="venue-badge">CDC</span>
-                            <div class="pub-content">
-                              <span style="font-weight:bold;">Clinton Enwerem</span>, Erfaun Noorani, John S. Baras, and
-                              Brian M. Sadler, Robust Stochastic Shortest-Path Planning via Risk-Sensitive Incremental
-                              Sampling, In the proceedings of the 63<sup>rd</sup> IEEE Conference on Decision
-                              and Control (CDC), 2024.
-                            </div>
-                          </div>
-                          <div class="pub-links-row">
-                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                              data-target="#bib-cdc-2024" aria-expanded="false" aria-controls="bib-cdc-2024">
-                              bibtex
-                            </button>
-                            <a href="https://arxiv.org/pdf/2408.08668" target="_blank" class="btn btn-link">paper</a>
-                            <!-- <a href="#" class="btn btn-link">code</a> -->
-                            <div class="collapse" id="bib-cdc-2024">
-                              <div class="card card-body">
-                                <pre><code>@online{enweremRobustStochasticShortestPath2024b,
-title = {Robust {{Stochastic Shortest-Path Planning}} via {{Risk-Sensitive Incremental Sampling}}},
-author = {Enwerem, Clinton and Noorani, Erfaun and Baras, John S. and Sadler, Brian M.},
-year = {2024},
-eprint = {2408.08668},
-eprinttype = {arXiv},
-eprintclass = {cs},
-doi = {10.48550/arXiv.2408.08668},
-url = {http://arxiv.org/abs/2408.08668},
-urldate = {2024-12-20},
-pubstate = {prepublished},
-keywords = {Computer Science - Artificial Intelligence,Computer Science - Robotics,Computer Science - Systems and Control,Electrical Engineering and Systems Science - Systems and Control},
-}</code></pre>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="publication-entry">
-                          <div class="pub-main-row">
-                            <span class="venue-badge">ECC</span>
-                            <div class="pub-content">
-                              <span style="font-weight:bold;">Clinton Enwerem</span> and John S
-                              Baras. Safe Collective Control under Noisy Inputs and Competing Constraints via Non-Smooth
-                              Barrier Functions. In the 2024 European Control Conference (ECC), pp. 3762–3768. IEEE, 2024.
-                            </div>
-                          </div>
-                          <div class="pub-links-row">
-                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                              data-target="#bib-ecc-2024" aria-expanded="false" aria-controls="bib-ecc-2024">
-                              bibtex
-                            </button>
-                            <a href="https://arxiv.org/pdf/2311.03284" target="_blank" class="btn btn-link">paper</a>
-                            <!-- <a href="#" class="btn btn-link">code</a> -->
-                            <div class="collapse" id="bib-ecc-2024">
-                              <div class="card card-body">
-                                <pre><code>@inproceedings{enweremSafeCollectiveControl2024,
-title = {Safe {{Collective Control Under Noisy Inputs}} and {{Competing Constraints}} via {{Non-Smooth Barrier Functions}}},
-booktitle = {2024 {{European Control Conference}} ({{ECC}})},
-author = {Enwerem, Clinton and Baras, John S.},
-year = {2024},
-pages = {3762--3768},
-doi = {10.23919/ECC64448.2024.10591027},
-url = {https://ieeexplore.ieee.org/abstract/document/10591027},
-urldate = {2024-12-20},
-eventtitle = {2024 {{European Control Conference}} ({{ECC}})},
-keywords = {control barrier functions,Control systems,multi-agent systems,Polynomials,Robustness,Safety,safety-critical control,Smoothing methods,stochastic model-predictive control,Stochastic processes,Upper bound}
-}
-                                </code></pre>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="publication-entry">
-                          <div class="pub-main-row">
-                            <span class="venue-badge">LCSS</span>
-                            <div class="pub-content">
-                              <span style="font-weight:bold;">Clinton Enwerem</span> and John S.
-                              Baras, Formation Tracking for a Class of Uncertain Multiagent Systems: A Distributed Kalman
-                              Filtering Approach, IEEE Control Systems Letters, Volume 8, 2024.
-                            </div>
-                          </div>
-                          <div class="pub-links-row">
-                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                              data-target="#bib-lcss-2024" aria-expanded="false" aria-controls="bib-lcss-2024">
-                              bibtex
-                            </button>
-                            <a href="https://ieeexplore.ieee.org/abstract/document/10433084" target="_blank" class="btn btn-link">paper</a>
-                            <!-- <a href="#" class="btn btn-link">code</a> -->
-                            <div class="collapse" id="bib-lcss-2024">
-                              <div class="card card-body">
-                                <pre><code>@article{enweremFormationTrackingClass2024a,
-title = {Formation {{Tracking}} for a {{Class}} of {{Uncertain Multi-Agent Systems}}: {{A Distributed Kalman Filtering Approach}}},
-shorttitle = {Formation {{Tracking}} for a {{Class}} of {{Uncertain Multi-Agent Systems}}},
-author = {Enwerem, Clinton and Baras, John S.},
-year = {2024},
-journaltitle = {IEEE Control Systems Letters},
-volume = {8},
-pages = {217--222},
-issn = {2475-1456},
-doi = {10.1109/LCSYS.2024.3364987},
-url = {https://ieeexplore.ieee.org/abstract/document/10433084},
-urldate = {2024-12-20},
-eventtitle = {{{IEEE Control Systems Letters}}},
-keywords = {Collective control,distributed Kalman filtering (DKF),Filtering,formation tracking,Kalman filters,leader-follower networks,multi-agent systems,Noise measurement,Robot kinematics,Sensors,Standards,Uncertainty}
-}
-                                </code></pre>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <p></p>
-                        <span class="project-section">2023</span>
-                        <p class="headhr"></p>
-                        <div class="publication-entry">
-                          <div class="pub-main-row">
-                            <span class="venue-badge">CoDIT</span>
-                            <div class="pub-content">
-                              <span style="font-weight:bold;">Clinton Enwerem</span> and John S.
-                              Baras, "Consensus-Based Leader-Follower Formation Tracking for Control-Affine Nonlinear
-                              Multiagent Systems," in the 9<sup>th</sup> International Conference on Control, Decision and
-                              Information Technologies (CoDIT), Rome, Italy: IEEE, Jul. 2023, pp. 1226–1231. doi:
-                              10.1109/CoDIT58514.2023.10284199.
-                            </div>
-                          </div>
-                          <div class="pub-links-row">
-                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                              data-target="#bib-codit-2024" aria-expanded="false" aria-controls="bib-codit-2024">
-                              bibtex
-                            </button>
-                            <a href="https://arxiv.org/pdf/2309.09156" target="_blank" class="btn btn-link">paper</a>
-                            <!-- <a href="#" class="btn btn-link">code</a> -->
-                            <div class="collapse" id="bib-codit-2024">
-                              <div class="card card-body">
-                                <pre><code>@inproceedings{enweremConsensusBasedLeaderFollowerFormation2023a,
-title = {Consensus-{{Based Leader-Follower Formation Tracking}} for {{Control-Affine Nonlinear Multiagent Systems}}},
-booktitle = {2023 9th {{International Conference}} on {{Control}}, {{Decision}} and {{Information Technologies}} ({{CoDIT}})},
-author = {Enwerem, Clinton and Baras, John S.},
-year = {2023},
-pages = {1226--1231},
-issn = {2576-3555},
-doi = {10.1109/CoDIT58514.2023.10284199},
-url = {https://ieeexplore.ieee.org/abstract/document/10284199},
-urldate = {2024-12-20},
-eventtitle = {2023 9th {{International Conference}} on {{Control}}, {{Decision}} and {{Information Technologies}} ({{CoDIT}})},
-keywords = {Aerospace electronics,consensus,Control systems,control-affine nonlinear systems,formation control,multiagent systems,Numerical models,Numerical simulation,Topology,Trajectory,Trajectory tracking},
-}
-                                </code></pre>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Preprints -->
-                        <heading><span class="submitted-in-review">Preprints/Reports</span></heading>
-                        <div class="publication-entry">
-                        <span class="project-section">2023</span>
-                        <p class="headhr"></p>
-                        <div class="publication-entry">
-                          <div class="pub-main-row">
-                            <span class="venue-badge">arXiV</span>
-                            <div class="pub-content">
-                              <span style="font-weight:bold;">Clinton Enwerem</span>, John S.
-                              Baras, and Danilo Romero, "Distributed Optimal Formation Control for an Uncertain Multiagent System in the Plane," arXiv:2301.05841 [cs,
-                              eess], Jan. 2023.
-                            </div>
-                          </div>
-                          <div class="pub-links-row">
-                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                              data-target="#bib-arXiV-ofc2D-2023" aria-expanded="false" aria-controls="bib-arXiV-ofc2D-2023">
-                              bibtex
-                            </button>
-                            <a href="http://arxiv.org/abs/2301.05841" target="_blank" class="btn btn-link">paper</a>
-                            <!-- <a href="#" class="btn btn-link">code</a> -->
-                            <div class="collapse" id="bib-arXiV-ofc2D-2023">
-                              <div class="card card-body">
-                                <pre><code>@online{enweremDistributedOptimalFormation2023,
-title = {Distributed {{Optimal Formation Control}} for an {{Uncertain Multiagent System}} in the {{Plane}}},
-author = {Enwerem, Clinton and Baras, John and Romero, Danilo},
-date = {2023-01-14},
-eprint = {2301.05841},
-eprinttype = {arXiv},
-eprintclass = {cs, eess},
-doi = {10.48550/arXiv.2301.05841},
-url = {http://arxiv.org/abs/2301.05841},
-urldate = {2023-01-18},
-abstract = {In this paper, we present a distributed optimal multiagent control scheme for quadrotor formation tracking under localization errors. Our control architecture is based on a leader-follower approach, where a single leader quadrotor tracks a desired trajectory while the followers maintain their relative positions in a triangular formation. We begin by modeling the quadrotors as particles in the YZ-plane evolving under dynamics with uncertain state information. Next, by formulating the formation tracking task as an optimization problem -- with a constraint-augmented Lagrangian subject to dynamic constraints -- we solve for the control law that leads to an optimal solution in the control and trajectory error cost-minimizing sense. Results from numerical simulations show that for the planar quadrotor model considered -- with uncertainty in sensor measurements modeled as Gaussian noise -- the resulting optimal control is able to drive each agent to achieve the desired global objective: leader trajectory tracking with formation maintenance. Finally, we evaluate the performance of the control law using the tracking and formation errors of the multiagent system.},
-pubstate = {prepublished},
-keywords = {Computer Science - Multiagent Systems,Electrical Engineering and Systems Science - Systems and Control},
-}                                
-                                </code></pre>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </td>
                     </tr>
                   </tbody>
