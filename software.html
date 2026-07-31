@@ -65,12 +65,30 @@
 
           <p class="zoom-hint"><i class="fas fa-expand"></i> Click any clip to enlarge.</p>
 
+          <!-- GDF -->
+          <div class="sw-entry">
+            <div class="row align-items-start">
+              <div class="col-md-4 col-5">
+                <div class="sw-video">
+                  <img class="zoomable" src="videos/dynamic.gif" alt="Grasp Distance Fields logo" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+              </div>
+              <div class="col-md-8 col-7 sw-details">
+                <p class="sw-title"><a href="/gdf">Grasp Distance Fields</a></p>
+                <p class="sw-subtitle">Planner-free dexterous grasp execution. A configuration-space grasp distance field descended by a stationary feedback law under control-barrier certificates, with the executed wrap re-scored by the same min-weight program that certified the template. Includes an interactive replay of the recorded run logs.</p>
+                <div class="sw-links">
+                  <a href="/gdf"><i class="fas fa-globe"></i> project page</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- EquiDexFlow -->
           <div class="sw-entry">
             <div class="row align-items-start">
               <div class="col-md-4 col-5">
                 <div class="sw-video">
-                  <img src="videos/graspit_box_120.gif" alt="EquiDexFlow demo" style="width:100%;height:100%;object-fit:cover;object-position:center calc(95% + 10px);">
+                  <video class="zoomable" src="videos/equidexflow_equivariance.mp4" poster="videos/equidexflow_equivariance_poster.jpg" autoplay loop muted playsinline aria-label="EquiDexFlow equivariance demo: the same object grasped at 0 and 120 degrees" style="width:100%;height:100%;object-fit:cover;"></video>
                 </div>
               </div>
               <div class="col-md-8 col-7 sw-details">
@@ -78,7 +96,27 @@
                 <p class="sw-subtitle">Contact-grounded SE(3)-equivariant flow matching for generating reach-aware, collision-free dexterous grasps.</p>
                 <div class="sw-links">
                   <a href="https://equidexflow.github.io" target="_blank"><i class="fas fa-globe"></i> project page</a>
+                  <a href="https://github.com/coenwerem/equidexflow" target="_blank"><i class="fab fa-github"></i> code</a>
                   <a href="http://arxiv.org/abs/2606.12728"><i class="ai ai-arxiv"></i> paper</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VNB-Grasp -->
+          <div class="sw-entry">
+            <div class="row align-items-start">
+              <div class="col-md-4 col-5">
+                <div class="sw-video">
+                  <video class="zoomable" src="videos/vnb_graspit_box.mp4" poster="videos/vnb_graspit_box_poster.jpg" autoplay loop muted playsinline aria-label="VNB-Grasp sim rollout on the graspit box object" style="width:100%;height:100%;object-fit:cover;"></video>
+                </div>
+              </div>
+              <div class="col-md-8 col-7 sw-details">
+                <p class="sw-title"><a href="https://github.com/coenwerem/vnb-grasp" target="_blank">VNB-Grasp</a></p>
+                <p class="sw-subtitle">A differentiable Gaussian-mixture belief over contact parameters and object pose that yields pathwise CVaR gradients for risk-sensitive dexterous grasping, packaged with a MuJoCo benchmark that scores friction sensitivity and perturbation survival.</p>
+                <div class="sw-links">
+                  <a href="https://github.com/coenwerem/vnb-grasp" target="_blank"><i class="fab fa-github"></i> code</a>
+                  <a href="http://arxiv.org/abs/2604.25897"><i class="ai ai-arxiv"></i> paper</a>
                 </div>
               </div>
             </div>
