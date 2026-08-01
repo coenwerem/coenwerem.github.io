@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Grasp execution as a stationary feedback law on a smooth softmin distance field over certified pregrasp configurations in the joint space of an arm-hand system, filtered by a control-barrier quadratic program, with no planner and no stored trajectory.">
   <meta name="keywords"
     content="grasp distance fields, grasp execution, control barrier functions, reactive control, configuration space, dexterous grasping, force closure, min-weight metric, safe execution, underactuated hand">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Grasp Distance Fields: Grasp Execution Without a Planner</title>
 
   <!-- Social link previews -->
@@ -21,25 +21,49 @@
   <meta name="twitter:title" content="Grasp Execution Without a Planner: Configuration-Space Grasp Distance Fields with Certified Safety &amp; Guaranteed Quality">
   <meta name="twitter:image" content="https://clintonenwerem.com/gdf/static/images/field_execution.png">
 
-  <!-- Favicons -->
   <link rel="icon" type="image/png" href="./static/images/gdf-icon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./static/images/gdf-icon.png">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <style>
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #22272e; }
+    body { visibility: hidden; }
+    .dark-mode, .light-mode {
+      visibility: visible;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+  <script>
+    (function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();
+  </script>
+  <script>
+    // Mirror the site theme class into data-theme for the playback panel,
+    // whose canvas and CSS read that attribute
+    (function () {
+      var root = document.documentElement;
+      function sync() {
+        root.setAttribute('data-theme', root.classList.contains('dark-mode') ? 'dark' : 'light');
+      }
+      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['class'] });
+      sync();
+    })();
+  </script>
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Academic Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260801b">
-  <link rel="stylesheet" href="./static/css/gdf-replay.css?v=20260719a">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js?v=20260801b"></script>
+  <!-- Site theme -->
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css?v=20260801b">
+
+  <!-- Project page layout -->
+  <link rel="stylesheet" href="./static/css/gdf.css?v=20260801d">
+  <link rel="stylesheet" href="./static/css/gdf-replay.css?v=20260719a">
 
   <!-- MathJax for inline math -->
   <script>
@@ -49,128 +73,87 @@
 </head>
 
 <body>
-
-  <!-- Main-site navbar, fetched from ../navbar.html so the link bank stays in sync -->
+  <!-- Navbar placeholder -->
   <div id="navbar-placeholder"></div>
 
-  <!-- Theme Toggle -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-    <i class="fas fa-moon"></i>
-  </button>
+  <div class="page-container">
+    <div class="content-wrap">
 
-  <!-- Hero / title card -->
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
-              <img src="./static/images/gdf-icon.png" alt="GDF logo" class="title-logo">
-              Grasp Execution Without a Planner
-            </h1>
-            <h2 class="title is-4 gdf-subtitle-tight">
-              Configuration-Space <strong class="acronym-letter">G</strong>rasp
-              <strong class="acronym-letter">D</strong>istance
-              <strong class="acronym-letter">F</strong>ields with Certified Safety &amp; Guaranteed Quality
-            </h2>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Clinton Enwerem, John S. Baras, &amp; Calin Belta</span>
-            </div>
-            <div class="is-size-6 publication-affiliations gdf-affil">
-              <span class="affiliation-block">Institute for Systems Research, University of Maryland, College Park, MD, U.S.A.</span>
-            </div>
+      <!-- Hero / title card -->
+      <header class="gdf-hero">
+        <h1 class="gdf-title">
+          <img src="./static/images/gdf-icon.png" alt="GDF logo" class="title-logo">
+          Grasp Execution Without a Planner
+        </h1>
+        <h2 class="gdf-subtitle">
+          Configuration-Space <span class="acronym-letter">G</span>rasp
+          <span class="acronym-letter">D</span>istance
+          <span class="acronym-letter">F</span>ields with Certified Safety &amp; Guaranteed Quality
+        </h2>
+        <p class="gdf-authors">Clinton Enwerem, John S. Baras, &amp; Calin Belta</p>
+        <p class="gdf-affil">Institute for Systems Research, University of Maryland, College Park, MD, U.S.A.</p>
+        <div class="gdf-btns">
+          <a href="#" class="gdf-btn gdf-btn--disabled" tabindex="-1">
+            <i class="ai ai-arxiv"></i><span>arXiv (coming soon)</span>
+          </a>
+          <a href="#replay" class="gdf-btn">
+            <i class="fas fa-play"></i><span>Interactive Playback</span>
+          </a>
+          <a href="#quality" class="gdf-btn">
+            <i class="fas fa-certificate"></i><span>Quality Comparison</span>
+          </a>
+        </div>
+      </header>
 
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- arXiv -->
-                <span class="link-block">
-                  <a href="#" class="external-link button is-normal is-rounded is-dark" style="opacity:0.6;cursor:default;" tabindex="-1">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv (coming soon)</span>
-                  </a>
-                </span>
-                <!-- Interactive playback -->
-                <span class="link-block">
-                  <a href="#replay" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-play"></i>
-                    </span>
-                    <span>Interactive Playback</span>
-                  </a>
-                </span>
-                <!-- Videos -->
-                <span class="link-block">
-                  <a href="#videos" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-video"></i>
-                    </span>
-                    <span>Videos</span>
-                  </a>
-                </span>
-              </div>
-              
+      <!-- Videos -->
+      <section class="gdf-section" id="videos">
+        <div class="gdf-wrap gdf-scope">
+          <div class="gdf-vids">
+            <figure class="gdf-vid">
+              <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
+              <figcaption>A tabletop arm-hand system grasps an object behind a 50 cm obstacle pair.</figcaption>
+            </figure>
+            <figure class="gdf-vid">
+              <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
+              <figcaption>The same system avoids an obstacle that moves across the approach path.</figcaption>
+            </figure>
+            <figure class="gdf-vid">
+              <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
+              <figcaption>A Unitree G1 humanoid grasps an object behind a 36 cm obstacle.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key results callout -->
+      <section class="gdf-section gdf-section--alt">
+        <div class="gdf-wrap">
+          <div class="key-results">
+            <div class="key-result">
+              <div class="kr-value">46 / 50</div>
+              <div class="kr-label">objects safely reached, grasped,<br>and stably lifted 12 cm</div>
+            </div>
+            <div class="key-result">
+              <div class="kr-value">94%</div>
+              <div class="kr-label">median share of the synthesized<br>quality margin the executed grasps keep</div>
+            </div>
+            <div class="key-result">
+              <div class="kr-value">0.09 ms</div>
+              <div class="kr-label">quadratic program solve<br>per 20 ms control step</div>
+            </div>
+            <div class="key-result">
+              <div class="kr-value">1</div>
+              <div class="kr-label">a single stationary feedback law,<br>no planner and no stored trajectory</div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Videos -->
-  <section class="section" id="videos">
-    <div class="container is-max-desktop">
-      <div class="gdf-scope">
-        <div class="gdf-vids">
-          <figure class="gdf-vid">
-            <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
-            <figcaption>A tabletop arm-hand system reaches an object behind a 50 cm obstacle pair.</figcaption>
-          </figure>
-          <figure class="gdf-vid">
-            <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
-            <figcaption>The same system avoids a column that moves across the approach path.</figcaption>
-          </figure>
-          <figure class="gdf-vid">
-            <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
-            <figcaption>A Unitree G1 humanoid reaches an object behind a 36 cm obstacle.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Results callout -->
-  <section class="section has-background-light">
-    <div class="container is-max-desktop">
-      <div class="key-results">
-        <div class="key-result">
-          <div class="kr-value">46 / 50</div>
-          <div class="kr-label">objects safely reached, grasped,<br>and stably lifted 12 cm</div>
-        </div>
-        <div class="key-result">
-          <div class="kr-value">94%</div>
-          <div class="kr-label">median share of the synthesized<br>quality margin the executed grasps keep</div>
-        </div>
-        <div class="key-result">
-          <div class="kr-value">0.09 ms</div>
-          <div class="kr-label">quadratic program solve<br>per 20 ms control step</div>
-        </div>
-        <div class="key-result">
-          <div class="kr-value">1</div>
-          <div class="kr-label">a single stationary feedback law,<br>no planner and no stored trajectory</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Abstract -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
+      <!-- Abstract -->
+      <section class="gdf-section">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">Abstract</h2>
+          <div class="gdf-prose">
             <p>
               Standard multifingered grasp execution architectures plan a collision-free trajectory to
               a selected grasp pose and track it with a feedback law. Execution-time object pose
@@ -197,17 +180,13 @@
             </p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Method / How it works -->
-  <section class="section has-background-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3 has-text-centered">GDF's Working Principle</h2>
-          <div class="content has-text-justified">
+      <!-- Method -->
+      <section class="gdf-section gdf-section--alt">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">GDF's Working Principle</h2>
+          <div class="gdf-prose">
             <p>
               The target is a set of certified pregrasp configurations rather than a single pose. Over
               pregrasp configurations $q^{\text{pre}}_i$, the field is a log-sum-exp softmin under a
@@ -222,58 +201,38 @@
             </p>
           </div>
 
-          <div class="columns is-centered is-multiline method-steps">
-            <div class="column is-one-fifth">
-              <div class="method-card has-text-centered">
-                <span class="icon is-large has-text-info">
-                  <i class="fas fa-water fa-2x"></i>
-                </span>
-                <h4 class="title is-6">Grasp Distance Field</h4>
-                <p>A softmin over certified pregrasp configurations in joint space, smooth, with a bounded gradient and an explicit gap to the hard minimum.</p>
-              </div>
+          <div class="method-steps">
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-water"></i></div>
+              <h4>Grasp Distance Field</h4>
+              <p>A softmin over certified pregrasp configurations in joint space, smooth, with a bounded gradient and an explicit gap to the hard minimum.</p>
             </div>
-            <div class="column is-one-fifth">
-              <div class="method-card has-text-centered">
-                <span class="icon is-large has-text-info">
-                  <i class="fas fa-shield-halved fa-2x"></i>
-                </span>
-                <h4 class="title is-6">Safe Execution Law</h4>
-                <p>A CBF quadratic program over self-collision, workspace, object, and obstacle constraints, with the dependent-joint constraints of the underactuated hand as equalities.</p>
-              </div>
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-shield-alt"></i></div>
+              <h4>Safe Execution Law</h4>
+              <p>A CBF quadratic program over self-collision, workspace, object, and obstacle constraints, with the dependent-joint constraints of the underactuated hand as equalities.</p>
             </div>
-            <div class="column is-one-fifth">
-              <div class="method-card has-text-centered">
-                <span class="icon is-large has-text-info">
-                  <i class="fas fa-hand-point-up fa-2x"></i>
-                </span>
-                <h4 class="title is-6">Contact-Mode Switch</h4>
-                <p>A mode structure with hysteresis that admits contact finger by finger, the single event no smooth field captures.</p>
-              </div>
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-hand-point-up"></i></div>
+              <h4>Contact-Mode Switch</h4>
+              <p>A mode structure with hysteresis that admits contact finger by finger, the single event no smooth field captures.</p>
             </div>
-            <div class="column is-one-fifth">
-              <div class="method-card has-text-centered">
-                <span class="icon is-large has-text-info">
-                  <i class="fas fa-certificate fa-2x"></i>
-                </span>
-                <h4 class="title is-6">Wrench Certificate</h4>
-                <p>We evaluate the executed grasp under the same risk-adjusted force-closure margin we used to certify its descriptor, and we report the share of the synthesized margin the executed grasp keeps.</p>
-              </div>
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-certificate"></i></div>
+              <h4>Wrench Certificate</h4>
+              <p>We evaluate the executed grasp under the same risk-adjusted force-closure margin we used to certify its descriptor, and we report the share of the synthesized margin the executed grasp keeps.</p>
             </div>
-            <div class="column is-one-fifth">
-              <div class="method-card has-text-centered">
-                <span class="icon is-large has-text-info">
-                  <i class="fas fa-robot fa-2x"></i>
-                </span>
-                <h4 class="title is-6">Description Generic</h4>
-                <p>A Unitree G1 humanoid runs the identical controller, and only the robot description and scene data change.</p>
-              </div>
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-robot"></i></div>
+              <h4>Description Generic</h4>
+              <p>A Unitree G1 humanoid runs the identical controller, and only the robot description and scene data change.</p>
             </div>
           </div>
 
           <figure class="gdf-figure">
             <img src="./static/images/field_execution_field_only.png"
               alt="Dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles and a certificate band below"
-              class="zoomable gdf-teaser-img">
+              class="zoomable">
             <figcaption class="teaser-caption">
               We plot the clearance field that the obstacle, wall, and object constraints induce over the workspace at the four mode transitions of a two-obstacle trial, with the executed palm path colored by our grasp field value $d_G$.
             </figcaption>
@@ -306,161 +265,200 @@
             </figure>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Interactive playback -->
-  <section class="section" id="replay">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Interactive Playback</h2>
-      <p class="has-text-justified content gdf-lead">
-        The panel below plays back a recorded trial. The tabs switch the trial, the slider scrubs the timeline, and the readout
-        reports the field value, the minimum barrier margin, and the number of contacts across the four execution modes, reach,
-        close, hold, and lift.
-      </p>
+      <!-- Interactive playback -->
+      <section class="gdf-section" id="replay">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">Interactive Playback</h2>
+          <div class="gdf-prose">
+            <p>
+              The panel below plays back a recorded trial. The tabs switch the trial, the slider scrubs the timeline, and the readout
+              reports the field value, the minimum barrier margin, and the number of contacts across the four execution modes, reach,
+              close, hold, and lift.
+            </p>
+          </div>
 
-      <div class="gdf-scope">
-        <div class="gdf-panelwrap">
-          <div class="gdf-panel">
-            <div class="gdf-tabs" role="tablist" aria-label="Trial selection">
-              <button class="gdf-tab" role="tab" data-run="xarm" aria-selected="true">Tabletop arm + hand</button>
-              <button class="gdf-tab" role="tab" data-run="dyn" aria-selected="false">Moving obstacle</button>
-              <button class="gdf-tab" role="tab" data-run="g1" aria-selected="false">G1 humanoid</button>
+          <div class="gdf-scope">
+            <div class="gdf-panelwrap">
+              <div class="gdf-panel">
+                <div class="gdf-tabs" role="tablist" aria-label="Trial selection">
+                  <button class="gdf-tab" role="tab" data-run="xarm" aria-selected="true">Tabletop Arm + Hand</button>
+                  <button class="gdf-tab" role="tab" data-run="dyn" aria-selected="false">Moving Obstacle</button>
+                  <button class="gdf-tab" role="tab" data-run="g1" aria-selected="false">G1 Humanoid</button>
+                </div>
+                <p class="gdf-scenecap">Top-down map of the workspace. The palm follows the grasp field, the shaded well around the target, and the bar at the right edge shows the lift height.</p>
+                <div class="gdf-legend">
+                  <span><span class="gdf-chip gdf-chip--blue"></span>reach</span>
+                  <span><span class="gdf-chip gdf-chip--orange"></span>close</span>
+                  <span><span class="gdf-chip gdf-chip--ok"></span>hold</span>
+                  <span><span class="gdf-chip gdf-chip--lift"></span>lift</span>
+                </div>
+                <canvas id="scene" height="360" aria-label="Top-down workspace playback of the grasp run"></canvas>
+                <div class="gdf-controls">
+                  <button class="gdf-playbtn" id="play" aria-label="Play or pause the playback">&#9654;</button>
+                  <input type="range" id="scrub" min="0" max="100" value="0" step="1" aria-label="Scrub the playback">
+                </div>
+                <div class="gdf-readout">
+                  <span>t <span id="tval">0.00</span> s</span>
+                  <span class="gdf-modepill" id="mode">REACH</span>
+                  <span>field d<sub>G</sub> <span id="dg">0.00</span></span>
+                  <span>minimum barrier <span id="minh">0.000</span> m</span>
+                  <span>contacts <span class="gdf-pips" id="pips"></span></span>
+                </div>
+                <div class="gdf-chartlabel">minimum barrier margin over time. Green above the zero line is safe margin, the brief red interval at the start is the home-posture self-collision margin recovering, and the bands mark the modes.</div>
+                <canvas class="gdf-chart" id="timeline" height="150" aria-label="Barrier clearance and modes over time"></canvas>
+                <p class="gdf-runfacts" id="facts"></p>
+              </div>
             </div>
-            <p class="gdf-scenecap">Top-down map of the workspace. The palm follows the grasp field, the shaded well around the target, and the bar at the right edge shows the lift height.</p>
-            <div class="gdf-legend">
-              <span><span class="gdf-chip gdf-chip--blue"></span>reach</span>
-              <span><span class="gdf-chip gdf-chip--orange"></span>close</span>
-              <span><span class="gdf-chip gdf-chip--ok"></span>hold</span>
-              <span><span class="gdf-chip gdf-chip--lift"></span>lift</span>
-            </div>
-            <canvas id="scene" height="360" aria-label="Top-down workspace playback of the grasp run"></canvas>
-            <div class="gdf-controls">
-              <button class="gdf-playbtn" id="play" aria-label="Play or pause the playback">&#9654;</button>
-              <input type="range" id="scrub" min="0" max="100" value="0" step="1" aria-label="Scrub the playback">
-            </div>
-            <div class="gdf-readout">
-              <span>t <span id="tval">0.00</span> s</span>
-              <span class="gdf-modepill" id="mode">REACH</span>
-              <span>field d<sub>G</sub> <span id="dg">0.00</span></span>
-              <span>minimum barrier <span id="minh">0.000</span> m</span>
-              <span>contacts <span class="gdf-pips" id="pips"></span></span>
-            </div>
-            <div class="gdf-chartlabel">minimum barrier margin over time. Green above the zero line is safe margin, the brief red interval at the start is the home-posture self-collision margin recovering, and the bands mark the modes.</div>
-            <canvas class="gdf-chart" id="timeline" height="150" aria-label="Barrier clearance and modes over time"></canvas>
-            <p class="gdf-runfacts" id="facts"></p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Sweep results -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Certified-Descriptor Evaluation</h2>
-      <div class="content has-text-justified gdf-prose">
-        <p>
-          Our controller completes the full reach-grasp-lift sequence on 46 of the 50 objects, each
-          behind a rectangular obstacle placed next to its approach path, across four primitives,
-          seventeen YCB household objects, and 29 adversarial EGAD meshes. We evaluate 48 grasps in
-          all, 37 of them satisfy $\varepsilon^{(\beta)} \ge 0$ at $\beta = 0.9$, and the min-weight
-          baseline certifies 39 grasps force-closed over the same set.
-        </p>
-      </div>
-      <div class="table-container gdf-table-wrap">
-        <table class="table is-fullwidth is-hoverable">
-          <thead>
-            <tr>
-              <th>Object class</th>
-              <th class="has-text-right">Objects</th>
-              <th class="has-text-right">Lift</th>
-              <th class="has-text-right">$\varepsilon^{(\beta)} \ge 0$</th>
-              <th class="has-text-right">Force closed</th>
-              <th class="has-text-right">Margin &ge; 0.3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Primitives</td><td class="has-text-right">4</td><td class="has-text-right">4</td><td class="has-text-right">3</td><td class="has-text-right">3</td><td class="has-text-right">2</td></tr>
-            <tr><td>YCB household</td><td class="has-text-right">17</td><td class="has-text-right">14</td><td class="has-text-right">12</td><td class="has-text-right">12</td><td class="has-text-right">10</td></tr>
-            <tr><td>EGAD adversarial</td><td class="has-text-right">29</td><td class="has-text-right">28</td><td class="has-text-right">22</td><td class="has-text-right">24</td><td class="has-text-right">18</td></tr>
-            <tr class="gdf-total-row"><td>All</td><td class="has-text-right">50</td><td class="has-text-right">46</td><td class="has-text-right">37</td><td class="has-text-right">39</td><td class="has-text-right">30</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="content gdf-footnote">
-        Our controller fails on four of the 50 trials, and every failure is a failure of convergence,
-        never of safety. In two trials, the hand never attains the three contacts the guard requires
-        within the 700-step horizon and the trial ends in close, in the other two, our controller
-        reaches hold but never satisfies the lift guard, and the program remains feasible at every
-        step of every trial.
-      </p>
-    </div>
-  </section>
+      <!-- Sweep results -->
+      <section class="gdf-section gdf-section--alt">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">Certified-Descriptor Evaluation</h2>
+          <div class="gdf-prose">
+            <p>
+              Our controller completes the full reach-grasp-lift sequence on 46 of the 50 objects, each
+              behind a rectangular obstacle placed next to its approach path, across four primitives,
+              seventeen YCB household objects, and 29 adversarial EGAD meshes. We evaluate 48 grasps in
+              all, 37 of them satisfy $\varepsilon^{(\beta)} \ge 0$ at $\beta = 0.9$, and the min-weight
+              baseline certifies 39 grasps force-closed over the same set.
+            </p>
+          </div>
+          <div class="gdf-table-wrap">
+            <table class="gdf-table">
+              <thead>
+                <tr>
+                  <th>Object class</th>
+                  <th class="num">Objects</th>
+                  <th class="num">Lift</th>
+                  <th class="num">$\varepsilon^{(\beta)} \ge 0$</th>
+                  <th class="num">Force closed</th>
+                  <th class="num">Margin &ge; 0.3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Primitives</td><td class="num">4</td><td class="num">4</td><td class="num">3</td><td class="num">3</td><td class="num">2</td></tr>
+                <tr><td>YCB household</td><td class="num">17</td><td class="num">14</td><td class="num">12</td><td class="num">12</td><td class="num">10</td></tr>
+                <tr><td>EGAD adversarial</td><td class="num">29</td><td class="num">28</td><td class="num">22</td><td class="num">24</td><td class="num">18</td></tr>
+                <tr class="gdf-total-row"><td>All</td><td class="num">50</td><td class="num">46</td><td class="num">37</td><td class="num">39</td><td class="num">30</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="gdf-footnote">
+            Our controller fails on four of the 50 trials, and every failure is a failure of convergence,
+            never of safety. In two trials, the hand never attains the three contacts the guard requires
+            within the 700-step horizon and the trial ends in CLOSE. In the other two, our controller
+            reaches the HOLD state but never satisfies the LIFT guard, and the program remains feasible at every
+            step of every trial. 
+          </p>
+        </div>
+      </section>
 
-  <!-- Findings -->
-  <section class="section has-background-light">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Results</h2>
-      <div class="content has-text-justified gdf-prose-wide">
-        <p>
-          <strong>In a reference trial, we place a sphere from the descriptor set behind a pair of
-          $6 \times 6 \times 50$ cm rectangular obstacles.</strong> No unobstructed approach to the
-          object exists. Our filtered closed loop avoids the obstacle, with the palm up to 20.5 cm from the nominal path, and completes the full
-          12 cm rise. Both obstacle constraints stay positive at every step including the start pose,
-          with a minimum of 6.7 mm, and the executed grasp retains $r = 0.912$ of its certified
-          margin, $3.05\times10^{-3}$ against the descriptor's $3.35\times10^{-3}$, with the
-          min-weight baseline at 0.446 against 0.468.
-        </p>
-        <p>
-          <strong>Our controller updates the obstacle poses at every step, and therefore handles a
-          moving obstacle without modification.</strong> We place a $5 \times 5 \times 45$ cm obstacle
-          at the end of the approach path and translate it at 0.05 m/s across that path during the
-          reach. The filtered palm path lies up to 19.1 cm from the nominal path, 14.9 cm measured point
-          to path, the filtered closed loop moves around the moving obstacle rather than stopping until it
-          passes, and surface clearance stays positive throughout, with a minimum of +8.4 mm. We also
-          use the same case to measure the effect of the time-derivative term the program does not
-          include. The constraint has no $\partial h/\partial t$ contribution, and for a moving
-          obstacle the barrier therefore falls below zero by at most the approach speed divided by
-          the barrier rate, 10 mm here. The measured minimum is $-6.6$ mm against the 1.5 cm obstacle
-          margin.
-        </p>
-        <p>
-          <strong>We instantiate the controller on a humanoid to test that the platform-specific
-          structure comes from the robot description alone.</strong> We merge the 29-degree-of-freedom
-          Unitree G1 body with the same 11-joint hand at the right wrist, fix the legs and left arm,
-          leaving a 21-dimensional fixed-pelvis chain of three torso and seven arm joints plus the
-          hand, and load a grasp record synthesized for this platform. Our controller runs on this
-          platform without modification. With a $4 \times 4 \times 36$ cm obstacle on the
-          palm-to-object line, it completes the 12 cm rise in 434 steps with no infeasible step, a
-          minimum obstacle constraint of 3.8 mm, a filtered palm path up to 9.7 cm from the nominal path, and the torso rotation
-          under 18 degrees through the lift.
-        </p>
-      </div>
-      <figure class="gdf-figure">
-        <img src="./static/images/field_execution.png" class="zoomable gdf-fig-img"
-          alt="Four dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles, and a certificate band below">
-        <figcaption class="has-text-centered gdf-figcap">
-          Field execution through contact and lift. We plot the clearance field that the obstacle,
-          wall, and object constraints induce over the workspace at the four mode transitions of a
-          two-obstacle trial, with the executed palm path colored by our grasp field value $d_G$. The
-          band below plots the per-step series, the field decrease through reach, the rise after the
-          switch to the stored closure through close, the number of contacts with its return to close,
-          and the minimum barrier constraint together with the obstacle constraints, nonnegative
-          throughout apart from the single home-posture hull-overlap pair that the filter drives
-          positive.
-        </figcaption>
-      </figure>
-    </div>
-  </section>
+      <!-- Quality-constrained execution -->
+      <section class="gdf-section" id="quality">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">Quality-Constrained Execution</h2>
+          <div class="gdf-prose">
+            <p>
+              Our wrench-quality constraint eliminates grasps the quality-neutral program lifts without
+              a certificate. In the cube trial, the hand realizes a three-finger contact set whose
+              margin falls during the hold from $1.51\times10^{-3}$ at the start of the hold to
+              $-0.32$, against a descriptor certified at $1.83\times10^{-3}$. The quality-neutral
+              program proceeds through the drop and lifts the grasp without a certificate, while with
+              our constraint enforced the program turns infeasible 25 control steps later and the trial
+              stops in hold. The enforced constraint is thus the only difference between lifting the
+              grasp and stopping it.
+            </p>
+            <p>
+              Beyond the kinematic evaluation, physics simulation distinguishes the two outcomes. The
+              certified grasp of the completed tabletop trial holds the object through an upward force
+              increase to $1.5\,mg$ with at most 1.5 mm of lateral drift, and under the three-finger
+              configuration without a certificate the cube slips from the hand under gravity alone.
+              Across the 45 completed lifts, the executed margin ends within the
+              $k_{\mathrm{wq}} = 0.02$ tolerance of its hold-start value, and the median end-of-lift
+              ratio barely changes between the configurations, 0.932 quality-constrained against 0.936
+              quality-neutral. Our constraint therefore leaves the median unchanged and acts only on
+              the worst cases.
+            </p>
+          </div>
+          <figure class="gdf-quality-video">
+            <video src="./static/videos/quality_safety.mp4" poster="./static/videos/quality_safety_poster.jpg" muted playsinline loop controls preload="metadata" aria-label="Three outcomes, barrier violation, certificate failure, and task success"></video>
+            <figcaption class="gdf-figcap">
+              The three outcomes of the comparison. Under the nominal command the wrist collides with
+              an obstacle (rendered still), the quality-neutral program lifts the uncertified grasp and
+              the object slips from the hand, and our filtered closed loop completes the reach, grasp,
+              and lift with every barrier positive.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
-  <!-- BibTeX -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <p class="gdf-footnote">arXiv link coming soon.</p>
-      <pre><code>@online{enweremGraspDistanceFields2026,
+      <!-- Findings -->
+      <section class="gdf-section gdf-section--alt">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">Results</h2>
+          <div class="gdf-prose">
+            <p>
+              <strong>In a reference trial, we place a sphere from the descriptor set behind a pair of
+              $6 \times 6 \times 50$ cm rectangular obstacles.</strong> No unobstructed approach to the
+              object exists. Our filtered closed loop avoids the obstacle, with the palm up to 20.5 cm from the nominal path, and completes the full
+              12 cm rise. Both obstacle constraints stay positive at every step including the start pose,
+              with a minimum of 6.7 mm, and the executed grasp retains $r = 0.912$ of its certified
+              margin, $3.05\times10^{-3}$ against the descriptor's $3.35\times10^{-3}$, with the
+              min-weight baseline at 0.446 against 0.468.
+            </p>
+            <p>
+              <strong>Our controller updates the obstacle poses at every step, and therefore handles a
+              moving obstacle without modification.</strong> We place a $5 \times 5 \times 45$ cm obstacle
+              at the end of the approach path and translate it at 0.05 m/s across that path during the
+              reach. The filtered palm path lies up to 19.1 cm from the nominal path, 14.9 cm measured point
+              to path, the filtered closed loop moves around the moving obstacle rather than stopping until it
+              passes, and surface clearance stays positive throughout, with a minimum of +8.4 mm. We also
+              use the same case to measure the effect of the time-derivative term the program does not
+              include. The constraint has no $\partial h/\partial t$ contribution, and for a moving
+              obstacle the barrier therefore falls below zero by at most the approach speed divided by
+              the barrier rate, 10 mm here. The measured minimum is $-6.6$ mm against the 1.5 cm obstacle
+              margin.
+            </p>
+            <p>
+              <strong>We instantiate the controller on a humanoid to test that the platform-specific
+              structure comes from the robot description alone.</strong> We merge the 29-degree-of-freedom
+              Unitree G1 body with the same 11-joint hand at the right wrist, fix the legs and left arm,
+              leaving a 21-dimensional fixed-pelvis chain of three torso and seven arm joints plus the
+              hand, and load a grasp record synthesized for this platform. Our controller runs on this
+              platform without modification. With a $4 \times 4 \times 36$ cm obstacle on the
+              palm-to-object line, it completes the 12 cm rise in 434 steps with no infeasible step, a
+              minimum obstacle constraint of 3.8 mm, a filtered palm path up to 9.7 cm from the nominal path, and the torso rotation
+              under 18 degrees through the lift.
+            </p>
+          </div>
+          <figure class="gdf-figure">
+            <img src="./static/images/field_execution.png" class="zoomable"
+              alt="Four dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles, and a certificate band below">
+            <figcaption class="gdf-figcap">
+              Field execution through contact and lift. We plot the clearance field that the obstacle,
+              wall, and object constraints induce over the workspace at the four mode transitions of a
+              two-obstacle trial, with the executed palm path colored by our grasp field value $d_G$. The
+              band below plots the per-step series, the field decrease through reach, the rise after the
+              switch to the stored closure through close, the number of contacts with its return to close,
+              and the minimum barrier constraint together with the obstacle constraints, nonnegative
+              throughout apart from the single home-posture hull-overlap pair that the filter drives
+              positive.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- BibTeX -->
+      <section class="gdf-section" id="BibTeX">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">BibTeX</h2>
+          <p class="gdf-footnote">arXiv link coming soon.</p>
+          <pre><code>@online{enweremGraspDistanceFields2026,
   title     = {Grasp Execution Without a Planner: Configuration-Space Grasp Distance Fields with Certified Safety \& Guaranteed Quality},
   author    = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
   year      = {2026},
@@ -472,25 +470,24 @@
   pubstate  = {prepublished},
   keywords  = {Computer Science - Robotics, Computer Science - Systems and Control},
 }</code></pre>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content has-text-centered gdf-attrib">
-            <p>
-              Site template adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a>,
-              licensed under
-              <a rel="license noopener noreferrer" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
-            </p>
-          </div>
         </div>
-      </div>
+      </section>
+
     </div>
-  </footer>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <!-- Required Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Site scripts, navbar and footer fetch, theme toggle, lightbox.
+       SITE_ROOT tells them this page sits one directory below the site root. -->
+  <script>window.SITE_ROOT = '../';</script>
+  <script src="../scripts.js"></script>
 
   <!-- Interactive playback engine, recorded run logs played back on a canvas -->
   <script defer src="./static/js/replay.js?v=20260731f"></script>
