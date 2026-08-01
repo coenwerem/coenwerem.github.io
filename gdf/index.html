@@ -273,9 +273,7 @@
           <h2 class="gdf-h2">Interactive Playback</h2>
           <div class="gdf-prose">
             <p>
-              The panel below plays back a recorded trial. The tabs switch the trial, the slider scrubs the timeline, and the readout
-              reports the field value, the minimum barrier margin, and the number of contacts across the four execution modes, reach,
-              close, hold, and lift.
+              We playback trajectory data from representative trials of the three reach-avoid-stay grasping scenarios reported in our paper, .viz the tabletop arm-hand system (with static obstacles), the tabletop arm-hand system (operating in a workspace with a dynamic obstacle), and the Unitree G1 humanoid (in a workspace with static obstacles). The tabs below switch between each case. Move the sliders to preview the timeline. Below the sliders, we report per-step values of the distance field, the minimum barrier function margin, and the number of contacts across the system's four execution modes, namely REACH, CLOSE, HOLD, and LIFT.
             </p>
           </div>
 
@@ -306,7 +304,7 @@
                   <span>minimum barrier <span id="minh">0.000</span> m</span>
                   <span>contacts <span class="gdf-pips" id="pips"></span></span>
                 </div>
-                <div class="gdf-chartlabel">minimum barrier margin over time. Green above the zero line is safe margin, the brief red interval at the start is the home-posture self-collision margin recovering, and the bands mark the modes.</div>
+                <div class="gdf-chartlabel">minimum barrier margin over time. The green region above the zero line is the safety margin (in $m$) between the robot's links and obstacles, and colored bands mark the execution modes. Note that the robot starts in a self-collision-free configuration, so the brief red interval at $t=0$ reflects the margin estimator settling to its true value, not an actual collision.</div>
                 <canvas class="gdf-chart" id="timeline" height="150" aria-label="Barrier clearance and modes over time"></canvas>
                 <p class="gdf-runfacts" id="facts"></p>
               </div>
