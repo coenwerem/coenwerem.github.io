@@ -1,0 +1,314 @@
+/* GDF project page layout on the main site theme.
+   All colors come from the site variables in ../../stylesheet.css
+   so light and dark mode follow the sitewide toggle. */
+
+/* Sections */
+.gdf-section {
+  padding: 2.25rem 1.5rem;
+}
+.gdf-section--alt {
+  background-color: var(--bg-secondary);
+}
+.gdf-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.gdf-h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 1.25rem;
+}
+.gdf-prose p {
+  text-align: justify;
+  hyphens: auto;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.gdf-prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* Hero */
+.gdf-hero {
+  text-align: center;
+  padding: 2.75rem 1.5rem 1.25rem;
+}
+.gdf-title {
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+.title-logo {
+  height: 0.92em;
+  width: auto;
+  vertical-align: -0.14em;
+  margin-right: 0.32em;
+  border-radius: 0.18em;
+}
+.gdf-subtitle {
+  font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  margin: 0 0 1rem;
+}
+.acronym-letter {
+  color: var(--theme-primary);
+  font-weight: 700;
+}
+.gdf-authors {
+  font-size: 1.05rem;
+  color: var(--text-color);
+  margin: 0 0 0.25rem;
+}
+.gdf-affil {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+}
+
+/* Link buttons */
+.gdf-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.gdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.45em 1.1em;
+  border-radius: 999px;
+  background-color: #363636;
+  color: #fff;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.gdf-btn:hover {
+  background-color: var(--theme-primary);
+  color: #fff;
+  text-decoration: none;
+}
+.dark-mode .gdf-btn {
+  background-color: #373e47;
+}
+.dark-mode .gdf-btn:hover {
+  background-color: var(--theme-primary);
+}
+.gdf-btn--disabled {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Key results callout */
+.key-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.key-result {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--theme-primary);
+}
+.key-result .kr-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--theme-primary);
+  line-height: 1.2;
+}
+.key-result .kr-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+
+/* Method cards */
+.method-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.method-card {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--theme-primary);
+  text-align: center;
+}
+.method-card .mc-icon {
+  font-size: 1.8rem;
+  color: var(--theme-primary);
+  margin-bottom: 0.75rem;
+}
+.method-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+.method-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: justify;
+  hyphens: auto;
+  margin: 0;
+}
+
+/* Quality comparison video, narrower than the text column */
+.gdf-quality-video {
+  max-width: 680px;
+  margin: 1.5rem auto 0;
+}
+.gdf-quality-video video {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  background: #000;
+}
+
+/* Figures */
+.gdf-figure {
+  margin: 2rem 0 0;
+}
+.gdf-figure img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  background: var(--bg-card-img);
+}
+.gdf-figcap,
+.teaser-caption {
+  font-size: 0.9rem;
+  color: var(--text-caption);
+  margin-top: 0.8rem;
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.5;
+}
+
+/* Timelapse strip, reach close hold lift frames.
+   The margins and gap replicate the panel geometry of the clearance-field
+   figure above (panels span 5.2 to 99.07 percent of the image width with
+   2.3 percent gaps) so each frame sits directly under its phase panel. */
+.gdf-timelapse {
+  display: flex;
+  gap: 2.45%;
+  margin: 1.5rem 0.93% 0 5.2%;
+}
+.gdf-tl-frame {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+}
+.gdf-tl-frame img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card-img);
+}
+.gdf-tl-frame figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+}
+.gdf-tl-chip {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.gdf-tl-chip--blue { background: var(--blue, #1253b4); }
+.gdf-tl-chip--orange { background: var(--orange, #bf360c); }
+.gdf-tl-chip--ok { background: var(--ok, #2e7d32); }
+.gdf-tl-chip--lift { background: var(--lift, #7c4d97); }
+
+/* Results table */
+.gdf-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
+}
+.gdf-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+.gdf-table th,
+.gdf-table td {
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid var(--border-color);
+}
+.gdf-table th {
+  font-weight: 700;
+  border-bottom-width: 2px;
+}
+.gdf-table .num {
+  text-align: right;
+}
+.gdf-table tbody tr:hover {
+  background-color: var(--bg-secondary);
+}
+.gdf-table .gdf-total-row {
+  font-weight: 700;
+}
+.gdf-footnote {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.5;
+}
+
+/* BibTeX */
+#BibTeX pre {
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.85rem;
+}
+
+/* Mobile hardening */
+img, video { max-width: 100%; height: auto; }
+
+@media (max-width: 768px) {
+  .gdf-section { padding: 1.75rem 1rem; }
+  .gdf-tl-frame figcaption { font-size: 0.68rem; gap: 4px; margin-top: 0.3rem; }
+  .gdf-tl-chip { width: 7px; height: 7px; }
+  .gdf-table th, .gdf-table td { padding: 0.35em 0.5em; font-size: 0.85rem; }
+  #BibTeX pre { font-size: 0.78rem; }
+}
+
+@media (max-width: 420px) {
+  .gdf-section { padding: 1.5rem 0.75rem; }
+  .key-results { grid-template-columns: 1fr; max-width: 360px; }
+  .gdf-btn { padding: 0.4em 0.9em; font-size: 0.9rem; }
+  .gdf-tl-frame figcaption { font-size: 0.6rem; gap: 3px; }
+  .gdf-tl-chip { width: 6px; height: 6px; }
+}

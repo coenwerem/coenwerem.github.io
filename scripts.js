@@ -90,11 +90,20 @@ function myFunction() {
   }
 }
 
+// Path from the current page to the site root. Top-level pages use './'.
+// Project subpages one directory down (e.g. /gdf/) declare their own root by
+// setting window.SITE_ROOT = '../' before this script loads. Deriving depth
+// from location.pathname breaks when the site is served from a subdirectory
+// of the server root, so the page declares it instead.
+function siteRoot() {
+  return window.SITE_ROOT || './';
+}
+
 // Load the navbar
 document.addEventListener('DOMContentLoaded', function() {
-  const pathArray = window.location.pathname.split('/').pop() || 'index.html'; // Get the current page name
-  const projectsIndex = pathArray.indexOf('projects'); // Check if it's the "projects" page
-  const pathToRoot = projectsIndex !== -1 ? '../' : './'; // Set the relative path based on whether it's the "projects" page or not
+  const pathToRoot = siteRoot();
+  // On project subpages no top-level nav item is the current page
+  const pathArray = pathToRoot === './' ? (window.location.pathname.split('/').pop() || 'index.html') : null;
 
   // Fetch the navbar HTML file
   fetch(pathToRoot + 'navbar.html')
@@ -123,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Iterate over each navbar link and add the active class to the current page
       navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href && href.endsWith(currentPage)) {
+        if (currentPage && href && href.endsWith(currentPage)) {
           link.parentElement.classList.add('active'); // Add the active class to the parent <li> of the link
         } else {
           link.parentElement.classList.remove('active'); // Remove active class from other links
@@ -151,9 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Load the footer
 document.addEventListener('DOMContentLoaded', function() {
-  const pathArray = window.location.pathname.split('/');
-  const projectsIndex = pathArray.indexOf('projects');
-  const pathToRoot = projectsIndex !== -1 ? '../' : './'; // Set relative path based on the current page
+  const pathToRoot = siteRoot();
 
   // Fetch and load the footer HTML
   fetch(pathToRoot + 'footer.html')
@@ -179,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to handle active state persistence
 document.addEventListener('DOMContentLoaded', function () {
+  if (siteRoot() !== './') return; // project subpages have no active top-level item
   const currentPage = window.location.pathname.split('/').pop() || 'index.html'; // Get current page filename
   const navItems = document.querySelectorAll('.navbar-nav .nav-item');
 
