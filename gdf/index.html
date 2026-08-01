@@ -126,7 +126,7 @@
           </figure>
           <figure class="gdf-vid">
             <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
-            <figcaption>The same system deviates around a column that moves across the approach path.</figcaption>
+            <figcaption>The same system avoids a column that moves across the approach path.</figcaption>
           </figure>
           <figure class="gdf-vid">
             <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
@@ -284,7 +284,7 @@
           <div class="gdf-timelapse">
             <figure class="gdf-tl-frame">
               <img src="./static/images/timelapse/tl_reach.jpg"
-                alt="Tabletop two-obstacle trial at the reach mode, the arm-hand system deviating around the obstacles"
+                alt="Tabletop two-obstacle trial at the reach mode, the arm-hand system passing around the obstacles"
                 class="zoomable">
               <figcaption><span class="gdf-tl-chip gdf-tl-chip--blue"></span>Reach</figcaption>
             </figure>
@@ -364,11 +364,11 @@
       <h2 class="title is-3 has-text-centered">Certified-Descriptor Evaluation</h2>
       <div class="content has-text-justified gdf-prose">
         <p>
-          We execute certified grasp records over 50 objects, four primitive
-          shapes, 17 YCB household objects, and 29 adversarial EGAD meshes, each behind a rectangular
-          obstacle placed next to its approach path. Our controller completes the reach-grasp-lift
-          sequence on 46, 37 of the 48 evaluated grasps satisfy the risk-adjusted margin
-          $\varepsilon^{(\beta)} \ge 0$ at $\beta = 0.9$, and 39 satisfy single-friction force closure.
+          Our controller completes the full reach-grasp-lift sequence on 46 of the 50 objects, each
+          behind a rectangular obstacle placed next to its approach path, across four primitives,
+          seventeen YCB household objects, and 29 adversarial EGAD meshes. We evaluate 48 grasps in
+          all, 37 of them satisfy $\varepsilon^{(\beta)} \ge 0$ at $\beta = 0.9$, and the min-weight
+          baseline certifies 39 force closed over the same set.
         </p>
       </div>
       <div class="table-container gdf-table-wrap">
@@ -392,10 +392,11 @@
         </table>
       </div>
       <p class="content gdf-footnote">
-        Every failure is a failure of convergence, never of safety. In two trials, the hand never
-        attains three contacts within the horizon and the trial ends in close, in the other two, our
-        controller reaches hold but never satisfies the lift guard, and the quadratic program remains
-        feasible at every step of every trial.
+        Our controller fails on four of the 50 trials, and every failure is a failure of convergence,
+        never of safety. In two trials, the hand never attains the three contacts the guard requires
+        within the 700-step horizon and the trial ends in close, in the other two, our controller
+        reaches hold but never satisfies the lift guard, and the program remains feasible at every
+        step of every trial.
       </p>
     </div>
   </section>
@@ -406,32 +407,37 @@
       <h2 class="title is-3 has-text-centered">Results</h2>
       <div class="content has-text-justified gdf-prose-wide">
         <p>
-          <strong>The reference scene admits no unobstructed approach.</strong> The first playback tab
-          and video show a 6 by 6 by 50 cm obstacle pair with the object behind it, and the
-          gap between the obstacles is the only route. The palm deviates 20.5 cm around the obstacle,
-          both obstacle constraints stay positive from the start pose onward with a minimum of 6.7 mm,
-          and the executed grasp keeps 91 percent of its descriptor's force-closure margin. We map the
-          boundary of the trapped region with a scene-placement search, a 50 cm column on the approach
-          path leaves the closed loop trapped in every trial, and in the reported scene, the trajectory
-          deviates around a first obstacle before reaching the obstacle on its line.
+          <strong>In a reference trial, we place a sphere from the descriptor set behind a pair of
+          $6 \times 6 \times 50$ cm rectangular obstacles.</strong> No unobstructed approach to the
+          object exists. Our filtered closed loop avoids the obstacle, with the palm up to 20.5 cm from the nominal path, and completes the full
+          12 cm rise. Both obstacle constraints stay positive at every step including the start pose,
+          with a minimum of 6.7 mm, and the executed grasp retains $r = 0.912$ of its certified
+          margin, $3.05\times10^{-3}$ against the descriptor's $3.35\times10^{-3}$, with the
+          min-weight baseline at 0.446 against 0.468.
         </p>
         <p>
-          <strong>Our controller handles a moving obstacle with no new constraints.</strong> It updates
-          the obstacle poses at every control step as the 5 by 5 by 45 cm obstacle crosses the approach
-          path in the second tab. The palm deviates up to 19.1 cm, 14.9 cm by
-          the point-to-path measure, and surface clearance stays positive with a minimum of 8.4 mm.
-          We also use this case to measure the effect of the time-derivative term the program does not
-          include. With no obstacle-velocity contribution, an active constraint falls below zero by at
-          most the approach speed over the barrier rate, 6.6 mm measured against the 10 mm bound and
-          the 1.5 cm margin.
+          <strong>Our controller updates the obstacle poses at every step, and therefore handles a
+          moving obstacle without modification.</strong> We place a $5 \times 5 \times 45$ cm obstacle
+          at the end of the approach path and translate it at 0.05 m/s across that path during the
+          reach. The filtered palm path lies up to 19.1 cm from the nominal path, 14.9 cm measured point
+          to path, the filtered closed loop moves around the moving obstacle rather than stopping until it
+          passes, and surface clearance stays positive throughout, with a minimum of +8.4 mm. We also
+          use the same case to measure the effect of the time-derivative term the program does not
+          include. The constraint has no $\partial h/\partial t$ contribution, and for a moving
+          obstacle the barrier therefore falls below zero by at most the approach speed divided by
+          the barrier rate, 10 mm here. The measured minimum is $-6.6$ mm against the 1.5 cm obstacle
+          margin.
         </p>
         <p>
-          <strong>The same controller runs on a humanoid.</strong> The third tab and video play back a
-          Unitree G1 with the same hand merged at the right wrist, three torso joints joining the
-          seven-joint arm chain, and a grasp record synthesized for that platform. Our controller
-          architecture is identical, and only the description and scene data change. A 4 by 4 by 36 cm obstacle
-          stands on the palm-to-object line, the palm deviates up to 9.7 cm, and the object
-          rises 12 cm with the torso rotation under 18 degrees.
+          <strong>We instantiate the controller on a humanoid to test that the platform-specific
+          structure comes from the robot description alone.</strong> We merge the 29-degree-of-freedom
+          Unitree G1 body with the same 11-joint hand at the right wrist, fix the legs and left arm,
+          leaving a 21-dimensional fixed-pelvis chain of three torso and seven arm joints plus the
+          hand, and load a grasp record synthesized for this platform. Our controller runs on this
+          platform without modification. With a $4 \times 4 \times 36$ cm obstacle on the
+          palm-to-object line, it completes the 12 cm rise in 434 steps with no infeasible step, a
+          minimum obstacle constraint of 3.8 mm, a filtered palm path up to 9.7 cm from the nominal path, and the torso rotation
+          under 18 degrees through the lift.
         </p>
       </div>
       <figure class="gdf-figure">
