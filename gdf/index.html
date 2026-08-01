@@ -32,14 +32,14 @@
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260801a">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260801b">
   <link rel="stylesheet" href="./static/css/gdf-replay.css?v=20260719a">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js?v=20260801a"></script>
+  <script src="./static/js/index.js?v=20260801b"></script>
 
   <!-- MathJax for inline math -->
   <script>
@@ -172,33 +172,28 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              The standard architecture for multifingered grasp execution plans a collision-free
-              trajectory to a selected grasp pose and tracks it with a feedback law, and a moved object
-              or a disturbed state forces a costly replanning step. We remove the replanning step
-              entirely and represent the target as a set of grasp configurations, over which we define
-              a smooth softmin distance field in the configuration space of the arm-hand system. Our
-              controller follows the field's negative gradient with a stationary feedback law while a
-              CBF-CLF quadratic program keeps every step inside the safe set.
-            </p>
-            <p>
-              We prove that the softmin distance tracks the true set distance within an explicit gap,
-              that its gradient is a convex combination of unit-norm candidate directions with a
-              resulting speed bound, and that the filtered closed loop renders the safe set forward
-              invariant. Since no smooth field captures the switching that hand-object contact
-              introduces, a mode switch with hysteresis replaces object collision avoidance with contact
-              admission at a realized pregrasp configuration. A wrench-quality barrier constraint then
-              keeps the realized grasp's force-closure margin within a prescribed tolerance of its value
-              at the start of the hold, and we evaluate every executed grasp under the same
-              risk-adjusted margin that certified its descriptor.
-            </p>
-            <p>
-              We evaluate in kinematic simulation on two platforms, a fixed-base arm and a Unitree G1
-              humanoid, both fitted with the same underactuated multifingered hand. Our controller
-              safely reaches for, grasps, and stably lifts 46 of 50 objects spanning primitive,
-              household, and adversarial classes, the executed grasps keep a median 94% of their
-              synthesized quality margin, and the quadratic program solves in 0.09 ms per 20 ms control
-              step. The recorded per-step softmax weights confirm that our controller executes
-              whichever candidate the field places nearest, with no separate selection step.
+              Standard multifingered grasp execution architectures plan a collision-free trajectory to
+              a selected grasp pose and track it with a feedback law. Execution-time object pose
+              uncertainty or perturbations may invalidate the planned trajectory, forcing a costly
+              replanning step. We present Grasp Distance Fields (GDFs), a smooth softmin distance field
+              over grasp configurations in the arm-hand configuration space. Our controller executes a
+              grasp by following this field's negative gradient with a stationary feedback law,
+              eliminating the need for a planner, stored trajectory, or grasp selection. For safety, we
+              filter this command through a CBF-CLF quadratic program (QP) constraining self-collision,
+              workspace, object, and obstacle clearance, reporting impeded progress as explicit slack.
+              We prove that the softmin tracks the true set distance within $\log N/\rho$ for $N$
+              candidates and smoothing parameter $\rho$, and that the filtered loop renders the safe set
+              forward invariant. Since no smooth field captures hand-object contact switching, we switch
+              modes with hysteresis at a pregrasp configuration, trading object collision avoidance for
+              contact admission. A wrench-quality barrier then keeps the realized grasp's force-closure
+              margin within a prescribed tolerance of its value at hold onset. We evaluate in kinematic
+              simulation on a fixed-base arm and a Unitree G1 humanoid, both fitted with the same
+              underactuated hand. Our controller navigates cluttered and dynamic scenes to safely reach
+              for, grasp, and lift 46 of 50 objects spanning primitive, household, and adversarial
+              classes. Across those lifts, the executed grasps retain a median 94% of their synthesized
+              quality margin, at 0.09 ms QP solve time per 20 ms control step. Per-step softmax weights
+              confirm that our controller executes the nearest candidate, obviating a separate selection
+              step.
             </p>
           </div>
         </div>
