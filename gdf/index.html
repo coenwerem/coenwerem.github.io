@@ -188,9 +188,9 @@
           <h2 class="gdf-h2">GDF's Working Principle</h2>
           <div class="gdf-prose">
             <p>
-              The target is a set of certified pregrasp configurations rather than a single pose. Over
-              pregrasp configurations $q^{\text{pre}}_i$, the field is a log-sum-exp softmin under a
-              diagonal metric that weights the arm above the hand,
+              In our framework, the controller's target is a set of certified pregrasp configurations instead of a single grasp pose. Over
+              pregrasp configurations, $q^{\text{pre}}_i$, we compute the distance field as a log-sum-exp softmin under a
+              diagonal metric, $\Lambda$, that weights the arm above the hand,
               $d_G(q) = -\tfrac{1}{\rho}\log \sum_i \exp(-\rho\,\lVert q^{\text{pre}}_i - q\rVert_\Lambda)$.
               It tracks the true set distance within $\log N/\rho$, its gradient is a convex
               combination of unit directions, and the negative gradient points toward whichever
