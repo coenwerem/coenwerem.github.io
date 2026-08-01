@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Grasp execution as a stationary feedback law on a smooth softmin distance field over certified pregrasp configurations in the joint space of an arm-hand system, filtered by a control-barrier quadratic program, with no planner and no stored trajectory.">
+    content="Grasp execution as a stationary feedback law on a smooth softmin distance field over certified pregrasp configurations in the joint space of an arm-hand system, filtered by a control-barrier quadratic program, eliminating the need for a planner or a stored trajectory.">
   <meta name="keywords"
     content="grasp distance fields, grasp execution, control barrier functions, reactive control, configuration space, dexterous grasping, force closure, min-weight metric, safe execution, underactuated hand">
   <title>Grasp Distance Fields: Grasp Execution Without a Planner</title>
@@ -194,7 +194,7 @@
               $d_G(q) = -\tfrac{1}{\rho}\log \sum_i \exp(-\rho\,\lVert q^{\text{pre}}_i - q\rVert_\Lambda)$.
               It tracks the true set distance within $\log N/\rho$, its gradient is a convex
               combination of unit directions, and the negative gradient points toward whichever
-              candidate lies nearest with no selection step. A control-barrier quadratic program with a
+              candidate lies nearest, obviating a separate grasp candidate selection step. A control-barrier quadratic program with a
               linear class-$\mathcal{K}$ rate filters the nominal command. An admission test eliminates
               any candidate whose pregrasp or closure violates a barrier constraint, and the target set
               therefore contains only certified grasps.
@@ -431,7 +431,7 @@
               platform without modification. With a $4 \times 4 \times 36$ cm obstacle on the
               palm-to-object line, it completes the 12 cm rise in 434 steps with no infeasible step, a
               minimum obstacle constraint of 3.8 mm, a filtered palm path up to 9.7 cm from the nominal path, and the torso rotation
-              under 18 degrees through the lift.
+              stays under 18 degrees through the lift.
             </p>
           </div>
           <figure class="gdf-figure">
