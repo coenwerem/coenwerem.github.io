@@ -32,14 +32,14 @@
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260725a">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260801a">
   <link rel="stylesheet" href="./static/css/gdf-replay.css?v=20260719a">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js?v=20260719a"></script>
+  <script src="./static/js/index.js?v=20260801a"></script>
 
   <!-- MathJax for inline math -->
   <script>
@@ -49,6 +49,9 @@
 </head>
 
 <body>
+
+  <!-- Main-site navbar, fetched from ../navbar.html so the link bank stays in sync -->
+  <div id="navbar-placeholder"></div>
 
   <!-- Theme Toggle -->
   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
@@ -192,7 +195,7 @@
               We evaluate in kinematic simulation on two platforms, a fixed-base arm and a Unitree G1
               humanoid, both fitted with the same underactuated multifingered hand. Our controller
               safely reaches for, grasps, and stably lifts 46 of 50 objects spanning primitive,
-              household, and adversarial classes, the executed grasps keep a median 94 percent of their
+              household, and adversarial classes, the executed grasps keep a median 94% of their
               synthesized quality margin, and the quadratic program solves in 0.09 ms per 20 ms control
               step. The recorded per-step softmax weights confirm that our controller executes
               whichever candidate the field places nearest, with no separate selection step.
@@ -274,7 +277,7 @@
 
           <figure class="gdf-figure">
             <img src="./static/images/field_execution_field_only.png"
-              alt="Dense planar slices of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles and a certificate strip beneath"
+              alt="Dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles and a certificate band below"
               class="zoomable gdf-teaser-img">
             <figcaption class="teaser-caption">
               We plot the clearance field that the obstacle, wall, and object constraints induce over the workspace at the four mode transitions of a two-obstacle trial, with the executed palm path colored by our grasp field value $d_G$.
@@ -442,7 +445,7 @@
       </div>
       <figure class="gdf-figure">
         <img src="./static/images/field_execution.png" class="zoomable gdf-fig-img"
-          alt="Four dense planar slices of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles, and a certificate strip beneath">
+          alt="Four dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles, and a certificate band below">
         <figcaption class="has-text-centered gdf-figcap">
           Field execution through contact and lift. We plot the clearance field that the obstacle,
           wall, and object constraints induce over the workspace at the four mode transitions of a

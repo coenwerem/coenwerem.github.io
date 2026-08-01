@@ -80,6 +80,43 @@ body {
 
 code { background-color: var(--code-bg); color: var(--text-primary); }
 
+/* Main-site navbar, fetched into #navbar-placeholder from ../navbar.html.
+   The fragment ships Bootstrap classes, so the rules below restyle it with
+   this page's theme variables and override Bulma's own .navbar defaults. */
+#navbar-placeholder .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3.25rem;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  /* Right padding clears the fixed theme toggle. */
+  padding: 0.3rem 70px;
+  box-shadow: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+#navbar-placeholder .navbar-collapse { display: block; }
+#navbar-placeholder .navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#navbar-placeholder .nav-item { margin: 0; }
+#navbar-placeholder .nav-link {
+  display: inline-block;
+  padding: 0.7rem 0.9rem;
+  color: var(--text-primary);
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s linear;
+}
+#navbar-placeholder .nav-link:hover { color: var(--accent); }
+
 /* Theme toggle */
 .theme-toggle {
   position: fixed;
@@ -434,6 +471,10 @@ img, video { max-width: 100%; height: auto; }
 
 @media (max-width: 768px) {
   .section { padding-left: 1rem; padding-right: 1rem; }
+
+  /* Main-site navbar: wrap the links, keep them clear of the theme toggle. */
+  #navbar-placeholder .navbar { padding: 0.2rem 64px 0.2rem 12px; }
+  #navbar-placeholder .nav-link { padding: 0.6rem 0.6rem; font-size: 0.9rem; }
   .hero .title.is-1, .hero .title.is-2, .publication-title {
     font-size: clamp(1.4rem, 5.5vw, 2rem);
     line-height: 1.2;
