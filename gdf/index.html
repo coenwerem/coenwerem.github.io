@@ -122,15 +122,15 @@
         <div class="gdf-vids">
           <figure class="gdf-vid">
             <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
-            <figcaption><span class="gdf-cap-lead">Tabletop arm-hand system</span>. The palm deviates 20.5 cm around the obstacle pair, the minimum obstacle constraint stays at +6.7 mm, and the executed grasp keeps 91 percent of its certified margin through the 12 cm lift.</figcaption>
+            <figcaption>A tabletop arm-hand system reaches an object behind a 50 cm obstacle pair.</figcaption>
           </figure>
           <figure class="gdf-vid">
             <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
-            <figcaption><span class="gdf-cap-lead">Moving obstacle</span>. The obstacle crosses the approach path at 0.05 m/s, the palm deviates up to 19.1 cm, and surface clearance stays positive with a minimum of +8.4 mm.</figcaption>
+            <figcaption>The same system deviates around a column that moves across the approach path.</figcaption>
           </figure>
           <figure class="gdf-vid">
             <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
-            <figcaption><span class="gdf-cap-lead">Unitree G1</span>, identical controller architecture. The palm deviates 9.7 cm around the obstacle, the minimum obstacle constraint is +3.8 mm, and the torso rotation stays under 18 degrees through the 12 cm lift.</figcaption>
+            <figcaption>A Unitree G1 humanoid reaches an object behind a 36 cm obstacle.</figcaption>
           </figure>
         </div>
       </div>
@@ -277,7 +277,7 @@
               alt="Dense planar slices of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles and a certificate strip beneath"
               class="zoomable gdf-teaser-img">
             <figcaption class="teaser-caption">
-              Our controller steers the arm-hand system between two obstacles to a certified grasp. Every barrier constraint remains nonnegative from the start pose through the lift, and the realized grasp keeps its certified quality margin.
+              We plot the clearance field that the obstacle, wall, and object constraints induce over the workspace at the four mode transitions of a two-obstacle trial, with the executed palm path colored by our grasp field value $d_G$.
             </figcaption>
           </figure>
 
@@ -438,9 +438,14 @@
         <img src="./static/images/field_execution.png" class="zoomable gdf-fig-img"
           alt="Four dense planar slices of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles, and a certificate strip beneath">
         <figcaption class="has-text-centered gdf-figcap">
-          Grasp execution through contact and lift. Planar slices show the clearance field at the four
-          mode transitions of a two-obstacle trial, the palm path is colored by the field value, and
-          the strip beneath holds the per-step certificates.
+          Field execution through contact and lift. We plot the clearance field that the obstacle,
+          wall, and object constraints induce over the workspace at the four mode transitions of a
+          two-obstacle trial, with the executed palm path colored by our grasp field value $d_G$. The
+          band below plots the per-step series, the field decrease through reach, the rise after the
+          switch to the stored closure through close, the number of contacts with its return to close,
+          and the minimum barrier constraint together with the obstacle constraints, nonnegative
+          throughout apart from the single home-posture hull-overlap pair that the filter drives
+          positive.
         </figcaption>
       </figure>
     </div>
