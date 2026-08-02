@@ -131,7 +131,7 @@
           <div class="key-results">
             <div class="key-result">
               <div class="kr-value">46 / 50</div>
-              <div class="kr-label">objects safely reached, grasped,<br>and stably lifted 12 cm</div>
+              <div class="kr-label">test objects safely reached, grasped,<br>and stably lifted 12 cm</div>
             </div>
             <div class="key-result">
               <div class="kr-value">94%</div>
@@ -172,7 +172,7 @@
               margin within a prescribed tolerance of its value at hold onset. We evaluate in kinematic
               simulation on a fixed-base arm and a Unitree G1 humanoid, both fitted with the same
               underactuated hand. Our controller navigates cluttered and dynamic scenes to safely reach
-              for, grasp, and lift 46 of 50 objects spanning primitive, household, and adversarial
+              for, grasp, and lift 46 of 50 test objects spanning primitive, household, and adversarial
               classes. Across those lifts, the executed grasps retain a median 94% of their synthesized
               quality margin, at 0.09 ms QP solve time per 20 ms control step. Per-step softmax weights
               confirm that our controller executes the nearest grasp candidate, obviating a separate selection
@@ -365,7 +365,7 @@
               Our wrench-quality constraint eliminates grasps that a controller synthesized from a grasp-quality-neutral program (i.e., a controller that does not optimize for grasp quality preservation) drives past the HOLD state and into the LIFT phase. Below we provide results from a representative trial (in both kinematic and dynamic simulation). In the kinematic case, the quality-neutral controller drives the robotic hand to realize a three-finger grasp whose quality margin ($\varepsilon^{(\beta)}$) falls during the LIFT phase from $1.51\times10^{-3}$ (at HOLD onset) to $-0.32$, against a grasp descriptor certified at $1.83\times10^{-3}$. Physically, this translates to object slip (as can be seen in the video below, and which we expatiate in the next paragraph). Our quality-preserving QP on the other hand, enforces a quality constraint that reports infeasibility for the above trial 25 control steps later, stopping the robot at the HOLD phase.
             </p>
             <p>
-              To make the grasp quality preservation concrete, we evaluate the two controller instances from the kinematic setting in physics simulation, where the two outcomes diverge sharply. The certified grasp holds the object with no slip through an upward force increase from $m.g.$ to $ 1.5,m.g. $, with at most $ 1.5,\text{mm} $ of lateral drift, while the three-finger grasp without a quality certificate slips and drops the object under gravity. Across the $ 45 $ completed lifts, we find the executed margin ends within the $ k_{\mathrm{wq}} = 0.02 $ tolerance of its hold-start value with our controller, and we observe that the median end-of-lift grasp quality ratio barely changes between configurations, $ 0.932 $ quality-constrained against $ 0.936 $ quality-neutral. Our constraint therefore leaves the median unchanged and acts only on grasp configurations with quality losses below the prescribed margin.
+              To make the grasp quality preservation concrete, we evaluate the two controller instances from the kinematic setting in physics simulation, where the two outcomes diverge sharply. The certified grasp holds the object with no slip through an upward force increase from $\mathrm{m}\cdot\mathrm{g}$ to $1.5\mathrm{m}\cdot\mathrm{g}$, with at most $1.5\mathrm{mm}$ of lateral drift (taking $m$ to be the object's mass in $\mathrm{kg}$ and $g$ the acceleration due to gravity), while the three-finger grasp without a quality certificate slips and drops the object under gravity. Across the $45$ completed lifts, we find the executed margin ends within the $ k_{\mathrm{wq}} = 0.02 $ tolerance of its hold-start value with our controller, and we observe that the median end-of-lift grasp quality ratio barely changes between configurations, $ 0.932 $ quality-constrained against $ 0.936 $ quality-neutral. Our constraint therefore leaves the median unchanged and acts only on grasp configurations with quality losses below the prescribed margin.
             </p>
           </div>
           <figure class="gdf-quality-video">
