@@ -119,7 +119,7 @@
             </figure>
             <figure class="gdf-vid">
               <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
-              <figcaption>A Unitree G1 humanoid successfully grasps and lifts an object behind a 6 x 6 x 36 cm obstacle while avoiding collision.</figcaption>
+              <figcaption>A Unitree G1 humanoid successfully grasps and lifts an object behind a 4 x 4 x 36 cm obstacle while avoiding collision.</figcaption>
             </figure>
           </div>
         </div>
@@ -165,7 +165,7 @@
               filter this command through a CBF-CLF quadratic program (QP) constraining self-collision,
               workspace, object, and obstacle clearance, reporting impeded progress as explicit slack.
               We prove that the softmin tracks the true set distance within $\log N/\rho$ for $N$
-              candidates and smoothing parameter $\rho$, and that the filtered loop renders the safe set
+              candidates and smoothing parameter $\rho$, and that the filtered control input renders the safe set
               forward invariant. Since no smooth field captures hand-object contact switching, we switch
               modes with hysteresis at a pregrasp configuration, trading object collision avoidance for
               contact admission. A wrench-quality barrier then keeps the realized grasp's force-closure
@@ -175,7 +175,7 @@
               for, grasp, and lift 46 of 50 objects spanning primitive, household, and adversarial
               classes. Across those lifts, the executed grasps retain a median 94% of their synthesized
               quality margin, at 0.09 ms QP solve time per 20 ms control step. Per-step softmax weights
-              confirm that our controller executes the nearest candidate, obviating a separate selection
+              confirm that our controller executes the nearest grasp candidate, obviating a separate selection
               step.
             </p>
           </div>
