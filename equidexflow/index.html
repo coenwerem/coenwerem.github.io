@@ -1,0 +1,713 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="EquiDexFlow is an SE(3)-equivariant flow-matching model that jointly learns hand configuration, fingertip contacts, surface normals, and contact forces from object point clouds for dexterous grasping.">
+  <meta name="keywords"
+    content="EquiDexFlow, dexterous grasping, SE(3) equivariance, flow matching, contact forces, friction cone, Allegro Hand, LEAP Hand, grasp synthesis, robotic manipulation">
+  <title>EquiDexFlow: Contact-Grounded SE(3)-Equivariant Dexterous Grasp Generative Flows</title>
+
+  <!-- Social link previews -->
+  <meta property="og:title" content="EquiDexFlow: Contact-Grounded SE(3)-Equivariant Dexterous Grasp Generative Flows">
+  <meta property="og:description"
+    content="An SE(3)-equivariant flow-matching model that jointly predicts wrist pose, joint angles, fingertip contacts, surface normals, and contact forces from an object point cloud.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clintonenwerem.com/equidexflow/">
+  <meta property="og:image" content="https://clintonenwerem.com/equidexflow/static/images/equivariance/allegro_eq_six_test.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EquiDexFlow: Contact-Grounded SE(3)-Equivariant Dexterous Grasp Generative Flows">
+  <meta name="twitter:image" content="https://clintonenwerem.com/equidexflow/static/images/equivariance/allegro_eq_six_test.png">
+
+  <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./static/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./static/images/favicon-16x16.png">
+  <link rel="alternate icon" href="./static/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./static/images/apple-touch-icon.png">
+
+  <style>
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #22272e; }
+    body { visibility: hidden; }
+    .dark-mode, .light-mode {
+      visibility: visible;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+  <script>
+    (function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Academic Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Site theme -->
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css?v=20260801b">
+
+  <!-- Project page layout -->
+  <link rel="stylesheet" href="./static/css/equidexflow.css?v=20260802c">
+
+  <!-- MathJax for inline math -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['\\[', '\\]']] } };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <!-- Navbar placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <div class="page-container">
+    <div class="content-wrap">
+
+      <!-- Hero / title card -->
+      <header class="edf-hero">
+        <h1 class="edf-title">
+          <img src="./static/images/favicon.svg" alt="EquiDexFlow logo" class="title-logo">
+          <span class="equidexflow">EquiDexFlow</span>
+        </h1>
+        <h2 class="edf-subtitle">
+          Contact-Grounded SE(3)-Equivariant<br>Dexterous Grasp Generative Flows
+        </h2>
+        <p class="edf-authors">Clinton Enwerem, John S. Baras, &amp; Calin Belta</p>
+        <p class="edf-affil">Institute for Systems Research, University of Maryland, College Park, MD, U.S.A.</p>
+        <div class="edf-btns">
+          <a href="https://arxiv.org/abs/2606.12728" target="_blank" rel="noopener noreferrer" class="edf-btn">
+            <i class="ai ai-arxiv"></i><span>arXiv</span>
+          </a>
+          <a href="https://github.com/coenwerem/equidexflow" target="_blank" rel="noopener noreferrer" class="edf-btn">
+            <i class="fab fa-github"></i><span>Code</span>
+          </a>
+          <a href="#full-gallery" class="edf-btn">
+            <i class="fas fa-photo-video"></i><span>Full Video Gallery</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Teaser: equivariance concept -->
+      <section class="edf-section">
+        <div class="edf-wrap">
+          <div class="teaser-equivariance">
+            <div class="teaser-panel">
+              <img src="./static/images/allegro_teaser_input.png" alt="Input object">
+              <div class="teaser-label">Input $\mathcal{P}$</div>
+            </div>
+            <div class="teaser-arrow">
+              <div>$R_z(120^\circ)$</div>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="teaser-panel">
+              <img src="./static/images/allegro_teaser_baseline.png" alt="Non-equivariant baseline">
+              <div class="teaser-label teaser-label--baseline">Baseline</div>
+            </div>
+            <div class="teaser-panel">
+              <img src="./static/images/allegro_teaser_equiv.png" alt="EquiDexFlow equivariant">
+              <div class="teaser-label teaser-label--ours">EquiDexFlow</div>
+            </div>
+          </div>
+          <p class="edf-teaser-cap">
+            Under a 120&deg; object rotation, a non-equivariant baseline keeps the original grasp,
+            while <span class="equidexflow-plain">EquiDexFlow</span> co-rotates the grasp and preserves contacts.
+          </p>
+        </div>
+      </section>
+
+      <!-- Hardware highlights (featured selection; full set lives in #full-gallery) -->
+      <section class="edf-section">
+        <div class="edf-wrap--wide">
+          <p class="zoom-hint edf-center"><i class="fas fa-search-plus"></i>Click any clip to enlarge</p>
+          <div class="hw-pair-grid hw-pair-grid--featured">
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">Box Primitive</figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/graspit_box_pair_poster.jpg" aria-label="Box primitive grasp pair video">
+                <source src="./static/videos/hardware/graspit_box_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">Cube</figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/cube_pair_poster.jpg" aria-label="Cube grasp pair video">
+                <source src="./static/videos/hardware/cube_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">Mustard Bottle</figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/mustard_pair_poster.jpg" aria-label="Mustard bottle grasp pair video">
+                <source src="./static/videos/hardware/mustard_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+          <p class="edf-note">
+            A small selection of <span class="equidexflow-plain">EquiDexFlow</span> grasps executed on a physical LEAP Hand for the same object at the canonical ($0^\circ$) and $R_z(120^\circ)$-rotated poses.
+          </p>
+        </div>
+      </section>
+
+      <!-- Key results callout -->
+      <section class="edf-section">
+        <div class="edf-wrap">
+          <div class="key-results">
+            <div class="key-result">
+              <div class="kr-value">0%</div>
+              <div class="kr-label">Friction Violations<br>(architectural guarantee)</div>
+            </div>
+            <div class="key-result">
+              <div class="kr-value">&lt;0.04&deg;</div>
+              <div class="kr-label">Wrist Rotation Error<br>(SE(3) equivariance)</div>
+            </div>
+            <div class="key-result">
+              <div class="kr-value">0.46 Nm</div>
+              <div class="kr-label">Wrench Residual<br>(lowest among all variants)</div>
+            </div>
+            <div class="key-result">
+              <div class="kr-value">8,100</div>
+              <div class="kr-label">Training Grasps<br>(81 objects, Allegro Hand)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Abstract -->
+      <section class="edf-section">
+        <div class="edf-wrap">
+          <h2 class="edf-h2">Abstract</h2>
+          <div class="edf-prose">
+            <p>
+              Most learned dexterous grasp generators relegate contact forces to a downstream verification step, so a kinematically-plausible pose can still violate the conditions for a stable physical grasp. We address this with
+              <span class="equidexflow-plain">EquiDexFlow</span>, an SE(3)-equivariant
+              flow-matching model that jointly predicts wrist pose, joint angles, fingertip contacts, surface normals, and contact forces from an object point cloud. Our architecture projects contacts onto the object surface and forces into the Coulomb friction cone by construction, so placement and friction compliance hold without loss penalties.
+            </p>
+            <p>
+              We prove end-to-end SE(3) equivariance and verify it empirically over 200 rotations, with wrist residuals below 0.04&deg; and exactly zero joint deviation. Trained on 8,100 force-closure grasps across 81 objects for the 16-DoF Allegro Hand, <span class="equidexflow-plain">EquiDexFlow</span> achieves zero friction violations, the best composite score, and the lowest wrench residual among all ablation variants. We retarget decoded fingertip contacts to a 16-DoF LEAP Hand via per-finger inverse kinematics, and our hardware-feasible refinement places every joint at least 5% inside its actuator envelope while preserving wrench balance. On the physical robot, retargeted grasps complete open-loop pick-and-hold trials on all six test objects, with every asymmetric object succeeding at both the canonical pose
+              and a 120&deg; co-rotation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture -->
+      <section class="edf-section edf-section--alt">
+        <div class="edf-wrap">
+          <h2 class="edf-h2">Architecture</h2>
+          <div class="edf-prose">
+            <p>
+              <span class="equidexflow-plain">EquiDexFlow</span> takes an object point cloud and a kinematic model of a $D$-DoF, $M$-fingered robotic hand and produces, in a single forward pass: a wrist SE(3) pose, $D$ joint angles from a conditional normalizing flow, a set of $M$ contact points projected onto the object surface, and per-contact forces projected into the friction cone, all jointly consistent with the learned distribution. The released Allegro checkpoints use $D{=}16$ and $M{=}4$. Both are set per-hand in the model config.
+            </p>
+          </div>
+
+          <div class="method-steps">
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-project-diagram"></i></div>
+              <h4>VN-DGCNN Encoder</h4>
+              <p>SO(3)-equivariant point-cloud encoder producing features $z_O \in \mathbb{R}^{341 \times 3}$.</p>
+            </div>
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-route"></i></div>
+              <h4>SE(3) Flow</h4>
+              <p>Wrist pose via flow matching on the Lie group, integrated with Munthe-Kaas RK4.</p>
+            </div>
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-fingerprint"></i></div>
+              <h4>Contact Decoder</h4>
+              <p>Per-finger contacts projected onto the object surface by construction.</p>
+            </div>
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+              <h4>Force Decoder</h4>
+              <p>Contact forces projected into the Coulomb friction cone architecturally.</p>
+            </div>
+            <div class="method-card">
+              <div class="mc-icon"><i class="fas fa-hand-paper"></i></div>
+              <h4>Joint Flow</h4>
+              <p>Conditional Real-NVP normalizing flow for multimodal finger configurations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key ideas -->
+      <section class="edf-section">
+        <div class="edf-wrap--wide">
+          <h2 class="edf-h2">Key Ideas</h2>
+          <div class="edf-ideas">
+            <div class="edf-idea">
+              <h4>Force-Aware Generation</h4>
+              <p>
+                <span class="equidexflow-plain">EquiDexFlow</span> jointly predicts hand
+                configuration, fingertip contacts, and contact forces from a point cloud
+                in one forward pass, without post-hoc force recovery. Cone projection
+                enforces Coulomb friction and differentiable surface projection keeps
+                contacts on the object. Both hold by construction for every sample.
+              </p>
+            </div>
+            <div class="edf-idea">
+              <h4>End-to-End Equivariance</h4>
+              <p>
+                The full pipeline &#40;encoder, SE&#40;3&#41; flow, contact/normal/force decoders, and wrist refinement&#41; is SE(3)-equivariant by construction. Rotating the input object rotates the generated grasp identically, with wrist rotation residual below 0.04&deg; and zero joint deviation across 200 SO(3) rotations.
+              </p>
+            </div>
+            <div class="edf-idea">
+              <h4>Cross-Embodiment Transfer</h4>
+              <p><span class="equidexflow-plain">EquiDexFlow</span>'s contact-grounded grasp representation is embodiment-agnostic: the encoder, flow backbone, and decoder heads do not depend on the hand model. To demonstrate this fact, we retarget Allegro grasps to a physical LEAP Hand via inverse kinematics and confirm that the grasps transfer to hardware.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Equivariance gallery -->
+      <section class="edf-section edf-section--alt">
+        <div class="edf-wrap--wide">
+          <h2 class="edf-h2">Architectural SE(3) Equivariance</h2>
+          <div class="edf-prose" style="max-width: 920px; margin: 0 auto;">
+            <p>
+              <span class="equidexflow-plain">EquiDexFlow</span> grasps co-rotate with the object under arbitrary rotations. We verify this empirically over 200 rotations, with wrist residual &lt;0.04&deg; and joint deviation exactly zero. What's more: this equivariance guarantee is architectural, and not data-driven. Other learned grasp generators (FFHFlow, ContactGen, GraspDiffusion) achieve rotation robustness through data augmentation. <span class="equidexflow-plain">EquiDexFlow</span> guarantees it <em>by construction</em> via the VN-DGCNN backbone and equivariant flow. Our joint contact-and-force prediction is also distinctive: most learned methods output only wrist pose and joint angles and leave contact quality as a post-hoc filter. EquiDexFlow predicts force-closure-compatible contact configurations directly, meaning downstream planners get richer information <em>without</em> running a separate grasp evaluator.
+            </p>
+          </div>
+
+          <!-- Tabs for different objects -->
+          <div class="edf-tabs" data-controls="equiv" role="tablist" aria-label="Equivariance object selection">
+            <button class="edf-tab" role="tab" data-run="snscup" aria-selected="true">SNS Cup</button>
+            <button class="edf-tab" role="tab" data-run="graspitbox" aria-selected="false">Box Primitive</button>
+            <button class="edf-tab" role="tab" data-run="e4" aria-selected="false">EGAD E4</button>
+          </div>
+
+          <!-- SNS Cup -->
+          <div id="equiv-snscup" data-group="equiv">
+            <div class="equiv-strip">
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_snscup_000.png" alt="SNS Cup at 0 degrees" class="zoomable">
+                <div class="equiv-label">0&deg;</div>
+              </div>
+              <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_snscup_120.png" alt="SNS Cup at 120 degrees" class="zoomable">
+                <div class="equiv-label">$R_z(120^\circ)$</div>
+              </div>
+              <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_snscup_240.png" alt="SNS Cup at 240 degrees" class="zoomable">
+                <div class="equiv-label">$R_z(240^\circ)$</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box Primitive -->
+          <div id="equiv-graspitbox" data-group="equiv" hidden>
+            <div class="equiv-strip">
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_graspitbox_000.png" alt="Box primitive at 0 degrees" class="zoomable">
+                <div class="equiv-label">0&deg;</div>
+              </div>
+              <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_graspitbox_120.png" alt="Box primitive at 120 degrees" class="zoomable">
+                <div class="equiv-label">$R_z(120^\circ)$</div>
+              </div>
+              <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_graspitbox_240.png" alt="Box primitive at 240 degrees" class="zoomable">
+                <div class="equiv-label">$R_z(240^\circ)$</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EGAD E4 -->
+          <div id="equiv-e4" data-group="equiv" hidden>
+            <div class="equiv-strip">
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_E4_000.png" alt="EGAD E4 at 0 degrees" class="zoomable">
+                <div class="equiv-label">0&deg;</div>
+              </div>
+              <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_E4_120.png" alt="EGAD E4 at 120 degrees" class="zoomable">
+                <div class="equiv-label">$R_z(120^\circ)$</div>
+              </div>
+              <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="equiv-panel">
+                <img src="./static/images/equivariance/allegro_equiv_E4_240.png" alt="EGAD E4 at 240 degrees" class="zoomable">
+                <div class="equiv-label">$R_z(240^\circ)$</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Six-object equivariance gallery -->
+          <div class="edf-center" style="margin-top: 1.5rem;">
+            <p class="edf-note" style="margin-bottom: 0.75rem;">
+              Extended gallery: six objects across three input rotations (0&deg;, 120&deg;, 240&deg; about the
+              vertical axis). The wrist pose and finger configuration co-rotate with the object.
+            </p>
+            <img src="./static/images/equivariance/allegro_eq_six_test.png"
+              alt="Six-object SE(3) equivariance gallery" class="equiv-sixtest-img zoomable">
+            <p class="edf-note edf-note--sm" style="margin-top: 0.5rem; max-width: 900px;">
+              Objects, left to right then top to bottom in triples: YCB pudding box, EGAD! G6, box primitive,
+              YCB mustard bottle, EGAD! E4, and EGAD! G5. Within each object, the three frames are
+              0&deg;, 120&deg;, and 240&deg;.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grasp gallery -->
+      <section class="edf-section">
+        <div class="edf-wrap--wide">
+          <h2 class="edf-h2">Generated Grasps</h2>
+          <div class="edf-prose" style="max-width: 920px; margin: 0 auto 1rem;">
+            <p>
+              Allegro Hand grasps produced by <span class="equidexflow-plain">EquiDexFlow</span> across
+              EGAD!, YCB, and primitive objects. Each grasp is decoded from a point cloud and seated on the
+              surface by wrist refinement.
+            </p>
+          </div>
+          <div class="edf-center">
+            <img src="./static/images/allegro/allegro_gallery_2x8.png" alt="Allegro grasp gallery 2x8"
+              class="collage-2x8 zoomable">
+          </div>
+        </div>
+      </section>
+
+      <!-- Wrist refinement (TTO) -->
+      <section class="edf-section edf-section--alt">
+        <div class="edf-wrap--wide">
+          <div class="edf-row">
+            <div class="edf-col--fig">
+              <img src="./static/images/tto/tto_prepost_tomato_soup_can.png"
+                alt="Wrist refinement: pre-contact IK (left) versus contact IK (right) on a tomato soup can"
+                class="tto-figure zoomable">
+              <p class="edf-note edf-note--sm" style="margin-top: 0.5rem;">
+                Pre-contact IK (left) and contact IK (right) on the YCB tomato soup can
+              </p>
+            </div>
+            <div class="edf-col--txt">
+              <h2 class="edf-h2" style="text-align: left;">Wrist Refinement</h2>
+              <div class="edf-prose">
+                <p>
+                  The flow-decoded wrist typically places fingertips a few centimeters off the
+                  object surface. Test-time optimization jointly refines the full 6-DoF wrist
+                  pose and the 16-DoF joint vector so the kinematic fingertips reach the predicted
+                  contacts, with trust-region regularization and mesh penetration penalties. The
+                  refinement is frame-invariant and commutes with any SE(3) action, preserving
+                  the equivariance guarantee.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="edf-section">
+        <div class="edf-wrap--wide">
+          <h2 class="edf-h2">Results</h2>
+          <div class="edf-prose" style="max-width: 900px; margin: 0 auto;">
+            <p>
+              Grasp quality on 811 test grasps, 10 samples each.
+              All variants achieve 0% friction violations (architectural guarantee).
+            </p>
+          </div>
+          <div class="edf-table-wrap edf-table-wrap--main">
+            <table class="edf-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Contact Err (m) $\downarrow$</th>
+                  <th>Force Err (N) $\downarrow$</th>
+                  <th>Fric. Viol. (%) $\downarrow$</th>
+                  <th>Top-1 Score $\uparrow$</th>
+                  <th>Top-3 Score $\uparrow$</th>
+                  <th>Wrench Res (Nm) $\downarrow$</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PoseOnly</td>
+                  <td class="is-best">0.040</td>
+                  <td class="is-best">1.57</td>
+                  <td class="is-best">0.0</td>
+                  <td>&minus;2.52</td>
+                  <td>&minus;3.25</td>
+                  <td>1.29</td>
+                </tr>
+                <tr>
+                  <td>ContactOnly</td>
+                  <td>0.041</td>
+                  <td>1.84</td>
+                  <td class="is-best">0.0</td>
+                  <td>&minus;2.57</td>
+                  <td>&minus;3.46</td>
+                  <td>1.36</td>
+                </tr>
+                <tr>
+                  <td>GeomOnly</td>
+                  <td>0.041</td>
+                  <td>1.84</td>
+                  <td class="is-best">0.0</td>
+                  <td>&minus;3.29</td>
+                  <td>&minus;4.02</td>
+                  <td>1.58</td>
+                </tr>
+                <tr class="is-highlight">
+                  <td><strong>EquiDexFlow (ours)</strong></td>
+                  <td>0.042</td>
+                  <td>1.99</td>
+                  <td class="is-best">0.0</td>
+                  <td class="is-best">&minus;0.96</td>
+                  <td class="is-best">&minus;1.18</td>
+                  <td class="is-best">0.46</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="edf-halves" style="max-width: 1000px; margin: 1rem auto 0;">
+            <div>
+              <h4 class="edf-h4" style="margin-top: 0.5rem;">Equivariance by Rotation Angle</h4>
+              <div class="edf-table-wrap edf-half-table">
+                <table class="edf-table">
+                  <thead>
+                    <tr>
+                      <th>Angle Bin</th>
+                      <th>$\Delta R_w$ (&deg;)</th>
+                      <th>$\Delta x_w$ (mm)</th>
+                      <th>$\max \Delta q_h$ (&deg;)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>30&ndash;60&deg;</td><td>0.037</td><td>0.002</td><td>0.00</td></tr>
+                    <tr><td>60&ndash;90&deg;</td><td>0.037</td><td>0.002</td><td>0.00</td></tr>
+                    <tr><td>90&ndash;120&deg;</td><td>0.036</td><td>0.001</td><td>0.00</td></tr>
+                    <tr><td>120&ndash;150&deg;</td><td>0.036</td><td>0.002</td><td>0.00</td></tr>
+                    <tr><td>150&ndash;180&deg;</td><td>0.036</td><td>0.002</td><td>0.00</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <h4 class="edf-h4" style="margin-top: 0.5rem;">Inference-Time Ablations</h4>
+              <div class="edf-table-wrap edf-half-table">
+                <table class="edf-table">
+                  <thead>
+                    <tr>
+                      <th>Configuration</th>
+                      <th>Top-1 $\uparrow$</th>
+                      <th>Top-3 $\uparrow$</th>
+                      <th>FVR (%) $\downarrow$</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Stochastic</td><td>&minus;0.95</td><td>&minus;1.22</td><td>0.0</td></tr>
+                    <tr><td>Deterministic ($z{=}0$)</td><td>&minus;0.97</td><td>&minus;1.24</td><td>0.0</td></tr>
+                    <tr><td>No cone projection</td><td>&minus;5.92</td><td>&minus;5.95</td><td>100</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <p class="edf-footnote" style="margin-top: 1rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+            Disabling cone projection degrades the composite score by over 6&times; and drives
+            friction violations to 100%, confirming the 0% rate is a structural guarantee.
+          </p>
+        </div>
+      </section>
+
+      <!-- Cross-embodiment transfer to the LEAP Hand -->
+      <section class="edf-section edf-section--alt">
+        <div class="edf-wrap--wide">
+          <h2 class="edf-h2">Cross-Embodiment Transfer to the LEAP Hand</h2>
+          <div class="edf-prose" style="max-width: 920px; margin: 0 auto 1rem;">
+            <p>
+              Allegro grasps retargeted to the LEAP Hand via inverse kinematics, validated in
+              simulation, and executed on physical hardware.
+            </p>
+          </div>
+
+          <!-- Retargeted grasps gallery -->
+          <p class="edf-center" style="margin-bottom: 0.75rem;">
+            <span class="status-pill status-pill--soon">LEAP checkpoints coming soon</span>
+          </p>
+          <div class="edf-center">
+            <img src="./static/images/leap_retarget/leap_gallery_2x6.png" alt="LEAP retargeting grasp gallery 2x6"
+              class="collage-2x8 zoomable">
+          </div>
+          <p class="edf-note edf-note--sm">
+            Front view. Retargeted from Allegro to LEAP via contact-point IK. Mean fingertip residual 14 mm.
+            Objects, left to right and top to bottom: box primitive, SNS cup, sugar box, tennis ball,
+            tomato soup can, apple, EGAD G6, cube, softball, EGAD E4, EGAD A4, and EGAD F6.
+          </p>
+
+          <!-- Simulated shake-test robustness -->
+          <h4 class="edf-h4">Simulated Shake-Test Robustness</h4>
+          <p class="edf-note" style="max-width: 760px; margin-bottom: 1rem;">
+            Gravity-off robustness check (GenDexGrasp/GAGrasp protocol in Drake): a &plusmn;<em>xyz</em>
+            inertial load is applied to the object along all six axes, and a grasp passes if the object
+            drifts under 2&nbsp;cm in every direction. Both objects pass at the canonical pose and its
+            120&deg; co-rotation, and the held object stays nearly stationary throughout.
+          </p>
+          <div class="shake-grid">
+            <div class="shake-cell">
+              <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Mustard bottle shake test at 0 degrees">
+                <source src="./static/videos/sim_shake/mustard_bottle__shake_0.mp4" type="video/mp4">
+              </video>
+              <p class="shake-cap">Mustard Bottle, 0&deg; &middot; 3.2&nbsp;mm max drift</p>
+            </div>
+            <div class="shake-cell">
+              <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Mustard bottle shake test at 120 degrees">
+                <source src="./static/videos/sim_shake/mustard_bottle__shake_120.mp4" type="video/mp4">
+              </video>
+              <p class="shake-cap">Mustard Bottle, 120&deg; &middot; 3.4&nbsp;mm max drift</p>
+            </div>
+            <div class="shake-cell">
+              <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Potted meat can shake test at 0 degrees">
+                <source src="./static/videos/sim_shake/potted_meat_can__shake_0.mp4" type="video/mp4">
+              </video>
+              <p class="shake-cap">Potted Meat Can, 0&deg; &middot; 0.9&nbsp;mm max drift</p>
+            </div>
+            <div class="shake-cell">
+              <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Potted meat can shake test at 120 degrees">
+                <source src="./static/videos/sim_shake/potted_meat_can__shake_120.mp4" type="video/mp4">
+              </video>
+              <p class="shake-cap">Potted Meat Can, 120&deg; &middot; 9.2&nbsp;mm max drift</p>
+            </div>
+          </div>
+
+          <!-- Hardware execution -->
+          <h4 id="full-gallery" class="edf-h4">Hardware Execution</h4>
+          <div class="edf-row">
+            <div class="edf-col--fig">
+              <img src="./static/images/hardware/hw_setup.png"
+                alt="Hardware setup: a LEAP Hand on a 6-DoF ZArm cobot, an object-silhouette-marked pedestal, and a ZED 2i stereo camera on a tripod at right."
+                class="edf-hwsetup-img zoomable">
+            </div>
+            <div class="edf-col--txt">
+              <p class="edf-note" style="margin-top: 0;">
+                Equivariant grasps executed on a physical <a href="https://leaphand.com/" target="_blank" rel="noopener noreferrer">LEAP Hand</a> mounted on a 6-DoF <a href="https://www.frtech.fr/FR/5.html" target="_blank" rel="noopener noreferrer">ZArm</a>. All six hardware test objects
+                complete open-loop pick-and-hold trials, with every asymmetric object succeeding at both 0&deg; and 120&deg;.
+                A <a href="https://www.stereolabs.com/store/products/zed-2i" target="_blank" rel="noopener noreferrer"><b>ZED&nbsp;2i</b></a> stereo camera (right) supplies a <b>single-shot object-pose advisory</b> before each
+                grasp: the wrist target is recomputed from the perceived object pose, so execution is perception-informed. The clips below are cropped to the arm and object, so the camera
+                falls outside frame.
+              </p>
+            </div>
+          </div>
+          <p class="zoom-hint edf-center"><i class="fas fa-search-plus"></i>Click any clip to enlarge</p>
+
+          <!-- Co-transformed object pairs (0 vs 120 deg) + symmetric objects -->
+          <div class="hw-pair-grid">
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">Box Primitive</figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/graspit_box_pair_poster.jpg" aria-label="Box primitive grasp pair video">
+                <source src="./static/videos/hardware/graspit_box_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">Potted Meat Can</figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/potted_meat_pair_poster.jpg" aria-label="Potted meat can grasp pair video">
+                <source src="./static/videos/hardware/potted_meat_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">Mustard Bottle</figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/mustard_pair_poster.jpg" aria-label="Mustard bottle grasp pair video">
+                <source src="./static/videos/hardware/mustard_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">Cube</figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/cube_pair_poster.jpg" aria-label="Cube grasp pair video">
+                <source src="./static/videos/hardware/cube_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">Symmetric Objects <span class="hw-pair-sub">(rotation-invariant)</span></figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/symmetric_pair_poster.jpg" aria-label="Symmetric objects grasp pair video">
+                <source src="./static/videos/hardware/symmetric_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="hw-pair-card">
+              <figcaption class="hw-pair-name">OOD Objects <span class="hw-pair-sub">(one rotation-invariant, one asymmetric)</span></figcaption>
+              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/ood_pair_poster.jpg" aria-label="Out-of-distribution objects grasp pair video">
+                <source src="./static/videos/hardware/ood_pair.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+          <p class="edf-note edf-note--sm" style="max-width: 720px;">
+            For the first four objects, each 0&deg;/120&deg; pair is the same generated grasp co-transformed by equivariance, not re-planned. The last two cards show grasps on rotation-invariant (symmetric) and out-of-distribution objects.
+          </p>
+
+          <!-- Reachability table -->
+          <div style="max-width: 480px; margin: 1.5rem auto 0;">
+            <h4 class="edf-h4" style="margin-top: 0;">Retargeting Reachability (IK)</h4>
+            <div class="edf-table-wrap">
+              <table class="edf-table">
+                <thead>
+                  <tr>
+                    <th>Object</th>
+                    <th>IK Tip (mm)</th>
+                    <th>0&deg;</th>
+                    <th>120&deg;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Cube</td><td>14.3</td><td>Yes</td><td>Yes</td></tr>
+                  <tr><td>Box</td><td>14.4</td><td>Yes</td><td>Yes</td></tr>
+                  <tr><td>Meat</td><td>14.5</td><td>Yes</td><td>Yes</td></tr>
+                  <tr><td>Mustard</td><td>14.3</td><td>Yes</td><td>Yes</td></tr>
+                  <tr class="total-row"><td>Reachable</td><td></td><td>4/4</td><td>4/4</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BibTeX -->
+      <section class="edf-section" id="BibTeX">
+        <div class="edf-wrap">
+          <h2 class="edf-h2">BibTeX</h2>
+          <pre><code>@misc{enwerem_equidexflow_2026,
+  author = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
+  title  = {{EquiDexFlow}: Contact-Grounded {SE}(3)-Equivariant Dexterous Grasp Generative Flows},
+  year   = {2026},
+  doi = {10.48550/arXiv.2606.12728},
+  number = {{arXiv}:2606.12728},
+  publisher = {{arXiv}},
+  date = {2026-06-10},
+  eprinttype = {arxiv},
+  eprint = {2606.12728 [cs.RO]},
+  shorttitle = {{EquiDexFlow}},
+  url = {http://arxiv.org/abs/2606.12728}
+}</code></pre>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <!-- Required Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Site scripts, navbar and footer fetch, theme toggle, lightbox.
+       SITE_ROOT tells them this page sits one directory below the site root. -->
+  <script>window.SITE_ROOT = '../';</script>
+  <script src="../scripts.js"></script>
+
+  <!-- Equivariance gallery tabs -->
+  <script defer src="./static/js/equidexflow.js?v=20260802b"></script>
+
+</body>
+
+</html>

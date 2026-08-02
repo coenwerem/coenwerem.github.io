@@ -1,0 +1,636 @@
+/* EquiDexFlow project page layout on the main site theme.
+   All colors come from the site variables in ../../stylesheet.css
+   so light and dark mode follow the sitewide toggle. Component
+   geometry ports the equidexflow.github.io page onto those variables. */
+
+/* Sections */
+.edf-section {
+  padding: 2.25rem 1.5rem;
+}
+.edf-section--alt {
+  background-color: var(--bg-secondary);
+}
+.edf-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.edf-wrap--wide {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.edf-h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 1.25rem;
+}
+.edf-h4 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 2rem 0 0.75rem;
+}
+.edf-prose p {
+  text-align: justify;
+  hyphens: auto;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.edf-prose p:last-child {
+  margin-bottom: 0;
+}
+.edf-prose a {
+  color: var(--theme-primary);
+}
+.edf-note {
+  font-size: 0.9rem;
+  color: var(--text-caption);
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.5;
+  max-width: 920px;
+  margin: 0.75rem auto 0;
+}
+.edf-note--sm {
+  font-size: 0.8rem;
+}
+.edf-center {
+  text-align: center;
+}
+
+/* Hero */
+.edf-hero {
+  text-align: center;
+  padding: 2.75rem 1.5rem 1.25rem;
+}
+.edf-title {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+.title-logo {
+  height: 0.92em;
+  width: auto;
+  vertical-align: -0.14em;
+  margin-right: 0.32em;
+  border-radius: 0.18em;
+}
+.edf-subtitle {
+  font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  margin: 0 0 1rem;
+}
+.edf-authors {
+  font-size: 1.05rem;
+  color: var(--text-color);
+  margin: 0 0 0.25rem;
+}
+.edf-affil {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+}
+
+/* EquiDexFlow wordmark. The gradient keeps the project's logo colors in
+   both site themes. */
+.equidexflow,
+.equidexflow-plain {
+  font-variant: small-caps;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.equidexflow {
+  background: linear-gradient(135deg, hsl(155, 50%, 42%), hsl(200, 55%, 45%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark-mode .equidexflow {
+  background: linear-gradient(135deg, hsl(155, 45%, 50%), hsl(200, 50%, 55%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Link buttons */
+.edf-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.edf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.45em 1.1em;
+  border-radius: 999px;
+  background-color: #363636;
+  color: #fff;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.edf-btn:hover {
+  background-color: var(--theme-primary);
+  color: #fff;
+  text-decoration: none;
+}
+.dark-mode .edf-btn {
+  background-color: #373e47;
+}
+.dark-mode .edf-btn:hover {
+  background-color: var(--theme-primary);
+}
+
+/* Teaser equivariance strip. The Input to Baseline to EquiDexFlow row only
+   reads side by side, so it stays horizontal at every width. */
+.teaser-equivariance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  margin: 0 auto 1.25rem;
+  max-width: 750px;
+}
+.teaser-panel {
+  text-align: center;
+  flex: 0 0 auto;
+}
+.teaser-panel img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--bg-card-img);
+}
+.teaser-arrow {
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  text-align: center;
+}
+.teaser-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.25rem;
+  color: var(--text-caption);
+}
+.teaser-label--baseline {
+  color: #c0392b;
+}
+.teaser-label--ours {
+  color: var(--theme-primary);
+}
+.edf-teaser-cap {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Key results callout */
+.key-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.key-result {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--theme-primary);
+}
+.key-result .kr-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--theme-primary);
+  line-height: 1.2;
+}
+.key-result .kr-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+
+/* Method cards */
+.method-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.method-card {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--theme-primary);
+  text-align: center;
+}
+.method-card .mc-icon {
+  font-size: 1.8rem;
+  color: var(--theme-primary);
+  margin-bottom: 0.75rem;
+}
+.method-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+.method-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: justify;
+  hyphens: auto;
+  margin: 0;
+}
+
+/* Key ideas, three text columns */
+.edf-ideas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 0.5rem;
+}
+.edf-idea h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 0.5rem;
+}
+.edf-idea p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Gallery tabs */
+.edf-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+.edf-tab {
+  padding: 0.4em 1.1em;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.edf-tab:hover {
+  color: var(--theme-primary);
+  border-color: var(--theme-primary);
+}
+.edf-tab[aria-selected="true"] {
+  color: var(--theme-primary);
+  border-color: var(--theme-primary);
+  font-weight: 600;
+}
+
+/* Equivariance strip. The 0 to 120 to 240 degree row stays horizontal at
+   every width, since stacking destroys the comparison. */
+.equiv-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 auto 1.5rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  max-width: 900px;
+}
+.equiv-strip img {
+  flex: 0 0 auto;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--bg-card-img);
+}
+.equiv-arrow {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.equiv-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-caption);
+  text-align: center;
+  margin-top: 0.3rem;
+}
+.equiv-panel {
+  text-align: center;
+}
+
+/* Wide collage images */
+.equiv-sixtest-img {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-card-img);
+  padding: 8px;
+}
+.collage-2x8 {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-card-img);
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+/* Two-column rows (image plus prose). These are decorative pairings, so
+   they stack on phones. */
+.edf-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0.5rem auto 0.75rem;
+}
+.edf-row > * {
+  min-width: 0;
+}
+.edf-col--fig {
+  flex: 0 0 36%;
+  text-align: center;
+}
+.edf-col--txt {
+  flex: 1;
+}
+.tto-figure {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-card-img);
+}
+.edf-hwsetup-img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-card-img);
+}
+
+/* Hardware pair galleries. Each card holds one side-by-side pair clip, so
+   the grid keeps its column count on phones. */
+.hw-pair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 1rem auto 0.25rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+.hw-pair-grid--featured {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+}
+.hw-pair-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 14px 14px 16px;
+  margin: 0;
+}
+.hw-pair-name {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+.hw-pair-sub {
+  font-weight: 400;
+  color: var(--text-caption);
+  font-size: 0.8rem;
+}
+.hw-vid {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  background: var(--bg-card-img);
+  cursor: zoom-in;
+}
+
+/* Shake-test grid, two 0/120 pairs. Pairs stay side by side on phones. */
+.shake-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.shake-cell {
+  text-align: center;
+}
+.shake-cell video {
+  width: 100%;
+  border-radius: 6px;
+  background: var(--bg-card-img);
+}
+.shake-cap {
+  font-size: 0.78rem;
+  color: var(--text-caption);
+  margin-top: 0.5rem;
+}
+
+/* Status pill, inline subhead annotation */
+.status-pill {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.18em 0.7em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.status-pill--soon {
+  background: hsl(38, 92%, 92%);
+  color: hsl(28, 70%, 35%);
+  border: 1px solid hsl(38, 80%, 78%);
+}
+.dark-mode .status-pill--soon {
+  background: hsl(38, 40%, 18%);
+  color: hsl(38, 80%, 70%);
+  border-color: hsl(38, 35%, 28%);
+}
+
+/* Results tables */
+.edf-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
+}
+.edf-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+.edf-table th,
+.edf-table td {
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+.edf-table th {
+  font-weight: 700;
+  border-bottom-width: 2px;
+  white-space: nowrap;
+}
+.edf-table tbody tr:hover {
+  background-color: var(--bg-secondary);
+}
+.edf-table .is-best {
+  font-weight: 700;
+  color: var(--theme-primary);
+}
+.edf-table tbody tr.is-highlight {
+  background-color: var(--paper-bg);
+}
+.edf-table tbody tr.is-highlight:hover {
+  background-color: var(--paper-bg);
+}
+.edf-table tbody tr.is-highlight td {
+  color: var(--text-color);
+}
+.edf-table tbody tr.is-highlight td.is-best {
+  color: var(--theme-primary);
+}
+.edf-table .total-row {
+  font-weight: 700;
+}
+.edf-table-wrap--main {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.edf-halves {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+.edf-halves > div {
+  flex: 1;
+  min-width: 0;
+}
+.edf-half-table {
+  max-width: 480px;
+  margin: 0 auto;
+}
+.edf-footnote {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.5;
+}
+
+/* BibTeX */
+#BibTeX pre {
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.85rem;
+}
+
+/* Mobile hardening */
+img, video { max-width: 100%; height: auto; }
+
+@media (max-width: 768px) {
+  .edf-section { padding: 1.75rem 1rem; }
+
+  /* Comparison strips keep their columns, panels shrink instead. */
+  .teaser-equivariance { gap: 0.35rem; padding: 0.5rem; }
+  .teaser-panel img { width: 78px; height: 78px; }
+  .teaser-arrow { font-size: 1rem; }
+  .teaser-label { font-size: 0.65rem; }
+  .equiv-strip { gap: 0.25rem; padding: 0.5rem; }
+  .equiv-strip img { height: 78px; }
+  .equiv-arrow { font-size: 0.9rem; }
+  .equiv-label { font-size: 0.6rem; margin-top: 0.15rem; }
+  .edf-tab { font-size: 0.8rem; padding: 0.35em 0.8em; }
+
+  .hw-pair-grid { gap: 10px; padding: 0 8px; }
+  .hw-pair-grid--featured { gap: 8px; padding: 0 6px; }
+  .hw-pair-card { padding: 8px 6px 10px; border-radius: 8px; }
+  .hw-pair-name { font-size: 0.82rem; margin-bottom: 6px; }
+
+  /* Shake pairs: 2 x 2 so each 0/120 pair stays side by side. */
+  .shake-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .shake-cap { font-size: 0.65rem; margin-top: 0.3rem; }
+
+  /* Decorative rows stack. */
+  .edf-row { flex-direction: column; gap: 1rem; }
+  .edf-col--fig { flex: 1 1 auto; }
+  .edf-ideas { grid-template-columns: 1fr; gap: 1.25rem; }
+  .edf-halves { flex-direction: column; gap: 1rem; }
+
+  .edf-table th, .edf-table td { padding: 0.35em 0.5em; font-size: 0.85rem; }
+  #BibTeX pre { font-size: 0.78rem; }
+}
+
+@media (max-width: 420px) {
+  .edf-section { padding: 1.5rem 0.75rem; }
+  .key-results { grid-template-columns: 1fr; max-width: 360px; }
+  .edf-btn { padding: 0.4em 0.9em; font-size: 0.9rem; }
+
+  .teaser-equivariance { gap: 0.2rem; padding: 0.35rem; }
+  .teaser-panel img { width: 60px; height: 60px; }
+  .teaser-arrow { font-size: 0.8rem; }
+  .equiv-strip { gap: 0.15rem; padding: 0.35rem; }
+  .equiv-strip img { height: 56px; }
+  .equiv-arrow { font-size: 0.7rem; }
+  .equiv-label { font-size: 0.52rem; }
+
+  .hw-pair-grid { gap: 6px; padding: 0 4px; }
+  .hw-pair-grid--featured { gap: 5px; padding: 0 4px; }
+  .hw-pair-card { padding: 5px 4px 7px; }
+  .hw-pair-name { font-size: 0.72rem; }
+  .shake-grid { gap: 5px; }
+  .shake-cap { font-size: 0.58rem; margin-top: 0.2rem; }
+
+  .edf-table th, .edf-table td { padding: 0.3em 0.4em; font-size: 0.78rem; }
+}
