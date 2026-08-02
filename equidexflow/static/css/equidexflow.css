@@ -94,7 +94,7 @@
 }
 .edf-affil {
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin: 0 0 1.25rem;
 }
 
@@ -143,11 +143,15 @@
   color: #fff;
   text-decoration: none;
 }
+/* The color repeats here because the sitewide .dark-mode a rule outranks
+   .edf-btn on specificity and would paint the label theme blue. */
 .dark-mode .edf-btn {
   background-color: #373e47;
+  color: #fff;
 }
 .dark-mode .edf-btn:hover {
   background-color: var(--theme-primary);
+  color: #fff;
 }
 
 /* Teaser equivariance strip. The Input to Baseline to EquiDexFlow row only
@@ -177,7 +181,7 @@
 }
 .teaser-arrow {
   font-size: 1.6rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   flex-shrink: 0;
   text-align: center;
 }
@@ -190,6 +194,9 @@
 }
 .teaser-label--baseline {
   color: #c0392b;
+}
+.dark-mode .teaser-label--baseline {
+  color: hsl(6, 70%, 70%);
 }
 .teaser-label--ours {
   color: var(--theme-primary);
@@ -338,7 +345,7 @@
 }
 .equiv-arrow {
   font-size: 1.5rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   flex-shrink: 0;
 }
 .equiv-label {
@@ -559,10 +566,16 @@
 }
 .edf-footnote {
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--text-caption);
   text-align: justify;
   hyphens: auto;
   line-height: 1.5;
+}
+
+/* The highlight row sits on the blue tint, where the theme blue falls just
+   under the 4.5 to 1 body-text threshold in dark mode. */
+.dark-mode .edf-table tbody tr.is-highlight td.is-best {
+  color: hsl(210, 75%, 70%);
 }
 
 /* BibTeX */

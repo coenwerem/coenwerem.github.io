@@ -2297,7 +2297,8 @@ font-size: 12px;
     --bg-card-img: #f8f8f8;
     --text-primary: #444444;
     --text-secondary: #5a5a5a;
-    --text-muted: #717171;
+    /* Dark enough to hold 4.5 to 1 contrast even on the secondary background */
+    --text-muted: #676767;
     --text-caption: #505050;
     --border-color: #dbdbdb;
     --tab-active: hsl(210, 80%, 35%);
@@ -2330,7 +2331,8 @@ font-size: 12px;
     --bg-card-img: #2d333b;
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
+    /* Light enough to hold 4.5 to 1 contrast on the dark page background */
+    --text-muted: #8b8b94;
     --text-caption: #d4d4d8;
     --border-color: #444c56;
     --tab-active: hsl(210, 70%, 65%);

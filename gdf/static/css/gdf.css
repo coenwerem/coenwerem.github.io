@@ -68,7 +68,7 @@
 }
 .gdf-affil {
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin: 0 0 1.25rem;
 }
 
@@ -96,11 +96,15 @@
   color: #fff;
   text-decoration: none;
 }
+/* The color repeats here because the sitewide .dark-mode a rule outranks
+   .gdf-btn on specificity and would paint the label theme blue. */
 .dark-mode .gdf-btn {
   background-color: #373e47;
+  color: #fff;
 }
 .dark-mode .gdf-btn:hover {
   background-color: var(--theme-primary);
+  color: #fff;
 }
 .gdf-btn--disabled {
   opacity: 0.6;
@@ -277,7 +281,7 @@
 }
 .gdf-footnote {
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--text-caption);
   text-align: justify;
   hyphens: auto;
   line-height: 1.5;
