@@ -194,10 +194,8 @@
               $d_G(q) = -\tfrac{1}{\rho}\log \sum_i \exp(-\rho\,\lVert q^{\text{pre}}_i - q\rVert_\Lambda)$.
               It tracks the true set distance within $\log N/\rho$, its gradient is a convex
               combination of unit directions, and the negative gradient points toward whichever
-              candidate lies nearest, obviating a separate grasp candidate selection step. A control-barrier quadratic program with a
-              linear class-$\mathcal{K}$ rate filters the nominal command. An admission test eliminates
-              any candidate whose pregrasp or closure violates a barrier constraint, and the target set
-              therefore contains only certified grasps.
+              candidate lies nearest, obviating a separate grasp candidate selection step. A CBF-based quadratic program with a
+              linear class-$\mathcal{K}$ rate filters the nominal command, and an admission test eliminates any candidate whose pregrasp or closure violates a barrier constraint, so that the target set contains only certified grasps.
             </p>
           </div>
 
