@@ -115,13 +115,13 @@
             </div>
           </div>
           <p class="edf-teaser-cap">
-            Under a 120&deg; object rotation, a non-equivariant baseline keeps the original grasp,
-            while <span class="equidexflow-plain">EquiDexFlow</span> co-rotates the grasp and preserves contacts.
+            Under a 120&deg; object rotation, a non-equivariant baseline retains the original grasp (with invalid contacts that may place the hand's links in a deeply-penetrating configuration),
+            while <span class="equidexflow-plain">EquiDexFlow</span> co-rotates the grasp and preserves contacts, and force closure by extension.
           </p>
         </div>
       </section>
 
-      <!-- Hardware highlights (featured selection; full set lives in #full-gallery) -->
+      <!-- Hardware highlights -->
       <section class="edf-section">
         <div class="edf-wrap--wide">
           <p class="zoom-hint edf-center"><i class="fas fa-search-plus"></i>Click any clip to enlarge</p>
@@ -244,7 +244,7 @@
                 <span class="equidexflow-plain">EquiDexFlow</span> jointly predicts hand
                 configuration, fingertip contacts, and contact forces from a point cloud
                 in one forward pass, without post-hoc force recovery. Cone projection
-                enforces Coulomb friction and differentiable surface projection keeps
+                enforces Coulomb friction and differentiable surface projection places
                 contacts on the object. Both hold by construction for every sample.
               </p>
             </div>
