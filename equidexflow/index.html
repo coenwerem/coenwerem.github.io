@@ -114,9 +114,10 @@
               <div class="teaser-label teaser-label--ours">EquiDexFlow</div>
             </div>
           </div>
-          <p class="edf-teaser-cap">
+          <p class="edf-teaser-cap edf-teaser-cap--claim">
             Under a 120&deg; object rotation, a non-equivariant baseline retains the original grasp (with invalid contacts that may place the hand's links in a deeply-penetrating configuration),
             while <span class="equidexflow-plain">EquiDexFlow</span> co-rotates the grasp and preserves contacts, and force closure by extension.
+            <span class="edf-hl">To our knowledge, <span class="equidexflow-plain">EquiDexFlow</span> is the first learned robotic dexterous grasp generator to jointly generate articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces within an end-to-end SE(3)-equivariant architecture.</span>
           </p>
         </div>
       </section>
@@ -183,7 +184,7 @@
             <p>
               Most learned dexterous grasp generators relegate contact forces to a downstream verification step, so a kinematically-plausible pose can still violate the conditions for a stable physical grasp. We address this with
               <span class="equidexflow-plain">EquiDexFlow</span>, an SE(3)-equivariant
-              flow-matching model that jointly predicts wrist pose, joint angles, fingertip contacts, surface normals, and contact forces from an object point cloud. Our architecture projects contacts onto the object surface and forces into the Coulomb friction cone by construction, so placement and friction compliance hold without loss penalties.
+              flow-matching model that jointly predicts wrist pose, joint angles, fingertip contacts, surface normals, and contact forces from an object point cloud. Our architecture projects contacts onto the object surface and forces into the Coulomb friction cone by construction, so placement and friction compliance hold without loss penalties. To our knowledge, no prior learned dexterous grasp generator produces articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces jointly inside a single end-to-end SE(3)-equivariant architecture.
             </p>
             <p>
               We prove end-to-end SE(3) equivariance and verify it empirically over 200 rotations, with wrist residuals below 0.04&deg; and exactly zero joint deviation. Trained on 8,100 force-closure grasps across 81 objects for the 16-DoF Allegro Hand, <span class="equidexflow-plain">EquiDexFlow</span> achieves zero friction violations, the best composite score, and the lowest wrench residual among all ablation variants. We retarget decoded fingertip contacts to a 16-DoF LEAP Hand via per-finger inverse kinematics, and our hardware-feasible refinement places every joint at least 5% inside its actuator envelope while preserving wrench balance. On the physical robot, retargeted grasps complete open-loop pick-and-hold trials on all six test objects, with every asymmetric object succeeding at both the canonical pose
