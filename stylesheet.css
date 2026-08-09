@@ -2390,21 +2390,6 @@ font-size: 12px;
   position: relative;
 }
 
-/* Uniform-tile fill for non-16/9 media. The tile keeps the shared 16/9
-   viewport, the clip scales to fit, and a blurred cover-scaled copy of the
-   same media (set per tile via --thumb) fills the letterbox area so no
-   blank bars appear. */
-.sw-video--fill::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--thumb);
-  background-size: cover;
-  background-position: center;
-  filter: blur(9px) saturate(0.9);
-  transform: scale(1.15);
-}
-
 .sw-details {
   display: flex;
   flex-direction: column;
