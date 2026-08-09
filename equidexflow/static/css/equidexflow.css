@@ -61,6 +61,26 @@
   text-align: center;
 }
 
+/* Inline marker highlight, tinted with the wordmark hue. The band is a
+   fixed 1.05em gradient stripe instead of a full background, so a wrapped
+   sentence leaves clear space between lines. box-decoration-break paints
+   the stripe once per line fragment. */
+.edf-hl {
+  background-image: linear-gradient(hsla(155, 50%, 42%, 0.18) 0 100%);
+  background-size: 100% 1.05em;
+  background-position: 0 0.16em;
+  background-repeat: no-repeat;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 0.16em;
+  border-radius: 0.1em;
+  color: var(--text-color);
+  font-weight: 500;
+}
+.dark-mode .edf-hl {
+  background-image: linear-gradient(hsla(155, 45%, 50%, 0.26) 0 100%);
+}
+
 /* Hero */
 .edf-hero {
   text-align: center;
@@ -208,6 +228,15 @@
   max-width: 750px;
   margin: 0 auto;
   line-height: 1.5;
+}
+/* Teaser caption holding the highlighted novelty sentence. The rule follows
+   .edf-teaser-cap so the justified alignment wins the specificity tie, and
+   the extra leading separates the stripes on consecutive lines. */
+.edf-teaser-cap--claim {
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.85;
+  max-width: 800px;
 }
 
 /* Key results callout */

@@ -1645,6 +1645,51 @@ footer {
     color: #ff914e;
 }
 
+/* Older-news disclosure. A native details element, so the toggle needs no
+   script and the rows stay reachable with JavaScript off. */
+.older-news > summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.older-news > summary::-webkit-details-marker {
+    display: none;
+}
+
+.older-news > summary::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.72em;
+    transition: transform 0.15s ease;
+}
+
+.older-news[open] > summary::after {
+    transform: rotate(180deg);
+}
+
+.older-news > summary:hover,
+.older-news > summary:focus-visible {
+    color: var(--text-color);
+    border-color: var(--theme-primary);
+}
+
+.older-news .older-news-list {
+    margin: 0.5rem 0 0;
+    max-width: 800px;
+}
+
 /* News Legend */
 .news-legend {
     display: flex;
