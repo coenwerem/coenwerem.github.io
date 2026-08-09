@@ -300,6 +300,16 @@
 
 /* Mobile hardening */
 img, video { max-width: 100%; height: auto; }
+body { overflow-x: hidden; }
+
+/* Long inline MathJax formulas scroll inside their own box on narrow
+   viewports, the page body never widens because of an equation */
+mjx-container {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+mjx-container::-webkit-scrollbar { height: 4px; }
 
 @media (max-width: 768px) {
   .gdf-section { padding: 1.75rem 1rem; }
