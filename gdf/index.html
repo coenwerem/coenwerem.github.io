@@ -104,11 +104,11 @@
           <a href="https://arxiv.org/pdf/2608.00600" class="gdf-btn" target="_blank" rel="noopener">
             <i class="fas fa-file-pdf"></i><span>PDF</span>
           </a>
-          <a href="#replay" class="gdf-btn">
-            <i class="fas fa-play"></i><span>Interactive Playback</span>
-          </a>
           <a href="#quality" class="gdf-btn">
             <i class="fas fa-certificate"></i><span>Quality-Constrained Grasping</span>
+          </a>
+          <a href="#replay" class="gdf-btn">
+            <i class="fas fa-play"></i><span>Interactive Playback</span>
           </a>
         </div>
       </header>
@@ -269,8 +269,29 @@
         </div>
       </section>
 
+      <!-- Quality-constrained execution -->
+      <section class="gdf-section" id="quality">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">Quality-Constrained Evaluation</h2>
+          <div class="gdf-prose">
+            <p>
+              Our wrench-quality constraint prevents the controller from lifting after the realized closure certificate degrades beyond its hold-relative bound. We repeat the descriptor-set evaluation with this constraint active and every other parameter fixed. Because the constraint activates only at entry into HOLD and the controller is deterministic, the quality-neutral and quality-constrained configurations reach HOLD identically on every record. The quality-constrained controller completes 45 lifts, one fewer than the quality-neutral configuration. In the single changed box trial, the hand forms a three-finger contact set whose realized margin falls from $1.51\times10^{-3}$ at hold onset to $-0.32$, against a descriptor certified at $1.83\times10^{-3}$. The quality-neutral controller proceeds through the certificate loss and lifts the grasp, whereas the wrench-quality constraint makes the program infeasible 25 control steps after hold onset and the trial stops in HOLD.
+            </p>
+            <p>
+              Physics simulation separates the two outcomes. We transfer each held configuration at entry into LIFT to a Drake simulation with a fixed wrist and implicit proportional-derivative finger actuation, then increase an upward force on the object to $1.5\,mg$ over one second. The certified grasp holds through the full force increase with at most $1.5~\mathrm{mm}$ of lateral drift, while the uncertified three-finger configuration drops the object under gravity alone. All 45 completed quality-constrained lifts end within $k_{\mathrm{wq}}=0.02$ of their hold-onset margins, and 44 satisfy the bound at every evaluated control step. One contact-set change violates the bound transiently and recovers to a $0.006$ deficit by the end of the lift. Median end-of-lift quality ratios are $0.932$ with the constraint and $0.936$ without it, so the constraint leaves the median essentially unchanged while acting on the large-degradation case.
+            </p>
+          </div>
+          <figure class="gdf-quality-video">
+            <video src="./static/videos/quality_safety.mp4" poster="./static/videos/quality_safety_poster.jpg" muted playsinline loop controls preload="metadata" aria-label="Three outcomes, barrier violation, certificate failure, and task success"></video>
+            <figcaption class="gdf-figcap">
+              Representative outcomes. The nominal command without safety filtering drives the wrist into an obstacle. The quality-neutral QP lifts a grasp after its closure certificate fails, and the object slips under gravity. Our filtered closed loop completes the reach-grasp-lift task with every active CBF positive.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       <!-- Interactive playback -->
-      <section class="gdf-section" id="replay">
+      <section class="gdf-section gdf-section--alt" id="replay">
         <div class="gdf-wrap">
           <h2 class="gdf-h2">Interactive Playback</h2>
           <div class="gdf-prose">
@@ -316,7 +337,7 @@
       </section>
 
       <!-- Sweep results -->
-      <section class="gdf-section gdf-section--alt">
+      <section class="gdf-section">
         <div class="gdf-wrap">
           <h2 class="gdf-h2">Certified Grasp Descriptor Evaluation</h2>
           <div class="gdf-prose">
@@ -347,27 +368,6 @@
           <p class="gdf-footnote">
             ${}^{\dagger}$The four incomplete trials terminate at unsatisfied mode guards rather than safety violations. Two remain in CLOSE after the hand fails to attain the three contacts required by the CLOSE-HOLD guard within the 700-step horizon. The other two reach HOLD but do not satisfy the LIFT guard. The QP remains feasible throughout these four trials.
           </p>
-        </div>
-      </section>
-
-      <!-- Quality-constrained execution -->
-      <section class="gdf-section" id="quality">
-        <div class="gdf-wrap">
-          <h2 class="gdf-h2">Quality-Constrained Evaluation</h2>
-          <div class="gdf-prose">
-            <p>
-              Our wrench-quality constraint prevents the controller from lifting after the realized closure certificate degrades beyond its hold-relative bound. We repeat the descriptor-set evaluation with this constraint active and every other parameter fixed. Because the constraint activates only at entry into HOLD and the controller is deterministic, the quality-neutral and quality-constrained configurations reach HOLD identically on every record. The quality-constrained controller completes 45 lifts, one fewer than the quality-neutral configuration. In the single changed box trial, the hand forms a three-finger contact set whose realized margin falls from $1.51\times10^{-3}$ at hold onset to $-0.32$, against a descriptor certified at $1.83\times10^{-3}$. The quality-neutral controller proceeds through the certificate loss and lifts the grasp, whereas the wrench-quality constraint makes the program infeasible 25 control steps after hold onset and the trial stops in HOLD.
-            </p>
-            <p>
-              Physics simulation separates the two outcomes. We transfer each held configuration at entry into LIFT to a Drake simulation with a fixed wrist and implicit proportional-derivative finger actuation, then increase an upward force on the object to $1.5\,mg$ over one second. The certified grasp holds through the full force increase with at most $1.5~\mathrm{mm}$ of lateral drift, while the uncertified three-finger configuration drops the object under gravity alone. All 45 completed quality-constrained lifts end within $k_{\mathrm{wq}}=0.02$ of their hold-onset margins, and 44 satisfy the bound at every evaluated control step. One contact-set change violates the bound transiently and recovers to a $0.006$ deficit by the end of the lift. Median end-of-lift quality ratios are $0.932$ with the constraint and $0.936$ without it, so the constraint leaves the median essentially unchanged while acting on the large-degradation case.
-            </p>
-          </div>
-          <figure class="gdf-quality-video">
-            <video src="./static/videos/quality_safety.mp4" poster="./static/videos/quality_safety_poster.jpg" muted playsinline loop controls preload="metadata" aria-label="Three outcomes, barrier violation, certificate failure, and task success"></video>
-            <figcaption class="gdf-figcap">
-              Representative outcomes. The nominal command without safety filtering drives the wrist into an obstacle. The quality-neutral QP lifts a grasp after its closure certificate fails, and the object slips under gravity. Our filtered closed loop completes the reach-grasp-lift task with every active CBF positive.
-            </figcaption>
-          </figure>
         </div>
       </section>
 
