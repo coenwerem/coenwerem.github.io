@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Grasp execution as a stationary feedback law on a smooth softmin distance field over certified pregrasp configurations in the joint space of an arm-hand system, filtered by a control-barrier quadratic program, eliminating the need for a planner or a stored trajectory.">
+    content="Grasp Distance Fields use stationary negative-gradient feedback over finite sets of arm-hand pregrasp configurations, with a CBF-CLF quadratic program enforcing safety and a wrench-quality CBF limiting degradation of the realized force-closure margin after hold onset.">
   <meta name="keywords"
     content="grasp distance fields, grasp execution, control barrier functions, reactive control, configuration space, dexterous grasping, force closure, min-weight metric, safe execution, underactuated hand">
   <title>Grasp Distance Fields: Grasp Execution Without a Planner</title>
@@ -13,7 +13,7 @@
   <!-- Social link previews -->
   <meta property="og:title" content="Grasp Execution Without a Planner: Configuration-Space Grasp Distance Fields with Certified Safety &amp; Guaranteed Quality">
   <meta property="og:description"
-    content="A configuration-space grasp distance field, a stationary feedback law that follows its negative gradient under control-barrier certificates, and every executed grasp evaluated under the same risk-adjusted force-closure margin that certified its descriptor.">
+    content="A smooth configuration-space softmin field jointly selects and executes grasps without trajectory planning, while a CBF-CLF quadratic program enforces safety and a wrench-quality CBF limits realized force-closure margin degradation after hold onset.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/gdf/">
   <meta property="og:image" content="https://clintonenwerem.com/gdf/static/images/field_execution.png">
@@ -62,7 +62,7 @@
   <link rel="stylesheet" type="text/css" href="../stylesheet.css?v=20260802a">
 
   <!-- Project page layout -->
-  <link rel="stylesheet" href="./static/css/gdf.css?v=20260802a">
+  <link rel="stylesheet" href="./static/css/gdf.css?v=20260809a">
   <link rel="stylesheet" href="./static/css/gdf-replay.css?v=20260719a">
 
   <!-- MathJax for inline math -->
@@ -114,15 +114,15 @@
           <div class="gdf-vids">
             <figure class="gdf-vid">
               <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
-              <figcaption>A fixed-base robotic manipulator grasps an object behind a 6 x 6 x 50 cm obstacle pair.</figcaption>
+              <figcaption>A fixed-base manipulator grasps and lifts an object in a scene containing a pair of 6 x 6 x 50 cm obstacles.</figcaption>
             </figure>
             <figure class="gdf-vid">
               <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
-              <figcaption>Here, the same fixed-base robotic manipulator avoids an obstacle moving across the robot's approach path.</figcaption>
+              <figcaption>The same manipulator avoids a 5 x 5 x 45 cm obstacle translating at 0.05 m/s across its approach path.</figcaption>
             </figure>
             <figure class="gdf-vid">
               <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
-              <figcaption>A Unitree G1 humanoid successfully grasps and lifts an object behind a 4 x 4 x 36 cm obstacle while avoiding collision.</figcaption>
+              <figcaption>A Unitree G1 humanoid equipped with the same underactuated hand completes a 12 cm lift with a 4 x 4 x 36 cm obstacle obstructing the hand's approach path.</figcaption>
             </figure>
           </div>
         </div>
@@ -134,11 +134,11 @@
           <div class="key-results">
             <div class="key-result">
               <div class="kr-value">46 / 50</div>
-              <div class="kr-label">test objects safely reached, grasped,<br>and stably lifted 12 cm</div>
+              <div class="kr-label">descriptor-set trials completing the full<br>reach-grasp-lift sequence</div>
             </div>
             <div class="key-result">
               <div class="kr-value">94%</div>
-              <div class="kr-label">median fraction of the synthesized<br>quality margin the executed grasps retain</div>
+              <div class="kr-label">median fraction of synthesized<br>quality margin retained by realized grasps</div>
             </div>
             <div class="key-result">
               <div class="kr-value">0.09 ms</div>
@@ -146,7 +146,7 @@
             </div>
             <div class="key-result">
               <div class="kr-value">1</div>
-              <div class="kr-label">stationary feedback law,<br>eliminating the need for a prior planning step or stored trajectory</div>
+              <div class="kr-label">stationary feedback law,<br>with no planned or stored trajectory</div>
             </div>
           </div>
         </div>
@@ -158,28 +158,21 @@
           <h2 class="gdf-h2">Abstract</h2>
           <div class="gdf-prose">
             <p>
-              Standard multifingered grasp execution architectures plan a collision-free trajectory to
-              a selected grasp pose and track it with a feedback law. Execution-time object pose
-              uncertainty or perturbations may invalidate the planned trajectory, forcing a costly
-              replanning step. We present Grasp Distance Fields (GDFs), smooth softmin distance fields
-              over grasp configurations in the arm-hand configuration space. Our controller executes a
-              grasp by following this field's negative gradient with a stationary feedback law,
-              eliminating the need for a planner, stored trajectory, or grasp selection. For safety, we
-              filter this command through a CBF-CLF quadratic program (QP) constraining self-collision,
-              workspace, object, and obstacle clearance, reporting impeded progress as explicit slack.
-              We prove that the softmin tracks the true set distance within $\log N/\rho$ for $N$
-              candidates and smoothing parameter $\rho$, and that the filtered control input renders the safe set
-              forward invariant. Since no smooth field captures hand-object contact switching, we switch
-              modes with hysteresis at a pregrasp configuration, trading object collision avoidance for
-              contact admission. A wrench-quality barrier then keeps the realized grasp's force-closure
-              margin within a prescribed tolerance of its value at hold onset. We evaluate in kinematic
-              simulation on a fixed-base arm and a Unitree G1 humanoid, both fitted with the same
-              underactuated hand. Our controller navigates cluttered and dynamic scenes to safely reach
-              for, grasp, and lift 46 of 50 test objects spanning primitive, household, and adversarial
-              classes. Across those lifts, the executed grasps retain a median 94% of their synthesized
-              quality margin, at 0.09 ms QP solve time per 20 ms control step. Per-step softmax weights
-              confirm that our controller executes the nearest grasp candidate, obviating a separate selection
-              step.
+              Mainstream plan-then-track approaches to multifingered grasp execution entail selecting a
+              grasp, planning a collision-free trajectory, and tracking the resulting trajectory via a
+              feedback controller. Pose-estimation error during execution or scene motion can invalidate
+              this open-loop commitment and trigger replanning. We thus present Grasp Distance Fields
+              (GDFs), smooth softmin distances to finite sets of arm-hand grasp configurations. Using their
+              negative gradients as feedback, we jointly select and execute grasps without planning a
+              trajectory. A CBF-CLF quadratic program (QP) enforces self-collision, workspace, object, and
+              obstacle-clearance constraints, while its CLF slack quantifies obstruction of task progress.
+              We bound the softmin approximation error by $\log N/\rho$ and prove forward invariance of
+              the filtered safe set. To handle changes in contact topology, we combine a hysteretic
+              contact-mode transition with a wrench-quality CBF that limits degradation of the realized
+              force-closure margin relative to hold onset. Using our method, a fixed-base manipulator and a
+              Unitree G1 equipped with the same underactuated hand grasp and lift 46 of 50 test objects amid
+              clutter and moving obstacles. The realized grasps also retain a median 94% of their synthesized
+              quality margin, and each QP solve requires 0.09 ms within a 20 ms control interval.
             </p>
           </div>
         </div>
@@ -188,17 +181,20 @@
       <!-- Method -->
       <section class="gdf-section gdf-section--alt">
         <div class="gdf-wrap">
-          <h2 class="gdf-h2">GDF's Working Principle</h2>
+          <h2 class="gdf-h2">Grasp Distance Fields in Configuration Space</h2>
           <div class="gdf-prose">
             <p>
-              In our framework, the controller's target is a set of certified pregrasp configurations instead of a single grasp pose. Over
-              pregrasp configurations, $q^{\text{pre}}_i$, we compute the distance field as a log-sum-exp softmin under a
-              diagonal metric, $\Lambda$, that weights the arm above the hand,
-              $d_G(q) = -\tfrac{1}{\rho}\log \sum_i \exp(-\rho\,\lVert q^{\text{pre}}_i - q\rVert_\Lambda)$.
-              It tracks the true set distance within $\log N/\rho$, its gradient is a convex
-              combination of unit directions, and the negative gradient points toward whichever
-              candidate lies nearest, obviating a separate grasp candidate selection step. A CBF-based quadratic program with a
-              linear class-$\mathcal{K}$ rate filters the nominal command, and an admission test eliminates any candidate whose pregrasp or closure violates a barrier constraint, so that the target set contains only certified grasps.
+              We represent the grasp target by a finite set $\mathcal{G} = \{q_i^{\text{pre}}\}_{i=1}^{N}$ of
+              arm-hand pregrasp configurations. The hard set distance
+              $d_{\min}(q)=\min_i \lVert q_i^{\text{pre}}-q\rVert_{\Lambda}$ is nonsmooth on candidate
+              Voronoi boundaries, so the controller uses the smooth softmin
+              $d_G(q)=-\tfrac{1}{\rho}\log\sum_i\exp(-\rho\,\lVert q_i^{\text{pre}}-q\rVert_{\Lambda})$.
+              It satisfies $d_{\min}(q)-\log N/\rho \le d_G(q) \le d_{\min}(q)$, and its gradient is a
+              softmax-weighted convex combination of the candidate-distance gradients. The nominal command
+              $v_{\mathrm{nom}}=-k\nabla d_G$ therefore requires no discrete grasp-selection step; the
+              softmax weights interpolate candidate selection at every evaluation. At each control step, a
+              CLF-CBF quadratic program filters this nominal velocity through the active safety constraints,
+              while an admission test rejects candidates whose pregrasp or closure violates a barrier constraint.
             </p>
           </div>
 
@@ -206,27 +202,27 @@
             <div class="method-card">
               <div class="mc-icon"><i class="fas fa-water"></i></div>
               <h4>Grasp Distance Field</h4>
-              <p>GDFs are softmin functions defined over certified pregrasp configurations in joint space, making them smooth with a bounded gradient and a parameterized gap to the (hard) true minimum.</p>
+              <p>The GDF is a smooth softmin distance to a finite pregrasp set, with approximation error bounded by $\log N/\rho$ and a bounded gradient.</p>
             </div>
             <div class="method-card">
               <div class="mc-icon"><i class="fas fa-shield-alt"></i></div>
               <h4>Safe Execution Law</h4>
-              <p>At our controller's core is a CBF QP over self-collision, workspace, object, and obstacle constraints, with the underactuated hand's joint dependence represented as equality constraints.</p>
+              <p>A CLF-CBF QP enforces self-collision, workspace, object, and obstacle-clearance constraints as hard constraints, relaxes convergence through nonnegative slack, and encodes the underactuated hand through dependent-joint equalities.</p>
             </div>
             <div class="method-card">
               <div class="mc-icon"><i class="fas fa-hand-point-up"></i></div>
               <h4>Contact-Mode Switch</h4>
-              <p>We model the entire execution task as a hybrid system over discrete arm-hand modes, with a hysteretic contact switch that admits hand-object contacts.</p>
+              <p>A hybrid mode structure over REACH, CLOSE, HOLD, and LIFT changes the active constraint set so fingertip contact can be admitted without sacrificing the safety constraints that remain active.</p>
             </div>
             <div class="method-card">
               <div class="mc-icon"><i class="fas fa-certificate"></i></div>
-              <h4>Wrench Certificate</h4>
-              <p>We evaluate the executed grasp under the same risk-adjusted force-closure margin we used to certify its descriptor, and we report the fraction of the synthesized margin the executed grasp retains.</p>
+              <h4>Wrench-Quality CBF</h4>
+              <p>At hold onset, a wrench-quality CBF limits degradation of the realized risk-adjusted force-closure margin relative to its hold-onset value.</p>
             </div>
             <div class="method-card">
               <div class="mc-icon"><i class="fas fa-robot"></i></div>
-              <h4>Description Generic</h4>
-              <p>We instantiate the same architecture on a Unitree G1 humanoid, changing only the scene data.</p>
+              <h4>Humanoid Instantiation</h4>
+              <p>The same controller runs on a Unitree G1 model with the same underactuated hand; platform-specific structure comes from the rigid-body model and a grasp record synthesized for that embodiment.</p>
             </div>
           </div>
 
@@ -235,7 +231,7 @@
               alt="Dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles and a certificate band below"
               class="zoomable">
             <figcaption class="teaser-caption">
-              We plot the clearance field that the obstacle, wall, and object constraints induce over the workspace at the four mode transitions of a two-obstacle trial, with the executed palm path colored by our grasp field value $d_G$.
+              We plot the clearance field induced by the obstacle, wall, and object constraints at the four mode transitions of a two-obstacle trial, with the executed palm path colored by the Grasp Distance Field value $d_G$.
             </figcaption>
           </figure>
 
@@ -274,7 +270,7 @@
           <h2 class="gdf-h2">Interactive Playback</h2>
           <div class="gdf-prose">
             <p>
-              We playback trajectory data from representative trials of the three reach-avoid-stay grasping scenarios reported in our paper, .viz the tabletop arm-hand system (with static obstacles), the tabletop arm-hand system (operating in a workspace with a dynamic obstacle), and the Unitree G1 humanoid (in a workspace with static obstacles). The tabs below switch between each case. Move the sliders to preview the timeline. Below the sliders, we report per-step values of the distance field, the minimum barrier function margin, and the number of contacts across the system's four execution modes, namely REACH, CLOSE, HOLD, and LIFT.
+              The controls below play recorded execution data from three representative reach-avoid-stay trials: the fixed-base arm-hand system with static obstacles, the same system with a moving obstacle, and the Unitree G1 instantiation with static obstacles. Use the tabs to switch trials and the playback controls to inspect the timeline. The readouts report time, active mode, Grasp Distance Field value $d_G$, minimum barrier value, and contact count through REACH, CLOSE, HOLD, and LIFT.
             </p>
           </div>
 
@@ -286,7 +282,7 @@
                   <button class="gdf-tab" role="tab" data-run="dyn" aria-selected="false">Moving Obstacle</button>
                   <button class="gdf-tab" role="tab" data-run="g1" aria-selected="false">G1 Humanoid</button>
                 </div>
-                <p class="gdf-scenecap">Top-down map of the workspace. The palm follows the grasp field, the shaded well around the target, and the bar at the right edge shows the lift height.</p>
+                <p class="gdf-scenecap">Top-down workspace view of the recorded execution. The palm trace is shown relative to the target and obstacles, and the bar at the right edge reports lift height.</p>
                 <div class="gdf-legend">
                   <span><span class="gdf-chip gdf-chip--blue"></span>reach</span>
                   <span><span class="gdf-chip gdf-chip--orange"></span>close</span>
@@ -305,7 +301,7 @@
                   <span>minimum barrier <span id="minh">0.000</span> m</span>
                   <span>contacts <span class="gdf-pips" id="pips"></span></span>
                 </div>
-                <div class="gdf-chartlabel"> In the panel below, we plot the minimum (obstacle clearance) control barrier function value ($\min_{t} h(q(t))$) over time, $t$. The green region above the zero line is the safety margin (in $m$) between the robot's links and obstacles, and colored bands mark the execution modes. Note that the robot starts in a self-collision-free configuration, so the brief red interval at $t=0$ reflects the margin estimator settling to its true value, not an actual collision.</div>
+                <div class="gdf-chartlabel">The panel below plots the minimum recorded barrier value at each control step, and colored bands mark REACH, CLOSE, HOLD, and LIFT. Positive values indicate satisfaction of the corresponding barrier constraint. A negative value at initialization can arise from the convex-hull collision surrogate even when the underlying robot meshes remain collision-free; the filter drives that surrogate constraint positive.</div>
                 <canvas class="gdf-chart" id="timeline" height="150" aria-label="Barrier clearance and modes over time"></canvas>
                 <p class="gdf-runfacts" id="facts"></p>
               </div>
@@ -317,10 +313,10 @@
       <!-- Sweep results -->
       <section class="gdf-section gdf-section--alt">
         <div class="gdf-wrap">
-          <h2 class="gdf-h2">Certified-Descriptor Evaluation</h2>
+          <h2 class="gdf-h2">Certified Grasp Descriptor Evaluation</h2>
           <div class="gdf-prose">
             <p>
-              Our controller completes the full reach-grasp-lift sequence on 46 of the 50 objects, with each object sited so that its arm-approach path is obstructed by at least one obstacle. Our test objects span four (4) geometric primitives, 17 YCB household objects, and 29 adversarial EGAD meshes. We evaluate 48 realized grasps in all (accounting for the two test objects where the hand failed to attain a minimum of three contacts within the prescribed time window (700 steps)). 37 of these grasps satisfy $\varepsilon_{\mathrm{exec}}^{(\beta)} \ge 0$ at $\beta = 0.9$. Over the same set and on the min-weight metric ($\ell^{*}$), 39 grasps (that also include the $\varepsilon_{\mathrm{exec}}^{(\beta)} \ge 0$ set) score as force-closed${}^{\dagger}$.
+              Our controller completes the full reach-grasp-lift sequence on 46 of the 50 objects${}^{\dagger}$, each behind a rectangular obstacle placed next to its approach path. The test set contains four geometric primitives, 17 YCB household objects, and 29 adversarial EGAD meshes. Because the hand still forms a contact set in the two HOLD failures, we evaluate 48 realized grasps in all. Of these, 37 satisfy $\varepsilon_{\mathrm{exec}}^{(\beta)} \ge 0$ at $\beta = 0.9$, while the min-weight baseline classifies 39 as force closed and places 30 above $\bar{\ell}^{*} \ge 0.3$. This descriptor-set evaluation runs without the wrench-quality constraint, so the $\varepsilon_{\mathrm{exec}}^{(\beta)}$ values score the realized grasps post hoc.
             </p>
           </div>
           <div class="gdf-table-wrap">
@@ -331,8 +327,8 @@
                   <th class="num">Objects</th>
                   <th class="num">Lift</th>
                   <th class="num">$\varepsilon^{(\beta)} \ge 0$</th>
-                  <th class="num">$\ell^{*}$</th>
-                  <th class="num">Margin &ge; 0.3</th>
+                  <th class="num">Force closed</th>
+                  <th class="num">$\bar{\ell}^{*} \ge 0.3$</th>
                 </tr>
               </thead>
               <tbody>
@@ -344,8 +340,7 @@
             </table>
           </div>
           <p class="gdf-footnote">
-            ${}^{\dagger}$Our controller failed on four of the 50 trials, but each failure stemmed from convergence and not safety. In two trials, the robotic hand did not attain the three contacts required by the CLOSE-HOLD guard within the prescribed 700-step horizon, and the trial ended in the CLOSE state. In the other two, our controller
-            reached the HOLD state but did not satisfy the LIFT guard. The QP,  however, remained feasible at every state in the aforementioned trials. 
+            ${}^{\dagger}$The four incomplete trials terminate at unsatisfied mode guards rather than safety violations. Two remain in CLOSE after the hand fails to attain the three contacts required by the CLOSE-HOLD guard within the 700-step horizon. The other two reach HOLD but do not satisfy the LIFT guard. The QP remains feasible throughout these four trials.
           </p>
         </div>
       </section>
@@ -353,22 +348,19 @@
       <!-- Quality-constrained execution -->
       <section class="gdf-section" id="quality">
         <div class="gdf-wrap">
-          <h2 class="gdf-h2">(Grasp) Quality-Constrained Execution</h2>
+          <h2 class="gdf-h2">Quality-Constrained Evaluation</h2>
           <div class="gdf-prose">
             <p>
-              Our wrench-quality constraint eliminates grasps that a controller synthesized from a grasp-quality-neutral program (i.e., a controller that does not optimize for grasp quality preservation) drives past the HOLD state and into the LIFT phase. Below we provide results from a representative trial (in both kinematic and dynamic simulation). In the kinematic case, the quality-neutral controller drives the robotic hand to realize a three-finger grasp whose quality margin ($\varepsilon^{(\beta)}$) falls during the LIFT phase from $1.51\times10^{-3}$ (at HOLD onset) to $-0.32$, against a grasp descriptor certified at $1.83\times10^{-3}$. Physically, this translates to object slip (as can be seen in the video below, and which we expatiate in the next paragraph). Our quality-preserving QP on the other hand, enforces a quality constraint that reports infeasibility for the above trial 25 control steps later, stopping the robot at the HOLD phase.
+              Our wrench-quality constraint prevents the controller from lifting after the realized closure certificate degrades beyond its hold-relative bound. We repeat the descriptor-set evaluation with this constraint active and every other parameter fixed. Because the constraint activates only at entry into HOLD and the controller is deterministic, the quality-neutral and quality-constrained configurations reach HOLD identically on every record. The quality-constrained controller completes 45 lifts, one fewer than the quality-neutral configuration. In the single changed box trial, the hand forms a three-finger contact set whose realized margin falls from $1.51\times10^{-3}$ at hold onset to $-0.32$, against a descriptor certified at $1.83\times10^{-3}$. The quality-neutral controller proceeds through the certificate loss and lifts the grasp, whereas the wrench-quality constraint makes the program infeasible 25 control steps after hold onset and the trial stops in HOLD.
             </p>
             <p>
-              To make the grasp quality preservation concrete, we evaluate the two controller instances from the kinematic setting in physics simulation, where the two outcomes diverge. The certified grasp holds the object with no slip through an upward force increase from ${m}{g}$ to $1.5{m}{g}$, with at most $1.5~\mathrm{mm}$ of lateral drift (taking $m$ to be the object's mass in $\mathrm{kg}$ and $g$ the acceleration due to gravity) in $\mathrm{ms^{-2}}$, while the three-finger grasp without a quality certificate slips and drops the object under gravity. Across the $45$ completed lifts, we find the executed margin ends within the $ k_{\mathrm{wq}} = 0.02 $ tolerance of its hold-start value with our controller, and we observe that the median end-of-lift grasp quality ratio barely changes between configurations, $ 0.932 $ quality-constrained against $ 0.936 $ quality-neutral. Our constraint therefore leaves the median unchanged and acts only on grasp configurations with quality losses below the prescribed margin.
+              Physics simulation separates the two outcomes. We transfer each held configuration at entry into LIFT to a Drake simulation with a fixed wrist and implicit proportional-derivative finger actuation, then increase an upward force on the object to $1.5\,mg$ over one second. The certified grasp holds through the full force increase with at most $1.5~\mathrm{mm}$ of lateral drift, while the uncertified three-finger configuration drops the object under gravity alone. All 45 completed quality-constrained lifts end within $k_{\mathrm{wq}}=0.02$ of their hold-onset margins, and 44 satisfy the bound at every evaluated control step. One contact-set change violates the bound transiently and recovers to a $0.006$ deficit by the end of the lift. Median end-of-lift quality ratios are $0.932$ with the constraint and $0.936$ without it, so the constraint leaves the median essentially unchanged while acting on the large-degradation case.
             </p>
           </div>
           <figure class="gdf-quality-video">
             <video src="./static/videos/quality_safety.mp4" poster="./static/videos/quality_safety_poster.jpg" muted playsinline loop controls preload="metadata" aria-label="Three outcomes, barrier violation, certificate failure, and task success"></video>
             <figcaption class="gdf-figcap">
-              The three outcomes of the comparison. Under the nominal command the wrist collides with
-              an obstacle (rendered still), the quality-neutral program lifts the uncertified grasp and
-              the object slips from the hand, and our filtered closed loop completes the reach, grasp,
-              and lift with every barrier positive.
+              Representative outcomes. The nominal command without safety filtering drives the wrist into an obstacle. The quality-neutral QP lifts a grasp after its closure certificate fails, and the object slips under gravity. Our filtered closed loop completes the reach-grasp-lift task with every active CBF positive.
             </figcaption>
           </figure>
         </div>
@@ -382,49 +374,43 @@
             <p>
               <strong>In a reference trial, we place a sphere from the descriptor set behind a pair of
               $6 \times 6 \times 50$ cm rectangular obstacles.</strong> No unobstructed approach to the
-              object exists. Our filtered closed loop avoids the obstacle, with the palm up to 20.5 cm from the nominal path, and completes the full
-              12 cm rise. Both obstacle constraints stay positive at every step including the start pose,
-              with a minimum of 6.7 mm, and the executed grasp retains $r = 0.912$ of its certified
-              margin, $3.05\times10^{-3}$ against the descriptor's $3.35\times10^{-3}$, with the
-              min-weight baseline at 0.446 against 0.468.
+              object exists. The filtered closed loop avoids the obstacles, with the palm deviating by up to
+              20.5 cm from the nominal path, and completes the 12 cm rise. Both obstacle constraints remain
+              positive at every control step, with a minimum of 6.7 mm. The realized grasp retains
+              $r=0.912$ of the descriptor's certified risk-adjusted margin, $3.05\times10^{-3}$ versus
+              $3.35\times10^{-3}$, while the corresponding min-weight margins are 0.446 and 0.468.
             </p>
             <p>
-              <strong>Our controller updates the obstacle poses at every step, and therefore handles a
-              moving obstacle without modification.</strong> We place a $5 \times 5 \times 45$ cm obstacle
-              at the end of the approach path and translate it at 0.05 m/s across that path during the
-              reach. The filtered palm path lies up to 19.1 cm from the nominal path, 14.9 cm measured point
-              to path, the filtered closed loop moves around the moving obstacle rather than stopping until it
-              passes, and surface clearance stays positive throughout, with a minimum of +8.4 mm. We also
-              use the same case to measure the effect of the time-derivative term the program does not
-              include. The constraint has no $\partial h/\partial t$ contribution, and for a moving
-              obstacle the barrier therefore falls below zero by at most the approach speed divided by
-              the barrier rate, 10 mm here. The measured minimum is $-6.6$ mm against the 1.5 cm obstacle
-              margin.
+              <strong>Our controller updates obstacle poses at every control step and handles a moving
+              obstacle without changing the feedback law.</strong> We translate a $5 \times 5 \times 45$ cm
+              obstacle at 0.05 m/s across the arm's approach path. The filtered closed loop steers around the
+              obstacle and continues the approach, with the palm path deviating by up to 19.1 cm from the
+              nominal path and true surface clearance remaining positive at a minimum of +8.4 mm. Because the
+              implemented constraint omits the $\partial h/\partial t$ term, the obstacle CBF can fall below
+              zero by at most $v/\alpha_0=10$ mm in this trial; the measured minimum is $-6.6$ mm, within the
+              1.5 cm obstacle margin.
             </p>
             <p>
-              <strong>We instantiate the controller on a humanoid to test that the platform-specific
-              structure comes from the robot description alone.</strong> We merge the 29-degree-of-freedom
-              Unitree G1 body with the same 11-joint hand at the right wrist, fix the legs and left arm,
-              leaving a 21-dimensional fixed-pelvis chain of three torso and seven arm joints plus the
-              hand, and load a grasp record synthesized for this platform. Our controller runs on this
-              platform without modification. With a $4 \times 4 \times 36$ cm obstacle on the
-              palm-to-object line, it completes the 12 cm rise in 434 steps with no infeasible step, a
-              minimum obstacle constraint of 3.8 mm, a filtered palm path up to 9.7 cm distance from the colliding nominal path, and robot's torso rotation
-              remains under 18 degrees through the lift.
+              <strong>We instantiate the controller on a humanoid to test whether the platform-specific
+              structure comes from the rigid-body model alone.</strong> We combine the 29-degree-of-freedom
+              Unitree G1 body with the same 11-joint hand at the right wrist and fix the legs and left arm,
+              leaving a 21-dimensional fixed-pelvis chain. With a $4 \times 4 \times 36$ cm obstacle on the
+              palm-to-object line, the closed loop completes the 12 cm rise in 434 steps with no infeasible
+              step. The minimum obstacle-constraint value is 3.8 mm, true surface clearance is 3.4 cm, the
+              filtered palm path deviates by up to 9.7 cm from the nominal path, and torso rotation remains
+              below 18 degrees through the lift.
             </p>
           </div>
           <figure class="gdf-figure">
             <img src="./static/images/field_execution.png" class="zoomable"
               alt="Four dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles, and a certificate band below">
             <figcaption class="gdf-figcap">
-              Field execution through contact and lift. We plot the clearance field that the obstacle,
-              wall, and object constraints induce over the workspace at the four mode transitions of a
-              two-obstacle trial, with the executed palm path colored by our grasp field value $d_G$. The
-              band below plots the per-step series, the field decrease through reach, the rise after the
-              switch to the stored closure through close, the number of contacts with its return to close,
-              and the minimum barrier constraint together with the obstacle constraints, nonnegative
-              throughout apart from the single home-posture hull-overlap pair that the filter drives
-              positive.
+              Field execution through contact and lift. We plot the clearance field induced by the obstacle,
+              wall, and object constraints at the four mode transitions of a two-obstacle trial, with the
+              executed palm path colored by $d_G$. The band below shows the per-step field value, its rise
+              after the switch to the stored closure in CLOSE, the contact count and return to CLOSE, and the
+              minimum barrier value. The barriers remain nonnegative apart from the single home-posture
+              collision-hull overlap that the filter drives positive.
             </figcaption>
           </figure>
         </div>
