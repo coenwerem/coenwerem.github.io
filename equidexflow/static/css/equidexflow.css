@@ -440,7 +440,7 @@
   background: var(--bg-card-img);
 }
 
-/* Hardware pair galleries. Each card holds one side-by-side pair clip, so
+/* Hardware pair galleries. Each card holds one side-by-side pair video fragment, so
    the grid keeps its column count on phones. */
 .hw-pair-grid {
   display: grid;

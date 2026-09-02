@@ -461,16 +461,17 @@ margin-top: auto;
   .embed-responsive {
       max-width: 150px;
   }
-  
+
   .embed-responsive-item {
       width: 100%;
       height: 100%;
   }
-  
+
   .col-md-4 {
       margin-bottom: 2rem;
   }
 }
+
 
 /* CV-specific styling */
 .cv-container {
@@ -668,7 +669,8 @@ margin-top: auto;
 .subsubsection-heading .cv-year {
   color: var(--theme-primary);
   font-weight: 500;
-  min-width: 6.5rem;
+  display: inline-block;
+  width: 120px;
   margin: 0%;
   padding: 0%;
 }
@@ -677,7 +679,7 @@ margin-top: auto;
   color: var(--text-color);
   font-weight: bold;
   margin: 0%;
-  padding-left: 1.1rem;
+  padding-left: 1rem;
 }
 
 .cv-content-wrapper {
@@ -750,7 +752,8 @@ margin-top: auto;
 }
 
 .cv-year-season {
-  min-width: 6.5rem;
+  flex: 0 0 120px;
+  min-width: 120px;
   color: var(--theme-primary);
   font-weight: 500;
   margin: 0%;
@@ -767,7 +770,7 @@ margin-top: auto;
 
 .cv-entry {
   flex: 1;
-  padding-left: 1.1rem;
+  padding-left: 0;
 }
 
 .cv-item {
@@ -787,7 +790,7 @@ margin-top: auto;
 }
 
 .cv-description {
-  margin-left: calc(100px + 2rem);
+  margin-left: calc(120px + 1rem);
 }
 
 /* Dark mode adjustments */
@@ -987,11 +990,12 @@ margin-top: auto;
 }
 
 .cv-year {
+    flex: 0 0 120px;
     min-width: 120px;
     font-size: 0.9rem;
     color: var(--theme-primary);
     font-weight: 500;
-    margin-right: 1rem;
+    margin-right: 0;
 }
 
 .cv-role,
@@ -999,6 +1003,14 @@ margin-top: auto;
     flex: 1;
     font-size: 0.9rem;
     margin-left: 0;
+}
+
+/* The global "a { font-size: 16px }" reset further down this file targets
+   the link element directly, so it wins over inheriting 0.9rem from
+   .cv-entry/.cv-role above. Match the size explicitly here, the same way
+   the mobile and print stylesheets already do for this class. */
+.cv-content a {
+    font-size: 0.9rem;
 }
 
 .cv-role {
@@ -1012,7 +1024,7 @@ margin-top: auto;
 }
 
 .cv-content .cv-role-content {
-  padding-left: 7.6rem;  
+  padding-left: calc(120px + 1rem);
   font-size: 0.9rem;
 }
 
@@ -2307,6 +2319,13 @@ font-size: 12px;
     text-decoration: none;
 }
 
+.social-icon-svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    vertical-align: -0.125em;
+}
+
 .social-icon:hover {
     color: var(--theme-primary);
     text-decoration: none;
@@ -2433,6 +2452,31 @@ font-size: 12px;
      (square gifs, 2:1 clips) and reads as zoomed in. */
   object-fit: contain;
   position: relative;
+}
+
+/* Applications section: several clips depart a lot from 16/9 (square gifs,
+   the 3-panel comparison video) and letterbox inside the fixed tile above.
+   Each entry sets background-image to its own poster frame inline, and the
+   blurred, cover-scaled copy behind the clip softens those bars into the
+   clip's own palette instead of a flat neutral fill. */
+#research .sw-video {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#research .sw-video::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  background: inherit;
+  filter: blur(18px) brightness(0.92);
+  z-index: 0;
+}
+
+#research .sw-video img,
+#research .sw-video video {
+  z-index: 1;
 }
 
 .sw-details {
