@@ -68,6 +68,26 @@
           <!-- GDF -->
           <!-- TBA -->
 
+          <!-- ParcelStow -->
+          <div class="sw-entry">
+            <div class="row align-items-start">
+              <div class="col-md-4 col-5">
+                <div class="sw-video">
+                  <video class="zoomable" src="videos/task_rate_robustness.mp4" poster="videos/task_rate_robustness_poster.jpg" autoplay loop muted playsinline aria-label="ParcelStow task-rate robustness demo: the scripted expert stows the parcel at twice the nominal execution rate while a DAgger-distilled imitation policy misaligns the insertion" style="width:100%;height:100%;object-fit:cover;"></video>
+                </div>
+              </div>
+              <div class="col-md-8 col-7 sw-details">
+                <p class="sw-title"><a href="https://github.com/coenwerem/parcelstow" target="_blank">ParcelStow</a></p>
+                <p class="sw-subtitle">Isaac Lab benchmark for task-rate robustness in learned dexterous manipulation. Three contact-rich tasks on a fixed-base Unitree G1 with a RealHand L6 hand, each with a scripted expert, a calibrated speed range, sampled demonstrations, a trained ACT policy, and success predicates evaluated from simulator state. A speedup factor divides the nominal durations of the manipulation phases, and the expert and learner are evaluated under matched initial conditions, so a drop in success isolates sensitivity to execution speed. Ships with a policy interface for evaluating your own policies, episode records, and the scripts that reproduce the paper.</p>
+                <div class="sw-links">
+                  <a href="https://github.com/coenwerem/parcelstow" target="_blank"><i class="fab fa-github"></i> code</a>
+                  <a href="https://arxiv.org/abs/2609.01453" target="_blank"><i class="ai ai-arxiv"></i> paper</a>
+                  <a href="https://huggingface.co/datasets/cenwerem/parcelstow" target="_blank"><i class="fas fa-database"></i> data &amp; checkpoints</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- realhand_l6_ros2 -->
           <div class="sw-entry">
             <div class="row align-items-start">
