@@ -22,6 +22,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 
@@ -45,7 +46,7 @@
                         <td style="padding:2.5%;width:63%;vertical-align:middle">
                           <p style="text-align:center;margin-top: 2em;">
                             <name style="font-weight: 500; display: block;">Clinton Enwerem</name>
-                            <span>Doctoral Candidate in ECE | Safe &amp; Uncertainty-Robust Whole-Body Dexterous Grasping &amp; Manipulation</span>
+                            <span>Doctoral Candidate in ECE | Safe &amp; Robust Learned Policies for Whole-Body Dexterous Grasping &amp; Manipulation</span>
                           </p>
                           <p class="headhr" style="margin-top: -1em;"></p>
                           <!-- nav tabs -->
@@ -126,7 +127,7 @@
                     <p class="bd-text">
                       I study contact-rich whole-body dexterous grasping and manipulation under uncertainty, connecting CBF-based safe control, risk-sensitive planning, latent uncertainty estimation, and safe policy learning to build grasping systems that handle uncertain object pose, friction, contact modes, and target geometry, as well as potentially destabilizing wrenches that arise from whole-body motion or other task-space or exogenous sources. I validate these ideas in simulation (MuJoCo, Drake, Isaac Sim) and on real robot platforms.
                     </p>
-                    <p class="zoom-hint"><i class="fas fa-expand"></i> Click any clip to enlarge.</p>
+                    <p class="zoom-hint"><i class="fas fa-expand"></i> Click to enlarge.</p>
                     <div class="row mb-4">
                       <div class="col-md-3 mx-0 px-2">
                         <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
@@ -156,11 +157,12 @@
                       </div>
                       <div class="col-md-3 mx-0 px-2">
                         <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
-                          <img class="embed-responsive-item"
+                          <video class="embed-responsive-item zoomable"
                             style="object-fit:cover;width:100%;height:100%;"
-                            src="videos/g1.gif" alt="Safe autonomous policy rollout demo (simulation)">
+                            src="videos/task_rate_robustness.mp4" poster="videos/task_rate_robustness_poster.jpg"
+                            autoplay loop muted playsinline aria-label="Task-rate robustness demo: the scripted expert stows the parcel at twice the nominal execution rate while a DAgger-distilled imitation policy misaligns the insertion"></video>
                         </div>
-                        <p class="text-center mt-2 px-auto">Safe Whole-Body Dexterous Manipulation</p>
+                        <p class="text-center mt-2 px-auto">Robustness-Preserving Imitation Learning</p>
                       </div>
                     </div>
                     <p style="text-align:right;margin-top:-0.5rem;"><a href="research.html">Publications and more &rarr;</a></p>
@@ -185,6 +187,10 @@
                     <p class="headhr"></p>
                     <table class="table table-sm table-borderless" style="max-width:800px;margin:auto;">
                       <tbody>
+                        <tr>
+                          <td><span class="badge badge-paper">[preprint]</span></td>
+                          <td>Our new <a href="https://arxiv.org/abs/2609.01453" target="_blank">study</a> on robustness preservation in imitation-learned dexterous manipulation under execution speed variation reveals hidden policy fragility that typical success-based evaluations miss.</td>
+                        </tr>
                         <tr>
                           <td><span class="badge badge-paper">[preprint]</span></td>
                           <td>We introduced a framework for safe and planner-free dexterous grasping with (grasp) quality sublevel-set forward invariance: <a href="gdf/" target="_blank">Grasp Distance Fields</a>.</td>

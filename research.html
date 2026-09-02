@@ -57,7 +57,7 @@
                         <p class="bd-text">
                           I study <span class="keyword">contact-rich dexterous manipulation</span> under <span class="keyword">uncertainty</span>, connecting ideas from <span class="keyword">optimization-based control</span>, <span class="keyword">risk-sensitive optimization</span>, <span>kinodynamic motion planning</span>, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to make manipulation with multi-fingered hands more reliable when object pose, friction, contact modes, and target geometry are only partially observed.
 
-                          My early to mid-career doctoral work studied robust stochastic planning, safe control via <span class="keyword">distributional reinforcement learning</span>, and multi-agent coordination under uncertainty. More recently, I have taken a certain interest in <span class="keyword">dexterous grasp synthesis</span>, safe hand control, <span class="keyword">visuo-tactile policy learning</span>, and uncertainty-aware decision-making for dexterous manipulation, studying how robots (serial chains, humanoids, and mobile manipulators) can estimate uncertainty from proprioceptive, perceptual, and tactile feedback and synthesize controls that balance potentially conflicting performance and safety specifications.
+                          My early to mid-career doctoral work studied robust stochastic planning, safe control via <span class="keyword">distributional reinforcement learning</span>, and multi-agent coordination under uncertainty. More recently, I have taken a certain interest in <span class="keyword">dexterous grasp synthesis</span>, safe hand control, <span class="keyword">visuo-tactile policy learning</span>, and uncertainty-aware decision-making for dexterous manipulation, studying how polyarticulated robots (serial chains, humanoids, and mobile manipulators) can estimate uncertainty from proprioceptive, perceptual, and tactile feedback and synthesize controls that balance potentially conflicting performance and safety specifications. On the learning front, my work spans SE(3)-equivariant generative models for contact-grounded grasp synthesis, variational neural belief parameterizations of multimodal uncertainty, and risk-sensitive imitation and diffusion policies for robust contact-rich manipulation.
 
                           I validate these ideas in simulation using optimization modeling frameworks (CasADi), QP and NLP solvers (qpsolvers, IPOPT), dynamics libraries (Pinocchio), physics simulators (MuJoCo, Drake, Isaac Sim), and reinforcement learning frameworks and environments (Isaac Lab, Safety Gymnasium), as well as on physical hardware comprising serial and branched kinematic chains equipped with proprioception-only and tactile-sensorized multi-fingered hands.
                         </p>
@@ -68,15 +68,15 @@
                         <p class="bd-text">
                           I target problems in dexterous grasping and manipulation spanning:
                         </p>
-                        <p class="zoom-hint"><i class="fas fa-expand"></i> Click any clip to enlarge.</p>
+                        <p class="zoom-hint"><i class="fas fa-expand"></i> Click to enlarge.</p>
 
                         <!-- Application 1: Robust Dexterous Grasping -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video">
+                              <div class="sw-video" style="background-image:url('videos/robust_grasp_mj.gif');">
                                 <img src="videos/robust_grasp_mj.gif" alt="MuJoCo belief-space grasping demo"
-                                  style="filter: brightness(1.1);">
+                                  width="540" height="540" style="filter: brightness(1.1);">
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -97,8 +97,8 @@
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video">
-                                <video class="zoomable" src="videos/equidexflow_equivariance.mp4" poster="videos/equidexflow_equivariance_poster.jpg" autoplay loop muted playsinline aria-label="EquiDexFlow equivariance demo: the same object grasped at 0 and 120 degrees"></video>
+                              <div class="sw-video" style="background-image:url('videos/equidexflow_equivariance_poster.jpg');">
+                                <video class="zoomable" src="videos/equidexflow_equivariance.mp4" poster="videos/equidexflow_equivariance_poster.jpg" width="1280" height="720" autoplay loop muted playsinline aria-label="EquiDexFlow equivariance demo: the same object grasped at 0 and 120 degrees"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -114,20 +114,41 @@
                         </div>
 
                         <!-- Application 3: Policy Learning from Multimodal Data -->
-                        <!-- Application 4: Safe Dexterous Manipulation -->
+                        <!-- Application 4: Robustness-Preserving Imitation Learning -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video">
-                                <video class="zoomable" src="videos/static_dynamic_grasp.mp4" poster="videos/static_dynamic_grasp_poster.jpg" autoplay loop muted playsinline aria-label="Safe dexterous grasp execution demo: static and dynamic environments"></video>
+                              <div class="sw-video" style="background-image:url('videos/task_rate_robustness_poster.jpg');">
+                                <video class="zoomable" src="videos/task_rate_robustness.mp4" poster="videos/task_rate_robustness_poster.jpg" width="1280" height="480" autoplay loop muted playsinline aria-label="ParcelStow task-rate robustness demo: the scripted expert stows the parcel at twice the nominal execution rate while a DAgger-distilled imitation policy misaligns the insertion"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Safe Autonomous Dexterous Grasping &amp; Manipulation</p>
-                              <p class="sw-subtitle">Risk-aware, collision-free, and quality-margin-preserving whole-body dexterous manipulation.</p>
+                              <p class="sw-title">Robustness-Preserving Policy Learning for Dexterous Manipulation</p>
+                              <p class="sw-subtitle">Imitation and generative policy learning for robustness-preserving contact-rich dexterous manipulation.</p>
+                              <div class="sw-links">
+                                <a href="https://arxiv.org/abs/2609.01453" target="_blank"><i class="ai ai-arxiv"></i>
+                                  Temporal Robustness Study</a>
+                                <a href="https://github.com/coenwerem/parcelstow/" target="_blank"><i class="fab fa-github"></i>
+                                  ParcelStow</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Application 5: Safe, Performant, and Autonomous Polyarticulated Dexterous Grasping & Manipulation -->
+                        <div class="sw-entry">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="background-image:url('videos/static_dynamic_wholebody_poster.jpg');">
+                                <video class="zoomable" src="videos/static_dynamic_wholebody.mp4" poster="videos/static_dynamic_wholebody_poster.jpg" width="1622" height="628" autoplay loop muted playsinline aria-label="Safe dexterous grasp execution demo: static environments, dynamic environments, and whole-body humanoid grasping"></video>
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Safe and Autonomous Poly-Articulated Dexterous Grasping &amp; Manipulation</p>
+                              <p class="sw-subtitle">Scene-aware multifingered grasp generation with safe and stable realization on polyarticulated robotic systems.</p>
                               <div class="sw-links">
                                 <a href="https://arxiv.org/abs/2604.03868" target="_blank"><i class="ai ai-arxiv"></i>
-                                  Belief-Space CVaR-MPPI Controller</a>
+                                  CVaR-MPPI Controller</a>
                                 <a href="gdf/" target="_blank"><i class="fas fa-globe"></i>
                                 GDF</a>
                               </div>
@@ -135,12 +156,12 @@
                           </div>
                         </div>
 
-                        <!-- Application 5: Safe Dexterous Data Collection -->
-                        <div class="sw-entry">
+                        <!-- Application 6: Safe Dexterous Data Collection -->
+                        <div class="sw-entry" style="border-bottom:none;padding-bottom:0;margin-bottom:2rem;">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video">
-                                <img src="videos/safe_teleop_xarm_dimos_demo.gif" alt="VR-assisted teleoperation data collection demo">
+                              <div class="sw-video" style="background-image:url('videos/safe_teleop_xarm_dimos_demo.gif');">
+                                <img src="videos/safe_teleop_xarm_dimos_demo.gif" alt="VR-assisted teleoperation data collection demo" width="433" height="433">
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -153,33 +174,46 @@
                             </div>
                           </div>
                         </div>
-                        
-                        <!-- Application 6: Safe Whole-Body Humanoid Grasping -->
-                        <div class="sw-entry" style="border-bottom:none;padding-bottom:0;margin-bottom:2rem;">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video">
-                                <img src="videos/g1.gif" alt="Safe whole-body dexterous grasping demo on a fixed-pelvis Unitree G1">
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Safe &amp; Performant Whole-Body Dexterous Grasping &amp; Manipulation</p>
-                              <p class="sw-subtitle">Scene-aware whole-body grasp generation with safe and stable realization on a fixed-pelvis humanoid.</p>
-                              <div class="sw-links">
-                                <a href="gdf/" target="_blank"><i class="fas fa-globe"></i>
-                                GDF</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                  
 
                         <span class="sub-heading">Publications</span>
                         <p class="headhr"></p>
                         <heading><span class="submitted-in-review">Preprints (Submitted/Under Review)</span></heading>
                         <div class="publication-entry">
                         <span class="project-section">2026</span>
-                          <p class="headhr"></p>    
+                          <p class="headhr"></p>
+                        <div class="publication-entry">
+                          <div class="pub-main-row">
+                            <span class="venue-badge">arXiV</span>
+                            <div class="pub-content">
+                              <span style="font-weight:bold;">Clinton Enwerem</span>, John S. Baras, and Calin Belta, &ldquo;Does Imitation Learning Preserve Temporal Robustness in Dexterous Manipulation? An Expert-Learner Comparison Across Task Execution Speeds,&rdquo; arXiv preprint, 2026. <a href="https://arxiv.org/abs/2609.01453" target="_blank">arXiv link</a>
+                            </div>
+                          </div>
+                          <div class="pub-links-row">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                              data-target="#bib-arXiV-parcelstow-2026" aria-expanded="false" aria-controls="bib-arXiV-parcelstow-2026">
+                              bibtex
+                            </button>
+                            <a href="https://arxiv.org/abs/2609.01453" target="_blank" class="btn btn-link">arXiv</a>
+                            <a href="data/papers/2609.01453.pdf" target="_blank" class="btn btn-link">pdf</a>
+                            <a href="https://github.com/coenwerem/parcelstow" target="_blank" class="btn btn-link">code</a>
+                            <div class="collapse" id="bib-arXiV-parcelstow-2026">
+                              <div class="card card-body">
+                                <pre><code>@online{enweremDoesImitationLearningPreserve2026,
+title = {Does Imitation Learning Preserve Temporal Robustness in Dexterous Manipulation? An Expert-Learner Comparison Across Task Execution Speeds},
+author = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
+year = {2026},
+eprint = {2609.01453},
+eprinttype = {arXiv},
+eprintclass = {cs.RO},
+doi = {},
+url = {https://arxiv.org/abs/2609.01453},
+pubstate = {prepublished},
+keywords = {Computer Science - Robotics},
+}</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div class="publication-entry">
                           <div class="pub-main-row">
                             <span class="venue-badge">arXiV</span>
