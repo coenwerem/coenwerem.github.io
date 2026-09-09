@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Feedback control architecture for a first-order process with time delay</title>
+  <desc id="desc">A square block diagram showing a controller, a first-order process with time delay, and unity feedback.</desc>
+  <defs>
+    <style>
+      .line { fill: none; stroke: #253341; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .branch { fill: none; stroke: #253341; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .arrowhead { fill: #253341; }
+      .block { fill: #fff; stroke: #253341; stroke-width: 6; rx: 16; }
+      .sum { fill: #fff; stroke: #253341; stroke-width: 6; }
+      .label, .small, .math, .equation, .heading, .eyebrow { font-family: "CMU Sans Serif", "Computer Modern Sans Serif", sans-serif; }
+      .label { fill: #253341; font-size: 32px; font-weight: 500; }
+      .small { fill: #536577; font-size: 25px; font-weight: 500; }
+      .math { fill: #253341; font-size: 41px; font-style: italic; }
+      .equation { fill: #253341; font-size: 39px; font-style: italic; }
+      .heading { fill: #253341; font-size: 34px; font-weight: 700; letter-spacing: 1.5px; }
+      .eyebrow { fill: #1259a1; font-size: 21px; font-weight: 700; letter-spacing: 2.5px; }
+    </style>
+  </defs>
+  <rect width="1000" height="1000" rx="42" fill="#f7f9fb"/>
+
+  <text x="500" y="88" text-anchor="middle" class="eyebrow">UNITY-FEEDBACK CONTROL</text>
+  <text x="500" y="148" text-anchor="middle" class="heading">FOPTD CONTROL ARCHITECTURE</text>
+
+  <text x="42" y="318" class="small">reference</text>
+  <text x="127" y="360" class="math">r</text>
+  <path class="line" d="M 153 372 H 210"/>
+  <path class="arrowhead" d="M 210 372 L 192 365 L 192 379 Z"/>
+  <circle class="sum" cx="248" cy="372" r="36"/>
+  <text x="248" y="360" text-anchor="middle" class="label">+</text>
+  <line x1="238" y1="390" x2="258" y2="390" stroke="#253341" stroke-width="3"/>
+  <path class="line" d="M 284 372 H 352"/>
+  <path class="arrowhead" d="M 352 372 L 334 365 L 334 379 Z"/>
+  <text x="316" y="343" class="math">e</text>
+
+  <rect class="block" x="358" y="302" width="204" height="140"/>
+  <text x="460" y="365" text-anchor="middle" class="math">G₍c₎(s)</text>
+  <text x="460" y="410" text-anchor="middle" class="small">controller</text>
+
+  <path class="line" d="M 562 372 H 647"/>
+  <path class="arrowhead" d="M 647 372 L 629 365 L 629 379 Z"/>
+  <text x="600" y="343" class="math">u</text>
+  <rect class="block" x="653" y="278" width="286" height="188"/>
+  <text x="796" y="344" text-anchor="middle" class="equation">e⁻ᶿˢ</text>
+  <line x1="724" y1="363" x2="868" y2="363" stroke="#253341" stroke-width="4"/>
+  <text x="796" y="407" text-anchor="middle" class="equation">τs + 1</text>
+  <text x="796" y="444" text-anchor="middle" class="small">FOPTD process</text>
+
+  <path class="line" d="M 939 372 H 986"/>
+  <path class="arrowhead" d="M 986 372 L 968 365 L 968 379 Z"/>
+  <text x="950" y="343" class="math">y</text>
+  <text x="862" y="516" text-anchor="middle" class="small">controlled variable</text>
+
+  <path class="line" d="M 966 372 V 718 H 248 V 414"/>
+  <path class="arrowhead" d="M 248 414 L 241 432 L 255 432 Z"/>
+  <circle cx="966" cy="372" r="8" fill="#253341"/>
+
+  <rect x="186" y="806" width="628" height="88" rx="44" fill="#dbeafe"/>
+  <text x="500" y="860" text-anchor="middle" class="label">Padé-based PID controller tuning</text>
+</svg>

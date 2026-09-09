@@ -46,7 +46,7 @@
                         <td style="padding:2.5%;width:63%;vertical-align:middle">
                           <p style="text-align:center;margin-top: 2em;">
                             <name style="font-weight: 500; display: block;">Clinton Enwerem</name>
-                            <span>Doctoral Candidate in ECE | Safe &amp; Robust Learned Policies for Whole-Body Dexterous Grasping &amp; Manipulation</span>
+                            <span>Doctoral Candidate in ECE | Policy Learning for Safe &amp; Robust Poly-Articulated Dexterous Robotic Manipulation</span>
                           </p>
                           <p class="headhr" style="margin-top: -1em;"></p>
                           <!-- nav tabs -->
@@ -69,7 +69,7 @@
                                 of Maryland (UMD), College Park, MD, USA, working with Professor <a href="https://johnbaras.com/"
                                 target="_blank">John S. Baras</a>, Distinguished University Professor and Endowed Lockheed Martin Chair
                                 in Systems Engineering, and Professor <a href="https://calinbelta.com/"
-                                target="_blank">Calin Belta</a>, Brendan Iribe Endowed Professor of ECE and Computer Science. I work on <span class="bd-text" style="font-weight: bold;">contact-rich whole-body dexterous manipulation under uncertainty</span>, drawing on safe and risk-sensitive control, belief-space kinodynamic motion planning, and policy learning to make multifingered grasping and manipulation more reliable when object pose, friction, and contact modes are only partially known. At UMD, I am affiliated with the <a href="https://isr.umd.edu/" target="_blank">Institute for Systems Research</a>, the <a href="https://exact.umd.edu/">EXplainable and Assured Control for AuTonomy</a> (EXACT) lab, the Systems Engineering and Integration lab, and the <a href="https://robotics.umd.edu"
+                                target="_blank">Calin Belta</a>, Brendan Iribe Endowed Professor of ECE and Computer Science. I work on <span class="bd-text" style="font-weight: bold;">contact-rich poly-articulated (humanoid, serial-chain, and fixed-base bimanual) dexterous grasping and manipulation under uncertainty</span>, drawing on safe and risk-sensitive control, belief-space kinodynamic motion planning, and policy learning to make multifingered grasping and manipulation more reliable when object pose, friction, and contact modes are only partially known. At UMD, I am affiliated with the <a href="https://isr.umd.edu/" target="_blank">Institute for Systems Research</a>, the <a href="https://exact.umd.edu/">EXplainable and Assured Control for AuTonomy</a> (EXACT) lab, the Systems Engineering and Integration lab, and the <a href="https://robotics.umd.edu"
                                 target="_blank">Maryland Robotics Center</a> (MRC). I have also received the Dean's Fellowship from UMD's Graduate School and the <a href="https://robotics.umd.edu/node/1367" target="_blank">Microsoft Diversity in Robotics and Autonomy PhD Fellowship</a>, awarded through a collaboration between <a href="https://www.microsoft.com/" target="_blank">Microsoft Corporation</a> and MRC.</p>
                             </div>
                             <div class="tab-pane fade" id="before-umd" role="tabpanel" aria-labelledby="before-umd-tab">
@@ -125,7 +125,7 @@
                     <span class="sub-heading">Research</span>
                     <p class="headhr"></p>
                     <p class="bd-text">
-                      I study contact-rich whole-body dexterous grasping and manipulation under uncertainty, connecting CBF-based safe control, risk-sensitive planning, latent uncertainty estimation, and safe policy learning to build grasping systems that handle uncertain object pose, friction, contact modes, and target geometry, as well as potentially destabilizing wrenches that arise from whole-body motion or other task-space or exogenous sources. I validate these ideas in simulation (MuJoCo, Drake, Isaac Sim) and on real robot platforms.
+                      I study contact-rich poly-articulated dexterous grasping and manipulation under uncertainty, connecting CBF-based safe control, risk-sensitive planning, latent uncertainty estimation, and safe policy learning to build robotic manipulation systems that handle uncertain object pose, friction, contact modes, and target geometry, as well as potentially-destabilizing wrenches that arise from whole-body motion or other task-space or exogenous sources. I validate these ideas in simulation (MuJoCo, Drake, Isaac Sim) and on real robot platforms (see <a href="robots.html" target="_blank">Robots</a>).
                     </p>
                     <p class="zoom-hint"><i class="fas fa-expand"></i> Click to enlarge.</p>
                     <div class="row mb-4">
@@ -162,7 +162,7 @@
                             src="videos/task_rate_robustness.mp4" poster="videos/task_rate_robustness_poster.jpg"
                             autoplay loop muted playsinline aria-label="Task-rate robustness demo: the scripted expert stows the parcel at twice the nominal execution rate while a DAgger-distilled imitation policy misaligns the insertion"></video>
                         </div>
-                        <p class="text-center mt-2 px-auto">Robustness-Preserving Imitation Learning</p>
+                        <p class="text-center mt-2 px-auto">Imitation-Learned Dexterous Manipulation</p>
                       </div>
                     </div>
                     <p style="text-align:right;margin-top:-0.5rem;"><a href="research.html">Publications and more &rarr;</a></p>
@@ -193,23 +193,23 @@
                         </tr>
                         <tr>
                           <td><span class="badge badge-paper">[preprint]</span></td>
-                          <td>We introduced a framework for safe and planner-free dexterous grasping with (grasp) quality sublevel-set forward invariance: <a href="gdf/" target="_blank">Grasp Distance Fields</a>.</td>
+                          <td>We introduced a CBF-CLF-based control framework for safe and planner-free dexterous grasping with safe-set forward invariance and grasp quality preservation: <a href="gdf/" target="_blank">Grasp Distance Fields</a>.</td>
                         </tr>
                         <tr>
                           <td><span class="badge badge-paper">[paper]</span></td>
-                          <td>Our <a href="https://arxiv.org/abs/2604.03868" target="_blank">paper</a> introducing a CVaR-based belief-space MPPI algorithm for safe control has been accepted for presentation at <a href="https://cdc2026.ieeecss.org/" target="_blank">CDC 2026</a>.</td>
+                          <td>Our <a href="https://arxiv.org/abs/2604.03868" target="_blank">paper</a> introducing a CVaR-based belief-space MPPI algorithm for safe control has been accepted for presentation at <a href="https://cdc2026.ieeecss.org/" target="_blank">CDC 2026</a>. Links: <a href="belief-cvar-mppi/" target="_blank">demos</a>, <a href="https://arxiv.org/abs/2604.03868" target="_blank">arXiv</a>.</td>
                         </tr>
                         <tr>
                           <td><span class="badge badge-paper">[preprint]</span></td>
-                          <td>We posted a new <a href="https://arxiv.org/abs/2607.25049" target="_blank">preprint</a> introducing <span style="font-weight:bold;">FIRMGrasp</span>, a Friction-Informed Risk Margin (&epsilon;<sup>(&beta;)</sup>) for robust grasp synthesis. Grasps certified by &epsilon;<sup>(&beta;)</sup> achieve a 70% lift success rate under lateral pull, versus 25% for grasps certified by the nominal Ferrari-Canny margin but are rejected by &epsilon;<sup>(&beta;)</sup>.</td>
+                          <td>New preprint on <a href="https://arxiv.org/abs/2607.25049" target="_blank">FIRMGrasp</a> introducing a novel grasp quality metric (&epsilon;<sup>(&beta;)</sup>) for robust grasp synthesis under uncertain friction. Grasps certified by &epsilon;<sup>(&beta;)</sup> achieve a 70% lift success rate under lateral pull, compared to 25% for grasps certified by the nominal Ferrari-Canny margin but are rejected by &epsilon;<sup>(&beta;)</sup>.</td>
                         </tr>
                         <tr>
                           <td><span class="badge badge-paper">[paper]</span></td>
-                          <td><span style="font-weight:bold;">VNB-Grasp</span>, our variational neural belief framework for robust dexterous grasping under multimodal uncertainty, has been accepted to <a href="https://2026.ieee-iros.org/" target="_blank">IROS 2026</a>. Links: <a href="https://www.github.com/coenwerem/vnb-grasp" target="_blank">code</a>, <a href="https://arxiv.org/abs/2604.25897" target="_blank">Preprint (arXiv)</a>.</td>
+                          <td>VNB-Grasp, our variational neural belief framework for robust dexterous grasping under visuo-tactile uncertainty, has been accepted to <a href="https://2026.ieee-iros.org/" target="_blank">IROS 2026</a>. Links: <a href="https://www.github.com/coenwerem/vnb-grasp" target="_blank">code</a>, <a href="https://arxiv.org/abs/2604.25897" target="_blank">arXiv</a>.</td>
                         </tr>
                         <tr>
                           <td><span class="badge badge-model">[model]</span></td>
-                          <td>If you work on learning-based dexterous manipulation, check out <a href="https://equidexflow.github.io" target="_blank">EquiDexFlow</a>, our SE(3)-equivariant flow-matching model for synthesizing contact-aware multi-fingered grasps. To our knowledge, EquiDexFlow is the first learned dexterous grasp generator to produce articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces jointly within one end-to-end SE(3)-equivariant architecture.</td>
+                          <td>If you work on learning-based dexterous manipulation, have a look at <a href="https://equidexflow.github.io" target="_blank">EquiDexFlow</a>, our SE(3)-equivariant flow-matching model for synthesizing contact-aware multi-fingered grasps. To our knowledge, EquiDexFlow is the first learned dexterous grasp generator to produce articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces jointly within one end-to-end SE(3)-equivariant VAE architecture.</td>
                         </tr>
                         <tr>
                           <td colspan="2">

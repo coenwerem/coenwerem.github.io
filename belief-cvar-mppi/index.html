@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CVaR-MPPI plans under latent geometric uncertainty. In MuJoCo dexterous-stowing experiments, higher safety confidence eliminated exterior contact across 11 trials and improved task success.">
+  <meta name="keywords" content="CVaR, MPPI, belief-space control, risk-sensitive control, latent uncertainty, dexterous manipulation">
+  <title>Belief CVaR-MPPI | Safe Control under Latent Uncertainty</title>
+  <meta property="og:title" content="Belief CVaR-MPPI: Safe Control under Latent Uncertainty">
+  <meta property="og:description" content="Risk-constrained belief-space optimization for dexterous stowing under latent geometric uncertainty, evaluated in randomized MuJoCo trials.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clintonenwerem.com/belief-cvar-mppi/">
+  <meta property="og:image" content="https://clintonenwerem.com/belief-cvar-mppi/static/images/running-example.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="./static/images/belief-cvar-mppi-icon.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="./static/images/belief-cvar-mppi-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./static/images/belief-cvar-mppi-icon.png">
+  <style>
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #22272e; }
+    body { visibility: hidden; }
+    .dark-mode, .light-mode { visibility: visible; transition: background-color .3s ease, color .3s ease; }
+  </style>
+  <script>(function(){var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark-mode":"light-mode");document.documentElement.classList.add(t);})();</script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../stylesheet.css?v=20260904a">
+  <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260809c">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260905a">
+
+  <!-- MathJax for inline math. Version 4 brings inline line breaking,
+       which lets justified paragraphs wrap long formulas at operators
+       and spares the surrounding words from stretched justification gaps -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$']], displayMath: [['\\[', '\\]']] },
+      output: { linebreaks: { inline: true } }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <div class="page-container"><div class="content-wrap">
+    <header class="gdf-hero">
+      <p class="cvar-venue">IEEE Conference on Decision and Control (CDC), 2026</p>
+      <h1 class="gdf-title">Risk-Constrained Belief-Space Optimization</h1>
+      <h2 class="gdf-subtitle">for Safe Control under Latent Uncertainty</h2>
+      <p class="gdf-authors">Clinton Enwerem, John S. Baras, &amp; Calin Belta</p>
+      <p class="gdf-affil">Institute for Systems Research, University of Maryland, College Park, MD, U.S.A.</p>
+      <div class="gdf-btns">
+        <a class="gdf-btn" href="https://arxiv.org/abs/2604.03868" target="_blank" rel="noopener"><i class="ai ai-arxiv"></i><span>arXiv</span></a>
+        <a class="gdf-btn" href="https://arxiv.org/pdf/2604.03868" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i><span>PDF</span></a>
+        <a class="gdf-btn" href="#Results"><i class="fas fa-square-poll-vertical"></i><span>Results</span></a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Videos -->
+      <section class="gdf-section" id="demos">
+        
+        <div class="gdf-wrap">
+         
+        <div class="cvar-demo-compare" aria-label="Side-by-side comparison of low- and high-risk-aversion insertion trials">
+          
+          <figure class="cvar-demo-card">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="./static/images/risk-neutral-contact.jpg?v=large-labels-20260909">
+              <source src="./static/videos/beta050-contact.mp4?v=large-labels-20260909" type="video/mp4">
+            </video>
+            <figcaption><strong>Low Risk Aversion, $\beta_s = 0.50$.</strong> At low risk aversion, the object being transported by the robot collides with the blue stowed object, and the robot subsequently fails the insertion task.</figcaption>
+          </figure>
+          <figure class="cvar-demo-card">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="./static/images/risk-aware-safe.jpg?v=large-labels-20260909">
+              <source src="./static/videos/beta095-contact-free.mp4?v=large-labels-20260909" type="video/mp4">
+            </video>
+            <figcaption><strong>High Risk Aversion, $\beta_s = 0.95$.</strong> At high risk aversion, the robot avoids collision with the receptacle exterior and successfully places the object on the shelf.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+      
+      <!-- Key results callout -->
+      <section class="gdf-section gdf-section--alt">
+      <div class="gdf-wrap">
+        <div class="key-results">
+            <div class="key-result"><div class="kr-value">82%</div><div class="kr-label">task success<br>CVaR-MPPI, $\beta_s = 0.95$</div></div>
+            <div class="key-result"><div class="kr-value">0%</div><div class="kr-label">exterior-contact rate<br>CVaR-MPPI, $\beta_s = 0.95$</div></div>
+            <div class="key-result"><div class="kr-value">55%</div><div class="kr-label">task success<br>CVaR-MPPI, $\beta_s = 0.50$</div></div>
+            <div class="key-result"><div class="kr-value">50%</div><div class="kr-label">task success<br>CCMPPI baseline</div></div>
+        </div>
+      </div>
+      </section>
+
+      <!-- Abstract -->
+      <section class="gdf-section" id="abstract"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Abstract</h2>
+        <div class="gdf-prose"><p>Many safety-critical control systems operate under latent uncertainty that sensors cannot resolve at decision time. Such uncertainty, arising from unknown physical properties, disturbances, or unobserved geometry, affects dynamics, task feasibility, and safety margins. Standard methods optimize expected performance and offer limited protection against rare but severe outcomes, while robust formulations treat uncertainty conservatively without exploiting its probabilistic structure. We consider systems with measured state and an unknown, time-invariant parameter represented by a belief distribution. We propose a risk-sensitive belief-space Model Predictive Path Integral (MPPI) controller that plans under this belief, regularizes performance using Conditional Value-at-Risk (CVaR), and imposes a CVaR constraint on a trajectory safety margin over the horizon. For the exact risk-constrained formulation underlying this controller, we establish three properties: (1) the CVaR constraint implies a probabilistic safety guarantee, (2) the controller recovers the risk-neutral optimum as the objective risk weight tends to zero, and (3) a union-bound argument extends the per-horizon guarantee to cumulative safety over repeated solves. In contact-rich MuJoCo simulations of vision-guided dexterous stowing, where a manipulator inserts a grasped object into an occupied slot with pose uncertainty exceeding prescribed lateral clearance requirements, our method achieves $82\%$ success with zero contact violations at high risk aversion, compared with $55\%$ and $50\%$ for a risk-neutral configuration and a chance-constrained baseline, both of which incur nonzero exterior contact forces.</p></div>
+      </div></section>
+
+      <!-- Method -->
+      <section class="gdf-section gdf-section--alt"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Overview &amp; Working Principle</h2>
+        <div class="gdf-prose"><p>CVaR-MPPI is a risk-sensitive belief-space MPPI controller designed to be robust to latent uncertainty in contact model parameters represented by a particle-based belief distribution. Our controller jointly guarantees probabilistic safety by constraining the adverse tail of a trajectory safety margin. At each receding-horizon solve, CVaR-MPPI evaluates sampled control sequences across belief particles, applies the first control, and updates the belief from the next observation.</p></div>
+        <div class="method-steps">
+          <article class="method-card"><div class="mc-icon"><i class="fas fa-eye"></i></div><h4>Particle Belief</h4><p>We use a particle belief that captures time-invariant parameters, including receptacle pose and geometry unknown at decision time.</p></article>
+          <article class="method-card"><div class="mc-icon"><i class="fas fa-route"></i></div><h4>Sampled MPPI Rollouts</h4><p>Sampled MPPI rollouts propagate candidate control sequences across belief particles and compute trajectory cost and safety margin.</p></article>
+          <article class="method-card"><div class="mc-icon"><i class="fas fa-chart-line"></i></div><h4>Tail Risk Minimization</h4><p>The objective penalizes the trajectory-wise CVaR cost, and a separate CVaR constraint bounds the adverse tail of a trajectory-wise safety violation measure.</p></article>
+          <article class="method-card"><div class="mc-icon"><i class="fas fa-rotate"></i></div><h4>Feedback Planning</h4><p>The controller applies the first action, updates its belief, and re-solves the finite-horizon problem using the updated belief.</p></article>
+        </div>
+      </div></section>
+
+      <!-- Guarantees -->
+      <section class="gdf-section"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Theoretical Guarantees</h2>
+        <div class="cvar-claims">
+          <article><span>1</span><p><strong>CVaR Safety Implication</strong> If $\operatorname{CVaR}_{\beta_s}(-M_H) \le 0$, then $\Pr(M_H \ge 0) \ge \beta_s$.</p></article>
+          <article><span>2</span><p><strong>Risk-Neutral Limit</strong> Under the paper’s compactness and continuity assumptions, every cluster point of the optimizer minimizes expected trajectory cost as $\lambda_r \downarrow 0$.</p></article>
+          <article><span>3</span><p><strong>Cumulative Safety</strong> If the constraint holds at $T$ successive solves, all predicted horizons are safe with probability at least $1 - T(1 - \beta_s)$.</p></article>
+        </div>
+      </div></section>
+
+      <!-- Results -->
+      <section class="gdf-section gdf-section--alt" id="Results"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Simulation Results</h2>
+        <h3 class="gdf-h3">Effect of $\beta_s$ on Success Rate</h3>
+        <div class="gdf-prose cvar-results-prose"><p>Increasing the safety confidence level from $\beta_s = 0.50$ to $0.95$ raised task success from $55\%$ to $82\%$ and reduced the exterior-contact rate from $27\%$ to $0\%$. CVaR-MPPI at $\beta_s = 0.90$ and CCMPPI both produced zero exterior contact, but CVaR-MPPI achieved $73\%$ success compared with $50\%$ for CCMPPI. Because CCMPPI uses a point estimate and omits both CVaR terms, this comparison evaluates the complete controllers rather than either CVaR component in isolation.</p></div>
+
+        <figure class="cvar-beta-demo">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="./static/videos/beta-safety-constraint.mp4" type="video/mp4">
+          </video>
+          <figcaption><strong>Effect of $\beta_s$.</strong> Across $11$ randomized MuJoCo trials per setting, increasing $\beta_s$ from $0.50$ to $0.90$ or $0.95$ eliminated exterior-contact violations while task success rose from $55\%$ to $73\%$ and $82\%$, respectively.</figcaption>
+
+        </figure>
+      </div></section>
+
+      <!-- BibTeX -->
+      <section class="gdf-section" id="BibTeX"><div class="gdf-wrap">
+        <h2 class="gdf-h2">BibTeX</h2>
+        <pre><code>@misc{enwerem2026riskconstrained,
+  title         = {Risk-Constrained Belief-Space Optimization for Safe Control under Latent Uncertainty},
+  author        = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
+  year          = {2026},
+  eprint        = {2604.03868},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.SY},
+  url           = {https://arxiv.org/abs/2604.03868}
+}</code></pre>
+      </div></section>
+    </main>
+  </div><div id="footer-placeholder"></div></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>window.SITE_ROOT="../";</script>
+  <script src="../scripts.js"></script>
+</body>
+</html>
