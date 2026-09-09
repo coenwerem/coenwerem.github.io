@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Observer-based active disturbance rejection control for a DC motor</title>
+  <desc id="desc">A square block diagram showing state feedback, disturbance compensation, a DC motor, and an extended state observer.</desc>
+  <defs>
+    <style>
+      .line { fill: none; stroke: #253341; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .branch { fill: none; stroke: #253341; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .arrowhead { fill: #253341; }
+      .block { fill: #fff; stroke: #253341; stroke-width: 6; rx: 16; }
+      .sum { fill: #fff; stroke: #253341; stroke-width: 6; }
+      .label, .small, .math, .heading, .eyebrow { font-family: "CMU Sans Serif", "Computer Modern Sans Serif", sans-serif; }
+      .label { fill: #253341; font-size: 31px; font-weight: 500; }
+      .small { fill: #536577; font-size: 25px; font-weight: 500; }
+      .math { fill: #253341; font-size: 39px; font-style: italic; }
+      .heading { fill: #253341; font-size: 37px; font-weight: 700; letter-spacing: 1.5px; }
+      .eyebrow { fill: #1259a1; font-size: 21px; font-weight: 700; letter-spacing: 2.5px; }
+    </style>
+  </defs>
+  <rect width="1000" height="1000" rx="42" fill="#f7f9fb"/>
+
+  <text x="500" y="88" text-anchor="middle" class="eyebrow">DC MOTOR SPEED CONTROL</text>
+  <text x="500" y="148" text-anchor="middle" class="heading">OBSERVER-BASED ADRC</text>
+
+  <text x="44" y="308" class="math">r</text>
+  <text x="42" y="377" class="small">reference</text>
+  <path class="line" d="M 76 340 H 136"/>
+  <path class="arrowhead" d="M 136 340 L 118 333 L 118 347 Z"/>
+  <circle class="sum" cx="174" cy="340" r="35"/>
+  <text x="174" y="329" text-anchor="middle" class="label">+</text>
+  <line x1="164" y1="358" x2="184" y2="358" stroke="#253341" stroke-width="3"/>
+  <path class="line" d="M 209 340 H 257"/>
+  <path class="arrowhead" d="M 257 340 L 239 333 L 239 347 Z"/>
+  <text x="231" y="313" class="math">e</text>
+
+  <rect class="block" x="263" y="278" width="210" height="124"/>
+  <text x="368" y="330" text-anchor="middle" class="label">State-feedback</text>
+  <text x="368" y="367" text-anchor="middle" class="label">controller</text>
+
+  <path class="line" d="M 473 340 H 521"/>
+  <path class="arrowhead" d="M 521 340 L 503 333 L 503 347 Z"/>
+  <circle class="sum" cx="559" cy="340" r="35"/>
+  <text x="559" y="329" text-anchor="middle" class="label">+</text>
+  <line x1="549" y1="358" x2="569" y2="358" stroke="#253341" stroke-width="3"/>
+  <path class="line" d="M 594 340 H 641"/>
+  <path class="arrowhead" d="M 641 340 L 623 333 L 623 347 Z"/>
+  <rect class="block" x="647" y="292" width="102" height="96"/>
+  <text x="698" y="353" text-anchor="middle" class="math">1/b</text>
+  <path class="line" d="M 749 340 H 792"/>
+  <path class="arrowhead" d="M 792 340 L 774 333 L 774 347 Z"/>
+  <rect class="block" x="798" y="278" width="151" height="124"/>
+  <text x="874" y="332" text-anchor="middle" class="math">G(s)</text>
+  <text x="874" y="370" text-anchor="middle" class="small">DC motor</text>
+  <path class="line" d="M 949 340 H 986"/>
+  <path class="arrowhead" d="M 986 340 L 968 333 L 968 347 Z"/>
+  <text x="955" y="313" class="math">y</text>
+
+  <text x="698" y="230" text-anchor="middle" class="math">h</text>
+  <path class="line" d="M 698 240 V 286"/>
+  <path class="arrowhead" d="M 698 286 L 691 268 L 705 268 Z"/>
+
+  <rect class="block" x="570" y="555" width="322" height="132"/>
+  <text x="731" y="612" text-anchor="middle" class="label">Extended-state</text>
+  <text x="731" y="650" text-anchor="middle" class="label">observer (ESO)</text>
+
+  <path class="line" d="M 773 340 V 495 H 650 V 549"/>
+  <path class="arrowhead" d="M 650 549 L 643 531 L 657 531 Z"/>
+  <circle cx="773" cy="340" r="8" fill="#253341"/>
+  <text x="789" y="475" class="math">u</text>
+
+  <path class="line" d="M 570 621 H 559 V 381"/>
+  <path class="arrowhead" d="M 559 381 L 552 399 L 566 399 Z"/>
+  <text x="486" y="609" class="math">-ĥ</text>
+
+  <path class="branch" d="M 966 340 V 760"/>
+  <circle cx="966" cy="340" r="8" fill="#253341"/>
+  <path class="line" d="M 966 621 H 898"/>
+  <path class="arrowhead" d="M 898 621 L 916 614 L 916 628 Z"/>
+  <path class="line" d="M 966 760 H 174 V 381"/>
+  <path class="arrowhead" d="M 174 381 L 167 399 L 181 399 Z"/>
+
+  <text x="500" y="824" text-anchor="middle" class="small">The ESO estimates and rejects the total disturbance.</text>
+</svg>

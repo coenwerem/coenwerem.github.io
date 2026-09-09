@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Combined armature and field control of a separately excited DC motor</title>
+  <desc id="desc">A square block diagram showing a speed error sent to separate armature and field internal-model controllers, a separately excited DC motor, and speed feedback.</desc>
+  <defs>
+    <style>
+      .line { fill: none; stroke: #253341; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .branch { fill: none; stroke: #253341; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .arrowhead { fill: #253341; }
+      .block { fill: #fff; stroke: #253341; stroke-width: 6; rx: 16; }
+      .motor { fill: #f8fbff; stroke: #253341; stroke-width: 6; rx: 18; }
+      .sum { fill: #fff; stroke: #253341; stroke-width: 6; }
+      .label, .small, .math, .heading, .eyebrow { font-family: "CMU Sans Serif", "Computer Modern Sans Serif", sans-serif; }
+      .label { fill: #253341; font-size: 30px; font-weight: 500; }
+      .small { fill: #536577; font-size: 24px; font-weight: 500; }
+      .math { fill: #253341; font-size: 38px; font-style: italic; }
+      .heading { fill: #253341; font-size: 35px; font-weight: 700; letter-spacing: 1.5px; }
+      .eyebrow { fill: #1259a1; font-size: 21px; font-weight: 700; letter-spacing: 2.5px; }
+    </style>
+  </defs>
+  <rect width="1000" height="1000" rx="42" fill="#f7f9fb"/>
+
+  <text x="500" y="88" text-anchor="middle" class="eyebrow">SEPARATELY EXCITED DC MOTOR</text>
+  <text x="500" y="148" text-anchor="middle" class="heading">COMBINED SPEED CONTROL</text>
+
+  <text x="42" y="354" class="small">reference</text>
+  <text x="74" y="398" class="math">ωᵣ</text>
+  <path class="line" d="M 119 410 H 164"/>
+  <path class="arrowhead" d="M 164 410 L 146 403 L 146 417 Z"/>
+  <circle class="sum" cx="202" cy="410" r="35"/>
+  <text x="202" y="399" text-anchor="middle" class="label">+</text>
+  <line x1="192" y1="428" x2="212" y2="428" stroke="#253341" stroke-width="3"/>
+  <path class="line" d="M 237 410 H 277"/>
+  <path class="arrowhead" d="M 277 410 L 259 403 L 259 417 Z"/>
+  <text x="249" y="382" class="math">e</text>
+
+  <path class="branch" d="M 283 410 V 301 H 323 M 283 410 V 519 H 323"/>
+  <circle cx="283" cy="410" r="8" fill="#253341"/>
+  <path class="arrowhead" d="M 323 301 L 305 294 L 305 308 Z"/>
+  <path class="arrowhead" d="M 323 519 L 305 512 L 305 526 Z"/>
+
+  <rect class="block" x="329" y="246" width="238" height="110"/>
+  <text x="448" y="298" text-anchor="middle" class="math">GIMC,1</text>
+  <text x="448" y="334" text-anchor="middle" class="small">armature IMC</text>
+  <rect class="block" x="329" y="464" width="238" height="110"/>
+  <text x="448" y="516" text-anchor="middle" class="math">GIMC,2</text>
+  <text x="448" y="552" text-anchor="middle" class="small">field IMC</text>
+
+  <path class="line" d="M 567 301 H 641"/>
+  <path class="arrowhead" d="M 641 301 L 623 294 L 623 308 Z"/>
+  <text x="587" y="279" class="math">Vₐ</text>
+  <path class="line" d="M 567 519 H 641"/>
+  <path class="arrowhead" d="M 641 519 L 623 512 L 623 526 Z"/>
+  <text x="587" y="497" class="math">Vf</text>
+
+  <rect class="motor" x="647" y="218" width="286" height="384"/>
+  <text x="790" y="259" text-anchor="middle" class="small">SEDC motor</text>
+  <rect class="block" x="690" y="278" width="154" height="92"/>
+  <text x="767" y="334" text-anchor="middle" class="math">G₁</text>
+  <text x="767" y="405" text-anchor="middle" class="small">armature path</text>
+  <rect class="block" x="690" y="450" width="154" height="92"/>
+  <text x="767" y="506" text-anchor="middle" class="math">G₂</text>
+  <text x="767" y="578" text-anchor="middle" class="small">field path</text>
+
+  <path class="line" d="M 844 324 H 883 V 404"/>
+  <path class="line" d="M 844 496 H 883 V 416"/>
+  <circle class="sum" cx="883" cy="410" r="28"/>
+  <text x="883" y="420" text-anchor="middle" class="label">+</text>
+  <path class="line" d="M 911 410 H 978"/>
+  <path class="arrowhead" d="M 978 410 L 960 403 L 960 417 Z"/>
+  <text x="949" y="382" class="math">ω</text>
+
+  <path class="line" d="M 962 410 V 730 H 202 V 451"/>
+  <circle cx="962" cy="410" r="8" fill="#253341"/>
+  <path class="arrowhead" d="M 202 451 L 195 469 L 209 469 Z"/>
+
+  <rect x="196" y="806" width="608" height="88" rx="44" fill="#dbeafe"/>
+  <text x="500" y="846" text-anchor="middle" class="label">Simultaneous armature-voltage</text>
+  <text x="500" y="878" text-anchor="middle" class="label">and field-current control</text>
+</svg>

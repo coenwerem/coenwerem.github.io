@@ -52,19 +52,25 @@
                           <name style="font-weight: 500;">Research</name>
                         </p>
                         <p class="headhr"></p>
-                        <span class="project-section">overview & theory</span>
-                        <p class="headhr-subh"></p>
                         <p class="bd-text">
-                          I study <span class="keyword">contact-rich dexterous manipulation</span> under <span class="keyword">uncertainty</span>, connecting ideas from <span class="keyword">optimization-based control</span>, <span class="keyword">risk-sensitive optimization</span>, <span>kinodynamic motion planning</span>, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to make manipulation with multi-fingered hands more reliable when object pose, friction, contact modes, and target geometry are only partially observed.
+                        I study <span class="keyword">contact-rich dexterous manipulation</span> under <span class="keyword">uncertainty</span>, connecting ideas from <span class="keyword">optimization-based control</span>, <span class="keyword">risk-sensitive optimization</span>, <span>kinodynamic motion planning</span>, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to make manipulation with multi-fingered hands more reliable when object pose, friction, contact modes, and target geometry are only partially observed.
 
-                          My early to mid-career doctoral work studied robust stochastic planning, safe control via <span class="keyword">distributional reinforcement learning</span>, and multi-agent coordination under uncertainty. More recently, I have taken a certain interest in <span class="keyword">dexterous grasp synthesis</span>, safe hand control, <span class="keyword">visuo-tactile policy learning</span>, and uncertainty-aware decision-making for dexterous manipulation, studying how polyarticulated robots (serial chains, humanoids, and mobile manipulators) can estimate uncertainty from proprioceptive, perceptual, and tactile feedback and synthesize controls that balance potentially conflicting performance and safety specifications. On the learning front, my work spans SE(3)-equivariant generative models for contact-grounded grasp synthesis, variational neural belief parameterizations of multimodal uncertainty, and risk-sensitive imitation and diffusion policies for robust contact-rich manipulation.
+                          My early- to mid-career doctoral research focused on robust stochastic planning, safety-critical control through <span class="keyword">Boolean-composed CBFs</span> and <span class="keyword">distributional reinforcement learning</span>, and distributed multi-agent coordination under uncertainty. This work established the theoretical and algorithmic foundations in stochastic decision-making, uncertainty quantification, and learning-based control that now underpin my research program in dexterous robotic manipulation.
+                        </p>
+                        <span class="project-section">current work</span>
+                        <p class="headhr"></p>
+                        <p class="bd-text">
+                          My recent work spans <span class="keyword">dexterous grasp synthesis</span>, safety-critical dexterous control, <span class="keyword">visuo-tactile policy learning</span>, and uncertainty-aware decision-making for contact-rich manipulation. A central objective of this research is to develop poly-articulated robotic systems&mdash;including fixed-base serial-chain manipulators, bimanual platforms, humanoids, and mobile manipulators&mdash;that can infer task-relevant uncertainty from proprioceptive, exteroceptive, and tactile observations, and synthesize control policies that explicitly negotiate competing performance, robustness, and safety specifications under partial observability and contact uncertainty.
+                          
+                          On the learning and representation fronts, my work develops SE(3)-equivariant generative models for contact-grounded grasp synthesis, neural belief representations for multimodal uncertainty estimation, and risk-sensitive imitation-learning and diffusion-policy formulations for robust contact-rich manipulation. My goal with these efforts is to integrate geometric structure, multimodal sensing, probabilistic inference, and risk-aware policy optimization into a unified framework for reliable dexterous autonomy in uncertain and dynamic environments.
 
-                          I validate these ideas in simulation using optimization modeling frameworks (CasADi), QP and NLP solvers (qpsolvers, IPOPT), dynamics libraries (Pinocchio), physics simulators (MuJoCo, Drake, Isaac Sim), and reinforcement learning frameworks and environments (Isaac Lab, Safety Gymnasium), as well as on physical hardware comprising serial and branched kinematic chains equipped with proprioception-only and tactile-sensorized multi-fingered hands.
+                          <br><br>
+                          I validate the aforementioned ideas in simulation, leveraging optimization modeling frameworks (CasADi), QP and NLP solvers (qpsolvers, IPOPT), dynamics libraries (Pinocchio), physics simulators (MuJoCo, Drake, Isaac Sim), and reinforcement learning frameworks and environments (Isaac Lab, Safety Gymnasium), as well as on physical robotic hardware comprising serial and branched kinematic chains equipped with proprioception-only and tactile-sensorized multi-fingered hands (see <a href="robots.html" target="_blank">Robots</a>).
                         </p>
 
                         <!-- Applications -->
                         <span class="project-section">Applications</span>
-                        <p class="headhr-subh"></p>
+                        <p class="headhr"></p>
                         <p class="bd-text">
                           I target problems in dexterous grasping and manipulation spanning:
                         </p>
@@ -74,9 +80,10 @@
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/robust_grasp_mj.gif');">
-                                <img src="videos/robust_grasp_mj.gif" alt="MuJoCo belief-space grasping demo"
-                                  width="540" height="540" style="filter: brightness(1.1);">
+                              <div class="sw-video" style="background-image:url('videos/robust_grasp_syn/demo-montage-2x.gif');">
+                                <img src="videos/robust_grasp_syn/demo-montage-2x.gif"
+                                  alt="FIRMGrasp-certified friction-robust grasp execution across two arm-hand embodiments and four objects"
+                                  width="640" height="360" style="filter: brightness(1.1);">
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -135,20 +142,20 @@
                           </div>
                         </div>
 
-                        <!-- Application 5: Safe, Performant, and Autonomous Polyarticulated Dexterous Grasping & Manipulation -->
+                        <!-- Application 5: Safe, Performant, and Autonomous Poly-Articulated Dexterous Grasping & Manipulation -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="background-image:url('videos/static_dynamic_wholebody_poster.jpg');">
-                                <video class="zoomable" src="videos/static_dynamic_wholebody.mp4" poster="videos/static_dynamic_wholebody_poster.jpg" width="1622" height="628" autoplay loop muted playsinline aria-label="Safe dexterous grasp execution demo: static environments, dynamic environments, and whole-body humanoid grasping"></video>
+                                <video class="zoomable" src="videos/static_dynamic_wholebody.mp4" poster="videos/static_dynamic_wholebody_poster.jpg" width="1622" height="628" autoplay loop muted playsinline aria-label="Safe dexterous grasp execution demo: static environments, dynamic environments, and poly-articulated humanoid grasping"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
                               <p class="sw-title">Safe and Autonomous Poly-Articulated Dexterous Grasping &amp; Manipulation</p>
-                              <p class="sw-subtitle">Scene-aware multifingered grasp generation with safe and stable realization on polyarticulated robotic systems.</p>
+                              <p class="sw-subtitle">Scene-aware multifingered grasp generation with safe and stable realization on poly-articulated robotic systems.</p>
                               <div class="sw-links">
-                                <a href="https://arxiv.org/abs/2604.03868" target="_blank"><i class="ai ai-arxiv"></i>
-                                  CVaR-MPPI Controller</a>
+                                <a href="belief-cvar-mppi/" target="_blank"><i class="fa fa-globe"></i>
+                                  Belief CVaR-MPPI</a>
                                 <a href="gdf/" target="_blank"><i class="fas fa-globe"></i>
                                 GDF</a>
                               </div>
@@ -332,6 +339,7 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
                               data-target="#bib-enweremriskconstrainedbeliefspaceoptimization2026a" aria-expanded="false" aria-controls="bib-enweremriskconstrainedbeliefspaceoptimization2026a">
                               bibtex
                             </button>
+                            <a href="belief-cvar-mppi/" target="_blank" class="btn btn-link">project page</a>
                             <a href="https://arxiv.org/pdf/2604.03868" target="_blank" class="btn btn-link">paper</a>
                             <a href="data/papers/2604.03868.pdf" target="_blank" class="btn btn-link">pdf</a>
                             <div class="collapse" id="bib-enweremriskconstrainedbeliefspaceoptimization2026a">
@@ -553,7 +561,7 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
                         </div>
 <!-- PEER-REVIEWED:auto-generated:end -->
 
-                        <p style="text-align:right;margin-top:1rem;"><a href="research_archive.html">Earlier work (undergrad &amp; first-year Ph.D.) &rarr;</a></p>
+                        <p style="text-align:right;margin-top:1rem;"><a href="research_archive.html">Earlier work (undergrad &amp; early Ph.D.) &rarr;</a></p>
 
                       </td>
                     </tr>

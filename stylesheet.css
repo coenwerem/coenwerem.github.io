@@ -2702,3 +2702,147 @@ font-size: 12px;
   margin-right: 0.4rem;
   opacity: 0.85;
 }
+
+/* Robots */
+.robots-page { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 0 3.5rem; }
+.robots-intro { width: 100%; max-width: 800px; margin: 0 auto; padding: 2.5%; }
+.robots-help { margin: 0 2.5%; }
+.robots-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 2.5%;
+}
+.robot-card {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+/* Equal portrait frames; each source crop retains the complete arm/hand. */
+.robot-visual { aspect-ratio: 9 / 10; border-radius: 11px 11px 0 0; overflow: hidden; }
+.robot-media { position: relative; width: 100%; height: 100%; }
+.robot-media img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  width: var(--photo-width);
+  height: var(--photo-height);
+  left: var(--photo-left);
+  top: 0;
+  object-fit: fill;
+  cursor: zoom-in;
+}
+.robot-card--featured { --photo-width: 110.192837%; --photo-height: 132.231405%; --photo-left: -5.096419%; }
+.robot-card:nth-child(2) { --photo-width: 160.989457%; --photo-height: 100%; --photo-left: -55.420384%; }
+.robot-card:nth-child(3) { --photo-width: 167.929293%; --photo-height: 100%; --photo-left: 0%; }
+.lightbox-overlay img[src$="bimanual-realhand-a7-l6-clean.webp"] {
+  width: min(90vw, calc(85vh * 1200 / 1380));
+  height: min(85vh, calc(90vw * 1380 / 1200));
+  object-fit: cover;
+  object-position: top;
+}
+.robot-caption { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 0.95rem 1.05rem 1.05rem; }
+.robot-caption h2 { margin: 0; color: var(--text-primary); font-size: 1.08rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; }
+.robot-caption p { margin: 0.32rem 0 0.8rem; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.45; }
+.robots-page .robot-demo-button { margin-top: auto; }
+@media (max-width: 767px) {
+  .robots-gallery { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; padding: 0 2.5%; }
+}
+
+/* Match the translucent Font Awesome enlarge badges without a solid rim. */
+.robot-component, .robot-marker-key {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.47);
+  cursor: help;
+  z-index: 2;
+  font-size: 0.78rem;
+  transition: background-color 0.2s ease;
+}
+.robot-marker-key {
+  position: static;
+  display: inline-grid;
+  transform: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.3rem;
+  vertical-align: middle;
+  font-size: 0.65rem;
+  cursor: default;
+}
+.robots-help .robot-marker-key i { margin: 0; opacity: 1; }
+.robot-component:focus { z-index: 5; }
+.robot-component:hover { z-index: 6; }
+.robot-component:hover, .robot-component:focus-visible { background: rgba(0, 0, 0, 0.65); }
+.robot-component:focus-visible, .robot-demo-button:focus-visible, .robot-demo-close:focus-visible {
+  outline: 3px solid #45a6e0;
+  outline-offset: 3px;
+}
+.robot-component::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+}
+/* Render labels outside the image/button stacking contexts. */
+.robot-tooltip {
+  position: fixed;
+  z-index: 10000;
+  width: max-content;
+  max-width: min(230px, calc(100vw - 24px));
+  padding: 8px 11px;
+  border-radius: 6px;
+  background: #17232f;
+  color: #fff;
+  font: 500 13px/1.4 system-ui, sans-serif;
+  text-align: left;
+  box-shadow: 0 2px 10px #0003;
+  pointer-events: none;
+}
+.robot-tooltip[hidden] { display: none; }
+.robot-demo-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-card-img);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.robot-demo-button:hover { border-color: currentColor; }
+.robot-demo-dialog {
+  width: min(760px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+.robot-demo-dialog::backdrop { background: rgba(0, 0, 0, 0.78); }
+.robot-demo-heading { min-height: 64px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.8rem 1rem; }
+.robot-demo-heading h2 { margin: 0; font-size: 1rem; }
+.robot-demo-close { border: 0; background: transparent; color: inherit; font-size: 1.8rem; line-height: 1; cursor: pointer; padding: 0.25rem; }
+.robot-demo-frame { display: flex; align-items: center; justify-content: center; height: min(560px, calc(100dvh - 120px)); background: #000; color: #fff; }
+.robot-demo-frame img { display: block; width: 100%; height: 100%; object-fit: contain; }
+body:has(.robot-demo-dialog[open]) { overflow: hidden; }

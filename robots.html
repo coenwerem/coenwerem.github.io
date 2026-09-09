@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Robotic systems used in Clinton Enwerem's research.">
+  <title>Clinton Enwerem | Robots</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <style>
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #22272e; }
+    body { visibility: hidden; }
+    .dark-mode, .light-mode {
+      visibility: visible;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+  <script>
+    (function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();
+  </script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=robot-photo-7">
+</head>
+
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <div class="page-container">
+    <div class="content-wrap">
+      <main id="robots" class="robots-page">
+        <header class="robots-intro">
+          <p style="text-align:center;margin-top: 3em;">
+            <name style="font-weight: 500;">Robots</name>
+          </p>
+          <p class="headhr"></p>
+          <p class="bd-text">A growing collection of poly-articulated robotic manipulation platforms I've led from system setup and integration through research use, developing bespoke software spanning hardware drivers, simulation, visual and tactile perception, control, and data collection.</p>
+        </header>
+
+        <div class="robots-help">
+          <p class="zoom-hint"><i class="fas fa-expand"></i> Click to enlarge&nbsp;&nbsp; <span class="robot-marker-key" aria-hidden="true"><i class="fas fa-plus"></i></span> Hover or tap markers for specs</p>
+        </div>
+        <section class="robots-gallery" aria-label="Robot systems">
+          <figure class="robot-card robot-card--featured">
+            <div class="robot-visual">
+            <div class="robot-media">
+              <img class="zoomable" src="images/robots/bimanual-realhand-a7-l6-clean.webp" width="1086" height="1448" alt="Bimanual robot with two RealHand A7 arms and two RealHand L6 hands" decoding="async">
+              <button class="robot-component" type="button" style="--x: 25.758%; --y: 46.281%;" aria-label="RealHand A7 arm (7 DoF, right variant)" aria-describedby="component-0-0" title="RealHand A7 arm (7 DoF, right variant)">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                <span class="robot-tooltip" role="tooltip" id="component-0-0">RealHand A7 arm (7 DoF, right variant)</span>
+              </button>
+              <button class="robot-component" type="button" style="--x: 33.471%; --y: 88.595%;" aria-label="RealHand L6 hand (11 joints, 6 DoF, right variant)" aria-describedby="component-0-1" title="RealHand L6 hand (11 joints, 6 DoF, right variant)">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                <span class="robot-tooltip" role="tooltip" id="component-0-1">RealHand L6 hand (11 joints, 6 DoF, right variant)</span>
+              </button>
+              <button class="robot-component robot-component--right" type="button" style="--x: 76.446%; --y: 46.281%;" aria-label="RealHand A7 arm (7 DoF, left variant)" aria-describedby="component-0-2" title="RealHand A7 arm (7 DoF, left variant)">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                <span class="robot-tooltip" role="tooltip" id="component-0-2">RealHand A7 arm (7 DoF, left variant)</span>
+              </button>
+              <button class="robot-component robot-component--right" type="button" style="--x: 70.937%; --y: 88.595%;" aria-label="RealHand L6 hand (11 joints, 6 DoF, left variant)" aria-describedby="component-0-3" title="RealHand L6 hand (11 joints, 6 DoF, left variant)">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                <span class="robot-tooltip" role="tooltip" id="component-0-3">RealHand L6 hand (11 joints, 6 DoF, left variant)</span>
+              </button>
+            </div>
+            </div>
+            <figcaption class="robot-caption">
+              <h2>Bimanual Arm-Hand System</h2>
+              <p>RealHand A7 arms with RealHand L6 hands.</p>
+              <button class="robot-demo-button" type="button" data-demo="videos/robots/a7-l6.gif?v=4" data-title="Bimanual A7–L6 demo" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play Bimanual A7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+            </figcaption>
+          </figure>
+
+          <figure class="robot-card">
+            <div class="robot-visual">
+            <div class="robot-media">
+              <img class="zoomable" src="images/robots/xarm7-realhand-l6.webp" width="1191" height="822" alt="xArm7 robot arm fitted with a RealHand L6 hand" loading="lazy" decoding="async">
+              <button class="robot-component robot-component--right" type="button" style="--x: 73.371%; --y: 40.000%;" aria-label="xArm7 arm (7-DoF)" aria-describedby="component-1-0" title="xArm7 arm (7-DoF)">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                <span class="robot-tooltip" role="tooltip" id="component-1-0">xArm7 arm (7-DoF)</span>
+              </button>
+              <button class="robot-component" type="button" style="--x: 13.805%; --y: 39.000%;" aria-label="RealHand L6 hand (11-joint, 6-DoF)" aria-describedby="component-1-1" title="RealHand L6 hand (11-joint, 6-DoF)">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                <span class="robot-tooltip" role="tooltip" id="component-1-1">RealHand L6 hand (11-joint, 6-DoF)</span>
+              </button>
+            </div>
+            </div>
+            <figcaption class="robot-caption">
+              <h2>xArm7 + RealHand L6</h2>
+              <p>Seven-axis arm with a dexterous hand.</p>
+              <button class="robot-demo-button" type="button" data-demo="videos/xarm_dimos.gif" data-title="xArm7–L6 demo" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play xArm7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+            </figcaption>
+          </figure>
+
+          <figure class="robot-card">
+            <div class="robot-visual">
+            <div class="robot-media">
+              <img class="zoomable" src="images/robots/fairino-fr3-leap-hand-clean.webp" width="1542" height="1020" alt="FAIRINO FR3 collaborative robot fitted with a LEAP Hand" loading="lazy" decoding="async">
+              <button class="robot-component" type="button" style="--x: 40.303%; --y: 57.000%;" aria-label="FAIRINO FR3 arm (6-DoF)" aria-describedby="component-2-0" title="FAIRINO FR3 arm (6-DoF)">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                <span class="robot-tooltip" role="tooltip" id="component-2-0">FAIRINO FR3 arm (6-DoF)</span>
+              </button>
+              <button class="robot-component" type="button" style="--x: 33.586%; --y: 18.000%;" aria-label="LEAP Hand (16-DoF)" aria-describedby="component-2-1" title="LEAP Hand (16-DoF)">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                <span class="robot-tooltip" role="tooltip" id="component-2-1">LEAP Hand (16-DoF)</span>
+              </button>
+            </div>
+            </div>
+            <figcaption class="robot-caption">
+              <h2>FAIRINO FR3 + LEAP Hand</h2>
+              <p>FAIR Innovation cobot with a LEAP Hand.</p>
+              <button class="robot-demo-button" type="button" data-demo="videos/robots/fr3-leap.gif?v=2" data-title="FR3–LEAP demo" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play FR3–LEAP demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+            </figcaption>
+          </figure>
+        </section>
+      </main>
+    </div>
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <dialog id="robot-demo" class="robot-demo-dialog" aria-labelledby="robot-demo-title">
+    <div class="robot-demo-heading">
+      <h2 id="robot-demo-title">Robot demo</h2>
+      <button class="robot-demo-close" type="button" aria-label="Close demo" autofocus>&times;</button>
+    </div>
+    <div class="robot-demo-frame"></div>
+  </dialog>
+  <script src="scripts.js"></script>
+  <script>
+    (function () {
+      const dialog = document.getElementById('robot-demo');
+      const frame = dialog.querySelector('.robot-demo-frame');
+      document.querySelectorAll('.robot-demo-button').forEach(function (button) {
+        button.addEventListener('click', function () {
+          document.getElementById('robot-demo-title').textContent = button.dataset.title;
+          const image = document.createElement('img');
+          image.alt = button.dataset.title;
+          image.src = button.dataset.demo;
+          image.addEventListener('error', function () {
+            frame.textContent = 'The demo could not load. Please close it and try again.';
+          });
+          frame.replaceChildren(image);
+          dialog.showModal();
+        });
+      });
+      dialog.querySelector('.robot-demo-close').addEventListener('click', function () { dialog.close(); });
+      dialog.addEventListener('click', function (event) {
+        if (event.target === dialog) {
+          const bounds = dialog.getBoundingClientRect();
+          if (event.clientX < bounds.left || event.clientX > bounds.right ||
+              event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+        }
+      });
+      dialog.addEventListener('close', function () { frame.replaceChildren(); });
+      let activeMarker = null;
+      const labels = new Map();
+      function hideSpecs() {
+        if (activeMarker) labels.get(activeMarker).hidden = true;
+        activeMarker = null;
+      }
+      function showSpecs(button) {
+        hideSpecs();
+        const label = labels.get(button);
+        activeMarker = button;
+        label.hidden = false;
+        const marker = button.getBoundingClientRect();
+        const bounds = label.getBoundingClientRect();
+        const left = Math.max(12, Math.min(
+          marker.left + marker.width / 2 - bounds.width / 2,
+          window.innerWidth - bounds.width - 12
+        ));
+        const above = marker.top - bounds.height - 12;
+        label.style.left = left + 'px';
+        label.style.top = (above >= 12 ? above : marker.bottom + 12) + 'px';
+      }
+      document.querySelectorAll('.robot-component').forEach(function (button) {
+        const label = document.getElementById(button.getAttribute('aria-describedby'));
+        label.hidden = true;
+        document.body.appendChild(label);
+        labels.set(button, label);
+        button.addEventListener('pointerenter', function () { showSpecs(button); });
+        button.addEventListener('pointerleave', function () {
+          if (activeMarker === button) hideSpecs();
+        });
+        button.addEventListener('focus', function () { showSpecs(button); });
+        button.addEventListener('blur', function () {
+          if (activeMarker === button) hideSpecs();
+        });
+        button.addEventListener('click', function () { showSpecs(button); });
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') hideSpecs();
+      });
+      document.addEventListener('pointerdown', function (event) {
+        if (!event.target.closest('.robot-component')) hideSpecs();
+      });
+      function repositionSpecs() {
+        if (activeMarker) showSpecs(activeMarker);
+      }
+      window.addEventListener('resize', repositionSpecs);
+      window.addEventListener('scroll', repositionSpecs, true);
+    })();
+  </script>
+</body>
+</html>

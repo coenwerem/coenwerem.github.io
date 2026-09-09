@@ -20,6 +20,13 @@
   color: var(--text-color);
   margin: 0 0 1.25rem;
 }
+.gdf-h3 {
+  text-align: justify;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 1rem;
+}
 .gdf-prose p {
   text-align: justify;
   hyphens: auto;
