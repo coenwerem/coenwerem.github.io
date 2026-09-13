@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateThemeToggle();
 
       // Determine the current page and set the active class
-      const currentPage = pathArray === 'resume.html' ? 'cv.html' : pathArray;
+      const currentPage = pathArray;
       const navLinks = document.querySelectorAll('.navbar-nav .nav-item a');
       const navTabLinks = document.querySelectorAll('.nav .nav-tabs .nav-item a');
       
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (active) link.setAttribute('aria-current', url.hash ? 'location' : 'page');
           else link.removeAttribute('aria-current');
         });
-        more.classList.toggle('active', ['teaching.html', 'peer-review.html', 'outside-robotics.html', 'more.html'].includes(currentPage));
+        more.classList.toggle('active', ['teaching.html', 'peer-review.html', 'outside-robotics.html'].includes(currentPage));
       }
       updateNavCurrent();
       window.addEventListener('hashchange', updateNavCurrent);

@@ -3018,6 +3018,7 @@ body:has(.robot-demo-dialog[open]) { overflow: hidden; }
 .activity-icon { display: block; font-size: 1.75rem; color: var(--theme-primary); margin-bottom: 1.25rem; }
 .activity-panel h2 { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.75rem; }
 .activity-panel p { margin: 0; line-height: 1.5; text-align: justify; }
+.interest-grid .activity-panel p { text-align: left; }
 .review-panel h2 { color: var(--theme-primary); }
 .review-panel ul { margin: 0; padding-left: 1.25rem; }
 .review-panel li { line-height: 1.5; margin-bottom: 0.25rem; }
@@ -3028,4 +3029,33 @@ body:has(.robot-demo-dialog[open]) { overflow: hidden; }
 }
 @media (max-width: 420px) {
   .review-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* The web CV uses the portfolio page frame and justifies generated list entries. */
+.cv-web-page .cv-content { padding: 0 0 2rem; max-width: none; }
+.cv-web-page .cv-content :is(p, li, .cv-entry, .cv-entry-season, .cv-role-content) { text-align: justify; }
+.cv-contact-panel { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1.25rem; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-card); }
+.cv-address { margin: 0 0 0.375rem; line-height: 1.5; }
+.cv-contact-links { display: grid; grid-template-columns: repeat(3, max-content); column-gap: 1.5rem; row-gap: 0; }
+.cv-contact-links a, .cv-download-links a { display: inline-flex; align-items: baseline; gap: 0.5rem; line-height: 1.5; }
+.cv-contact-links a { min-height: 28px; }
+.cv-contact-links i, .cv-download-links i { flex: none; width: 1.1em; font-size: 0.875em; line-height: 1; text-align: center; }
+.cv-download-links { display: flex; flex-direction: column; gap: 0.375rem; }
+.cv-download-links a { padding: 0.25rem 0.625rem; border: 1px solid var(--border-color); border-radius: 4px; white-space: nowrap; }
+.cv-download-links a:hover { border-color: var(--theme-primary); text-decoration: none; }
+@media (max-width: 768px) {
+  .cv-contact-panel { grid-template-columns: minmax(0, 1fr); gap: 1rem; padding: 1rem; }
+  .cv-contact-links { grid-template-columns: repeat(2, max-content); gap: 0.25rem 1rem; }
+  .cv-download-links { flex-direction: row; flex-wrap: wrap; }
+}
+@media (max-width: 420px) {
+  .cv-contact-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cv-contact-links a:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  .cv-web-page .cv-content li:not(.cv-role-content),
+  .cv-web-page .subsubsection-heading { flex-direction: column; gap: 0.25rem; }
+  .cv-web-page .cv-content :is(.cv-year, .cv-year-season) { flex: none; width: auto; min-width: 0; float: none; }
+  .cv-web-page .cv-content :is(.cv-entry, .cv-entry-season, .cv-role) { min-width: 0; width: 100%; padding-left: 0; margin-left: 0; }
+  .cv-web-page .cv-content li { margin-bottom: 0.75rem; }
 }
