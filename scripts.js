@@ -16,8 +16,19 @@ function applyTheme(theme) {
   document.body.classList.remove('dark-mode', 'light-mode');
   document.documentElement.classList.add(t);
   document.body.classList.add(t);
+  updateThemeToggle();
 }
 
+
+function updateThemeToggle() {
+  const button = document.getElementById('themeToggle');
+  if (!button) return;
+  const isDark = document.documentElement.classList.contains('dark-mode');
+  const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+  button.setAttribute('aria-pressed', String(isDark));
+  button.setAttribute('aria-label', label);
+  button.title = label;
+}
 
 // Function to toggle between light and dark modes
 function toggleDarkMode() {
@@ -106,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const pathArray = pathToRoot === './' ? (window.location.pathname.split('/').pop() || 'index.html') : null;
 
   // Fetch the navbar HTML file
-  fetch(pathToRoot + 'navbar.html')
+  fetch(pathToRoot + 'navbar.html?v=20260913-interests')
     .then(response => response.text())
     .then(data => {
       const tempDiv = document.createElement('div');
@@ -123,21 +134,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Insert the updated navbar into the placeholder
       document.getElementById('navbar-placeholder').innerHTML = tempDiv.innerHTML;
+      document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
+      updateThemeToggle();
 
       // Determine the current page and set the active class
-      const currentPage = pathArray; // Use the full current page name
+      const currentPage = pathArray === 'resume.html' ? 'cv.html' : pathArray;
       const navLinks = document.querySelectorAll('.navbar-nav .nav-item a');
       const navTabLinks = document.querySelectorAll('.nav .nav-tabs .nav-item a');
       
-      // Iterate over each navbar link and add the active class to the current page
-      navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (currentPage && href && href.endsWith(currentPage)) {
-          link.parentElement.classList.add('active'); // Add the active class to the parent <li> of the link
-        } else {
-          link.parentElement.classList.remove('active'); // Remove active class from other links
+      const more = document.querySelector('.nav-more');
+      const moreToggle = document.getElementById('moreToggle');
+      const moreMenu = document.getElementById('moreMenu');
+      function closeMore() {
+        moreToggle.setAttribute('aria-expanded', 'false');
+        moreMenu.hidden = true;
+      }
+      moreToggle.addEventListener('click', () => {
+        const expanded = moreToggle.getAttribute('aria-expanded') === 'true';
+        moreToggle.setAttribute('aria-expanded', String(!expanded));
+        moreMenu.hidden = expanded;
+      });
+      document.addEventListener('click', event => {
+        if (!more.contains(event.target)) closeMore();
+      });
+      more.addEventListener('focusout', event => {
+        if (!more.contains(event.relatedTarget)) closeMore();
+      });
+      more.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          closeMore();
+          moreToggle.focus();
+          event.preventDefault();
         }
       });
+      moreMenu.addEventListener('click', event => {
+        if (event.target.closest('a')) closeMore();
+      });
+      // Match section links separately so only the selected destination is current.
+      function updateNavCurrent() {
+        navLinks.forEach(link => {
+          const url = new URL(link.href);
+          const samePage = currentPage && url.pathname.split('/').pop() === currentPage;
+          const active = samePage && (!url.hash || url.hash === window.location.hash);
+          link.parentElement.classList.toggle('active', Boolean(active));
+          if (active) link.setAttribute('aria-current', url.hash ? 'location' : 'page');
+          else link.removeAttribute('aria-current');
+        });
+        more.classList.toggle('active', ['teaching.html', 'peer-review.html', 'outside-robotics.html', 'more.html'].includes(currentPage));
+      }
+      updateNavCurrent();
+      window.addEventListener('hashchange', updateNavCurrent);
 
       // Get the current tab from the URL fragment (only present on pages with nav-tabs)
       const activeTabEl = document.querySelector('.nav-tabs .nav-link.active');
@@ -182,46 +228,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('footer-placeholder').innerHTML = tempDiv.innerHTML;
     })
     .catch(error => console.error('Error loading footer:', error));
-});
-
-// Function to handle active state persistence
-document.addEventListener('DOMContentLoaded', function () {
-  if (siteRoot() !== './') return; // project subpages have no active top-level item
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html'; // Get current page filename
-  const navItems = document.querySelectorAll('.navbar-nav .nav-item');
-
-  // Set active class on initial load
-  navItems.forEach(item => {
-    const link = item.querySelector('a');
-    if (link && link.getAttribute('href') && link.getAttribute('href') !== '#') { // Ignore links with '#' (e.g., dark mode toggle)
-      const href = link.getAttribute('href').split('/').pop(); // Get just the filename from href
-      if (href === currentPage) {
-        item.classList.add('active'); // Mark current page item as active
-      } else {
-        item.classList.remove('active'); // Remove active class from other items
-      }
-    }
-  });
-
-  // Add event listener with passive option for the toggle button
-  const toggleButton = document.querySelector('#toggleDropdown');
-  if (toggleButton) {
-    toggleButton.addEventListener('click', function (event) {
-      requestAnimationFrame(() => {
-        navItems.forEach(item => {
-          const link = item.querySelector('a');
-          if (link && link.getAttribute('href') && link.getAttribute('href') !== '#') {
-            const href = link.getAttribute('href').split('/').pop();
-            if (href === currentPage) {
-              item.classList.add('active');
-            } else {
-              item.classList.remove('active');
-            }
-          }
-        });
-      });
-    }, { passive: true });
-  }
 });
 
 // Click-to-enlarge lightbox for demo media (ported from the EquiDexFlow project page).
@@ -292,3 +298,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+// Assemble the email destination only when the contact link is activated.
+document.addEventListener('DOMContentLoaded', () => {
+  const emailLink = document.getElementById('contact-email');
+  if (emailLink) emailLink.addEventListener('click', event => {
+    event.preventDefault();
+    window.location.href = ['mailto:', 'enwerem', '@', 'umd', '.', 'edu'].join('');
+  });
+});

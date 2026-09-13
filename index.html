@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="stylesheet.css?v=20260913-widths2">
+  <link rel="stylesheet" href="stylesheet.css?v=20260913-interests">
 </head>
 
 <body>
@@ -32,9 +32,9 @@
 
 <div class="page-container">
   <div class="content-wrap site-content">
-    <div class="container" style="min-height: 600px;  margin: auto;">
-      <div class="row">
-        <div class="col-md-7">
+    <div id="home-bio" class="container" style="min-height: 600px; margin: auto;">
+      <div class="home-bio-layout">
+        <div class="home-bio-copy">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr style="padding:0px">
@@ -93,9 +93,9 @@
             </tbody>
           </table>
         </div>
-        <div class="col-md-5">
+        <div class="home-bio-profile">
           <div id="profile-img" class="bio-image-container">
-            <img class="bio-image" alt="profile photo" src="images/CE-web-circ.png" class="hoverZoomLink">
+            <img class="bio-image hoverZoomLink" alt="profile photo" src="images/CE-web-circ.png">
           </div>
           <!-- Office Address -->
           <div class="addr-box">
@@ -103,9 +103,11 @@
             <p class="addr-text">4448 A.V. Williams Bldg.</p>
             <p class="addr-text">8223 Paint Branch Dr</p>
             <p class="addr-text">College Park, MD 20740</p>
-            <p class="addr-email"><a href="#"><i class="fa fa-inbox fa-1x"></i><span style="font-weight:500;"> (research):</span> <span style="font-weight:bold;">enwerem</span> [at] <span style="font-weight:bold;">umd</span> [dot] <span style="font-weight:bold;">edu</span></a></p>
-  
-            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="clinton-e-191ab133a" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/clinton-e-191ab133a?trk=profile-badge"><i class="fab fa-linkedin fa-1x"></i> Visit My LinkedIn Page</a></div>
+            <div class="contact-links">
+              <a class="addr-email" id="contact-email" href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a>
+              <span aria-hidden="true">|</span>
+              <a href="https://www.linkedin.com/in/clinton-e-191ab133a?trk=profile-badge"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
           </div>
         </div>
       </div>
@@ -114,132 +116,106 @@
     <!-- ----------------------------------->
     <!-- Research Summary -->
     <!-- ----------------------------------->
-    <div id="research-summary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr>
-                  <td style="padding:2.5% 0;width:100%;vertical-align:middle">
-                    <span class="sub-heading">Research</span>
-                    <p class="headhr"></p>
-                    <p class="bd-text">
-                      I study contact-rich poly-articulated dexterous grasping and manipulation under uncertainty, connecting CBF-based safe control, risk-sensitive planning, latent uncertainty estimation, and safe policy learning to build robotic manipulation systems that handle uncertain object pose, friction, contact modes, and target geometry, as well as potentially-destabilizing wrenches that arise from whole-body motion or other task-space or exogenous sources. I validate these ideas in simulation (MuJoCo, Drake, Isaac Sim) and on real robot platforms (see <a href="robots.html" target="_blank">Robots</a>).
-                    </p>
-                    <p class="zoom-hint"><i class="fas fa-expand"></i> Click to enlarge.</p>
-                    <div class="row mb-4">
-                      <div class="col-md-3 mx-0 px-2">
-                        <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
-                          <video class="embed-responsive-item zoomable"
-                            style="object-fit:cover;width:100%;height:100%;"
-                            src="videos/static_dynamic_wholebody.mp4" poster="videos/static_dynamic_grasp_poster.jpg"
-                            autoplay loop muted playsinline aria-label="Safe dexterous grasp execution demo: static and dynamic environments"></video>
-                        </div>
-                        <p class="text-center mt-2 px-auto">Safe, Quality-Preserving Dexterous Grasping</p>
-                      </div>
-                      <div class="col-md-3 mx-0 px-2">
-                        <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
-                          <video class="embed-responsive-item zoomable"
-                            style="object-fit:cover;width:100%;height:100%;"
-                            src="videos/equidexflow_equivariance.mp4" poster="videos/equidexflow_equivariance_poster.jpg"
-                            autoplay loop muted playsinline aria-label="EquiDexFlow equivariance demo: the same object grasped at 0 and 120 degrees"></video>
-                        </div>
-                        <p class="text-center mt-2">SE(3)-Equivariant, Reach-Aware Grasp Synthesis</p>
-                      </div>
-                      <div class="col-md-3 mx-0 px-2">
-                        <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
-                          <img class="embed-responsive-item"
-                            style="object-fit:cover;object-position:center 30%;width:100%;height:100%;"
-                            src="videos/safe_teleop_xarm_dimos_demo.gif" alt="VR-assisted teleoperation data collection demo">
-                        </div>
-                        <p class="text-center mt-2 px-auto">Safe Teleoperation &amp; Manipulation Policy Rollout</p>
-                      </div>
-                      <div class="col-md-3 mx-0 px-2">
-                        <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
-                          <video class="embed-responsive-item zoomable"
-                            style="object-fit:cover;width:100%;height:100%;"
-                            src="videos/task_rate_robustness.mp4" poster="videos/task_rate_robustness_poster.jpg"
-                            autoplay loop muted playsinline aria-label="Task-rate robustness demo: the scripted expert stows the parcel at twice the nominal execution rate while a DAgger-distilled imitation policy misaligns the insertion"></video>
-                        </div>
-                        <p class="text-center mt-2 px-auto">Imitation-Learned Dexterous Manipulation</p>
-                      </div>
-                    </div>
-                    <p style="text-align:right;margin-top:-0.5rem;"><a href="research.html">Publications and more &rarr;</a></p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+    <section id="research-summary" class="home-section">
+      <span class="sub-heading">Research</span>
+      <p class="headhr"></p>
+      <p class="bd-text">
+        I study contact-rich poly-articulated dexterous grasping and manipulation under uncertainty, connecting CBF-based safe control, risk-sensitive planning, latent uncertainty estimation, and safe policy learning to build robotic manipulation systems that handle uncertain object pose, friction, contact modes, and target geometry, as well as potentially-destabilizing wrenches that arise from whole-body motion or other task-space or exogenous sources. I validate these ideas in simulation (MuJoCo, Drake, Isaac Sim) and on real robot platforms (see <a href="robots.html" target="_blank">Robots</a>).
+      </p>
+      <p class="zoom-hint"><i class="fas fa-expand"></i> Click to enlarge.</p>
+      <div class="home-research-grid">
+        <div class="home-research-card">
+          <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
+            <video class="embed-responsive-item zoomable"
+              style="object-fit:cover;width:100%;height:100%;"
+              src="videos/static_dynamic_wholebody.mp4" poster="videos/static_dynamic_grasp_poster.jpg"
+              autoplay loop muted playsinline aria-label="Safe dexterous grasp execution demo: static and dynamic environments"></video>
           </div>
+          <p class="text-center mt-2 px-auto">Safe, Quality-Preserving Dexterous Grasping</p>
+        </div>
+        <div class="home-research-card">
+          <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
+            <video class="embed-responsive-item zoomable"
+              style="object-fit:cover;width:100%;height:100%;"
+              src="videos/equidexflow_equivariance.mp4" poster="videos/equidexflow_equivariance_poster.jpg"
+              autoplay loop muted playsinline aria-label="EquiDexFlow equivariance demo: the same object grasped at 0 and 120 degrees"></video>
+          </div>
+          <p class="text-center mt-2">SE(3)-Equivariant, Reach-Aware Grasp Synthesis</p>
+        </div>
+        <div class="home-research-card">
+          <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
+            <img class="embed-responsive-item"
+              style="object-fit:cover;object-position:center 30%;width:100%;height:100%;"
+              src="videos/safe_teleop_xarm_dimos_demo.gif" alt="VR-assisted teleoperation data collection demo">
+          </div>
+          <p class="text-center mt-2 px-auto">Safe Teleoperation &amp; Manipulation Policy Rollout</p>
+        </div>
+        <div class="home-research-card">
+          <div class="embed-responsive embed-responsive-16by9" style="overflow:hidden;">
+            <video class="embed-responsive-item zoomable"
+              style="object-fit:cover;width:100%;height:100%;"
+              src="videos/task_rate_robustness.mp4" poster="videos/task_rate_robustness_poster.jpg"
+              autoplay loop muted playsinline aria-label="Task-rate robustness demo: the scripted expert stows the parcel at twice the nominal execution rate while a DAgger-distilled imitation policy misaligns the insertion"></video>
+          </div>
+          <p class="text-center mt-2 px-auto">Imitation-Learned Dexterous Manipulation</p>
         </div>
       </div>
-    </div>
+      <p style="text-align:right;margin-top:-0.5rem;"><a href="research.html">Publications and more &rarr;</a></p>
+    </section>
 
-    <div id="news">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr>
-                  <td style="padding:2.5% 0;width:100%;vertical-align:middle">
-                    <span class="sub-heading">News</span>
-                    <p class="headhr"></p>
-                    <table class="table table-sm table-borderless" style="margin:auto;">
-                      <tbody>
-                        <tr>
-                          <td><span class="badge badge-paper">[preprint]</span></td>
-                          <td>Our new <a href="https://arxiv.org/abs/2609.01453" target="_blank">study</a> on robustness preservation in imitation-learned dexterous manipulation under execution speed variation reveals hidden policy fragility that typical success-based evaluations miss.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[preprint]</span></td>
-                          <td>We introduced a CBF-CLF-based control framework for safe and planner-free dexterous grasping with safe-set forward invariance and grasp quality preservation: <a href="gdf/" target="_blank">Grasp Distance Fields</a>.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[paper]</span></td>
-                          <td>Our <a href="https://arxiv.org/abs/2604.03868" target="_blank">paper</a> introducing a CVaR-based belief-space MPPI algorithm for safe control has been accepted for presentation at <a href="https://cdc2026.ieeecss.org/" target="_blank">CDC 2026</a>. Links: <a href="belief-cvar-mppi/" target="_blank">demos</a>, <a href="https://arxiv.org/abs/2604.03868" target="_blank">arXiv</a>.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[preprint]</span></td>
-                          <td>New preprint on <a href="https://arxiv.org/abs/2607.25049" target="_blank">FIRMGrasp</a> introducing a novel grasp quality metric (&epsilon;<sup>(&beta;)</sup>) for robust grasp synthesis under uncertain friction. Grasps certified by &epsilon;<sup>(&beta;)</sup> achieve a 70% lift success rate under lateral pull, compared to 25% for grasps certified by the nominal Ferrari-Canny margin but are rejected by &epsilon;<sup>(&beta;)</sup>.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-paper">[paper]</span></td>
-                          <td>VNB-Grasp, our variational neural belief framework for robust dexterous grasping under visuo-tactile uncertainty, has been accepted to <a href="https://2026.ieee-iros.org/" target="_blank">IROS 2026</a>. Links: <a href="https://www.github.com/coenwerem/vnb-grasp" target="_blank">code</a>, <a href="https://arxiv.org/abs/2604.25897" target="_blank">arXiv</a>.</td>
-                        </tr>
-                        <tr>
-                          <td><span class="badge badge-model">[model]</span></td>
-                          <td>If you work on learning-based dexterous manipulation, have a look at <a href="https://equidexflow.github.io" target="_blank">EquiDexFlow</a>, our SE(3)-equivariant flow-matching model for synthesizing contact-aware multi-fingered grasps. To our knowledge, EquiDexFlow is the first learned dexterous grasp generator to produce articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces jointly within one end-to-end SE(3)-equivariant VAE architecture.</td>
-                        </tr>
-                        <tr>
-                          <td colspan="2">
-                            <details class="older-news">
-                              <summary>Older News</summary>
-                              <table class="table table-sm table-borderless older-news-list">
-                                <tbody>
-                                  <tr>
-                                    <td><span class="badge badge-paper">[paper]</span></td>
-                                    <td>Our <a href="https://arxiv.org/abs/2506.06954" target="_blank">paper</a> on quantile-based distributional RL for safe control was accepted for presentation at <a href="https://cdc2025.ieeecss.org/" target="_blank">CDC 2025</a>.</td>
-                                  </tr>
-                                  <tr>
-                                    <td><span class="badge badge-epoch">[epoch]</span></td>
-                                    <td>I passed my research proposal exam and advanced to doctoral candidacy.</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </details>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+    <section id="news" class="home-section">
+      <span class="sub-heading">News</span>
+      <p class="headhr"></p>
+      <table class="table table-sm table-borderless home-news-table">
+        <colgroup><col class="home-news-kind"><col></colgroup>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-paper">[preprint]</span></td>
+            <td>Our new <a href="https://arxiv.org/abs/2609.01453" target="_blank">study</a> on robustness preservation in imitation-learned dexterous manipulation under execution speed variation reveals hidden policy fragility that typical success-based evaluations miss.</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-paper">[preprint]</span></td>
+            <td>We introduced a CBF-CLF-based control framework for safe and planner-free dexterous grasping with safe-set forward invariance and grasp quality preservation: <a href="gdf/" target="_blank">Grasp Distance Fields</a>.</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-paper">[paper]</span></td>
+            <td>Our <a href="https://arxiv.org/abs/2604.03868" target="_blank">paper</a> introducing a CVaR-based belief-space MPPI algorithm for safe control has been accepted for presentation at <a href="https://cdc2026.ieeecss.org/" target="_blank">CDC 2026</a>. Links: <a href="belief-cvar-mppi/" target="_blank">demos</a>, <a href="https://arxiv.org/abs/2604.03868" target="_blank">arXiv</a>.</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-paper">[preprint]</span></td>
+            <td>New preprint on <a href="https://arxiv.org/abs/2607.25049" target="_blank">FIRMGrasp</a> introducing a novel grasp quality metric (&epsilon;<sup>(&beta;)</sup>) for robust grasp synthesis under uncertain friction. Grasps certified by &epsilon;<sup>(&beta;)</sup> achieve a 70% lift success rate under lateral pull, compared to 25% for grasps certified by the nominal Ferrari-Canny margin but are rejected by &epsilon;<sup>(&beta;)</sup>.</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-paper">[paper]</span></td>
+            <td>VNB-Grasp, our variational neural belief framework for robust dexterous grasping under visuo-tactile uncertainty, has been accepted to <a href="https://2026.ieee-iros.org/" target="_blank">IROS 2026</a>. Links: <a href="https://www.github.com/coenwerem/vnb-grasp" target="_blank">code</a>, <a href="https://arxiv.org/abs/2604.25897" target="_blank">arXiv</a>.</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-model">[model]</span></td>
+            <td>If you work on learning-based dexterous manipulation, have a look at <a href="https://equidexflow.github.io" target="_blank">EquiDexFlow</a>, our SE(3)-equivariant flow-matching model for synthesizing contact-aware multi-fingered grasps. To our knowledge, EquiDexFlow is the first learned dexterous grasp generator to produce articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces jointly within one end-to-end SE(3)-equivariant VAE architecture.</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <details class="older-news">
+                <summary>Older News</summary>
+                <table class="table table-sm table-borderless home-news-table older-news-list">
+                  <colgroup><col class="home-news-kind"><col></colgroup>
+                  <tbody>
+                    <tr>
+                      <td><span class="badge badge-paper">[paper]</span></td>
+                      <td>Our <a href="https://arxiv.org/abs/2506.06954" target="_blank">paper</a> on quantile-based distributional RL for safe control was accepted for presentation at <a href="https://cdc2025.ieeecss.org/" target="_blank">CDC 2025</a>.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge badge-epoch">[epoch]</span></td>
+                      <td>I passed my research proposal exam and advanced to doctoral candidacy.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </div>
   <!-- ----------------------------------->
   <!-- News (End) -->
@@ -251,7 +227,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="scripts.js"></script>
+<script src="scripts.js?v=20260913-interests"></script>
 
 </body>
 </html>
