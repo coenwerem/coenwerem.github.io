@@ -1531,7 +1531,7 @@ body, p, td, th, tr, a, li {
 .home-bio-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 30px;
+  gap: 3px;
 }
 .home-bio-copy, .home-bio-profile { min-width: 0; }
 #home-bio .bio-image-container { margin: 7em 0 0; }
