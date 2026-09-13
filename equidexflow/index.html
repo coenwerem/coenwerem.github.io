@@ -50,10 +50,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <!-- Site theme -->
-  <link rel="stylesheet" type="text/css" href="../stylesheet.css?v=20260802a">
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css?v=20260913-widths2">
 
   <!-- Project page layout -->
-  <link rel="stylesheet" href="./static/css/equidexflow.css?v=20260802e">
+  <link rel="stylesheet" href="./static/css/equidexflow.css?v=20260913b">
 
   <!-- MathJax for inline math -->
   <script>
@@ -129,21 +129,27 @@
           <div class="hw-pair-grid hw-pair-grid--featured">
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">Box Primitive</figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/graspit_box_pair_poster.jpg" aria-label="Box primitive grasp pair video">
-                <source src="./static/videos/hardware/graspit_box_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/graspit_box_pair_poster.jpg" aria-label="Box primitive grasp pair video">
+                  <source src="./static/videos/hardware/graspit_box_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">Cube</figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/cube_pair_poster.jpg" aria-label="Cube grasp pair video">
-                <source src="./static/videos/hardware/cube_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/cube_pair_poster.jpg" aria-label="Cube grasp pair video">
+                  <source src="./static/videos/hardware/cube_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">Mustard Bottle</figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/mustard_pair_poster.jpg" aria-label="Mustard bottle grasp pair video">
-                <source src="./static/videos/hardware/mustard_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/mustard_pair_poster.jpg" aria-label="Mustard bottle grasp pair video">
+                  <source src="./static/videos/hardware/mustard_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
           </div>
           <p class="edf-note">
@@ -268,7 +274,7 @@
       <section class="edf-section edf-section--alt">
         <div class="edf-wrap--wide">
           <h2 class="edf-h2">Architectural SE(3) Equivariance</h2>
-          <div class="edf-prose" style="max-width: 920px; margin: 0 auto;">
+          <div class="edf-prose" style="margin: 0 auto;">
             <p>
               <span class="equidexflow-plain">EquiDexFlow</span> grasps co-rotate with the object under arbitrary rotations. We verify this empirically over 200 rotations, with wrist residual &lt;0.04&deg; and joint deviation exactly zero. What's more: this equivariance guarantee is architectural, and not data-driven. Other learned grasp generators (FFHFlow, ContactGen, GraspDiffusion) achieve rotation robustness through data augmentation. <span class="equidexflow-plain">EquiDexFlow</span> guarantees it <em>by construction</em> via the VN-DGCNN backbone and equivariant flow. Our joint contact-and-force prediction is also distinctive: most learned methods output only wrist pose and joint angles and leave contact quality as a post-hoc filter. EquiDexFlow predicts force-closure-compatible contact configurations directly, meaning downstream planners get richer information <em>without</em> running a separate grasp evaluator.
             </p>
@@ -285,17 +291,23 @@
           <div id="equiv-snscup" data-group="equiv">
             <div class="equiv-strip">
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_snscup_000.png" alt="SNS Cup at 0 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_snscup_000.png" alt="SNS Cup at 0 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">0&deg;</div>
               </div>
               <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_snscup_120.png" alt="SNS Cup at 120 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_snscup_120.png" alt="SNS Cup at 120 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">$R_z(120^\circ)$</div>
               </div>
               <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_snscup_240.png" alt="SNS Cup at 240 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_snscup_240.png" alt="SNS Cup at 240 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">$R_z(240^\circ)$</div>
               </div>
             </div>
@@ -305,17 +317,23 @@
           <div id="equiv-graspitbox" data-group="equiv" hidden>
             <div class="equiv-strip">
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_graspitbox_000.png" alt="Box primitive at 0 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_graspitbox_000.png" alt="Box primitive at 0 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">0&deg;</div>
               </div>
               <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_graspitbox_120.png" alt="Box primitive at 120 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_graspitbox_120.png" alt="Box primitive at 120 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">$R_z(120^\circ)$</div>
               </div>
               <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_graspitbox_240.png" alt="Box primitive at 240 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_graspitbox_240.png" alt="Box primitive at 240 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">$R_z(240^\circ)$</div>
               </div>
             </div>
@@ -325,17 +343,23 @@
           <div id="equiv-e4" data-group="equiv" hidden>
             <div class="equiv-strip">
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_E4_000.png" alt="EGAD E4 at 0 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_E4_000.png" alt="EGAD E4 at 0 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">0&deg;</div>
               </div>
               <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_E4_120.png" alt="EGAD E4 at 120 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_E4_120.png" alt="EGAD E4 at 120 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">$R_z(120^\circ)$</div>
               </div>
               <div class="equiv-arrow"><i class="fas fa-arrow-right"></i></div>
               <div class="equiv-panel">
-                <img src="./static/images/equivariance/allegro_equiv_E4_240.png" alt="EGAD E4 at 240 degrees" class="zoomable">
+                <div class="edf-media-frame">
+                  <img src="./static/images/equivariance/allegro_equiv_E4_240.png" alt="EGAD E4 at 240 degrees" class="zoomable">
+                </div>
                 <div class="equiv-label">$R_z(240^\circ)$</div>
               </div>
             </div>
@@ -347,9 +371,11 @@
               Extended gallery: six objects across three input rotations (0&deg;, 120&deg;, 240&deg; about the
               vertical axis). The wrist pose and finger configuration co-rotate with the object.
             </p>
-            <img src="./static/images/equivariance/allegro_eq_six_test.png"
-              alt="Six-object SE(3) equivariance gallery" class="equiv-sixtest-img zoomable">
-            <p class="edf-note edf-note--sm" style="margin-top: 0.5rem; max-width: 900px;">
+            <div class="edf-media-frame">
+              <img src="./static/images/equivariance/allegro_eq_six_test.png"
+                alt="Six-object SE(3) equivariance gallery" class="equiv-sixtest-img zoomable">
+            </div>
+            <p class="edf-note edf-note--sm" style="margin-top: 0.5rem; ">
               Objects, left to right then top to bottom in triples: YCB pudding box, EGAD! G6, box primitive,
               YCB mustard bottle, EGAD! E4, and EGAD! G5. Within each object, the three frames are
               0&deg;, 120&deg;, and 240&deg;.
@@ -362,7 +388,7 @@
       <section class="edf-section">
         <div class="edf-wrap--wide">
           <h2 class="edf-h2">Generated Grasps</h2>
-          <div class="edf-prose" style="max-width: 920px; margin: 0 auto 1rem;">
+          <div class="edf-prose" style="margin: 0 auto 1rem;">
             <p>
               Allegro Hand grasps produced by <span class="equidexflow-plain">EquiDexFlow</span> across
               EGAD!, YCB, and primitive objects. Each grasp is decoded from a point cloud and seated on the
@@ -370,8 +396,10 @@
             </p>
           </div>
           <div class="edf-center">
-            <img src="./static/images/allegro/allegro_gallery_2x8.png" alt="Allegro grasp gallery 2x8"
-              class="collage-2x8 zoomable">
+            <div class="edf-media-frame">
+              <img src="./static/images/allegro/allegro_gallery_2x8.png" alt="Allegro grasp gallery 2x8"
+                class="collage-2x8 zoomable">
+            </div>
           </div>
         </div>
       </section>
@@ -381,9 +409,11 @@
         <div class="edf-wrap--wide">
           <div class="edf-row">
             <div class="edf-col--fig">
-              <img src="./static/images/tto/tto_prepost_tomato_soup_can.png"
-                alt="Wrist refinement: pre-contact IK (left) versus contact IK (right) on a tomato soup can"
-                class="tto-figure zoomable">
+              <div class="edf-media-frame">
+                <img src="./static/images/tto/tto_prepost_tomato_soup_can.png"
+                  alt="Wrist refinement: pre-contact IK (left) versus contact IK (right) on a tomato soup can"
+                  class="tto-figure zoomable">
+              </div>
               <p class="edf-note edf-note--sm" style="margin-top: 0.5rem;">
                 Pre-contact IK (left) and contact IK (right) on the YCB tomato soup can
               </p>
@@ -409,7 +439,7 @@
       <section class="edf-section">
         <div class="edf-wrap--wide">
           <h2 class="edf-h2">Results</h2>
-          <div class="edf-prose" style="max-width: 900px; margin: 0 auto;">
+          <div class="edf-prose" style="margin: 0 auto;">
             <p>
               Grasp quality on 811 test grasps, 10 samples each.
               All variants achieve 0% friction violations (architectural guarantee).
@@ -469,7 +499,7 @@
             </table>
           </div>
 
-          <div class="edf-halves" style="max-width: 1000px; margin: 1rem auto 0;">
+          <div class="edf-halves" style="margin: 1rem auto 0;">
             <div>
               <h4 class="edf-h4" style="margin-top: 0.5rem;">Equivariance by Rotation Angle</h4>
               <div class="edf-table-wrap edf-half-table">
@@ -514,7 +544,7 @@
             </div>
           </div>
 
-          <p class="edf-footnote" style="margin-top: 1rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+          <p class="edf-footnote" style="margin-top: 1rem; margin-left: auto; margin-right: auto;">
             Disabling cone projection degrades the composite score by over 6&times; and drives
             friction violations to 100%, confirming the 0% rate is a structural guarantee.
           </p>
@@ -525,7 +555,7 @@
       <section class="edf-section edf-section--alt">
         <div class="edf-wrap--wide">
           <h2 class="edf-h2">Cross-Embodiment Transfer to the LEAP Hand</h2>
-          <div class="edf-prose" style="max-width: 920px; margin: 0 auto 1rem;">
+          <div class="edf-prose" style="margin: 0 auto 1rem;">
             <p>
               Allegro grasps retargeted to the LEAP Hand via inverse kinematics, validated in
               simulation, and executed on physical hardware.
@@ -537,8 +567,10 @@
             <span class="status-pill status-pill--soon">LEAP checkpoints coming soon</span>
           </p>
           <div class="edf-center">
-            <img src="./static/images/leap_retarget/leap_gallery_2x6.png" alt="LEAP retargeting grasp gallery 2x6"
-              class="collage-2x8 zoomable">
+            <div class="edf-media-frame">
+              <img src="./static/images/leap_retarget/leap_gallery_2x6.png" alt="LEAP retargeting grasp gallery 2x6"
+                class="collage-2x8 zoomable">
+            </div>
           </div>
           <p class="edf-note edf-note--sm">
             Front view. Retargeted from Allegro to LEAP via contact-point IK. Mean fingertip residual 14 mm.
@@ -548,7 +580,7 @@
 
           <!-- Simulated shake-test robustness -->
           <h4 class="edf-h4">Simulated Shake-Test Robustness</h4>
-          <p class="edf-note" style="max-width: 760px; margin-bottom: 1rem;">
+          <p class="edf-note" style="margin-bottom: 1rem;">
             Gravity-off robustness check (GenDexGrasp/GAGrasp protocol in Drake): a &plusmn;<em>xyz</em>
             inertial load is applied to the object along all six axes, and a grasp passes if the object
             drifts under 2&nbsp;cm in every direction. Both objects pass at the canonical pose and its
@@ -556,27 +588,35 @@
           </p>
           <div class="shake-grid">
             <div class="shake-cell">
-              <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Mustard bottle shake test at 0 degrees">
-                <source src="./static/videos/sim_shake/mustard_bottle__shake_0.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Mustard bottle shake test at 0 degrees">
+                  <source src="./static/videos/sim_shake/mustard_bottle__shake_0.mp4" type="video/mp4">
+                </video>
+              </div>
               <p class="shake-cap">Mustard Bottle, 0&deg; &middot; 3.2&nbsp;mm max drift</p>
             </div>
             <div class="shake-cell">
-              <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Mustard bottle shake test at 120 degrees">
-                <source src="./static/videos/sim_shake/mustard_bottle__shake_120.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Mustard bottle shake test at 120 degrees">
+                  <source src="./static/videos/sim_shake/mustard_bottle__shake_120.mp4" type="video/mp4">
+                </video>
+              </div>
               <p class="shake-cap">Mustard Bottle, 120&deg; &middot; 3.4&nbsp;mm max drift</p>
             </div>
             <div class="shake-cell">
-              <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Potted meat can shake test at 0 degrees">
-                <source src="./static/videos/sim_shake/potted_meat_can__shake_0.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Potted meat can shake test at 0 degrees">
+                  <source src="./static/videos/sim_shake/potted_meat_can__shake_0.mp4" type="video/mp4">
+                </video>
+              </div>
               <p class="shake-cap">Potted Meat Can, 0&deg; &middot; 0.9&nbsp;mm max drift</p>
             </div>
             <div class="shake-cell">
-              <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Potted meat can shake test at 120 degrees">
-                <source src="./static/videos/sim_shake/potted_meat_can__shake_120.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="zoomable" autoplay muted loop playsinline preload="metadata" aria-label="Potted meat can shake test at 120 degrees">
+                  <source src="./static/videos/sim_shake/potted_meat_can__shake_120.mp4" type="video/mp4">
+                </video>
+              </div>
               <p class="shake-cap">Potted Meat Can, 120&deg; &middot; 9.2&nbsp;mm max drift</p>
             </div>
           </div>
@@ -585,9 +625,11 @@
           <h4 id="full-gallery" class="edf-h4">Hardware Execution</h4>
           <div class="edf-row">
             <div class="edf-col--fig">
-              <img src="./static/images/hardware/hw_setup.png"
-                alt="Hardware setup: a LEAP Hand on a 6-DoF ZArm cobot, an object-silhouette-marked pedestal, and a ZED 2i stereo camera on a tripod at right."
-                class="edf-hwsetup-img zoomable">
+              <div class="edf-media-frame">
+                <img src="./static/images/hardware/hw_setup.png"
+                  alt="Hardware setup: a LEAP Hand on a 6-DoF ZArm cobot, an object-silhouette-marked pedestal, and a ZED 2i stereo camera on a tripod at right."
+                  class="edf-hwsetup-img zoomable">
+              </div>
             </div>
             <div class="edf-col--txt">
               <p class="edf-note" style="margin-top: 0;">
@@ -605,39 +647,51 @@
           <div class="hw-pair-grid">
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">Box Primitive</figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/graspit_box_pair_poster.jpg" aria-label="Box primitive grasp pair video">
-                <source src="./static/videos/hardware/graspit_box_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/graspit_box_pair_poster.jpg" aria-label="Box primitive grasp pair video">
+                  <source src="./static/videos/hardware/graspit_box_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">Potted Meat Can</figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/potted_meat_pair_poster.jpg" aria-label="Potted meat can grasp pair video">
-                <source src="./static/videos/hardware/potted_meat_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/potted_meat_pair_poster.jpg" aria-label="Potted meat can grasp pair video">
+                  <source src="./static/videos/hardware/potted_meat_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">Mustard Bottle</figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/mustard_pair_poster.jpg" aria-label="Mustard bottle grasp pair video">
-                <source src="./static/videos/hardware/mustard_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/mustard_pair_poster.jpg" aria-label="Mustard bottle grasp pair video">
+                  <source src="./static/videos/hardware/mustard_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">Cube</figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/cube_pair_poster.jpg" aria-label="Cube grasp pair video">
-                <source src="./static/videos/hardware/cube_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/cube_pair_poster.jpg" aria-label="Cube grasp pair video">
+                  <source src="./static/videos/hardware/cube_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">Symmetric Objects <span class="hw-pair-sub">(rotation-invariant)</span></figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/symmetric_pair_poster.jpg" aria-label="Symmetric objects grasp pair video">
-                <source src="./static/videos/hardware/symmetric_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/symmetric_pair_poster.jpg" aria-label="Symmetric objects grasp pair video">
+                  <source src="./static/videos/hardware/symmetric_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
             <figure class="hw-pair-card">
               <figcaption class="hw-pair-name">OOD Objects <span class="hw-pair-sub">(one rotation-invariant, one asymmetric)</span></figcaption>
-              <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/ood_pair_poster.jpg" aria-label="Out-of-distribution objects grasp pair video">
-                <source src="./static/videos/hardware/ood_pair.mp4" type="video/mp4">
-              </video>
+              <div class="edf-media-frame">
+                <video class="hw-vid" autoplay muted loop playsinline preload="metadata" poster="./static/videos/hardware/ood_pair_poster.jpg" aria-label="Out-of-distribution objects grasp pair video">
+                  <source src="./static/videos/hardware/ood_pair.mp4" type="video/mp4">
+                </video>
+              </div>
             </figure>
           </div>
           <p class="edf-note edf-note--sm" style="max-width: 720px;">
