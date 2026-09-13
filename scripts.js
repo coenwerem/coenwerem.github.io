@@ -299,11 +299,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Assemble the email destination only when the contact link is activated.
-document.addEventListener('DOMContentLoaded', () => {
+// Populate a native email link without embedding the address in the static HTML.
+function initializeEmailLink() {
   const emailLink = document.getElementById('contact-email');
-  if (emailLink) emailLink.addEventListener('click', event => {
-    event.preventDefault();
-    window.location.href = ['mailto:', 'enwerem', '@', 'umd', '.', 'edu'].join('');
-  });
-});
+  if (emailLink) {
+    emailLink.href = ['mailto:', 'enwerem', '@', 'umd', '.', 'edu'].join('');
+  }
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeEmailLink, { once: true });
+} else {
+  initializeEmailLink();
+}
