@@ -203,6 +203,22 @@
   border-radius: 6px;
   background: var(--bg-card-img);
 }
+.gdf-toy-figure {
+  margin: 1.5rem 0;
+}
+.gdf-toy-panels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1%;
+  align-items: end;
+  padding: 0.5rem;
+  background: #fff;
+  border-radius: 6px;
+}
+.gdf-toy-panels img {
+  height: auto;
+  border-radius: 0;
+}
 .gdf-figcap,
 .teaser-caption {
   font-size: 0.9rem;

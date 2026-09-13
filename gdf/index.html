@@ -62,7 +62,7 @@
   <link rel="stylesheet" type="text/css" href="../stylesheet.css?v=20260802a">
 
   <!-- Project page layout -->
-  <link rel="stylesheet" href="./static/css/gdf.css?v=20260809c">
+  <link rel="stylesheet" href="./static/css/gdf.css?v=20260913a">
   <link rel="stylesheet" href="./static/css/gdf-replay.css?v=20260719a">
 
   <!-- MathJax for inline math. Version 4 brings inline line breaking,
@@ -199,6 +199,31 @@
       <section class="gdf-section gdf-section--alt">
         <div class="gdf-wrap">
           <h2 class="gdf-h2">Grasp Distance Fields in Configuration Space</h2>
+          <!-- Paper Fig. concept: concept_hard.pdf, concept_soft.pdf, concept_section.pdf. -->
+          <figure class="gdf-figure gdf-toy-figure">
+            <div class="gdf-toy-panels">
+              <div>
+                <img src="./static/images/concept_hard.webp" class="zoomable" loading="lazy"
+                  alt="Exact distance to four planar pregrasp candidates, with nonsmooth Voronoi boundaries shown as dashed lines">
+              </div>
+              <div>
+                <img src="./static/images/concept_soft.webp" class="zoomable" loading="lazy"
+                  alt="Softmin Grasp Distance Field with smooth negative-gradient trajectories approaching the pregrasp candidates">
+              </div>
+              <div>
+                <img src="./static/images/concept_section.webp" class="zoomable" loading="lazy"
+                  alt="One-dimensional section comparing the exact and softmin distances, with their gap bounded by log N over rho">
+              </div>
+            </div>
+            <figcaption class="gdf-figcap">
+              <strong>The Grasp Distance Field on a Planar Toy System.</strong>
+              The exact set distance is nonsmooth on candidate Voronoi boundaries (left).
+              With softmin regularization, the candidate weights and corresponding negative-gradient
+              trajectories are smooth (middle). A one-dimensional section verifies the
+              $\log N/\rho$ approximation bound (right).
+            </figcaption>
+          </figure>
+
           <div class="gdf-prose">
             <p>
               We represent the grasp target by a finite set $\mathcal{G} = \{q_i^{\text{pre}}\}_{i=1}^{N}$ of
@@ -241,42 +266,6 @@
               <h4>Humanoid Instantiation</h4>
               <p>The same controller runs on a Unitree G1 model with the same underactuated hand; platform-specific structure comes from the rigid-body model and a grasp record synthesized for that embodiment.</p>
             </div>
-          </div>
-
-          <figure class="gdf-figure">
-            <img src="./static/images/field_execution_field_only.png"
-              alt="Dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles and a certificate band below"
-              class="zoomable">
-            <figcaption class="teaser-caption">
-              We plot the clearance field induced by the obstacle, wall, and object constraints at the four mode transitions of a two-obstacle trial, with the executed palm path colored by the Grasp Distance Field value $d_G$.
-            </figcaption>
-          </figure>
-
-          <div class="gdf-timelapse">
-            <figure class="gdf-tl-frame">
-              <img src="./static/images/timelapse/tl_reach.jpg"
-                alt="Tabletop two-obstacle trial at the reach mode, the arm-hand system passing around the obstacles"
-                class="zoomable">
-              <figcaption><span class="gdf-tl-chip gdf-tl-chip--blue"></span>Reach</figcaption>
-            </figure>
-            <figure class="gdf-tl-frame">
-              <img src="./static/images/timelapse/tl_close.jpg"
-                alt="Tabletop two-obstacle trial at the close mode, the hand closing around the object"
-                class="zoomable">
-              <figcaption><span class="gdf-tl-chip gdf-tl-chip--orange"></span>Close</figcaption>
-            </figure>
-            <figure class="gdf-tl-frame">
-              <img src="./static/images/timelapse/tl_contact.jpg"
-                alt="Tabletop two-obstacle trial at the hold mode, the hand holding the object on the table"
-                class="zoomable">
-              <figcaption><span class="gdf-tl-chip gdf-tl-chip--ok"></span>Hold</figcaption>
-            </figure>
-            <figure class="gdf-tl-frame">
-              <img src="./static/images/timelapse/tl_lift.jpg"
-                alt="Tabletop two-obstacle trial at the lift mode, the object raised 12 cm above the table"
-                class="zoomable">
-              <figcaption><span class="gdf-tl-chip gdf-tl-chip--lift"></span>Lift</figcaption>
-            </figure>
           </div>
         </div>
       </section>
@@ -419,15 +408,10 @@
             </p>
           </div>
           <figure class="gdf-figure">
-            <img src="./static/images/field_execution.png" class="zoomable"
+            <img src="./static/images/field_execution_field_only.png" class="zoomable"
               alt="Four dense planar sections of the clearance field at the four mode transitions of a two-obstacle trial, with the palm path passing between the obstacles, and a certificate band below">
             <figcaption class="gdf-figcap">
-              Field execution through contact and lift. We plot the clearance field induced by the obstacle,
-              wall, and object constraints at the four mode transitions of a two-obstacle trial, with the
-              executed palm path colored by $d_G$. The band below shows the per-step field value, its rise
-              after the switch to the stored closure in CLOSE, the contact count and return to CLOSE, and the
-              minimum barrier value. The barriers remain nonnegative apart from the single home-posture
-              collision-hull overlap that the filter drives positive.
+              Field execution through contact and lift. We plot the clearance field induced by the obstacle, wall, and object constraints at the four mode transitions of a two-obstacle trial, with the executed palm path colored by the Grasp Distance Field value $d_G$.
             </figcaption>
           </figure>
         </div>
@@ -469,7 +453,7 @@
   <script src="../scripts.js"></script>
 
   <!-- Interactive playback engine, recorded run logs played back on a canvas -->
-  <script defer src="./static/js/replay.js?v=20260731f"></script>
+  <script defer src="./static/js/replay.js?v=20260913a"></script>
 
 </body>
 
