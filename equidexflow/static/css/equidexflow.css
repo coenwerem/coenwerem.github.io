@@ -5,17 +5,17 @@
 
 /* Sections */
 .edf-section {
-  padding: 2.25rem 1.5rem;
+  padding: 2.25rem var(--site-gutter);
 }
 .edf-section--alt {
   background-color: var(--bg-secondary);
 }
 .edf-wrap {
-  max-width: 900px;
+  max-width: var(--site-content-width);
   margin: 0 auto;
 }
 .edf-wrap--wide {
-  max-width: 1200px;
+  max-width: var(--site-content-width);
   margin: 0 auto;
 }
 .edf-h2 {
@@ -51,7 +51,7 @@
   text-align: justify;
   hyphens: auto;
   line-height: 1.5;
-  max-width: 920px;
+  max-width: var(--site-content-width);
   margin: 0.75rem auto 0;
 }
 .edf-note--sm {
@@ -83,8 +83,10 @@
 
 /* Hero */
 .edf-hero {
+  max-width: calc(var(--site-content-width) + 2 * var(--site-gutter));
+  margin-inline: auto;
   text-align: center;
-  padding: 2.75rem 1.5rem 1.25rem;
+  padding: 2.75rem var(--site-gutter) 1.25rem;
 }
 .edf-title {
   font-size: clamp(1.8rem, 5vw, 2.6rem);
@@ -186,7 +188,7 @@
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
   margin: 0 auto 1.25rem;
-  max-width: 750px;
+  max-width: var(--site-content-width);
 }
 .teaser-panel {
   text-align: center;
@@ -225,7 +227,7 @@
   text-align: center;
   font-size: 1.05rem;
   color: var(--text-secondary);
-  max-width: 750px;
+  max-width: var(--site-content-width);
   margin: 0 auto;
   line-height: 1.5;
 }
@@ -236,7 +238,7 @@
   text-align: justify;
   hyphens: auto;
   line-height: 1.85;
-  max-width: 800px;
+  max-width: var(--site-content-width);
 }
 
 /* Key results callout */
@@ -244,7 +246,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  max-width: 980px;
+  max-width: var(--site-content-width);
   margin: 0 auto;
 }
 .key-result {
@@ -270,11 +272,12 @@
 /* Method cards */
 .method-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1.5rem;
 }
 .method-card {
+  grid-column: span 2;
   background: var(--bg-card);
   border-radius: 10px;
   padding: 1.5rem 1rem;
@@ -282,6 +285,8 @@
   border-top: 3px solid var(--theme-primary);
   text-align: center;
 }
+.method-card:nth-child(4) { grid-column: 2 / span 2; }
+.method-card:nth-child(5) { grid-column: 4 / span 2; }
 .method-card .mc-icon {
   font-size: 1.8rem;
   color: var(--theme-primary);
@@ -296,8 +301,8 @@
 .method-card p {
   font-size: 0.9rem;
   color: var(--text-secondary);
-  text-align: justify;
-  hyphens: auto;
+  text-align: left;
+  hyphens: none;
   margin: 0;
 }
 
@@ -317,8 +322,8 @@
 .edf-idea p {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  text-align: justify;
-  hyphens: auto;
+  text-align: left;
+  hyphens: none;
   line-height: 1.55;
   margin: 0;
 }
@@ -363,7 +368,7 @@
   background: var(--bg-card);
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
-  max-width: 900px;
+  max-width: var(--site-content-width);
 }
 .equiv-strip img {
   flex: 0 0 auto;
@@ -391,7 +396,7 @@
 /* Wide collage images */
 .equiv-sixtest-img {
   width: 100%;
-  max-width: 1100px;
+  max-width: var(--site-content-width);
   border-radius: 10px;
   box-shadow: var(--shadow-sm);
   background: var(--bg-card-img);
@@ -399,7 +404,7 @@
 }
 .collage-2x8 {
   width: 100%;
-  max-width: 1000px;
+  max-width: var(--site-content-width);
   border-radius: 10px;
   box-shadow: var(--shadow-sm);
   background: var(--bg-card-img);
@@ -413,7 +418,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  max-width: 1100px;
+  max-width: var(--site-content-width);
   margin: 0.5rem auto 0.75rem;
 }
 .edf-row > * {
@@ -446,15 +451,15 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  max-width: 1200px;
+  max-width: var(--site-content-width);
   margin: 1rem auto 0.25rem;
-  padding: 0 1rem;
+  padding: 0;
   box-sizing: border-box;
   width: 100%;
 }
 .hw-pair-grid--featured {
   grid-template-columns: repeat(3, 1fr);
-  max-width: 1100px;
+  max-width: var(--site-content-width);
 }
 .hw-pair-card {
   background: var(--bg-card);
@@ -488,7 +493,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  max-width: 1100px;
+  max-width: var(--site-content-width);
   margin: 0 auto;
 }
 .shake-cell {
@@ -550,8 +555,9 @@
 .edf-table th {
   font-weight: 700;
   border-bottom-width: 2px;
-  white-space: nowrap;
+  white-space: normal;
 }
+.edf-table td:first-child { white-space: nowrap; }
 .edf-table tbody tr:hover {
   background-color: var(--bg-secondary);
 }
@@ -575,7 +581,7 @@
   font-weight: 700;
 }
 .edf-table-wrap--main {
-  max-width: 1000px;
+  max-width: var(--site-content-width);
   margin-left: auto;
   margin-right: auto;
 }
@@ -592,6 +598,15 @@
 .edf-half-table {
   max-width: 480px;
   margin: 0 auto;
+}
+.edf-media-frame {
+  position: relative;
+  max-width: 100%;
+}
+.edf-media-frame > img,
+.edf-media-frame > video {
+  display: block;
+  margin-bottom: 0;
 }
 .edf-footnote {
   font-size: 0.88rem;
@@ -622,7 +637,10 @@
 img, video { max-width: 100%; height: auto; }
 
 @media (max-width: 768px) {
-  .edf-section { padding: 1.75rem 1rem; }
+  .edf-section { padding: 1.75rem var(--site-gutter); }
+  .method-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .method-card:nth-child(n) { grid-column: auto; }
+  .method-card:last-child { grid-column: 1 / -1; }
 
   /* Comparison strips keep their columns, panels shrink instead. */
   .teaser-equivariance { gap: 0.35rem; padding: 0.5rem; }
@@ -655,7 +673,8 @@ img, video { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 420px) {
-  .edf-section { padding: 1.5rem 0.75rem; }
+  .edf-section { padding: 1.5rem var(--site-gutter); }
+  .method-steps { grid-template-columns: 1fr; }
   .key-results { grid-template-columns: 1fr; max-width: 360px; }
   .edf-btn { padding: 0.4em 0.9em; font-size: 0.9rem; }
 
