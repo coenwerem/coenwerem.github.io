@@ -2704,9 +2704,14 @@ font-size: 12px;
 }
 
 /* Robots */
-.robots-page { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 0 3.5rem; }
+.robots-page { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 0 3.5rem; }
 .robots-intro { width: 100%; max-width: 800px; margin: 0 auto; padding: 2.5%; }
-.robots-help { margin: 0 2.5%; }
+.robots-help { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; margin: 0 2.5% 0.8rem; }
+.robots-help .zoom-hint { margin: 0; }
+.robot-icon-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.robot-product-icon { display: block; flex: none; width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.robot-product-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin: 0; padding: 0; list-style: none; color: var(--text-secondary); font-size: 0.82rem; }
+.robot-product-legend li { display: inline-flex; align-items: center; gap: 0.4rem; }
 .robots-gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2749,9 +2754,13 @@ font-size: 12px;
 .robot-caption { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 0.95rem 1.05rem 1.05rem; }
 .robot-caption h2 { margin: 0; color: var(--text-primary); font-size: 1.08rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; }
 .robot-caption p { margin: 0.32rem 0 0.8rem; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.45; }
-.robots-page .robot-demo-button { margin-top: auto; }
-@media (max-width: 767px) {
+.robot-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: auto; }
+.robots-page .robot-demo-button { min-height: 40px; margin: 0; }
+.robot-product-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-card-img); color: var(--text-primary); }
+.robot-product-link:hover { color: var(--text-primary); border-color: currentColor; text-decoration: none; }
+@media (max-width: 991px) {
   .robots-gallery { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; padding: 0 2.5%; }
+  .robots-help { max-width: 480px; margin: 0 auto 0.8rem; padding: 0 2.5%; }
 }
 
 /* Match the translucent Font Awesome enlarge badges without a solid rim. */
@@ -2789,7 +2798,7 @@ font-size: 12px;
 .robot-component:focus { z-index: 5; }
 .robot-component:hover { z-index: 6; }
 .robot-component:hover, .robot-component:focus-visible { background: rgba(0, 0, 0, 0.65); }
-.robot-component:focus-visible, .robot-demo-button:focus-visible, .robot-demo-close:focus-visible {
+.robot-component:focus-visible, .robot-demo-button:focus-visible, .robot-demo-close:focus-visible, .robot-product-link:focus-visible {
   outline: 3px solid #45a6e0;
   outline-offset: 3px;
 }

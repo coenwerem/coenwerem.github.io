@@ -32,7 +32,12 @@ const LIFT_MAX = 0.12;
 class Replay{
   constructor(key){
     this.key = key; this.d = DATA[key];
-    this.n = this.d.palm.length; this.k = 0; this.playing = false;
+    // Pose logs may include a terminal state after the last control metric.
+    // Only expose samples shared by the scene, timeline, and readout.
+    const samples = [this.d.palm, this.d.mode, this.d.d_pre,
+      this.d.min_h, this.d.n_touch, this.d.obj, this.d.obs_path].filter(Boolean);
+    this.n = Math.min(...samples.map(values => values.length));
+    this.k = 0; this.playing = false;
     this.dt = this.d.meta.dt * this.d.stride;
     this.scene = document.getElementById("scene");
     this.tl = document.getElementById("timeline");
@@ -73,6 +78,8 @@ class Replay{
     const spanx=this.wx1-this.wx0, spany=this.wy1-this.wy0;
     const W = this.scene.clientWidth || this.scene.parentElement.clientWidth;
     this.gutter = 52;                       // right strip for the lift gauge
+    // A hidden or resizing panel can briefly have no drawable width.
+    if (W <= this.gutter) return;
     const availW = W - this.gutter;
     let H = availW * (spany/spanx);
     H = Math.max(300, Math.min(470, H));
@@ -280,7 +287,10 @@ class Replay{
     }
     this.scrub.value=k;
   }
-  draw(){ this.drawScene(); this.drawTimeline(); this.readout(); }
+  draw(){
+    if (!(this.s > 0)) return;
+    this.drawScene(); this.drawTimeline(); this.readout();
+  }
   tick(){
     if(!this.playing) return;
     this.k=(this.k+1)%this.n; this.draw();
