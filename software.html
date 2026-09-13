@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
     <!-- Your custom CSS -->
-    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260913-widths2">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260913-interests">
 </head>
 
 <body>
@@ -78,7 +78,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/parcelstow" target="_blank">ParcelStow</a></p>
-                <p class="sw-subtitle">Isaac Lab benchmark for evaluating task-rate robustness in dexterous manipulation, featuring three contact-rich Unitree G1 + RealHand L6 tasks with scripted experts, ACT policies, matched-condition evaluation, custom policy support, and reproducibility scripts.</p>
+                <p class="sw-subtitle">ParcelStow evaluates how dexterous manipulation policies respond to changes in task execution rate. The Isaac Lab benchmark includes three contact-rich tasks for the Unitree G1 with RealHand L6 hands, with scripted experts and ACT policies evaluated under matched conditions. Custom policies can use the same evaluation, with scripts for reproducing the experiments.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/parcelstow" target="_blank"><i class="fab fa-github"></i> code</a>
                   <a href="https://arxiv.org/abs/2609.01453" target="_blank"><i class="ai ai-arxiv"></i> paper</a>
@@ -98,7 +98,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/realhand_l6_ros2" target="_blank">realhand_l6_ros2</a></p>
-                <p class="sw-subtitle">ROS 2 control driver, tactile controller, robot description, hardware bringup, and MoveIt configuration for the RealHand L6 dexterous hand, implemented over SocketCAN for ROS 2 Jazzy. The CAN protocol implementation and tactile contact controller are validated on a physical right-hand unit.</p>
+                <p class="sw-subtitle">realhand_l6_ros2 controls the RealHand L6 dexterous hand over SocketCAN and detects fingertip contact from tactile sensing in ROS 2 Jazzy. The package includes the control driver, tactile controller, robot description, hardware bringup, and MoveIt configuration. The CAN protocol implementation and tactile contact controller are validated on a physical right-hand unit.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/realhand_l6_ros2" target="_blank"><i class="fab fa-github"></i> code</a>
                 </div>
@@ -116,7 +116,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/kinematic_planner_ros2" target="_blank">kinematic_planner_ros2</a></p>
-                <p class="sw-subtitle">ROS 2 toolkit for sampling-based collision-free N-DoF (serial-chain) path planning. The base planner package uses <a href="https://github.com/flexible-collision-library/fcl" target="_blank">FCL</a> for collision checking, the <a href="https://github.com/petercorke/robotics-toolbox-python" target="_blank">Robotics Toolbox for Python</a> for manipulator kinematics computation and an optional <a href="https://mujoco.org" target="_blank">MuJoCo</a> visualization backend, with the robot and scene described in the <a href="http://wiki.ros.org/urdf" target="_blank">URDF</a> standard and using ROS 2 parameters.</p>
+                <p class="sw-subtitle">kinematic_planner_ros2 computes collision-free paths for serial-chain manipulators with N degrees of freedom using sampling-based planning in ROS 2. It uses <a href="https://github.com/flexible-collision-library/fcl" target="_blank">FCL</a> for collision checking and the <a href="https://github.com/petercorke/robotics-toolbox-python" target="_blank">Robotics Toolbox for Python</a> for kinematics, with optional <a href="https://mujoco.org" target="_blank">MuJoCo</a> visualization. Robot and scene descriptions use <a href="http://wiki.ros.org/urdf" target="_blank">URDF</a>, with configuration through ROS 2 parameters.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/kinematic_planner_ros2" target="_blank"><i class="fab fa-github"></i> code</a>
                 </div>
@@ -134,7 +134,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="http://equidexflow.github.io" target="_blank">EquiDexFlow</a></p>
-                <p class="sw-subtitle">Contact-grounded SE(3)-equivariant flow matching for generating reach-aware, collision-free dexterous grasps. To our knowledge, EquiDexFlow is the first learned dexterous grasp generator to produce articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces jointly within one end-to-end SE(3)-equivariant architecture.</p>
+                <p class="sw-subtitle">EquiDexFlow generates reach-aware, collision-free dexterous grasps using contact-grounded SE(3)-equivariant flow matching. It jointly predicts articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces within one end-to-end SE(3)-equivariant architecture.</p>
                 <div class="sw-links">
                   <a href="https://equidexflow.github.io" target="_blank"><i class="fas fa-globe"></i> project page</a>
                   <a href="https://github.com/coenwerem/equidexflow" target="_blank"><i class="fab fa-github"></i> code</a>
@@ -154,7 +154,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/vnb-grasp" target="_blank">VNB-Grasp</a></p>
-                <p class="sw-subtitle">A differentiable Gaussian-mixture belief over contact parameters and object pose that yields pathwise CVaR gradients for risk-sensitive dexterous grasping, packaged with a MuJoCo benchmark that scores friction sensitivity and perturbation tolerance.</p>
+                <p class="sw-subtitle">VNB-Grasp computes pathwise conditional value-at-risk (CVaR) gradients for risk-sensitive dexterous grasping under uncertain contact parameters and object pose. It represents that uncertainty with a differentiable Gaussian-mixture belief and includes a MuJoCo benchmark for measuring friction sensitivity and perturbation tolerance.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/vnb-grasp" target="_blank"><i class="fab fa-github"></i> code</a>
                   <a href="http://arxiv.org/abs/2604.25897"><i class="ai ai-arxiv"></i> paper</a>
@@ -173,7 +173,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/simple_urdf_parser" target="_blank">Simple URDF Parser</a></p>
-                <p class="sw-subtitle">A barebones Python library for parsing URDF files with FK/IK solvers, Jacobian analysis, and an interactive 3D visualizer.</p>
+                <p class="sw-subtitle">Simple URDF Parser computes forward and inverse kinematics and Jacobians from URDF robot descriptions in Python. The library includes an interactive 3D visualizer.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/simple_urdf_parser" target="_blank"><i class="fab fa-github"></i> code</a>
                 </div>
@@ -195,7 +195,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Your custom JavaScript -->
-    <script src="scripts.js"></script>
+    <script src="scripts.js?v=20260913-interests"></script>
 
 </body>
 </html>
