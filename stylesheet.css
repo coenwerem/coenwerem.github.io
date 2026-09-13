@@ -2740,7 +2740,7 @@ font-size: 12px;
 .robot-card--featured { --photo-width: 110.192837%; --photo-height: 132.231405%; --photo-left: -5.096419%; }
 .robot-card:nth-child(2) { --photo-width: 160.989457%; --photo-height: 100%; --photo-left: -55.420384%; }
 .robot-card:nth-child(3) { --photo-width: 167.929293%; --photo-height: 100%; --photo-left: 0%; }
-.lightbox-overlay img[src$="bimanual-realhand-a7-l6-clean.webp"] {
+.lightbox-overlay img[src*="bimanual-realhand-a7-l6-clean.webp"] {
   width: min(90vw, calc(85vh * 1200 / 1380));
   height: min(85vh, calc(90vw * 1380 / 1200));
   object-fit: cover;
