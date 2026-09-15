@@ -39,7 +39,6 @@
   let index = 0;
   let rotating = !reducedMotion.matches;
   let visible = false;
-  let hovering = false;
   let elapsed = 0;
   let lastFrame = 0;
   let resumeVideo = !reducedMotion.matches;
@@ -50,6 +49,8 @@
   };
 
   function updateControls() {
+    const video = activeVideo();
+    if (video) video.loop = !rotating;
     rotation.textContent = rotating ? 'Pause Rotation' : 'Resume Rotation';
     position.textContent = `${index + 1} / ${slides.length}`;
     position.setAttribute('aria-live', rotating ? 'off' : 'polite');
@@ -68,29 +69,48 @@
     index = next;
     elapsed = 0;
     progress.style.width = '0%';
-    resumeVideo = userInitiated || !reducedMotion.matches;
+    resumeVideo = userInitiated || rotating || !reducedMotion.matches;
     updateControls();
     if (resumeVideo) play(activeVideo());
   }
 
   rotation.addEventListener('click', () => {
+    const video = activeVideo();
+    const wasEnded = video?.ended;
     rotating = !rotating;
     updateControls();
     if (rotating) {
       resumeVideo = true;
-      play(activeVideo());
+      if (activeVideo()?.ended) advanceAfterVideo();
+      else play(activeVideo());
+    } else if (wasEnded) {
+      resumeVideo = true;
+      video.currentTime = 0;
+      play(video);
     }
   });
   carousel.querySelector('.home-demo-previous').addEventListener('click', () => select((index - 1 + slides.length) % slides.length, true));
   carousel.querySelector('.home-demo-next').addEventListener('click', () => select((index + 1) % slides.length, true));
-  carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hovering = true; });
-  carousel.addEventListener('pointerleave', () => { hovering = false; });
   carousel.addEventListener('focusin', event => {
-    // Readers using controls keep their place until they explicitly resume.
-    if (event.target !== rotation) {
+    // Keyboard users keep their place; pointer selection leaves rotation running.
+    if (event.target !== rotation && event.target.matches(':focus-visible')) {
       rotating = false;
       updateControls();
     }
+  });
+
+  function advanceAfterVideo() {
+    if (activeVideo()?.ended && rotating && visible && !document.hidden && !document.fullscreenElement) {
+      select((index + 1) % slides.length);
+    }
+  }
+  slides.forEach(slide => {
+    const video = slide.querySelector('video');
+    if (!video) return;
+    video.loop = false;
+    video.addEventListener('ended', () => {
+      if (video === activeVideo()) advanceAfterVideo();
+    });
   });
 
   function suspend() {
@@ -131,13 +151,16 @@
     const delta = lastFrame ? Math.min((now - lastFrame) / 1000, 0.25) : 0;
     lastFrame = now;
     const video = activeVideo();
-    const duration = video && Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 12;
-    const dwell = duration;
-    const playing = !video || (!video.paused && !video.seeking && video.readyState >= 3);
-    if (rotating && visible && !document.hidden && !hovering && !document.fullscreenElement && playing) {
+    if (video) {
+      // Follow media time, including buffering, native pause, seeking and playback speed.
+      const fraction = Number.isFinite(video.duration) && video.duration > 0 ? video.currentTime / video.duration : 0;
+      progress.style.width = `${Math.min(100, fraction * 100)}%`;
+      advanceAfterVideo();
+    } else if (rotating && visible && !document.hidden && !document.fullscreenElement) {
+      // The draft preview also contains a GIF with no media timeline.
       elapsed += delta;
-      progress.style.width = `${Math.min(100, elapsed / dwell * 100)}%`;
-      if (elapsed >= dwell) select((index + 1) % slides.length);
+      progress.style.width = `${Math.min(100, elapsed / 12 * 100)}%`;
+      if (elapsed >= 12) select((index + 1) % slides.length);
     }
     requestAnimationFrame(tick);
   }
