@@ -83,7 +83,7 @@
               <h2>Bimanual Arm-Hand System</h2>
               <p>RealHand A7 arms with RealHand L6 hands.</p>
               <div class="robot-actions">
-                <button class="robot-demo-button" type="button" data-demo="videos/robots/a7-l6.gif?v=6" data-title="Bimanual A7–L6 demo" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play Bimanual A7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+                <button class="robot-demo-button" type="button" data-demo="videos/robots/a7-l6-retrieval.mp4?v=highlight-repair-20260917" data-title="Space-Constrained Object Retrieval With Collision Awareness" data-poster="videos/robots/a7-l6-retrieval_poster.jpg?v=highlight-repair-20260917" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play Bimanual A7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
                 <a class="robot-product-link" href="https://www.realhand.com/a7" target="_blank" rel="noopener noreferrer" aria-label="RealHand A7 arm product (opens in a new tab)" title="RealHand A7 arm product (opens in a new tab)"><svg class="robot-product-icon" aria-hidden="true" focusable="false"><use href="#robot-arm-icon"/></svg></a>
                 <a class="robot-product-link" href="https://www.realhand.com/l6" target="_blank" rel="noopener noreferrer" aria-label="RealHand L6 hand product (opens in a new tab)" title="RealHand L6 hand product (opens in a new tab)"><svg class="robot-product-icon" aria-hidden="true" focusable="false"><use href="#robot-hand-icon"/></svg></a>
               </div>
@@ -163,13 +163,25 @@
       document.querySelectorAll('.robot-demo-button').forEach(function (button) {
         button.addEventListener('click', function () {
           document.getElementById('robot-demo-title').textContent = button.dataset.title;
-          const image = document.createElement('img');
-          image.alt = button.dataset.title;
-          image.src = button.dataset.demo;
-          image.addEventListener('error', function () {
+          const isVideo = /\.mp4(?:[?#]|$)/i.test(button.dataset.demo);
+          const media = document.createElement(isVideo ? 'video' : 'img');
+          dialog.classList.toggle('robot-demo-dialog--wide', isVideo);
+          if (isVideo) {
+            media.controls = true;
+            media.muted = true;
+            media.autoplay = true;
+            media.playsInline = true;
+            media.preload = 'metadata';
+            media.setAttribute('aria-label', button.dataset.title);
+            if (button.dataset.poster) media.poster = button.dataset.poster;
+          } else {
+            media.alt = button.dataset.title;
+          }
+          media.src = button.dataset.demo;
+          media.addEventListener('error', function () {
             frame.textContent = 'The demo could not load. Please close it and try again.';
           });
-          frame.replaceChildren(image);
+          frame.replaceChildren(media);
           dialog.showModal();
         });
       });
@@ -181,7 +193,11 @@
               event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
         }
       });
-      dialog.addEventListener('close', function () { frame.replaceChildren(); });
+      dialog.addEventListener('close', function () {
+        const video = frame.querySelector('video');
+        if (video) video.pause();
+        frame.replaceChildren();
+      });
       let activeMarker = null;
       const labels = new Map();
       function hideSpecs() {
