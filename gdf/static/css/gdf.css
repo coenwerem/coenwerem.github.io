@@ -183,6 +183,58 @@
   margin: 0;
 }
 
+/* Overview reel and optional full trials. */
+.gdf-scope .gdf-overview {
+  margin: 0 0 1rem;
+  font-family: "CMU Sans Serif", sans-serif;
+  color: var(--text-color);
+}
+.gdf-overview video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+}
+.gdf-overview-labels,
+.gdf-overview-captions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.gdf-overview-labels {
+  margin-bottom: 0.4rem;
+  font-size: clamp(0.8rem, 2vw, 1.25rem);
+  text-align: center;
+}
+.gdf-overview-captions {
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+.gdf-overview-labels > span,
+.gdf-overview-captions > span {
+  padding: 0 0.4rem;
+  overflow-wrap: anywhere;
+}
+.gdf-scope .gdf-overview-quality {
+  max-width: none;
+  margin: 0.8rem 0 0;
+  text-align: center;
+  color: var(--text-color);
+}
+.gdf-trials {
+  border-top: 1px solid var(--border-color);
+}
+.gdf-trials summary {
+  min-height: 44px;
+  padding: 0.75rem 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+.gdf-trials summary:focus-visible {
+  outline: 2px solid var(--theme-primary);
+  outline-offset: 2px;
+}
+
 /* Quality comparison video, narrower than the text column */
 .gdf-quality-video {
   max-width: 680px;

@@ -62,7 +62,7 @@
   <link rel="stylesheet" type="text/css" href="../stylesheet.css?v=20260913-controls">
 
   <!-- Project page layout -->
-  <link rel="stylesheet" href="./static/css/gdf.css?v=20260913b">
+  <link rel="stylesheet" href="./static/css/gdf.css?v=centered-platform-labels-20260918">
   <link rel="stylesheet" href="./static/css/gdf-replay.css?v=20260913a">
 
   <!-- MathJax for inline math. Version 4 brings inline line breaking,
@@ -116,32 +116,53 @@
       <!-- Videos -->
       <section class="gdf-section" id="videos">
         <div class="gdf-wrap gdf-scope">
-          <div class="gdf-vids">
-            <figure class="gdf-vid">
-              <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
-              <figcaption>(a) A fixed-base manipulator grasps and lifts an object obstructed by a 6 x 6 x 50 cm obstacle pair.</figcaption>
-            </figure>
-            <figure class="gdf-vid">
-              <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
-              <figcaption>(b) The robot in (a) avoids a 5 x 5 x 45 cm obstacle translating at 0.05 m/s across its approach path.</figcaption>
-            </figure>
-            <figure class="gdf-vid">
-              <video src="./static/videos/three_post_trap.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="xArm7-L6 obstructed approach window"></video>
-              <figcaption>(c) The robot in (a) grasps and lifts an object obstructed by three obstacles.</figcaption>
-            </figure>
-            <figure class="gdf-vid">
-              <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
-              <figcaption>(d) A Unitree G1 humanoid safely lifts an object obstructed by two 4 x 4 x 36 cm obstacles.</figcaption>
-            </figure>
-            <figure class="gdf-vid">
-              <video src="./static/videos/a7_static_lift.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="A7 DUal Arm-Hand static-obstacle run video"></video>
-              <figcaption>(e) A bimanual manipulator safely lifts an object obstructed by two static cylindrical obstacles.</figcaption>
-            </figure>
-            <figure class="gdf-vid">
-              <video src="./static/videos/a7_dynamic_lift.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="A7 DUal Arm-Hand dynamic-obstacle run video"></video>
-              <figcaption>(f) A bimanual manipulator safely lifts an object obstructed by two dynamic cylindrical obstacles.</figcaption>
-            </figure>
-          </div>
+          <figure class="gdf-overview">
+            <div class="gdf-overview-labels" aria-hidden="true">
+              <span>Static</span><span>Dynamic</span><span>Humanoid</span><span>Bimanual</span>
+            </div>
+            <video src="./static/videos/overview.mp4?v=footage-only-20260918"
+              poster="./static/videos/overview_poster.jpg?v=footage-only-20260918"
+              autoplay muted playsinline loop controls preload="metadata"
+              aria-label="Safe dexterous grasp execution: feedback grasp selection, dynamic obstacle avoidance, collision-constrained poly-articulated grasping, reactive bimanual grasp execution, and grasp quality preservation using a wrench-quality CBF after hold onset"></video>
+            <figcaption>
+              <div class="gdf-overview-captions">
+                <span>Feedback Grasp Selection Without Trajectory Planning</span>
+                <span>CBF-Based Safety Filtering With Dynamic Obstacle Avoidance</span>
+                <span>Collision-Constrained Poly-Articulated Grasp Execution</span>
+                <span>Reactive Grasp Execution With Dynamic Obstacle Avoidance</span>
+              </div>
+              <p class="gdf-overview-quality">Grasp quality preservation via a wrench-quality CBF limits degradation of the realized force-closure margin after hold onset.</p>
+            </figcaption>
+          </figure>
+          <details class="gdf-trials">
+            <summary>Individual Trials (6)</summary>
+            <div class="gdf-vids">
+              <figure class="gdf-vid">
+                <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
+                <figcaption>(a) A fixed-base manipulator grasps and lifts an object obstructed by a 6 x 6 x 50 cm obstacle pair.</figcaption>
+              </figure>
+              <figure class="gdf-vid">
+                <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
+                <figcaption>(b) The robot in (a) avoids a 5 x 5 x 45 cm obstacle translating at 0.05 m/s across its approach path.</figcaption>
+              </figure>
+              <figure class="gdf-vid">
+                <video src="./static/videos/three_post_trap.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="xArm7-L6 obstructed approach window"></video>
+                <figcaption>(c) The robot in (a) grasps and lifts an object obstructed by three obstacles.</figcaption>
+              </figure>
+              <figure class="gdf-vid">
+                <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
+                <figcaption>(d) A Unitree G1 humanoid safely lifts an object obstructed by two 4 x 4 x 36 cm obstacles.</figcaption>
+              </figure>
+              <figure class="gdf-vid">
+                <video src="./static/videos/a7_static_lift.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="A7 DUal Arm-Hand static-obstacle run video"></video>
+                <figcaption>(e) A bimanual manipulator safely lifts an object obstructed by two static cylindrical obstacles.</figcaption>
+              </figure>
+              <figure class="gdf-vid">
+                <video src="./static/videos/a7_dynamic_lift.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="A7 DUal Arm-Hand dynamic-obstacle run video"></video>
+                <figcaption>(f) A bimanual manipulator safely lifts an object obstructed by two dynamic cylindrical obstacles.</figcaption>
+              </figure>
+            </div>
+          </details>
         </div>
       </section>
 
