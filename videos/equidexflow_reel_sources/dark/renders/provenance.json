@@ -1,0 +1,246 @@
+{
+  "renderer": "dexman_render.render.core.render_views_window_rgba",
+  "supersample": 4,
+  "records": {
+    "cube_iron_az215_el-15.png": {
+      "source": "/home/drce/ResearchProjects/equidexflow/outputs/hardware_leap_keepsake_20260917/cube/refined/selected.json",
+      "source_sha256": "39afce9f50f2fcd9fb772fc36556709d1d29d462f4c814b66b9b2887bcd98eae",
+      "azimuth": 215,
+      "elevation": -15,
+      "crop": [
+        699,
+        315,
+        1203,
+        835
+      ],
+      "scene_transform": [
+        [
+          0.5085224596080918,
+          -0.06315274611270183,
+          -0.8587296656879635,
+          0.0
+        ],
+        [
+          0.8588358113835355,
+          -0.03425384478634463,
+          0.5111044151663509,
+          0.0
+        ],
+        [
+          -0.06169244004998654,
+          -0.9974158635071824,
+          0.03681899054701483,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "radius": 0.1892611885,
+      "grasp_changed": false
+    },
+    "graspit_box_iron_az215_el-15.png": {
+      "source": "/home/drce/ResearchProjects/equidexflow/outputs/hardware_leap_keepsake_20260917/graspit_box/refined/selected.json",
+      "source_sha256": "d6b60a27dccb407be3bdc1548a3024c3aee36e9ccd11a006f23ba8510a7b9a9f",
+      "azimuth": 215,
+      "elevation": -15,
+      "crop": [
+        622,
+        337,
+        1195,
+        928
+      ],
+      "scene_transform": [
+        [
+          -0.8796391606302454,
+          -0.1057084290143156,
+          -0.46374634782501867,
+          0.0
+        ],
+        [
+          0.46830290386695383,
+          -0.36308790575582,
+          -0.805518195277817,
+          0.0
+        ],
+        [
+          -0.08323062726843146,
+          -0.9257391105107197,
+          0.36888990492466095,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "radius": 0.1892611885,
+      "grasp_changed": false
+    },
+    "graspit_cylinder_iron_az215_el-15.png": {
+      "source": "/home/drce/ResearchProjects/equidexflow/outputs/hardware_leap_keepsake_20260917/graspit_cylinder/refined/selected.json",
+      "source_sha256": "46466ad97b668e12e0d29db208f2619d5e0e0409b9a1a39749edceb431a8264f",
+      "azimuth": 215,
+      "elevation": -15,
+      "crop": [
+        677,
+        367,
+        1168,
+        861
+      ],
+      "scene_transform": [
+        [
+          0.35892289759869905,
+          -0.7836193779403592,
+          -0.5070651083398651,
+          0.0
+        ],
+        [
+          -0.1227520484651658,
+          0.49891506796568796,
+          -0.8579135676479301,
+          0.0
+        ],
+        [
+          0.9252601191972775,
+          0.3701681043433619,
+          0.08288115799071866,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "radius": 0.1892611885,
+      "grasp_changed": false
+    },
+    "mustard_bottle_iron_az275_el25.png": {
+      "source": "/home/drce/ResearchProjects/equidexflow/outputs/hardware_leap_keepsake_20260917/mustard_bottle/refined/selected.json",
+      "source_sha256": "2f4250adb1322b1bcd4f56dc612a3810a7b997506a866f0cefdcfe39bd4849bc",
+      "azimuth": 275,
+      "elevation": 25,
+      "crop": [
+        728,
+        177,
+        1309,
+        957
+      ],
+      "scene_transform": [
+        [
+          -0.583596951789647,
+          -0.6377231241685622,
+          -0.5027164357393953,
+          0.0
+        ],
+        [
+          -0.0763719787006469,
+          0.6594360579690642,
+          -0.7478712498281834,
+          0.0
+        ],
+        [
+          0.8084441345765214,
+          -0.3980619328080874,
+          -0.4335490501868382,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "radius": 0.1892611885,
+      "grasp_changed": false
+    },
+    "potted_meat_can_iron_az215_el-15.png": {
+      "source": "/home/drce/ResearchProjects/equidexflow/outputs/hardware_leap_keepsake_20260917/potted_meat_can/refined/selected.json",
+      "source_sha256": "48ef1b9c299a397e73f2f6de8c30197de6de7b3fe8b1ba7119363d4943cf6988",
+      "azimuth": 215,
+      "elevation": -15,
+      "crop": [
+        696,
+        306,
+        1184,
+        911
+      ],
+      "scene_transform": [
+        [
+          0.25035702002353943,
+          -0.8498220202114701,
+          0.4638145065525968,
+          0.0
+        ],
+        [
+          0.4837703939155585,
+          0.5247844826767588,
+          0.7004052060860717,
+          0.0
+        ],
+        [
+          -0.8386224230818771,
+          0.04902836633401826,
+          0.5425022127133666,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "radius": 0.1892611885,
+      "grasp_changed": false
+    },
+    "tennis_ball_iron_az215_el-15.png": {
+      "source": "/home/drce/ResearchProjects/equidexflow/outputs/hardware_leap_keepsake_20260917/tennis_ball/refined/selected.json",
+      "source_sha256": "d506a1d1d1866e49ff0df03dd346a9c8a3009c780d8dd21e8df0c41ec7d1fc9b",
+      "azimuth": 215,
+      "elevation": -15,
+      "crop": [
+        692,
+        315,
+        1182,
+        837
+      ],
+      "scene_transform": [
+        [
+          -0.03052693733002981,
+          0.994234437899435,
+          0.10279099470305414,
+          0.0
+        ],
+        [
+          -0.9902242386941402,
+          -0.0160790362930892,
+          -0.13855476063454555,
+          0.0
+        ],
+        [
+          -0.13610313442334512,
+          -0.10601578696911308,
+          0.9850058830857108,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "radius": 0.1892611885,
+      "grasp_changed": false
+    }
+  }
+}
