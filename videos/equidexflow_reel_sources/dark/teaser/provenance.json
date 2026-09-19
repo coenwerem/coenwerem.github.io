@@ -1,0 +1,10 @@
+{
+  "source_body": "/home/drce/MEGA/UMD/Research/Manuscripts/02_Submitted_Manuscripts/2026/Conferences/CORL2026_EquiDexFlow/output/teaser_update/build/figures/teaser_source/teaser_integrated_body.tex",
+  "source_body_sha256": "511885f38e267391fc0ddb55ddbea509eda1c5c7294481386d4216df1411503a",
+  "changes": [
+    "Charcoal page and dark section strips",
+    "CMU Sans Serif regular and bold labels",
+    "Light image wells preserve original hand-render pixels"
+  ],
+  "source_images_changed": false
+}
