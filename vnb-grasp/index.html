@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VNB-Grasp: differentiable Gaussian-mixture beliefs for risk-sensitive dexterous grasping, a MuJoCo robustness benchmark, and 243 force-closed grasps.">
+  <title>VNB-Grasp | Variational Neural Beliefs for Robust Dexterous Grasping</title>
+  <meta property="og:title" content="VNB-Grasp: Robust Dexterous Grasping under Multimodal Uncertainty">
+  <meta property="og:description" content="Differentiable beliefs, a MuJoCo grasp robustness benchmark, and reusable simulation assets.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="./static/images/vnb-icon.png">
+  <style>
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #22272e; }
+    body { visibility: hidden; }
+    .dark-mode, .light-mode { visibility: visible; transition: background-color .3s ease, color .3s ease; }
+  </style>
+  <script>(function(){var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark-mode":"light-mode");document.documentElement.classList.add(t);})();</script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../stylesheet.css?v=20260913-controls">
+  <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
+  <link rel="stylesheet" href="../belief-cvar-mppi/static/css/index.css?v=20260905a">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260924f">
+
+</head>
+<body class="vnb-page">
+  <a class="sr-only sr-only-focusable" href="#main">Skip to Content</a>
+  <div id="navbar-placeholder"></div>
+  <div class="page-container"><div class="content-wrap">
+    <header class="gdf-hero">
+      <p class="cvar-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026</p>
+      <h1 class="gdf-title"><img class="title-logo" src="./static/images/vnb-icon.png" alt="VNB-Grasp">Variational Neural Belief Parameterizations</h1>
+      <h2 class="gdf-subtitle">for Robust Dexterous Grasping under Multimodal Uncertainty</h2>
+      <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span>, <span class="text-nowrap">Shreya Kalyanaraman</span>, <span class="text-nowrap">John S. Baras</span>, and <span class="text-nowrap">Calin Belta</span></p>
+      <p class="gdf-affil">University of Maryland, College Park</p>
+      <div class="gdf-btns">
+        <a class="gdf-btn" href="https://github.com/coenwerem/vnb-grasp"><i class="fab fa-github" aria-hidden="true"></i><span>Code</span></a>
+        <a class="gdf-btn" href="https://arxiv.org/abs/2604.25897"><i class="ai ai-arxiv" aria-hidden="true"></i><span>Paper</span></a>
+        <a class="gdf-btn" href="https://github.com/coenwerem/vnb-grasp/tree/main/grasp_db"><i class="fas fa-database" aria-hidden="true"></i><span>Grasp Dataset</span></a>
+        <a class="gdf-btn" href="#results"><i class="fas fa-square-poll-vertical" aria-hidden="true"></i><span>Results</span></a>
+      </div>
+    </header>
+    <main id="main">
+      <section class="gdf-section" aria-label="Scientific Demonstration"><div class="gdf-wrap">
+        <figure class="gdf-overview">
+          <video controls muted playsinline preload="metadata" poster="./static/images/demo-poster.jpg" aria-label="VNB-Grasp scientific demonstration">
+            <source src="./static/videos/scientific-demo.mp4" type="video/mp4">
+            <a href="./static/videos/scientific-demo.mp4">Download the scientific demonstration.</a>
+          </video>
+          <figcaption class="gdf-figcap"><strong>Scientific Demonstration.</strong> Method overview, simulation evaluation, and hardware grasp execution.</figcaption>
+        </figure>
+        <div class="gdf-prose mt-3"><p>A differentiable Gaussian-mixture belief represents uncertainty in object pose and latent contact parameters, enabling pathwise gradients of a smooth Conditional Value-at-Risk (CVaR) surrogate for risk-sensitive grasp planning.</p></div>
+      </div></section>
+      <section class="gdf-section gdf-section--alt" id="components"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Two Reusable Components</h2>
+        <div class="gdf-prose">
+          <article class="mb-4">
+            <h3 class="gdf-h3 text-left">Differentiable Belief Representation</h3>
+            <p>Gaussian mixtures retain multiple hypotheses about contact conditions and object pose. Gumbel–Softmax component selection and location–scale reparameterization make samples differentiable with respect to the belief parameters, allowing a smooth CVaR surrogate to guide optimization of adverse grasp outcomes.</p>
+            <a class="d-inline-flex align-items-center py-2" href="https://github.com/coenwerem/vnb-grasp/tree/main/vnb_grasp/belief">Explore the Belief Module</a>
+          </article>
+          <article class="mb-4">
+            <h3 class="gdf-h3 text-left">MuJoCo Grasp Robustness Benchmark</h3>
+            <p>The benchmark evaluates friction sensitivity and perturbation robustness across nominal, adversarial, wide, and bimodal friction regimes. Post-grasp tests apply lateral impulses, torque impulses, and sudden friction drops to measure grasp success and perturbation survival.</p>
+            <a class="d-inline-flex align-items-center py-2" href="https://github.com/coenwerem/vnb-grasp/blob/main/config/iros26_experiments.yaml">Explore the Benchmark Configuration</a>
+          </article>
+        </div>
+      </div></section>
+      <section class="gdf-section" id="results"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Simulation and Hardware Results</h2>
+        <div class="gdf-prose"><p>The paper’s Table III reports means over objects, risk levels, and seeds in <strong>three friction regimes</strong>: nominal, wide, and bimodal. The released benchmark additionally includes the adversarial regime. Robust success requires nominal success and survival of at least 50% of the perturbation tests.</p></div>
+        <p class="gdf-footnote" id="results-caption">Selected Table III Results: Robust Success and Wall-Clock Time per Episode. Scroll the table on narrow screens to view all columns.</p>
+        <div class="table-container gdf-table-wrap" role="region" aria-label="Simulation results by friction regime" tabindex="0">
+          <table class="gdf-table" aria-describedby="results-caption">
+
+            <thead><tr><th scope="col">Friction Regime</th><th scope="col" class="num">VNB Robust Success</th><th scope="col" class="num">CEM Robust Success</th><th scope="col" class="num">VNB Time</th><th scope="col" class="num">Particle-Filter MPC Time</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Nominal</th><td class="num"><strong>79%</strong></td><td class="num">63%</td><td class="num">8.5 s</td><td class="num">49.6 s</td></tr>
+              <tr><th scope="row">Wide</th><td class="num"><strong>67%</strong></td><td class="num">67%</td><td class="num">7.1 s</td><td class="num">32.6 s</td></tr>
+              <tr><th scope="row">Bimodal</th><td class="num"><strong>38%</strong></td><td class="num">33%</td><td class="num">6.8 s</td><td class="num">41.7 s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gdf-prose"><p><strong>Hardware under Pose Uncertainty.</strong> Across three objects and four pose offsets (12 trials per method), both VNB and Gaussian MPC achieved 100% grasp-and-lift success. VNB required a median of 6 steps and 11.5 s, compared with 7 steps and 14.2 s for Gaussian MPC (Table IV). This small trial set supports an execution and convergence comparison.</p></div>
+        <a class="d-inline-flex align-items-center py-2" href="https://arxiv.org/abs/2604.25897">Read the Evaluation in the Paper</a>
+      </div></section>
+      <section class="gdf-section gdf-section--alt" id="resources"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Code, Simulation Assets, and Grasp Dataset</h2>
+        <div class="gdf-prose">
+          <article class="mb-4"><h3 class="gdf-h3 text-left">Code and Reproduction</h3><p>Belief models, grasp-quality metrics, experiment runners, and instructions for reproducing the simulation tables.</p><a class="d-inline-flex align-items-center py-2" href="https://github.com/coenwerem/vnb-grasp/blob/main/REPRODUCE.md">Reproduction Guide</a></article>
+          <article class="mb-4"><h3 class="gdf-h3 text-left">Simulation Assets</h3><p>MuJoCo scenes and meshes for the ZArm 622 arm and RealHand L6 hand, with control and pregrasp-planning utilities.</p><a class="d-inline-flex align-items-center py-2" href="https://github.com/coenwerem/vnb-grasp/tree/main/arenas">Scenes</a><a class="d-inline-flex align-items-center py-2 ml-3" href="https://github.com/coenwerem/vnb-grasp/tree/main/assets">Meshes and Textures</a></article>
+          <article class="mb-4"><h3 class="gdf-h3 text-left">243 Force-Closed Grasps</h3><p>GraspIt!-generated grasp candidates stored as JSON databases for the benchmark objects.</p><a class="d-inline-flex align-items-center py-2" href="https://github.com/coenwerem/vnb-grasp/tree/main/grasp_db">Browse the Dataset</a></article>
+        </div>
+      </div></section>
+      <section class="gdf-section" id="BibTeX"><div class="gdf-wrap">
+        <h2 class="gdf-h2">BibTeX</h2>
+        <pre><code>@article{enweremVariationalNeuralBeliefParameterizations2026a,
+  author = {Enwerem, Clinton and Kalyanaraman, Shreya
+            and Baras, John S. and Belta, Calin},
+  title = {Variational Neural Belief Parameterizations for
+           Robust Dexterous Grasping under Multimodal Uncertainty},
+  year = {2026},
+  eprint = {2604.25897},
+  eprinttype = {arxiv},
+  note = {Preprint, arXiv:2604.25897}
+}</code></pre>
+      </div></section>
+    </main>
+  </div><div id="footer-placeholder"></div></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>window.SITE_ROOT="../";</script>
+  <script src="../scripts.js?v=20260913-interests"></script>
+</body>
+</html>
