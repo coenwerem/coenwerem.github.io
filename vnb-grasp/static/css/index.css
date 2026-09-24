@@ -1,0 +1,22 @@
+/* The shared site and GDF styles own the VNB page's presentation.
+   These rules only preserve accessible controls and contained table scrolling. */
+/* Keep the reference button geometry with a 44px pointer target. */
+.vnb-page .gdf-btn { position: relative; }
+.vnb-page .gdf-btn::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: max(100%, 44px); transform: translateY(-50%); }
+.vnb-page main a,
+.vnb-page .navbar-toggler,
+.vnb-page .theme-toggle,
+.vnb-page .social-icon { min-height: 44px; min-width: 44px; }
+.vnb-page .social-icon { display: inline-flex; align-items: center; justify-content: center; }
+.vnb-page .gdf-table th { white-space: nowrap; }
+.vnb-page .table-container:focus-visible { outline: 2px solid var(--theme-primary); outline-offset: 2px; }
+
+@media (max-width: 768px) {
+  .vnb-page .gdf-btn { min-height: 44px; min-width: 44px; }
+  .vnb-page .gdf-authors { overflow-wrap: break-word; }
+  .vnb-page .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .vnb-page .social-icon { margin: 0; }
+}
+@media (max-width: 420px) {
+  .vnb-page #BibTeX pre { max-width: 100%; }
+}
