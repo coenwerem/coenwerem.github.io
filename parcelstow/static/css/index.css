@@ -1,0 +1,41 @@
+/* ParcelStow uses the site's shared project-page typography and themes. */
+.parcelstow-page .gdf-btn { min-height: 44px; min-width: 44px; }
+.parcelstow-page .gdf-prose p { text-align: left; }
+.parcelstow-page .gdf-authors { overflow-wrap: break-word; }
+.parcelstow-page .ps-intro { padding-top: 1rem; }
+.parcelstow-page .ps-demo { margin: 1.75rem 0 0; }
+.parcelstow-page .ps-demo video { max-width: 100%; height: auto; background: #171a1d; }
+.parcelstow-page .ps-demo figcaption { margin-top: .85rem; line-height: 1.5; color: var(--text-secondary); }
+.parcelstow-page .ps-media-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.parcelstow-page .ps-media-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.parcelstow-page .ps-results-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; }
+.parcelstow-page .ps-results { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.parcelstow-page .ps-results th,
+.parcelstow-page .ps-results td { padding: .75rem .6rem; border-bottom: 1px solid var(--border-color); text-align: center; vertical-align: middle; color: var(--text-color); }
+.parcelstow-page .ps-results thead th { white-space: nowrap; }
+.parcelstow-page .ps-results tbody th { text-align: left; }
+.parcelstow-page .ps-expert { background-color: rgba(70, 170, 130, .13); }
+.parcelstow-page .ps-act { background-color: rgba(218, 117, 102, .14); }
+.parcelstow-page pre { max-width: 100%; overflow-x: auto; padding: 1rem; background: var(--bg-secondary); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 6px; }
+.parcelstow-page pre code { white-space: pre; overflow-wrap: normal; word-break: normal; color: inherit; }
+.parcelstow-page .ps-resource-links { margin-top: 1.25rem; }
+.parcelstow-page .ps-support { margin-top: 2rem; text-align: center; }
+.parcelstow-page .ps-support p { font-weight: 600; margin-bottom: .75rem; }
+.parcelstow-page a:focus-visible,
+.parcelstow-page .ps-results-wrap:focus-visible { outline: 2px solid var(--theme-primary); outline-offset: 3px; }
+
+@media (max-width: 768px) {
+  .parcelstow-page .ps-title-break { display: none; }
+  .parcelstow-page .gdf-subtitle { font-size: clamp(1.05rem, 3.4vw, 1.35rem); }
+  .parcelstow-page .ps-results th,
+  .parcelstow-page .ps-results td { padding: .55rem .45rem; font-size: .88rem; }
+  .parcelstow-page pre { font-size: .78rem; -webkit-overflow-scrolling: touch; }
+  .parcelstow-page .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .parcelstow-page .social-icon { display: inline-flex; align-items: center; justify-content: center; margin: 0; min-height: 44px; min-width: 44px; }
+}
+
+@media (max-width: 420px) {
+  .parcelstow-page .ps-results th,
+  .parcelstow-page .ps-results td { font-size: .8rem; padding: .5rem .4rem; }
+  .parcelstow-page .ps-demo figcaption { font-size: .9rem; }
+}
