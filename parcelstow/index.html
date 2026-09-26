@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParcelStow | Robustness Preservation in Imitation Learning</title>
+  <meta name="description" content="Does imitation learning preserve expert robustness under execution-timing variation? Explore the ParcelStow benchmark, expert–ACT comparisons, demonstrations, checkpoints, and reproducible evaluation records.">
+  <link rel="canonical" href="https://clintonenwerem.com/parcelstow/">
+  <meta property="og:title" content="ParcelStow: Does Imitation Learning Preserve Robustness?">
+  <meta property="og:description" content="Expert–learner performance under execution-timing variation. Three simulated manipulation tasks, reproducible comparisons, and open code, data, and checkpoints.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clintonenwerem.com/parcelstow/">
+  <meta property="og:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_poster.jpg">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="810">
+  <meta property="og:image:alt" content="Expert and ACT executions of parcel insertion, upright placement, and keyed peg insertion">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ParcelStow: Does Imitation Learning Preserve Robustness?">
+  <meta name="twitter:description" content="Expert–learner performance under execution-timing variation, with open code, demonstrations, checkpoints, and evaluation records.">
+  <meta name="twitter:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_poster.jpg">
+  <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
+  <style>
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #22272e; }
+  </style>
+  <script>(function(){var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark-mode":"light-mode");document.documentElement.classList.add(t);})();</script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../stylesheet.css?v=20260913-controls">
+  <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260926a">
+</head>
+<body class="parcelstow-page">
+  <a class="sr-only sr-only-focusable" href="#main">Skip to Content</a>
+  <div id="navbar-placeholder"></div>
+  <div class="page-container"><div class="content-wrap">
+    <header class="gdf-hero">
+      <h1 class="gdf-title">ParcelStow</h1>
+      <h2 class="gdf-subtitle">Does Imitation Learning Preserve Robustness<br class="ps-title-break"> Under Execution-Timing Variation?</h2>
+      <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span>, <span class="text-nowrap">John S. Baras</span>, and <span class="text-nowrap">Calin Belta</span></p>
+      <p class="gdf-affil">University of Maryland, College Park</p>
+      <div class="gdf-btns">
+        <a class="gdf-btn" href="https://arxiv.org/abs/2609.01453"><i class="ai ai-arxiv" aria-hidden="true"></i><span>Paper</span></a>
+        <a class="gdf-btn" href="https://github.com/coenwerem/parcelstow"><i class="fab fa-github" aria-hidden="true"></i><span>Code</span></a>
+        <a class="gdf-btn" href="https://huggingface.co/datasets/cenwerem/parcelstow"><i class="fas fa-database" aria-hidden="true"></i><span>Data &amp; Checkpoints</span></a>
+        <a class="gdf-btn" href="#results"><i class="fas fa-chart-line" aria-hidden="true"></i><span>Results</span></a>
+      </div>
+    </header>
+    <main id="main">
+      <section class="gdf-section ps-intro" aria-label="Research Overview"><div class="gdf-wrap">
+        <div class="gdf-prose">
+          <p>Matching expert task success at one operating condition does not establish robustness preservation as task conditions vary. ParcelStow evaluates the expert–learner performance difference across a controlled variation in execution timing. The difference can widen, narrow, or reverse sign.</p>
+          <p>A scalar speedup factor <var>r</var> divides selected phase durations: at <var>r</var> = 2, those phases take half as long. Acquisition and settling durations are fixed. We evaluate expert and learner policies across the same speedup factors on three simulated manipulation tasks.</p>
+        </div>
+        <figure class="gdf-overview ps-demo">
+          <video controls muted loop playsinline preload="metadata" poster="../videos/robot_learning_g1_comparison_poster.jpg" aria-label="Expert above ACT on three ParcelStow tasks at speedup factor 2, played at twice real-time speed">
+            <source src="../videos/robot_learning_g1_comparison.mp4" type="video/mp4">
+            <a href="../videos/robot_learning_g1_comparison.mp4">Open the MP4 comparison.</a>
+          </video>
+          <figcaption><strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2, played at 2× speed. Labels identify each recorded outcome. These clips depict individual trials; the table below reports evaluation-bank success counts.</figcaption>
+        </figure>
+        <div class="ps-media-links" aria-label="Demo Files">
+          <a href="../videos/robot_learning_g1_comparison.mp4">MP4 · 1.4 MB</a>
+          <a href="../videos/robot_learning_g1_comparison.gif">GIF · 11.5 MB</a>
+        </div>
+      </div></section>
+
+      <section class="gdf-section gdf-section--alt" id="results"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Expert–ACT Comparisons</h2>
+        <div class="gdf-prose"><p>In the recorded evaluations, ACT matches or exceeds expert nominal task success on all three tasks. At the higher speedup factors shown below, the expert succeeds more often. For parcel insertion, this difference appears within the demonstrated speed range; for upright placement and keyed peg insertion, it appears beyond that range.</p></div>
+        <div class="table-container ps-results-wrap" role="region" aria-label="Expert and ACT task success" tabindex="0">
+          <table class="ps-results" aria-describedby="results-note">
+            <thead>
+              <tr><th scope="col" rowspan="2">Task</th><th scope="colgroup" colspan="2">Nominal <var>r</var> = 1</th><th scope="col" rowspan="2">Higher <var>r</var></th><th scope="colgroup" colspan="2">Success at Higher <var>r</var></th></tr>
+              <tr><th scope="col">Expert</th><th scope="col">ACT</th><th scope="col">Expert</th><th scope="col">ACT</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Parcel Insertion</th><td>100/100</td><td>100/100</td><td>2</td><td class="ps-expert"><strong>84/100</strong></td><td class="ps-act"><strong>53/100</strong></td></tr>
+              <tr><th scope="row">Upright Placement</th><td>185/200</td><td>194/200</td><td>2</td><td class="ps-expert"><strong>105/200</strong></td><td class="ps-act"><strong>24/200</strong></td></tr>
+              <tr><th scope="row">Keyed Peg Insertion</th><td>182/200</td><td>191/200</td><td>1.5</td><td class="ps-expert"><strong>150/200</strong></td><td class="ps-act"><strong>3/200</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gdf-prose" id="results-note">
+          <p>Expert-minus-ACT differences at the highlighted factors are 31, 40.5, and 73.5 percentage points, with pointwise 95% paired bootstrap intervals [18, 44], [32, 49], and [67.5, 79.5]. Each task reports one trained ACT policy; training replications are reported individually in the records.</p>
+          <p>These evaluations use fixed state-based policies in Isaac Lab simulation. The release also contains Diffusion Policy and DAgger results, together with their pairing status and comparison limits. <a href="https://github.com/coenwerem/parcelstow/tree/main/data/manuscript_20260921">Explore the evaluation records.</a></p>
+        </div>
+      </div></section>
+
+      <section class="gdf-section" id="resources"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Use the Benchmark</h2>
+        <div class="gdf-prose">
+          <p>The benchmark includes 937 successful expert demonstrations and 970,565 control steps across the three tasks. Learned policies use 147-dimensional state observations and share a 16-dimensional joint-position action interface with the scripted experts at 50 Hz.</p>
+          <p>The frozen evaluation bundle contains 136 conditions from 20 source series and 23,200 episodes. Reproduce success counts and paired intervals on a CPU without running the simulator:</p>
+        </div>
+        <pre><code>git clone https://github.com/coenwerem/parcelstow.git
+cd parcelstow
+python3 -m pip install numpy
+python3 scripts/reproduce_manuscript.py --bootstrap \
+  --output-dir outputs/reproduce/canonical</code></pre>
+        <div class="gdf-btns ps-resource-links">
+          <a class="gdf-btn" href="https://github.com/coenwerem/parcelstow/blob/main/docs/RUNBOOK.md">Reproduction Runbook</a>
+          <a class="gdf-btn" href="https://github.com/coenwerem/parcelstow/blob/main/docs/POLICY_INTERFACE.md">Evaluate Your Policy</a>
+          <a class="gdf-btn" href="https://huggingface.co/datasets/cenwerem/parcelstow">Demonstrations &amp; Checkpoints</a>
+        </div>
+        <div class="ps-support">
+          <p>Using ParcelStow?</p>
+          <div class="gdf-btns">
+            <a class="gdf-btn" href="https://github.com/coenwerem/parcelstow"><span aria-hidden="true">★</span> Star on GitHub</a>
+            <a class="gdf-btn" href="https://huggingface.co/datasets/cenwerem/parcelstow"><span aria-hidden="true">♥</span> Like on Hugging Face</a>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="gdf-section gdf-section--alt" id="citation"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Citation</h2>
+        <pre><code>@misc{enwerem2026parcelstow,
+  title = {Does Imitation Learning Preserve Temporal Robustness in
+           Dexterous Manipulation? An Expert-Learner Comparison
+           Across Task Execution Speeds},
+  author = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
+  year = {2026},
+  eprint = {2609.01453},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.RO},
+  url = {https://arxiv.org/abs/2609.01453}
+}</code></pre>
+      </div></section>
+    </main>
+  </div><div id="footer-placeholder"></div></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>window.SITE_ROOT="../";</script>
+  <script src="../scripts.js?v=20260913-interests"></script>
+</body>
+</html>
