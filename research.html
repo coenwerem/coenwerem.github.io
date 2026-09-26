@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <!-- Your custom CSS -->
-  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260913-controls">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260926-research-hybrid">
 </head>
 
 <body>
@@ -72,18 +72,30 @@
                         <span class="project-section">Applications</span>
                         <p class="headhr"></p>
                         <p class="bd-text">
-                          I target problems in dexterous grasping and manipulation spanning:
+                          I target problems in dexterous grasping and manipulation spanning the following themes. Explore related demonstrations by research theme by selecting its demo stack on the left column. Selecting a video within each stack enlarges it.
                         </p>
-                        <p class="zoom-hint"><i class="fas fa-expand"></i> Click to enlarge.</p>
 
+                        <details class="research-theme" name="research-themes" id="theme-risk-aware">
+                          <summary class="research-theme-toggle">
+                            <span class="research-theme-stack" aria-hidden="true">
+                              <img class="research-theme-depth" src="videos/belief_hybrid_assembly_poster.jpg" alt="" width="320" height="180" loading="lazy">
+                              <img class="research-theme-layer" src="videos/belief_cvar_mppi_demo_poster.jpg" alt="" width="320" height="180" loading="lazy">
+                              <img class="research-theme-cover" src="images/research-robust-grasping.jpg" alt="" width="320" height="180" loading="lazy">
+                            </span>
+                            <span class="research-theme-heading">
+                              <span class="research-theme-title">Risk-Aware Dexterous Manipulation</span>
+                              <span class="research-theme-description">Grasp robustness, belief-space planning, and belief-informed hybrid control.</span>
+                              <span class="research-theme-count">3 Demos</span>
+                            </span>
+                            <span class="research-theme-chevron" aria-hidden="true"></span>
+                          </summary>
+                          <div class="research-theme-cards">
                         <!-- Application 1: Robust Dexterous Grasping -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/robust_grasp_syn/demo-montage-2x.gif');">
-                                <img src="videos/robust_grasp_syn/demo-montage-2x.gif"
-                                  alt="FIRMGrasp-certified friction-robust grasp execution across two arm-hand embodiments and four objects"
-                                  width="640" height="360" style="filter: brightness(1.1);">
+                              <div class="sw-video" style="background-image:url('images/research-robust-grasping.jpg');">
+                                <video class="zoomable" src="videos/robust_grasp_syn/demo-montage-2x.mp4" poster="images/research-robust-grasping.jpg" aria-label="FIRMGrasp-certified friction-robust grasp execution across two arm-hand embodiments and four objects" width="640" height="360" loop muted playsinline preload="none"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -100,12 +112,63 @@
                           </div>
                         </div>
 
+                        <!-- Application: Risk-Aware Manipulation -->
+                        <div class="sw-entry">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="background-image:url('videos/belief_cvar_mppi_demo_poster.jpg?v=cmu-method-application-20260918');">
+                                <video class="zoomable" src="videos/belief_cvar_mppi_demo.mp4?v=cmu-method-application-20260918" poster="videos/belief_cvar_mppi_demo_poster.jpg?v=cmu-method-application-20260918" width="1920" height="1080" loop muted playsinline preload="none" aria-label="Belief CVaR-MPPI: risk-sensitive dexterous stowing under latent uncertainty, comparing lower and higher risk aversion"></video>
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Risk-Aware Manipulation</p>
+                              <p class="sw-subtitle">Risk-sensitive belief-space control for vision-guided dexterous stowing.</p>
+                              <div class="sw-links">
+                                <a href="belief-cvar-mppi/" target="_blank"><i class="fa fa-globe"></i>
+                                  Belief CVaR-MPPI</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Application: Belief-Informed Hybrid Control -->
+                        <div class="sw-entry">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="background-image:url('videos/belief_hybrid_assembly_poster.jpg?v=20260926');">
+                                <video class="zoomable" src="videos/belief_hybrid_assembly.mp4?v=20260926" poster="videos/belief_hybrid_assembly_poster.jpg?v=20260926" width="1120" height="1000" loop muted playsinline preload="none" aria-label="Belief-informed hybrid controller rollout for bimanual part assembly in Drake; ongoing work"></video>
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Belief-Informed Hybrid Control</p>
+                              <p class="sw-subtitle">Bimanual part assembly with belief-informed hybrid control. Drake simulation · Ongoing work.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                          </div>
+                        </details>
+
+                        <details class="research-theme" name="research-themes" id="theme-grasp-execution">
+                          <summary class="research-theme-toggle">
+                            <span class="research-theme-stack" aria-hidden="true">
+                              <img class="research-theme-layer" src="videos/static_dynamic_bimanual_poster.jpg" alt="" width="320" height="180" loading="lazy">
+                              <img class="research-theme-cover" src="videos/equidexflow_home_demo_poster.jpg" alt="" width="320" height="180" loading="lazy">
+                            </span>
+                            <span class="research-theme-heading">
+                              <span class="research-theme-title">Grasp Synthesis and Safe Execution</span>
+                              <span class="research-theme-description">From contact-grounded grasp generation to reactive, safety-filtered execution.</span>
+                              <span class="research-theme-count">2 Demos</span>
+                            </span>
+                            <span class="research-theme-chevron" aria-hidden="true"></span>
+                          </summary>
+                          <div class="research-theme-cards">
                         <!-- Application 2: Reach-Aware Grasp Synthesis -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="background-image:url('videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918');">
-                                <video class="zoomable" src="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918" width="1280" height="720" autoplay loop muted playsinline aria-label="EquiDexFlow pipeline and hardware reel: grasp prediction, contact-based retargeting to the LEAP Hand, and refinement; grasp renders paired with box, cube, mustard bottle, meat can, cylinder, and tennis-ball hardware executions"></video>
+                                <video class="zoomable" src="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918" width="1280" height="720" loop muted playsinline preload="none" aria-label="EquiDexFlow pipeline and hardware reel: grasp prediction, contact-based retargeting to the LEAP Hand, and refinement; grasp renders paired with box, cube, mustard bottle, meat can, cylinder, and tennis-ball hardware executions"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -120,35 +183,12 @@
                           </div>
                         </div>
 
-                        <!-- Application 3: Policy Learning from Multimodal Data -->
-                        <!-- Application 4: Robustness-Preserving Imitation Learning -->
-                        <div class="sw-entry">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/parcelstow_home_demo_poster.jpg?v=charcoal-captions-20260918');">
-                                <video class="zoomable" src="videos/parcelstow_home_demo.mp4?v=charcoal-captions-20260918" poster="videos/parcelstow_home_demo_poster.jpg?v=charcoal-captions-20260918" width="1440" height="810" autoplay loop muted playsinline aria-label="ParcelStow: parcel insertion, upright placement, and keyed peg insertion. Each column compares a scripted expert above an ACT policy at temporal scaling r equals 2, shown at twice real-time playback. These are individual trial outcomes."></video>
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Robustness-Preserving Policy Learning for Dexterous Manipulation</p>
-                              <p class="sw-subtitle">Imitation and generative policy learning for robustness-preserving contact-rich dexterous manipulation.</p>
-                              <div class="sw-links">
-                                <a href="https://arxiv.org/abs/2609.01453" target="_blank"><i class="ai ai-arxiv"></i>
-                                  Temporal Robustness Study</a>
-                                <a href="https://github.com/coenwerem/parcelstow/" target="_blank"><i class="fab fa-github"></i>
-                                  ParcelStow</a>
-                                <a href="parcelstow/"><i class="fas fa-globe" aria-hidden="true"></i> Project Page</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
                         <!-- Application 5: Safe, Performant, and Autonomous Poly-Articulated Dexterous Grasping & Manipulation -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="background-image:url('videos/static_dynamic_bimanual_poster.jpg?v=quality-note-transparent-20260918');">
-                                <video class="zoomable" src="videos/static_dynamic_bimanual.mp4?v=quality-note-transparent-20260918" poster="videos/static_dynamic_bimanual_poster.jpg?v=quality-note-transparent-20260918" width="2160" height="720" autoplay loop muted playsinline aria-label="Safe dexterous grasp execution: feedback grasp selection, dynamic obstacle avoidance, collision-constrained poly-articulated grasping, reactive bimanual grasp execution, and grasp quality preservation using a wrench-quality CBF after hold onset"></video>
+                                <video class="zoomable" src="videos/static_dynamic_bimanual.mp4?v=quality-note-transparent-20260918" poster="videos/static_dynamic_bimanual_poster.jpg?v=quality-note-transparent-20260918" width="2160" height="720" loop muted playsinline preload="none" aria-label="Safe dexterous grasp execution: feedback grasp selection, dynamic obstacle avoidance, collision-constrained poly-articulated grasping, reactive bimanual grasp execution, and grasp quality preservation using a wrench-quality CBF after hold onset"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -162,31 +202,50 @@
                           </div>
                         </div>
 
-                        <!-- Application: Risk-Aware Manipulation -->
+                          </div>
+                        </details>
+
+                        <details class="research-theme" name="research-themes" id="theme-robot-learning">
+                          <summary class="research-theme-toggle">
+                            <span class="research-theme-stack" aria-hidden="true">
+                              <img class="research-theme-layer" src="videos/safe_teleoperation_poster.jpg" alt="" width="320" height="180" loading="lazy">
+                              <img class="research-theme-cover" src="videos/robot_learning_home_demo_poster.jpg?v=g1-comparison-20260926" alt="" width="320" height="180" loading="lazy">
+                            </span>
+                            <span class="research-theme-heading">
+                              <span class="research-theme-title">Robot Learning and Teleoperation</span>
+                              <span class="research-theme-description">Demonstration collection and robustness evaluation of learned manipulation policies.</span>
+                              <span class="research-theme-count">2 Demos</span>
+                            </span>
+                            <span class="research-theme-chevron" aria-hidden="true"></span>
+                          </summary>
+                          <div class="research-theme-cards">
+                        <!-- Application 4: Robustness-Preserving Imitation Learning -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/belief_cvar_mppi_demo_poster.jpg?v=cmu-method-application-20260918');">
-                                <video class="zoomable" src="videos/belief_cvar_mppi_demo.mp4?v=cmu-method-application-20260918" poster="videos/belief_cvar_mppi_demo_poster.jpg?v=cmu-method-application-20260918" width="1920" height="1080" autoplay loop muted playsinline aria-label="Belief CVaR-MPPI: risk-sensitive dexterous stowing under latent uncertainty, comparing lower and higher risk aversion"></video>
+                              <div class="sw-video" style="background-image:url('videos/robot_learning_home_demo_poster.jpg?v=g1-comparison-20260926');">
+                                <video class="zoomable" src="videos/robot_learning_home_demo.mp4?v=g1-comparison-20260926" poster="videos/robot_learning_home_demo_poster.jpg?v=g1-comparison-20260926" width="1280" height="720" loop muted playsinline preload="none" aria-label="Robot Learning: G1–L6 expert–ACT comparisons for parcel insertion, upright placement, and keyed peg insertion at speedup factor r equals 2 and twice real-time playback, followed by a transition card and an A7–L6 parcel insertion comparison at nominal task rate and real-time playback. In the matched A7 trial, the expert completes the task and ACT misses the final-orientation criterion. Individual trial outcomes; A7 work is ongoing."></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Risk-Aware Manipulation</p>
-                              <p class="sw-subtitle">Risk-sensitive belief-space control for vision-guided dexterous stowing.</p>
+                              <p class="sw-title">Robustness-Preserving Policy Learning for Dexterous Manipulation</p>
+                              <p class="sw-subtitle">Imitation and generative policy learning for robustness-preserving contact-rich dexterous manipulation.</p>
                               <div class="sw-links">
-                                <a href="belief-cvar-mppi/" target="_blank"><i class="fa fa-globe"></i>
-                                  Belief CVaR-MPPI</a>
+                                <a href="https://arxiv.org/abs/2609.01453" target="_blank"><i class="ai ai-arxiv"></i>
+                                  Temporal Robustness Study</a>
+                                <a href="parcelstow/"><i class="fas fa-globe" aria-hidden="true"></i>
+                                  ParcelStow</a>
                               </div>
                             </div>
                           </div>
                         </div>
 
                         <!-- Application 6: Safe Dexterous Data Collection -->
-                        <div class="sw-entry" style="border-bottom:none;padding-bottom:0;margin-bottom:2rem;">
+                        <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="background-image:url('videos/safe_teleoperation_poster.jpg?v=xarm-bimanual-cmu-translucent-20260917');">
-                                <video class="zoomable" src="videos/safe_teleoperation.mp4?v=xarm-bimanual-cmu-translucent-20260917" poster="videos/safe_teleoperation_poster.jpg?v=xarm-bimanual-cmu-translucent-20260917" width="1116" height="528" autoplay loop muted playsinline aria-label="Safe Teleoperation: Single-Arm xArm manipulation with workspace boundaries and Bimanual A7–L6 space-constrained object retrieval with collision awareness at 2.5 times speed"></video>
+                                <video class="zoomable" src="videos/safe_teleoperation.mp4?v=xarm-bimanual-cmu-translucent-20260917" poster="videos/safe_teleoperation_poster.jpg?v=xarm-bimanual-cmu-translucent-20260917" width="1116" height="528" loop muted playsinline preload="none" aria-label="Safe Teleoperation: Single-Arm xArm manipulation with workspace boundaries and Bimanual A7–L6 space-constrained object retrieval with collision awareness at 2.5 times speed"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -199,6 +258,10 @@
                             </div>
                           </div>
                         </div>
+
+                        <!-- Application 3: Policy Learning from Multimodal Data -->
+                          </div>
+                        </details>
 
                         <span class="sub-heading">Publications</span>
                         <p class="headhr"></p>
@@ -218,9 +281,8 @@
                               data-target="#bib-arXiV-parcelstow-2026" aria-expanded="false" aria-controls="bib-arXiV-parcelstow-2026">
                               bibtex
                             </button>
-                            <a href="https://arxiv.org/abs/2609.01453" target="_blank" class="btn btn-link">arXiv</a>
+                            <a href="https://arxiv.org/abs/2609.01453" target="_blank" class="btn btn-link">paper</a>
                             <a href="data/papers/2609.01453.pdf" target="_blank" class="btn btn-link">pdf</a>
-                            <a href="https://github.com/coenwerem/parcelstow" target="_blank" class="btn btn-link">code</a>
                             <a href="parcelstow/" class="btn btn-link">project page</a>
                             <div class="collapse" id="bib-arXiV-parcelstow-2026">
                               <div class="card card-body">
@@ -252,7 +314,7 @@ keywords = {Computer Science - Robotics},
                               data-target="#bib-arXiV-gdf-2026" aria-expanded="false" aria-controls="bib-arXiV-gdf-2026">
                               bibtex
                             </button>
-                            <a href="https://arxiv.org/abs/2608.00600" target="_blank" class="btn btn-link">arXiv</a>
+                            <a href="https://arxiv.org/abs/2608.00600" target="_blank" class="btn btn-link">paper</a>
                             <a href="data/papers/2608.00600.pdf" target="_blank" class="btn btn-link">pdf</a>
                             <a href="gdf/" class="btn btn-link" target="_blank">project page</a>
                             <div class="collapse" id="bib-arXiV-gdf-2026">
@@ -285,7 +347,7 @@ keywords = {Computer Science - Robotics, Electrical Engineering and Systems Scie
                               data-target="#bib-arXiV-firm-2026" aria-expanded="false" aria-controls="bib-arXiV-firm-2026">
                               bibtex
                             </button>
-                            <a href="https://arxiv.org/abs/2607.25049" target="_blank" class="btn btn-link">arXiv</a>
+                            <a href="https://arxiv.org/abs/2607.25049" target="_blank" class="btn btn-link">paper</a>
                             <a href="data/papers/2607.25049.pdf" target="_blank" class="btn btn-link">pdf</a>
                             <div class="collapse" id="bib-arXiV-firm-2026">
                               <div class="card card-body">
@@ -317,9 +379,8 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
                               data-target="#bib-arXiV-equidexflow-2026" aria-expanded="false" aria-controls="bib-arXiV-equidexflow-2026">
                               bibtex
                             </button>
-                            <a href="http://arxiv.org/pdf/2606.12728" class="btn btn-link">arXiv</a>
+                            <a href="http://arxiv.org/pdf/2606.12728" class="btn btn-link">paper</a>
                             <a href="data/papers/2606.12728.pdf" target="_blank" class="btn btn-link">pdf</a>
-                            <a href="https://github.com/coenwerem/equidexflow" target="_blank" class="btn btn-link">code</a>
                             <a href="http://equidexflow.github.io" target="_blank" class="btn btn-link">project page</a>
                             <div class="collapse" id="bib-arXiV-equidexflow-2026">
                               <div class="card card-body">
@@ -358,9 +419,9 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
                               data-target="#bib-enweremriskconstrainedbeliefspaceoptimization2026a" aria-expanded="false" aria-controls="bib-enweremriskconstrainedbeliefspaceoptimization2026a">
                               bibtex
                             </button>
-                            <a href="belief-cvar-mppi/" target="_blank" class="btn btn-link">project page</a>
                             <a href="https://arxiv.org/pdf/2604.03868" target="_blank" class="btn btn-link">paper</a>
                             <a href="data/papers/2604.03868.pdf" target="_blank" class="btn btn-link">pdf</a>
+                            <a href="belief-cvar-mppi/" target="_blank" class="btn btn-link">project page</a>
                             <div class="collapse" id="bib-enweremriskconstrainedbeliefspaceoptimization2026a">
                               <div class="card card-body">
                                 <pre><code>@misc{enweremRiskConstrainedBeliefSpaceOptimization2026a,
@@ -393,7 +454,7 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
                             </button>
                             <a href="https://arxiv.org/pdf/2604.25897" target="_blank" class="btn btn-link">paper</a>
                             <a href="data/papers/2604.25897.pdf" target="_blank" class="btn btn-link">pdf</a>
-                            <a href="https://github.com/coenwerem/vnb-grasp" target="_blank" class="btn btn-link">code</a>
+                            <a href="vnb-grasp/" target="_blank" class="btn btn-link">project page</a>
                             <div class="collapse" id="bib-enweremvariationalneuralparameterizations2026a">
                               <div class="card card-body">
                                 <pre><code>@misc{enweremVariationalNeuralParameterizations2026a,
@@ -526,6 +587,7 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
                               data-target="#bib-enweremformationtrackingdistributedkalmanfiltering2023" aria-expanded="false" aria-controls="bib-enweremformationtrackingdistributedkalmanfiltering2023">
                               bibtex
                             </button>
+                            <a href="https://ieeexplore.ieee.org/document/10433084" target="_blank" class="btn btn-link">paper</a>
                             <a href="data/papers/enweremFormationTrackingDistributedKalmanFiltering2023.pdf" target="_blank" class="btn btn-link">pdf</a>
                             <div class="collapse" id="bib-enweremformationtrackingdistributedkalmanfiltering2023">
                               <div class="card card-body">
@@ -603,6 +665,7 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
   
     <!-- Your custom JavaScript -->
     <script src="scripts.js?v=20260913-interests"></script>
+    <script src="research-themes.js?v=20260926" defer></script>
 
 </body>
 
