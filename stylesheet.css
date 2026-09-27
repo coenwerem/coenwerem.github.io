@@ -2756,17 +2756,26 @@ font-size: 12px;
 .research-theme-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: 1.5rem;
+  gap: .4rem 1.5rem;
   padding: 1rem 4px .5rem;
 }
 .research-theme[open] .research-theme-cards { animation: research-theme-reveal 180ms ease-out; }
-.research-theme-cards .sw-entry { border: 0; padding: 0; margin: 0; min-width: 0; }
-.research-theme-cards .row { display: block; margin: 0; }
-.research-theme-cards .row > div { width: 100%; max-width: 100%; padding: 0; }
-.research-theme-cards .sw-details { margin-top: .85rem; }
-.research-theme-cards .sw-title { line-height: 1.3; margin-bottom: .4rem; }
-.research-theme-cards .sw-subtitle { text-align: left; line-height: 1.4; }
-.research-theme-cards .sw-links { display: flex; flex-wrap: wrap; gap: 0 1rem; }
+.research-theme-cards .sw-entry {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  border: 0;
+  padding: 0;
+  margin: 0 0 1rem;
+  min-width: 0;
+}
+/* Shared media/title/description/link tracks align cards even when text wraps. */
+.research-theme-cards .row,
+.research-theme-cards .row > div { display: contents; }
+.research-theme-cards .sw-video { grid-row: 1; }
+.research-theme-cards .sw-title { grid-row: 2; line-height: 1.3; margin: .45rem 0 0; }
+.research-theme-cards .sw-subtitle { grid-row: 3; text-align: left; line-height: 1.4; margin: 0; }
+.research-theme-cards .sw-links { grid-row: 4; display: flex; flex-wrap: wrap; align-content: start; gap: 0 1rem; }
 .research-theme-cards .sw-links a { display: inline-flex; gap: .35em; align-items: center; min-height: 44px; margin: 0; }
 @keyframes research-theme-reveal {
   from { opacity: 0; transform: translateY(-6px); }
@@ -2774,7 +2783,7 @@ font-size: 12px;
 }
 @media (max-width: 768px) {
   .research-theme-toggle { grid-template-columns: 130px minmax(0, 1fr) 16px; gap: 1rem; }
-  .research-theme-cards { gap: 1rem; }
+  .research-theme-cards { column-gap: 1rem; }
 }
 @media (max-width: 420px) {
   .research-theme-toggle { grid-template-columns: 84px minmax(0, 1fr) 12px; gap: .7rem; }
