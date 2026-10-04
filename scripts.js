@@ -239,19 +239,27 @@ document.addEventListener('DOMContentLoaded', function () {
   overlay.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><div class="lightbox-content"></div>';
   document.body.appendChild(overlay);
   var content = overlay.querySelector('.lightbox-content');
+  var trigger = null;
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Demo preview');
 
   function closeLightbox() {
+    if (!overlay.classList.contains('is-open')) return;
     overlay.classList.remove('is-open');
     content.innerHTML = '';
+    if (trigger) trigger.focus({ preventScroll: true });
+    trigger = null;
   }
 
-  var media = document.querySelectorAll('.hw-vid, .zoomable, .sw-video img, .embed-responsive-item');
+  var media = document.querySelectorAll('.hw-vid, .zoomable, .sw-video img, .embed-responsive-item, a[data-video-lightbox]');
   media.forEach(function (el) {
-    el.style.cursor = 'zoom-in';
+    var isVideoLink = el.matches('a[data-video-lightbox]');
+    if (!isVideoLink) el.style.cursor = 'zoom-in';
 
     // Per-clip cue: a small expand badge in the corner so users see it's expandable.
     var container = el.parentElement;
-    if (container && !container.querySelector('.zoom-cue')) {
+    if (!isVideoLink && container && !container.querySelector('.zoom-cue')) {
       if (getComputedStyle(container).position === 'static') {
         container.style.position = 'relative';
       }
@@ -262,11 +270,15 @@ document.addEventListener('DOMContentLoaded', function () {
       container.appendChild(cue);
     }
 
-    el.addEventListener('click', function () {
+    el.addEventListener('click', function (event) {
+      if (isVideoLink && (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)) return;
+      event.preventDefault();
+      trigger = el;
       var node;
-      if (el.tagName.toLowerCase() === 'video') {
+      if (isVideoLink || el.tagName.toLowerCase() === 'video') {
         var source = el.querySelector('source');
-        var src = (source && source.getAttribute('src')) || el.getAttribute('src');
+        var src = isVideoLink ? el.getAttribute('href') :
+          (source && source.getAttribute('src')) || el.getAttribute('src');
         node = document.createElement('video');
         node.autoplay = true;
         node.loop = true;
@@ -284,7 +296,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       content.innerHTML = '';
       content.appendChild(node);
+      overlay.setAttribute('aria-label', el.getAttribute('aria-label') || 'Demo preview');
       overlay.classList.add('is-open');
+      overlay.querySelector('.lightbox-close').focus();
     });
   });
 
