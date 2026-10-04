@@ -3188,3 +3188,18 @@ body:has(.robot-demo-dialog[open]) { overflow: hidden; }
   .cv-web-page .cv-content :is(.cv-entry, .cv-entry-season, .cv-role) { min-width: 0; width: 100%; padding-left: 0; margin-left: 0; }
   .cv-web-page .cv-content li { margin-bottom: 0.75rem; }
 }
+
+/* Click feedback for publication resources that have not been released. */
+.coming-soon-bubble {
+  position: fixed;
+  z-index: 2100;
+  padding: .45rem .75rem;
+  color: var(--text-color);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  box-shadow: 0 3px 12px #0002;
+  font: 1rem/1.4 "CMU Sans Serif", sans-serif;
+  pointer-events: none;
+}
+[data-coming-soon]:focus-visible { outline: 2px solid var(--theme-primary); outline-offset: 3px; }
