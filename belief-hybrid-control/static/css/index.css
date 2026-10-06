@@ -32,11 +32,20 @@
 .planar-explanation { font-size: 1rem; line-height: 1.6; color: var(--text-color); margin: 0 0 1rem; }
 .planar-key { margin: 0; }
 .planar-scenario img { width: 100%; height: auto; background: #fff; }
-.planar-grid { background: #fff; padding: 16px; color: #161616; }
+.planar-grid { background: #fff; padding: 8px; color: #161616; }
 .planar-grid a { display: block; }
-.planar-legend { width: 70%; margin: 0 auto; background: #fff; }
+.planar-legend { width: 100%; margin: 0 auto; background: #fff; }
 .comparison-panel .scene-image, .comparison-panel .detail-image { border: 1px solid #555; }
-.comparison-panel .detail-image { margin-top: 6px; }
+.comparison-panel .detail-image { margin-top: 0; }
+.planar-action-comparison { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(220px, 1fr); align-items: center; gap: 1.25rem; }
+.planar-maps { min-width: 0; }
+.hybrid-project .planar-action-comparison figcaption { margin: 0; }
+.assembly-views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.assembly-view { min-width: 0; }
+.assembly-view > span { display: block; text-align: center; font-size: .82rem; color: var(--text-secondary); margin-bottom: .3rem; }
+.assembly-view a { display: flex; align-items: center; min-height: 0; aspect-ratio: 1 / 1; }
+.assembly-view img { width: 100%; height: auto; }
+.hybrid-project .assembly-comparison .comparison-grid { gap: 24px; }
 .ours-label { color: #0d47a1; }
 .baseline-label { color: #bf360c; }
 .dark-mode .ours-label { color: #85b5ff; }
@@ -67,6 +76,10 @@
   .comparison-grid h3 { font-size: 1rem; }
   .planar-scenario a { max-width: 320px; }
   .hybrid-project .planar-scenario { gap: 1rem; }
+  .planar-action-comparison { grid-template-columns: 1fr; gap: .7rem; }
+  .assembly-views { grid-template-columns: 1fr; gap: 8px; }
+  .assembly-view a { display: block; aspect-ratio: auto; }
+  .hybrid-project .assembly-comparison .comparison-grid { gap: 8px; }
   .planar-grid { padding: 8px; }
   .planar-legend { width: 100%; }
   .result-number { font-size: 1.15rem; }
