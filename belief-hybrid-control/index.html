@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=20260913-controls">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
-  <link rel="stylesheet" href="./static/css/index.css?v=compact-planar-20261005">
+  <link rel="stylesheet" href="./static/css/index.css?v=compact-comparisons-20261005">
 </head>
 <body class="hybrid-project">
   <div id="navbar-placeholder"></div>
@@ -28,7 +28,7 @@
       <p class="gdf-authors"><a href="../">Clinton Enwerem</a>, <span>Saleh Kemal</span>, <span>John S. Baras</span>, and <span>Calin Belta</span></p>
       <p class="gdf-affil">Institute for Systems Research, University of Maryland, College Park</p>
       <nav class="gdf-btns" aria-label="Project resources">
-        <a class="gdf-btn" href="./static/belief-hybrid-control.pdf?v=planar-20261005"><i class="fas fa-file-pdf" aria-hidden="true"></i> Paper</a>
+        <a class="gdf-btn" href="./static/belief-hybrid-control-221f60721d86.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> Paper</a>
         <a class="gdf-btn" href="#demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</a>
         <a class="gdf-btn" href="#method">Method</a>
         <a class="gdf-btn" href="#results">Results</a>
@@ -81,12 +81,14 @@
               <p class="planar-key"><strong>Planar Control with an Unknown Input Sign.</strong> The axes are the state coordinates <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>; the star marks the target at the origin and the black dot marks the initial state. Blue solid and green dashed curves show two-step selection for control-direction signs θ = +1 and θ = −1, respectively. The first test interval reveals the sign through a change in radius, after which the selected feedback contracts both trajectories toward the target. The dotted circle shows the constant-radius motion produced by the rotational drift with zero input.</p>
             </figcaption>
           </figure>
-          <figure>
+          <figure class="planar-action-comparison">
+            <div class="planar-maps">
             <div class="comparison-grid planar-grid">
               <div><h3>One-Step Selection</h3><a href="./static/images/planar-one-step.png" aria-label="Enlarge the one-step action-selection map"><img src="./static/images/planar-one-step.png" alt="First action selected over prior probability and normalized cumulative slack bound using one-step selection" loading="lazy"></a></div>
               <div><h3>Two-Step Selection</h3><a href="./static/images/planar-two-step.png" aria-label="Enlarge the two-step action-selection map"><img src="./static/images/planar-two-step.png" alt="First action selected over the same grid using posterior-conditioned two-step selection" loading="lazy"></a></div>
             </div>
             <img class="planar-legend" src="./static/images/planar-legend.png" alt="Legend for hold, test, negative and positive feedback gains, empty admissible set, and no feasible second decision" loading="lazy">
+            </div>
             <figcaption><strong>Information Changes the First Action.</strong> The maps use the same plant, feedback gains, initial state, and expected-decrease constraint. Across 399 initial prior–slack pairs, the selectors differ at 55 points. At 40, two-step selection replaces hold with the test input. At the remaining 15, it identifies that no admissible first action has a feasible second decision. Stars mark the nominal case: prior probability 0.5 and normalized cumulative slack bound 0.12.</figcaption>
           </figure>
         </div>
@@ -101,10 +103,10 @@
           </div>
           <figure class="assembly-comparison">
             <div class="comparison-grid">
-              <div class="comparison-panel"><h3 class="ours-label">Belief-Informed</h3><img class="scene-image" src="./static/images/ours-overview.png" alt="Reverse oblique view of the assembled part with the hands withdrawn under belief-informed control" loading="lazy"><img class="detail-image" src="./static/images/ours-detail.png" alt="Insertion detail under belief-informed control, closely aligned with the dashed desired-pose outline" loading="lazy"><p class="result-number">0.188 mm <span>position error</span></p></div>
-              <div class="comparison-panel"><h3 class="baseline-label">Reference Tracking</h3><img class="scene-image" src="./static/images/reference-overview.png" alt="Reverse oblique view of the reference-tracking endpoint with residual hand–housing contact" loading="lazy"><img class="detail-image" src="./static/images/reference-detail.png" alt="Reference-tracking insertion detail showing displacement from the dashed desired-pose outline" loading="lazy"><p class="result-number">5.20 mm <span>position error</span></p></div>
+              <div class="comparison-panel"><h3 class="ours-label">Belief-Informed</h3><div class="assembly-views"><div class="assembly-view"><span>Overview</span><a href="./static/images/ours-overview.png" aria-label="Enlarge the ours overview view"><img class="scene-image" src="./static/images/ours-overview.png" alt="Reverse oblique view of the assembled part with the hands withdrawn under belief-informed control" loading="lazy"></a></div><div class="assembly-view"><span>Insertion detail</span><a href="./static/images/ours-detail.png" aria-label="Enlarge the ours insertion detail view"><img class="detail-image" src="./static/images/ours-detail.png" alt="Insertion detail under belief-informed control, closely aligned with the dashed desired-pose outline" loading="lazy"></a></div></div><p class="result-number">0.188 mm <span>position error</span></p></div>
+              <div class="comparison-panel"><h3 class="baseline-label">Reference Tracking</h3><div class="assembly-views"><div class="assembly-view"><span>Overview</span><a href="./static/images/reference-overview.png" aria-label="Enlarge the reference overview view"><img class="scene-image" src="./static/images/reference-overview.png" alt="Reverse oblique view of the reference-tracking endpoint with residual hand–housing contact" loading="lazy"></a></div><div class="assembly-view"><span>Insertion detail</span><a href="./static/images/reference-detail.png" aria-label="Enlarge the reference insertion detail view"><img class="detail-image" src="./static/images/reference-detail.png" alt="Reference-tracking insertion detail showing displacement from the dashed desired-pose outline" loading="lazy"></a></div></div><p class="result-number">5.20 mm <span>position error</span></p></div>
             </div>
-            <figcaption><strong>Manuscript Endpoint Comparison.</strong> At nominal friction 0.7, both methods start from the same state. We evaluate them at our method’s completion time of 30.96 s. Its infinity-norm relative-position error is 96.4% lower than the reference-tracking baseline’s error. The lower panels use a common spatial scale; dashed outlines mark the desired part pose.</figcaption>
+            <figcaption><strong>Manuscript Endpoint Comparison.</strong> At nominal friction 0.7, both methods start from the same state. We evaluate them at our method’s completion time of 30.96 s. Its infinity-norm relative-position error is 96.4% lower than the reference-tracking baseline’s error. The insertion-detail views use a common spatial scale; dashed outlines mark the desired part pose.</figcaption>
           </figure>
           <div class="table-container" tabindex="0" role="region" aria-label="Assembly endpoint comparison table">
             <table class="results-table">
