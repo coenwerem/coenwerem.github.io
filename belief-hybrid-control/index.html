@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=20260913-controls">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
-  <link rel="stylesheet" href="./static/css/index.css?v=planar-scenario-20261005">
+  <link rel="stylesheet" href="./static/css/index.css?v=compact-planar-20261005">
 </head>
 <body class="hybrid-project">
   <div id="navbar-placeholder"></div>
@@ -74,12 +74,12 @@
         <div class="gdf-wrap">
           <p class="section-label">Numerical Example 1</p>
           <h2 class="gdf-h2" id="planar-title">Learning an Unknown Control Direction</h2>
-          <div class="gdf-prose">
-            <p>In a two-dimensional regulation problem, the unknown input sign determines which feedback gain contracts the state toward the origin. Two-step selection first applies a test input to identify this sign, then applies the corresponding contracting feedback. We verify recursive feasibility along both resulting trajectories; the state norm falls below 0.01 within 11 decisions for either sign. A one-step selector instead applies zero input and leaves no admissible action at the next decision.</p>
-          </div>
           <figure class="planar-scenario" id="planar-scenario">
             <a href="./static/images/planar-scenario.png" aria-label="Enlarge the planar control trajectories"><img src="./static/images/planar-scenario.png" alt="Planar trajectories from the initial state (1, 0) toward the origin: a test input distinguishes the two unknown control directions before contracting feedback follows" loading="lazy" width="1615" height="1534"></a>
-            <figcaption><strong>Planar Control with an Unknown Input Sign.</strong> The axes are the state coordinates <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>; the star marks the target at the origin and the black dot marks the initial state. Blue solid and green dashed curves show two-step selection for control-direction signs θ = +1 and θ = −1, respectively. The first test interval reveals the sign through a change in radius, after which the selected feedback contracts both trajectories toward the target. The dotted circle shows the constant-radius motion produced by the rotational drift with zero input.</figcaption>
+            <figcaption>
+              <p class="planar-explanation">In a two-dimensional regulation problem, the unknown input sign determines which feedback gain contracts the state toward the origin. Two-step selection first applies a test input to identify this sign, then applies the corresponding contracting feedback. We verify recursive feasibility along both resulting trajectories; the state norm falls below 0.01 within 11 decisions for either sign. A one-step selector instead applies zero input and leaves no admissible action at the next decision.</p>
+              <p class="planar-key"><strong>Planar Control with an Unknown Input Sign.</strong> The axes are the state coordinates <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>; the star marks the target at the origin and the black dot marks the initial state. Blue solid and green dashed curves show two-step selection for control-direction signs θ = +1 and θ = −1, respectively. The first test interval reveals the sign through a change in radius, after which the selected feedback contracts both trajectories toward the target. The dotted circle shows the constant-radius motion produced by the rotational drift with zero input.</p>
+            </figcaption>
           </figure>
           <figure>
             <div class="comparison-grid planar-grid">
