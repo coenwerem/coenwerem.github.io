@@ -24,6 +24,9 @@
 .comparison-grid > div { min-width: 0; }
 .comparison-grid h3 { text-align: center; font-size: 1.18rem; font-weight: 700; margin: 0 0 .7rem; }
 .comparison-grid img { width: 100%; background: #fff; }
+.hybrid-project .planar-scenario { max-width: 740px; margin: 1.8rem auto 2rem; }
+.planar-scenario a { display: block; max-width: 520px; margin: 0 auto; }
+.planar-scenario img { width: 100%; height: auto; background: #fff; }
 .planar-grid { background: #fff; padding: 16px; color: #161616; }
 .planar-grid a { display: block; }
 .planar-legend { width: 70%; margin: 0 auto; background: #fff; }
