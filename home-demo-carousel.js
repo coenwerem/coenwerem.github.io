@@ -107,6 +107,18 @@
   slides.forEach(slide => {
     const video = slide.querySelector('video');
     if (!video) return;
+    const captions = [...slide.querySelectorAll('[data-demo-caption-start]')];
+    const syncCaption = () => captions.forEach(caption => {
+      const start = Number(caption.dataset.demoCaptionStart);
+      const end = Number(caption.dataset.demoCaptionEnd ?? Infinity);
+      caption.hidden = video.currentTime < start || video.currentTime >= end;
+    });
+    if (captions.length) {
+      ['timeupdate', 'seeking', 'seeked', 'loadedmetadata'].forEach(event => {
+        video.addEventListener(event, syncCaption);
+      });
+      syncCaption();
+    }
     video.loop = false;
     video.addEventListener('ended', () => {
       if (video === activeVideo()) advanceAfterVideo();
