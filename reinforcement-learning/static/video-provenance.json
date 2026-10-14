@@ -1,0 +1,95 @@
+{
+  "title": "Matched G1 PPO Checkpoint Rollouts",
+  "date": "2026-10-14",
+  "checkpoint_selection": "Archived seed-1 gdf_full_s1 and heur_gated_s1 evaluations; final model_1999.pt checkpoints",
+  "checkpoints": [
+    {
+      "configuration": "gdf_full_s1",
+      "filename": "model_1999.pt",
+      "sha256": "e049d44d611009e5486ff49689533a23321e5b5199cb48c9ccbfcd652fb5f2f2"
+    },
+    {
+      "configuration": "heur_gated_s1",
+      "filename": "model_1999.pt",
+      "sha256": "37ceb4391af3db224782684105a3185857174ce9269c3910c05c4d3574765865"
+    }
+  ],
+  "initial_state_max_absolute_differences": {
+    "joint_pos": 0.0,
+    "joint_vel": 0.0,
+    "root_state": 0.0,
+    "cube_state": 0.0
+  },
+  "initial_state_hashes": [
+    "79269fad336906bb4213028fedc51473cce58841ec7d9162b8b888b20c98841e",
+    "79269fad336906bb4213028fedc51473cce58841ec7d9162b8b888b20c98841e"
+  ],
+  "evaluation_seed": 42,
+  "num_environments": 64,
+  "displayed_environment": 0,
+  "physics_dt_s": 0.005,
+  "control_dt_s": 0.02,
+  "recording_interval_steps": 2,
+  "playback_rate": 1,
+  "neighboring_environments": "Hidden from rendering only; all 64 environments simulated",
+  "camera_origin": "env_0",
+  "camera_eye": [
+    1.7,
+    -1.5,
+    1.45
+  ],
+  "camera_lookat": [
+    0.35,
+    0.1,
+    0.85
+  ],
+  "timeline": [
+    {
+      "start_s": 0,
+      "end_s": 4,
+      "content": "Task, simulation context and arrival criterion"
+    },
+    {
+      "start_s": 4,
+      "end_s": 14,
+      "content": "Synchronized first-episode policy execution; no reset frame"
+    },
+    {
+      "start_s": 14,
+      "end_s": 18,
+      "content": "Measured scope and page link"
+    }
+  ],
+  "recorder_sha256": "fb82aa0d10a82b144a8bf3b568a79fd88d7112a359db1079764dca69ed82bb0c",
+  "repository_commit": "62d461da7f7104df317fc60bbd915824dcc6baa6",
+  "source_files": {
+    "reward_gdf.py": "ccaf509c785a25a84f886c26a174fdad84aceacf50058f2baead273796fff10c",
+    "matrix_env_cfg.py": "143aa1c0a911c912feddd100c7891afa4bfc5ebe1e2ae16a11e8b06429713526"
+  },
+  "video": {
+    "filename": "g1-ppo-comparison.mp4",
+    "sha256": "138585a98b8bd2084216c2fdc5d42f71c439cf63f5d1b51efbbed8624d629d82",
+    "encoding": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 920,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1"
+        }
+      ],
+      "format": {
+        "duration": "18.000000",
+        "size": "1219726"
+      }
+    }
+  },
+  "safe_rl_demo": {
+    "source": "videos/safe_rl_quantile.gif",
+    "source_sha256": "9180a3c5c433a842e75e250dae4df5d02d464db6400341018d77877dea2dff3d",
+    "conversion": "H.264 encoding at 25 fps, original animation timing preserved",
+    "scope": "Existing task illustration; not a matched algorithm comparison"
+  }
+}

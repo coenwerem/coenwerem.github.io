@@ -1,0 +1,135 @@
+{
+  "study": "G1 PPO reward-configuration comparison",
+  "archived_evaluation": [
+    {
+      "label": "gdf_full_s1",
+      "task": "G1Locomanip-L6-GDFGrasp-Play-v0",
+      "episodes": 64,
+      "eps_pre": 0.25,
+      "arrival_frac": 1.0,
+      "lift_frac": 0.0,
+      "min_d_pre": {
+        "mean": 0.1560715287923813,
+        "median": 0.152592733502388,
+        "min": 0.11383859068155289,
+        "max": 0.2198016494512558
+      },
+      "episode_length": {
+        "mean": 500.0,
+        "median": 500.0,
+        "min": 500.0,
+        "max": 500.0
+      }
+    },
+    {
+      "label": "heur_gated_s1",
+      "task": "G1Locomanip-L6-HeurGated-Play-v0",
+      "episodes": 64,
+      "eps_pre": 0.25,
+      "arrival_frac": 0.0,
+      "lift_frac": 0.0,
+      "min_d_pre": {
+        "mean": 1.7521551847457886,
+        "median": 1.7807848453521729,
+        "min": 1.3805187940597534,
+        "max": 1.8860650062561035
+      },
+      "episode_length": {
+        "mean": 500.0,
+        "median": 500.0,
+        "min": 500.0,
+        "max": 500.0
+      }
+    }
+  ],
+  "recording_evaluation": {
+    "date": "2026-10-14",
+    "seed": 42,
+    "results": [
+      {
+        "label": "gdf_full_s1",
+        "task": "G1Locomanip-L6-GDFGrasp-Play-v0",
+        "episodes": 64,
+        "eps_pre": 0.25,
+        "arrival_frac": 0.984375,
+        "lift_frac": 0.0,
+        "reset_mode": "mixed",
+        "min_d_pre": {
+          "mean": 0.15706473588943481,
+          "median": 0.15622083842754364,
+          "min": 0.09364435076713562,
+          "max": 0.2585148513317108
+        },
+        "episode_length": {
+          "mean": 500.0,
+          "median": 500.0,
+          "min": 500.0,
+          "max": 500.0
+        }
+      },
+      {
+        "label": "heur_gated_s1",
+        "task": "G1Locomanip-L6-HeurGated-Play-v0",
+        "episodes": 64,
+        "eps_pre": 0.25,
+        "arrival_frac": 0.0,
+        "lift_frac": 0.0,
+        "reset_mode": "mixed",
+        "min_d_pre": {
+          "mean": 1.772385835647583,
+          "median": 1.7928729057312012,
+          "min": 1.6114590167999268,
+          "max": 1.8807766437530518
+        },
+        "episode_length": {
+          "mean": 500.0,
+          "median": 500.0,
+          "min": 500.0,
+          "max": 500.0
+        }
+      }
+    ]
+  },
+  "arrival_criterion": "minimum pregrasp field value < 0.25 during an episode",
+  "scope": "Fixed-base simulation; arrival does not establish grasping or lifting. Reward configurations differ in multiple terms.",
+  "published_safe_rl": {
+    "doi": "10.1109/CDC57313.2025.11312575",
+    "arxiv": "2506.06954v2",
+    "table": 3,
+    "episodes": 100,
+    "seeds": [
+      0,
+      5,
+      10,
+      15,
+      20
+    ],
+    "episodes_per_seed": 20,
+    "rows": [
+      {
+        "algorithm": "QR-AVI",
+        "goals": 239,
+        "violation_cost_mean": 0.05,
+        "violation_cost_sd": 0.01
+      },
+      {
+        "algorithm": "Expected-Value QR-AVI",
+        "goals": 329,
+        "violation_cost_mean": 0.06,
+        "violation_cost_sd": 0.01
+      },
+      {
+        "algorithm": "CVaR QR-AVI beta=0.90",
+        "goals": 448,
+        "violation_cost_mean": 0.05,
+        "violation_cost_sd": 0.01
+      },
+      {
+        "algorithm": "CVaR QR-AVI beta=0.95",
+        "goals": 448,
+        "violation_cost_mean": 0.05,
+        "violation_cost_sd": 0.01
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reinforcement Learning for Robotics | Clinton Enwerem</title>
+<meta name="description" content="Published risk-sensitive RL, reproduced Adroit DAPG learning, and residual-policy integration for simulated A7 bimanual assembly.">
+<link rel="canonical" href="https://clintonenwerem.com/reinforcement-learning/">
+<link rel="icon" href="../images/favicon.ico">
+<script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();</script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="../stylesheet.css?v=20261014-rl">
+<link rel="stylesheet" href="static/rl.css">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="page-container"><main class="content-wrap site-content rl-page">
+<header class="rl-hero">
+<p class="rl-eyebrow">Robot Learning · Control · Simulation</p>
+<h1>Reinforcement Learning for Robotics</h1><p class="rl-subtitle">Risk-Sensitive Learning · Demonstration-Guided Policies · Physics-Based Simulation</p>
+<p class="rl-author">Clinton Enwerem · University of Maryland, College Park</p>
+<p class="rl-intro">I develop risk-sensitive reinforcement learning algorithms and build simulation pipelines for training, integrating, and evaluating robotic policies. My work includes published distributional RL, a reproduced demonstration-guided dexterous learning baseline, and residual RL integrated with bimanual assembly control.</p>
+<nav class="rl-links rl-navigation" aria-label="Page sections"><a href="#adroit-dapg">Adroit Learning</a><a href="#a7-rlpd">A7 Assembly</a><a href="#safe-rl">Published Safe RL</a><a href="#g1-ppo">Supporting G1 Study</a></nav>
+</header>
+<section id="adroit-dapg" class="rl-study rl-featured">
+<p class="rl-eyebrow">Learning Baseline Reproduction · MuJoCo / Adroit</p>
+<h2>From Demonstrations to Learned Dexterous Relocation</h2>
+<p>I ported the authors’ Demonstration-Augmented Policy Gradient (DAPG) <a class="rl-citation" href="#ref-dapg" aria-label="Reference 1: DAPG">[1]</a> implementation to a maintained Adroit simulation environment, trained a relocation policy from 25 demonstrations, and evaluated the initial and trained policies on held-out reset seeds. Behavior cloning initialized the policy; subsequent DAPG training produced successful object relocation.</p>
+<figure class="rl-comparison"><video controls autoplay muted loop playsinline preload="metadata" poster="static/adroit-dapg-poster.jpg"><source src="static/adroit-dapg-comparison.mp4" type="video/mp4"></video><figcaption><strong>Behavior Cloning versus Trained DAPG.</strong> The blue object must be relocated to the green target. Both panels use mean actions and reset seed 20000. Playback is 0.5×; the aggregate results below use separate final evaluation seeds.</figcaption></figure>
+<div class="rl-evidence-strip"><div><strong>95 / 100</strong><span>DAPG · Mean-Action Successes</span></div><div><strong>98 / 100</strong><span>DAPG · Stochastic Successes</span></div><div><strong>0 / 100</strong><span>BC · Each Evaluation Mode</span></div></div>
+<p class="rl-note">One independent training run, 100 final evaluation episodes per mode. This is a reproduction and simulator port of an established method; DAPG is credited to Rajeswaran et al. The measured improvement is from BC initialization to the trained DAPG checkpoint.</p>
+<h3>Implementation and Evaluation</h3>
+<p>I preserved the original observation ordering, action clipping, episode horizon, and sustained-success criterion in the simulator adapter. The training and evaluation pipeline separates development seeds from final test seeds and evaluates deterministic mean actions and stochastic policy execution independently.</p>
+<details class="rl-technical"><summary>Training Configuration and Reproduction Scope</summary><div class="table-container"><table><tbody><tr><th scope="row">Demonstrations</th><td>25 author-provided demonstrations; 9,942 samples</td></tr><tr><th scope="row">Training</th><td>5 BC epochs, then 100 DAPG iterations; 4 million control steps</td></tr><tr><th scope="row">Algorithm</th><td>Authors’ BC/DAPG modules and example configuration; algorithm source unchanged</td></tr><tr><th scope="row">Runtime</th><td>Gymnasium Robotics 1.2.0; MuJoCo 2.3.7</td></tr><tr><th scope="row">Final Evaluation</th><td>Reset seeds 40000–40099; 200 steps per episode; sustained successful-step criterion</td></tr><tr><th scope="row">Scope</th><td>Modern simulator port and fresh training; not a reproduction of the original paper’s sparse-reward curves or sample-efficiency comparison</td></tr></tbody></table></div></details>
+<p class="rl-resources"><a href="#ref-dapg">Paper [1]</a> · <a href="https://github.com/aravindr93/hand_dapg">Authors’ Implementation</a> · <a href="static/manipulation-evaluation.json">Evaluation Summary</a></p>
+</section>
+<section id="a7-rlpd" class="rl-study">
+<p class="rl-eyebrow">Prior-Data RL Adaptation · Drake Simulation</p>
+<h2>Integrating Residual RL with Bimanual Assembly Control</h2>
+<p>I adapted Reinforcement Learning with Prior Data (RLPD) <a class="rl-citation" href="#ref-rlpd" aria-label="Reference 2: RLPD">[2]</a> to an A7 bimanual arm–hand system, combining recorded native-controller transitions with online residual-policy interaction. A bounded joint-reference residual acts through the existing feedback controller while the robot stabilizes a housing, acquires and transfers a part, inserts it, and withdraws its hands.</p>
+<figure class="rl-comparison"><video controls muted loop playsinline preload="metadata" poster="static/a7-rlpd-poster.jpg"><source src="static/a7-rlpd-assembly.mp4" type="video/mp4"></video><figcaption><strong>Updated RLPD Policy: Recorded Assembly Execution.</strong> Saved robot and object states from a completed evaluation are replayed at 1× speed. The native controller supplies the assembly sequence and feedback control; the learned policy supplies bounded residual joint-reference commands. The video is a simulation replay.</figcaption></figure>
+<div class="rl-evidence-strip rl-evidence-strip--pair"><div><strong>12 / 12</strong><span>Initial Policy · Completed Assemblies</span></div><div><strong>12 / 12</strong><span>Updated Policy · Completed Assemblies</span></div></div>
+<p>The updated policy retained assembly competence after learning. The initial policy, native controller, and zero-residual baseline also completed their evaluations, so the experiment does not establish improved task completion or a benefit from prior-data replay.</p>
+<h3>Control and Learning Integration</h3>
+<p>I implemented the residual-policy interface, admitted prior transitions from native-controller execution, and preserved command history and finite-task terminal semantics. The fixed training run completed 100 actor updates and 2,000 critic updates. Recorded requested and executed commands verify that the updated policy exerted nonzero residual authority.</p>
+<div class="rl-flow"><span>Native Prior + Online Transitions</span><span aria-hidden="true">→</span><span>RLPD Learner</span><span aria-hidden="true">→</span><span>Bounded Residual + Native Feedback Control</span><span aria-hidden="true">→</span><span>Assembly Simulation</span></div>
+<details class="rl-technical"><summary>Evaluation Conditions and Controller Interface</summary><div class="table-container"><table><thead><tr><th scope="col">Friction</th><th scope="col">Native</th><th scope="col">Zero Residual</th><th scope="col">Initial Policy</th><th scope="col">Updated Policy</th></tr></thead><tbody><tr><th scope="row">0.70</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr><tr><th scope="row">0.65</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr><tr><th scope="row">0.60</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr></tbody></table></div><p>One independent training run. Four action-noise seeds are reused across three known-friction conditions and paired between checkpoints. Friction is available to the policy and controller. Evaluation starts from full physical and controller-memory resets; the three training executions are excluded from policy evaluation counts.</p><p>The policy outputs residuals on seven eligible arm coordinates. Native feedback, force control, phase progression, guards, and the completion predicate remain in the executor. Prior data contain 6,300 transitions; online interaction contains 6,300 decisions. Reward is assigned only for qualified full completion.</p></details>
+<p class="rl-resources"><a href="#ref-rlpd">Paper [2]</a> · <a href="https://github.com/ikostrikov/rlpd">Authors’ Learner</a> · <a href="static/manipulation-evaluation.json">Evaluation Summary</a> · <a href="static/a7-rlpd-assembly.json">Video Provenance</a></p>
+</section>
+<section id="safe-rl" class="rl-study">
+<p class="rl-eyebrow">Published Research · IEEE CDC 2025</p>
+<h2>Risk-Sensitive Distributional Reinforcement Learning</h2>
+<p>For reach–avoid navigation, I developed quantile-based action-value iteration with a Conditional Value-at-Risk (CVaR) penalty estimated from the distribution of constraint-violation costs <a class="rl-citation" href="#ref-safe-rl" aria-label="Reference 3: Safety-aware reinforcement learning">[3]</a>. I integrated the risk-sensitive loss with quantile value estimation and evaluated the learned navigation policies in MuJoCo / Safety-Gymnasium. The paper establishes a contraction result under its stated assumptions.</p>
+<div class="rl-safe-grid">
+<figure class="rl-navigation-demo"><video controls muted loop playsinline preload="metadata" poster="static/safe-rl-poster.jpg"><source src="static/safe-rl-navigation.mp4" type="video/mp4"></video><figcaption><strong>MuJoCo / Safety-Gymnasium Navigation.</strong> Existing research demonstration: the mobile robot seeks goals while navigating restricted regions and obstacles. The clip illustrates the task; the table reports aggregate evaluation results.</figcaption></figure>
+<div><h3>Goal Attainment and Violation Costs</h3><p>Five evaluation seeds × 20 episodes per seed. An episode can contain multiple goal arrivals.</p>
+<div class="table-container"><table><caption>Published Table 3: 100 evaluation episodes per configuration.</caption><thead><tr><th scope="col">Algorithm</th><th scope="col">Goals Reached</th><th scope="col">Violation Cost<br>(Mean ± SD)</th></tr></thead><tbody>
+<tr><th scope="row">QR-AVI</th><td>239</td><td>0.05 ± 0.01</td></tr>
+<tr><th scope="row">Expected-Value QR-AVI</th><td>329</td><td>0.06 ± 0.01</td></tr>
+<tr class="rl-emphasis"><th scope="row">CVaR QR-AVI, β = 0.90</th><td>448</td><td>0.05 ± 0.01</td></tr>
+<tr class="rl-emphasis"><th scope="row">CVaR QR-AVI, β = 0.95</th><td>448</td><td>0.05 ± 0.01</td></tr>
+</tbody></table></div><p class="rl-note">QR-AVI: quantile-regression approximate action-value iteration. Goal counts are totals, rather than episode success percentages.</p>
+<div class="rl-resources"><a href="#ref-safe-rl">Paper [3]</a></div></div>
+</div>
+<details class="rl-technical"><summary>Algorithm and Implementation</summary><p>The learner represents action-value distributions with quantile regression. Kernel density estimation provides a distribution of constraint-violation costs, from which CVaR measures adverse-tail risk. A risk penalty augments the quantile loss before the action-value network update.</p><div class="rl-flow"><span>Experience Buffer</span><span aria-hidden="true">→</span><span>Quantile Value Estimation + Cost Distribution</span><span aria-hidden="true">→</span><span>CVaR-Regularized Update</span><span aria-hidden="true">→</span><span>Navigation Evaluation</span></div></details></section><section id="g1-ppo" class="rl-study">
+<p class="rl-eyebrow">Supporting Study · Isaac Lab / PhysX</p>
+<h2>G1 PPO Reward Evaluation</h2><p>I trained policies in 1,024 parallel Isaac Lab environments to investigate geometric pregrasp rewards. The study demonstrates training and evaluation infrastructure; sustained positioning and grasp-and-lift remain unresolved.</p><details class="rl-technical"><summary>View the Reward Comparison, Rollouts, and Evaluation Protocol</summary>
+<p>I trained Proximal Policy Optimization (PPO) policies in 1,024 parallel environments for a fixed-base Unitree G1 equipped with a RealHand L6. The Grasp Distance Field (GDF) reward measures proximity to a bank of candidate arm–hand configurations, incorporating hand posture alongside arm motion. The comparison uses a palm-to-object distance reward with a gated lift term.</p>
+<div class="rl-method" aria-label="PPO reward and control pipeline"><div><strong>Robot State</strong><span>Arm–hand configuration and object state</span></div><span class="rl-arrow" aria-hidden="true">→</span><div><strong>Geometric Reward</strong><span>Distance to candidate pregrasp configurations</span></div><span class="rl-arrow" aria-hidden="true">→</span><div><strong>PPO Training</strong><span>Policy updates from state, action, and reward samples</span></div></div>
+<p class="rl-note">The reward guides training. During evaluation, the learned policy maps observations to joint commands in the simulator.</p>
+<figure class="rl-comparison"><video controls muted loop playsinline preload="metadata" poster="static/g1-ppo-comparison-poster.jpg"><source src="static/g1-ppo-comparison.mp4" type="video/mp4"></video><figcaption><strong>Matched Checkpoint Rollouts.</strong> GDF reward and palm-distance reward policies use identical initial robot and object states, a common evaluation seed, camera, and simulation timing. The video shows environment 0 from a 64-environment evaluation, at real-time playback speed.</figcaption></figure>
+<div class="rl-results-grid"><div>
+<h3>Verified Evaluation</h3>
+<div class="table-container"><table><caption>Seed-1 checkpoints: 64 episodes per policy.</caption><thead><tr><th scope="col">Reward Configuration</th><th scope="col">Pregrasp Arrivals</th><th scope="col">Lifts</th></tr></thead><tbody><tr class="rl-emphasis"><th scope="row">GDF (Full)</th><td>64 / 64</td><td>0 / 64</td></tr><tr><th scope="row">Palm Distance (Gated)</th><td>0 / 64</td><td>0 / 64</td></tr></tbody></table></div>
+<p>An arrival occurs when the pregrasp field value falls below <strong>0.25</strong> during an episode. The field is a smooth minimum of weighted joint-space distances, so the threshold is a configuration-space criterion, not a Cartesian distance in meters.</p>
+<!-- RECORDING_EVALUATION -->
+<p class="rl-note"><strong>New Recording Evaluation (October 14, 2026).</strong> With evaluation seed 42, the GDF checkpoint reached the pregrasp set in 63/64 episodes; the palm-distance checkpoint reached it in 0/64. These fresh counts are distinct from the archived evaluation above.</p>
+<p>The arrival metric measures entry into the pregrasp set. In the displayed GDF rollout, the policy enters the set briefly and later settles outside it; arrival does not establish sustained positioning. Neither policy achieved grasp-and-lift completion in the reported evaluation.</p></div>
+<figure><img src="static/g1-pregrasp-trace.svg" alt="Pregrasp field value over simulation time for the two displayed policy rollouts, with the arrival threshold at 0.25."><figcaption><strong>Displayed Rollout Traces.</strong> Field values from the recorded policy executions. Lower values indicate closer proximity to the candidate pregrasp set.</figcaption></figure></div>
+<p>The full GDF and palm-distance configurations differ in the approach, closure, and field-decrease reward terms. This comparison evaluates the reward configurations as a whole; it does not isolate the effect of a single term.</p>
+<div class="rl-links"><a href="../gdf/">Grasp Distance Fields</a><a href="static/evaluation-results.json">Evaluation Results</a><a href="static/video-provenance.json">Video Provenance</a></div>
+</details></section><section id="references" class="rl-study">
+<h2>References &amp; Evaluation Data</h2>
+<ol class="rl-references">
+<li id="ref-dapg" tabindex="-1"><strong>Learning Complex Dexterous Manipulation with Deep Reinforcement Learning and Demonstrations.</strong><br>Aravind Rajeswaran, Vikash Kumar, Abhishek Gupta, Giulia Vezzani, John Schulman, Emanuel Todorov, and Sergey Levine.<br>Robotics: Science and Systems (RSS), 2018.<br><a href="https://arxiv.org/abs/1709.10087">arXiv:1709.10087</a> · <a href="https://github.com/aravindr93/hand_dapg">Authors’ Implementation</a></li>
+<li id="ref-rlpd" tabindex="-1"><strong>Efficient Online Reinforcement Learning with Offline Data.</strong><br>Philip J. Ball, Laura Smith, Ilya Kostrikov, and Sergey Levine.<br>International Conference on Machine Learning (ICML), 2023.<br><a href="https://arxiv.org/abs/2302.02948">arXiv:2302.02948</a> · <a href="https://github.com/ikostrikov/rlpd">Authors’ Learner</a></li>
+<li id="ref-safe-rl" tabindex="-1"><strong>Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Action-Value Iteration and Quantile Regression.</strong><br>Clinton Enwerem, Aniruddh G. Puranic, John S. Baras, and Calin Belta.<br>2025 IEEE 64th Conference on Decision and Control, pp. 4890–4895.<br><a href="https://doi.org/10.1109/CDC57313.2025.11312575">DOI: 10.1109/CDC57313.2025.11312575</a> · <a href="https://arxiv.org/abs/2506.06954">arXiv:2506.06954</a></li>
+</ol>
+<p>Evaluation summaries and video provenance are linked within each study. The summaries distinguish reproduced learning results, retained assembly competence, and the G1 arrival criterion.</p>
+<p class="rl-return"><a href="../research.html">← Research Overview</a></p>
+</section></main><div id="footer-placeholder"></div></div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script><script>window.SITE_ROOT="../";</script><script src="../scripts.js?v=20261014-rl"></script>
+</body></html>
