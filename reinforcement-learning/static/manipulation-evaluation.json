@@ -1,0 +1,95 @@
+{
+  "adroit_dapg": {
+    "scope": "Established-method reproduction and modern simulator port; one independent training seed (123).",
+    "final_evaluation": [
+      {
+        "task": "relocate",
+        "mode": "mean",
+        "count": 100,
+        "successes": 0,
+        "mean_return": -4.440630523564458,
+        "checkpoint": "initial_bc"
+      },
+      {
+        "task": "relocate",
+        "mode": "stochastic",
+        "count": 100,
+        "successes": 0,
+        "mean_return": -3.91416525870001,
+        "checkpoint": "initial_bc"
+      },
+      {
+        "task": "relocate",
+        "mode": "mean",
+        "count": 100,
+        "successes": 95,
+        "mean_return": 3344.138169428959,
+        "checkpoint": "final_dapg"
+      },
+      {
+        "task": "relocate",
+        "mode": "stochastic",
+        "count": 100,
+        "successes": 98,
+        "mean_return": 3430.635367465462,
+        "checkpoint": "final_dapg"
+      }
+    ],
+    "demonstrations": 25,
+    "demonstration_samples": 9942,
+    "training_control_steps": 4000000,
+    "training_iterations": 100,
+    "training_complete_sha256": "1356a8f353306f5a0778899efa9bdd92216633d822b30ece80057fd81dbb1ed4",
+    "checkpoints": {
+      "initial_bc": "6cbf8c6b1f2dc88d9f6e83615d50e472acf7ccc92a9e09181ade948974b3caad",
+      "final_dapg": "45bf5af2bde43aa1fad7c64b08917807a390bae9f5c228ff1a2e06b39fb40b99"
+    },
+    "video_reset_seed": 20000,
+    "video_policy_mode": "mean",
+    "video_playback_rate": 0.5,
+    "original_video_sha256": "65a8396b971ac3c616a677072b29ca5a40b3932f6ca0d08bfc3a2629741a4e0b",
+    "author_paper": "https://arxiv.org/abs/1709.10087",
+    "prepared_video_sha256": "8dc1bb5d9e54c95f28d093d515ad4ff547c95d64d014241a2fa5e88ba66c6dad",
+    "video_editing": "Removed original text band and added CMU Sans Serif captions; simulator pixels and playback timing preserved."
+  },
+  "a7_rlpd": {
+    "scope": "Retained assembly competence after updates; no established completion improvement or offline-replay benefit.",
+    "independent_training_runs": 1,
+    "frictions": [
+      0.7,
+      0.65,
+      0.6
+    ],
+    "action_noise_seeds": [
+      840001,
+      840002,
+      840003,
+      840004
+    ],
+    "counts": {
+      "native": {
+        "successes": 3,
+        "evaluations": 3
+      },
+      "zero": {
+        "successes": 3,
+        "evaluations": 3
+      },
+      "initial": {
+        "successes": 12,
+        "evaluations": 12
+      },
+      "updated": {
+        "successes": 12,
+        "evaluations": 12
+      }
+    },
+    "recorded_demo": "updated_0.70_840001",
+    "actor_updates": 100,
+    "critic_updates": 2000,
+    "initial_checkpoint_sha256": "9b310a4ee66c2282d62e78849c76a19831b96d7dfce8ced1232c89c78188168b",
+    "final_checkpoint_sha256": "62b13387a3ec512c81ee3ce63918f5601ffe78e5ad578c9bbce23270ceea10e6",
+    "outcomes_sha256": "6e43b5bf3cc06402120c1b24963a12523d4e73c5af06d852c0edbf86d73b1636",
+    "author_paper": "https://arxiv.org/abs/2302.02948"
+  }
+}
