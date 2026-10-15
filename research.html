@@ -209,17 +209,60 @@
                         <details class="research-theme" name="research-themes" id="theme-robot-learning">
                           <summary class="research-theme-toggle">
                             <span class="research-theme-stack" aria-hidden="true">
-                              <img class="research-theme-layer" src="videos/safe_teleoperation_poster.jpg" alt="" width="320" height="180" loading="lazy">
-                              <img class="research-theme-cover" src="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" alt="" width="320" height="180" loading="lazy">
+                              <img class="research-theme-layer" src="reinforcement-learning/static/a7-rlpd-poster.jpg" alt="" width="320" height="180" loading="lazy">
+                              <img class="research-theme-cover" src="reinforcement-learning/static/adroit-dapg-poster.jpg" alt="" width="320" height="180" loading="lazy">
                             </span>
                             <span class="research-theme-heading">
                               <span class="research-theme-title">Robot Learning and Teleoperation</span>
-                              <span class="research-theme-description">Dexterous demonstration data collection, physics-aware policy design, training, and robustness evaluation of learned manipulation policies.</span>
-                              <span class="research-theme-count">2 Demos</span>
+                              <span class="research-theme-description">Reinforcement and imitation learning, manipulation policy evaluation, and teleoperation for demonstration collection.</span>
+                              <span class="research-theme-count">5 Demos</span>
                             </span>
                             <span class="research-theme-chevron" aria-hidden="true"></span>
                           </summary>
                           <div class="research-theme-cards">
+                        <div class="sw-entry" id="research-adroit-dapg">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="background-image:url('reinforcement-learning/static/adroit-dapg-poster.jpg');">
+                                <video class="zoomable" src="reinforcement-learning/static/adroit-dapg-comparison.mp4" poster="reinforcement-learning/static/adroit-dapg-poster.jpg" width="1280" height="720" loop muted playsinline preload="none" aria-label="Adroit relocation comparison between behavior cloning and a trained DAPG policy."></video>
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Demonstration-Augmented Reinforcement Learning for Dexterous Relocation</p>
+                              <p class="sw-subtitle">I reproduced DAPG relocation results in MuJoCo / Adroit: 95/100 successful episodes with mean actions and 98/100 with stochastic actions, compared with 0/100 for behavior cloning in both modes.</p>
+                              <div class="sw-links"><a href="reinforcement-learning/#adroit-dapg"><i class="fas fa-globe" aria-hidden="true"></i> Study and Results</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sw-entry" id="research-a7-rlpd">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="background-image:url('reinforcement-learning/static/a7-rlpd-poster.jpg');">
+                                <video class="zoomable" src="reinforcement-learning/static/a7-rlpd-assembly.mp4" poster="reinforcement-learning/static/a7-rlpd-poster.jpg" width="1280" height="720" loop muted playsinline preload="none" aria-label="A7-L6 bimanual assembly with learned joint-reference corrections and feedback control."></video>
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Residual Reinforcement Learning for Bimanual Assembly</p>
+                              <p class="sw-subtitle">I integrated RLPD with feedback control for assembly using the A7-L6 bimanual robot manipulator. The initial and updated policies each completed 12/12 evaluations across three friction conditions.</p>
+                              <div class="sw-links"><a href="reinforcement-learning/#a7-rlpd"><i class="fas fa-globe" aria-hidden="true"></i> Study and Results</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sw-entry" id="research-safe-rl">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="background-image:url('reinforcement-learning/static/safe-rl-poster.jpg');">
+                                <video class="zoomable" src="reinforcement-learning/static/safe-rl-navigation.mp4" poster="reinforcement-learning/static/safe-rl-poster.jpg" width="1280" height="720" loop muted playsinline preload="none" aria-label="MuJoCo navigation among goals, hazards, and obstacles."></video>
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Risk-Sensitive Distributional Reinforcement Learning</p>
+                              <p class="sw-subtitle">I developed CVaR-based distributional RL for MuJoCo navigation: 448 goals versus 329 and 239 for baseline methods over 100 episodes, with similar constraint-violation costs.</p>
+                              <div class="sw-links"><a href="reinforcement-learning/#safe-rl"><i class="fas fa-globe" aria-hidden="true"></i> Study and Results</a></div>
+                            </div>
+                          </div>
+                        </div>
+
                         <!-- Application 4: Robustness-Preserving Imitation Learning -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
@@ -229,8 +272,8 @@
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Robustness-Preserving Policy Learning for Dexterous Manipulation</p>
-                              <p class="sw-subtitle">Imitation and generative policy learning for robustness-preserving contact-rich dexterous manipulation.</p>
+                              <p class="sw-title">Imitation Learning for Dexterous Manipulation</p>
+                              <p class="sw-subtitle">Expert–learner comparisons for dexterous manipulation across task execution speeds, including parcel insertion and bimanual assembly.</p>
                               <div class="sw-links">
                                 <a href="https://arxiv.org/abs/2609.01453" target="_blank"><i class="ai ai-arxiv"></i>
                                   Temporal Robustness Study</a>
