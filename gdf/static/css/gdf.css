@@ -437,6 +437,12 @@
   font-size: 0.85rem;
   margin-bottom: 0.4rem;
 }
+.gdf-work-comparison video { aspect-ratio: 48 / 13; }
+.gdf-work-views-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gdf-work-results { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; color: var(--text-color); }
+.gdf-work-results caption { text-align: left; color: var(--text-secondary); padding-bottom: 0.5rem; }
+.gdf-work-results th, .gdf-work-results td { padding: 0.6rem 0.4rem; border-bottom: 1px solid var(--border-color); text-align: center; }
+.gdf-work-results th:first-child { text-align: left; }
 .gdf-work-note {
   margin: 1.5rem 0 0;
   color: var(--text-secondary);
