@@ -396,8 +396,13 @@
   margin: 0 auto 1.75rem;
   color: var(--text-color);
   line-height: 1.6;
-  text-align: center;
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
 }
+.gdf-work-context { color: var(--text-color); line-height: 1.6; margin: 0 0 1rem; }
+.gdf-work-variants { color: var(--text-color); line-height: 1.6; margin: 0 0 1.25rem; padding-left: 1.3rem; }
+.gdf-work-variants li + li { margin-top: 0.45rem; }
 .gdf-work-demo { min-width: 0; margin: 0; }
 .gdf-work-featured { margin-bottom: 2rem; }
 .gdf-work-demo h3 {
