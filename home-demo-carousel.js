@@ -48,6 +48,32 @@
     if (video && visible && !document.hidden) video.play().catch(() => {});
   };
 
+  const chapterIndex = new WeakMap();
+  const chapterButtons = slide => [...slide.querySelectorAll('[data-demo-source]')];
+
+  function selectChapter(slide, next, shouldPlay = true) {
+    const chapters = chapterButtons(slide);
+    const chapter = chapters[next];
+    if (!chapter) return;
+    const video = slide.querySelector('video');
+    chapterIndex.set(slide, next);
+    chapters.forEach((button, i) => button.setAttribute('aria-pressed', String(i === next)));
+    video.pause();
+    if (video.getAttribute('src') !== chapter.dataset.demoSource) {
+      video.src = chapter.dataset.demoSource;
+      video.poster = chapter.dataset.demoPoster;
+      video.load();
+    } else {
+      video.currentTime = 0;
+    }
+    video.setAttribute('aria-label', chapter.textContent.trim());
+    video.dispatchEvent(new Event('timeupdate'));
+    if (shouldPlay) {
+      resumeVideo = true;
+      play(video);
+    }
+  }
+
   function updateControls() {
     const video = activeVideo();
     if (video) video.loop = !rotating;
@@ -67,6 +93,7 @@
       buttons[i].setAttribute('aria-pressed', String(i === next));
     });
     index = next;
+    selectChapter(slides[index], 0, false);
     elapsed = 0;
     progress.style.width = '0%';
     resumeVideo = userInitiated || rotating || !reducedMotion.matches;
@@ -101,17 +128,28 @@
 
   function advanceAfterVideo() {
     if (activeVideo()?.ended && rotating && visible && !document.hidden && !document.fullscreenElement) {
-      select((index + 1) % slides.length);
+      const slide = slides[index];
+      const nextChapter = (chapterIndex.get(slide) || 0) + 1;
+      if (nextChapter < chapterButtons(slide).length) selectChapter(slide, nextChapter);
+      else select((index + 1) % slides.length);
     }
   }
   slides.forEach(slide => {
     const video = slide.querySelector('video');
     if (!video) return;
+    const chapters = chapterButtons(slide);
+    if (chapters.length) {
+      chapterIndex.set(slide, 0);
+      slide.querySelector('.home-demo-chapters').hidden = false;
+      chapters.forEach((button, i) => button.addEventListener('click', () => selectChapter(slide, i)));
+    }
     const captions = [...slide.querySelectorAll('[data-demo-caption-start]')];
     const syncCaption = () => captions.forEach(caption => {
       const start = Number(caption.dataset.demoCaptionStart);
       const end = Number(caption.dataset.demoCaptionEnd ?? Infinity);
-      caption.hidden = video.currentTime < start || video.currentTime >= end;
+      const wrongChapter = caption.dataset.demoChapter !== undefined &&
+        Number(caption.dataset.demoChapter) !== (chapterIndex.get(slide) || 0);
+      caption.hidden = wrongChapter || video.currentTime < start || video.currentTime >= end;
     });
     if (captions.length) {
       ['timeupdate', 'seeking', 'seeked', 'loadedmetadata'].forEach(event => {
@@ -166,7 +204,14 @@
     if (video) {
       // Follow media time, including buffering, native pause, seeking and playback speed.
       const fraction = Number.isFinite(video.duration) && video.duration > 0 ? video.currentTime / video.duration : 0;
-      progress.style.width = `${Math.min(100, fraction * 100)}%`;
+      const chapters = chapterButtons(slides[index]);
+      const currentChapter = chapterIndex.get(slides[index]) || 0;
+      const durations = chapters.map(chapter => Number(chapter.dataset.demoDuration));
+      const total = durations.reduce((sum, duration) => sum + duration, 0);
+      const chapterProgress = total > 0 ?
+        (durations.slice(0, currentChapter).reduce((sum, duration) => sum + duration, 0) +
+         fraction * durations[currentChapter]) / total : fraction;
+      progress.style.width = `${Math.min(100, chapterProgress * 100)}%`;
       advanceAfterVideo();
     } else if (rotating && visible && !document.hidden && !document.fullscreenElement) {
       // The draft preview also contains a GIF with no media timeline.
@@ -181,5 +226,17 @@
   topics.hidden = false;
   controls.hidden = false;
   select(0);
+  // A direct preview/project link can open this chapter without adding a topic tab.
+  if (location.hash === '#task-wrench-demo') {
+    const target = document.getElementById('task-wrench-demo');
+    const slide = target?.closest('.home-demo-slide');
+    if (slide) {
+      select(slides.indexOf(slide), true);
+      selectChapter(slide, Number(target.dataset.demoStartChapter));
+      const reveal = () => requestAnimationFrame(() => carousel.scrollIntoView({block: 'start'}));
+      if (document.readyState === 'complete') reveal();
+      else window.addEventListener('load', reveal, {once: true});
+    }
+  }
   requestAnimationFrame(tick);
 })();

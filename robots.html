@@ -21,7 +21,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260913-controls">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=ur3e-grasp-20261020">
 </head>
 
 <body>
@@ -139,6 +139,30 @@
               </div>
             </figcaption>
           </figure>
+          <figure class="robot-card robot-card--ur3e">
+            <div class="robot-visual">
+              <div class="robot-media">
+                <img class="zoomable" src="images/robots/ur3e-hande.jpg?v=grasp-20261020" width="1248" height="994" alt="Universal Robots UR3e with a Robotiq Hand-E gripper executing hardware pick-and-place" loading="lazy" decoding="async">
+                <button class="robot-component" type="button" style="--x: 58.9%; --y: 22%;" aria-label="Universal Robots UR3e arm" aria-describedby="component-3-0" title="Universal Robots UR3e arm">
+                  <i class="fas fa-plus" aria-hidden="true"></i>
+                  <span class="robot-tooltip" role="tooltip" id="component-3-0">Universal Robots UR3e arm</span>
+                </button>
+                <button class="robot-component" type="button" style="--x: 27.8%; --y: 40%;" aria-label="Robotiq Hand-E parallel gripper" aria-describedby="component-3-1" title="Robotiq Hand-E parallel gripper">
+                  <i class="fas fa-plus" aria-hidden="true"></i>
+                  <span class="robot-tooltip" role="tooltip" id="component-3-1">Robotiq Hand-E parallel gripper</span>
+                </button>
+              </div>
+            </div>
+            <figcaption class="robot-caption">
+              <h2>UR3e + Robotiq Hand-E</h2>
+              <p>Autonomous pick-and-place with a parallel gripper.</p>
+              <div class="robot-actions">
+                <button class="robot-demo-button" type="button" data-demo="videos/robots/ur3e-hande-pick-place.mp4?v=phase-aligned-20261020" data-title="UR3e–Hand-E Hardware Pick-and-Place · Simulation Inset" data-poster="videos/robots/ur3e-hande-pick-place.jpg?v=phase-aligned-20261020" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play UR3e–Hand-E hardware pick-and-place demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+                <a class="robot-product-link" href="https://www.universal-robots.com/products/ur3e/" target="_blank" rel="noopener noreferrer" aria-label="Universal Robots UR3e arm product (opens in a new tab)" title="Universal Robots UR3e arm product (opens in a new tab)"><svg class="robot-product-icon" aria-hidden="true" focusable="false"><use href="#robot-arm-icon"/></svg></a>
+                <a class="robot-product-link" href="https://robotiq.com/products/adaptive-grippers" target="_blank" rel="noopener noreferrer" aria-label="Robotiq Hand-E gripper product (opens in a new tab)" title="Robotiq Hand-E gripper product (opens in a new tab)"><svg class="robot-product-icon" aria-hidden="true" focusable="false"><use href="#robot-hand-icon"/></svg></a>
+              </div>
+            </figcaption>
+          </figure>
         </section>
       </main>
     </div>
@@ -166,6 +190,7 @@
           const isVideo = /\.mp4(?:[?#]|$)/i.test(button.dataset.demo);
           const media = document.createElement(isVideo ? 'video' : 'img');
           dialog.classList.toggle('robot-demo-dialog--wide', isVideo);
+          dialog.style.setProperty('--demo-aspect', button.dataset.demo.includes('ur3e-hande') ? '1248 / 994' : '2 / 1');
           if (isVideo) {
             media.controls = true;
             media.muted = true;

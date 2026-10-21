@@ -107,8 +107,8 @@
           <a href="#quality" class="gdf-btn">
             <i class="fas fa-certificate"></i><span>Quality-Constrained Grasping</span>
           </a>
-          <a href="#ongoing-work" class="gdf-btn">
-            <span>Ongoing Work</span>
+          <a href="#human-aware-manipulation" class="gdf-btn">
+            <span>Human-Aware Manipulation</span>
           </a>
           <a href="#replay" class="gdf-btn">
             <i class="fas fa-play"></i><span>Interactive Playback</span>
@@ -441,70 +441,13 @@
         </div>
       </section>
 
-      <!-- Extensions beyond the published grasp-execution study. -->
-      <section class="gdf-section gdf-ongoing" id="ongoing-work" aria-labelledby="ongoing-work-title">
+      <span id="ongoing-work" aria-hidden="true"></span>
+      <section class="gdf-section" id="human-aware-manipulation" aria-labelledby="human-aware-manipulation-title">
         <div class="gdf-wrap">
-          <p class="gdf-work-status">Ongoing Work · Simulation</p>
-          <h2 class="gdf-h2" id="ongoing-work-title">Task-Preserving Manipulation in Human-Shared Workspaces</h2>
-          <p class="gdf-work-intro">When a person reaches into a robot’s workspace during assembly, an avoidance maneuver must preserve the grasp, keep the housing supported, and maintain alignment for insertion. The robot’s freedom to move changes as contacts form and release: it can redirect a carried part during transport, but insertion constrains the part’s motion until seating and release permit hand withdrawal. This work extends the study of grasp execution in GDF to human-aware manipulation, where maintaining clearance and completing the contact-dependent task must be addressed together.</p>
-          <p class="gdf-work-intro">We formulate a contact-mode-dependent task objective around object pose, hand posture, and kinetic energy. By excluding independent arm-reference errors, the objective permits redundant arm motion without treating a change in arm posture as task error. Using observed human motion, the controller adapts the carried part’s path, arm posture, and task timing around an existing position/admittance controller. Grasp retention, housing support, seating, and release conditions remain enforced as the robot adjusts its motion.</p>
-
-          <figure class="gdf-work-demo gdf-work-featured">
-            <h3>Bimanual Assembly in a Human-Shared Workspace</h3>
-            <div class="gdf-work-views" aria-hidden="true"><span>Workspace View</span><span>Contact Detail</span></div>
-            <video src="./static/videos/ongoing/human-task-preserving-rerouting.mp4?v=route-ablation-20261015"
-              poster="./static/videos/ongoing/human-task-preserving-rerouting.jpg?v=route-ablation-20261015"
-              controls muted playsinline loop preload="none"
-              aria-label="A7-L6 bimanual assembly while a simulated person reaches into the workcell, showing housing stabilization, part insertion, release, and raised hand withdrawal at real-time playback"></video>
-            <figcaption>The A7-L6 bimanual robot manipulator completes assembly while responding to a person reaching into the shared workcell. One hand maintains housing support while the other transports and inserts the part. The robot adapts its motion through these contact phases, then releases the seated part and withdraws its free hand above the workspace.</figcaption>
-          </figure>
-
-          <figure class="gdf-work-demo gdf-work-featured gdf-work-comparison">
-            <h3>Controller Ablations: Human-Aware Control vs. Withdrawal-Path Adaptation</h3>
-            <p class="gdf-work-context">In the withdrawal-path baseline, the robot’s right arm comes closest to the person’s left hand during unloading, before the robot’s right hand can withdraw from the seated part. We test whether adapting the withdrawal path is sufficient by comparing three controllers with the same captured human motion, workcell, and raised withdrawal path:</p>
-            <ul class="gdf-work-variants">
-              <li><strong>Full controller:</strong> adapts transport, arm posture, and task progression to human motion, with clearance checks on commanded arm configurations.</li>
-              <li><strong>Withdrawal-path adaptation:</strong> selects the raised withdrawal path from the human scene, but retains nominal task progression and arm references before release.</li>
-              <li><strong>Reduced controller:</strong> retains human-aware task progression and reference-clearance checks, without the transport and posture adjustments.</li>
-            </ul>
-            <div class="gdf-work-views gdf-work-views-three" aria-hidden="true"><span>Full Controller</span><span>Withdrawal-Path Adaptation</span><span>Reduced Controller</span></div>
-            <video src="./static/videos/ongoing/human-workspace-route-ablation.mp4?v=route-ablation-20261015"
-              poster="./static/videos/ongoing/human-workspace-route-ablation.jpg?v=route-ablation-20261015"
-              controls muted playsinline loop preload="none"
-              aria-label="Synchronized assembly comparison from 16 to 29 seconds: full controller on the left, withdrawal-path adaptation baseline in the middle, and reduced controller with human-aware progress regulation and reference clearance checks on the right. Playback at real time."></video>
-            <figcaption>All three controllers complete assembly, but the withdrawal-path baseline comes within 3.7 mm of the person during unloading. The full and reduced controllers have already progressed through withdrawal at that instant; both maintain at least 120.7 mm separation over the complete run, exceeding the specified 50 mm margin. In this encounter, adapting task progression with reference-clearance checks preserves completion and clearance without transport or posture adjustments. The shared withdrawal path does not account for the difference. Playback shows simulation time 16–29 s at 1× speed.</figcaption>
-            <table class="gdf-work-results">
-              <caption>Robot–human convex separation over 45 s, evaluated every 2 ms.</caption>
-              <thead><tr><th scope="col">Controller</th><th scope="col">Minimum Separation</th><th scope="col">States Below 50 mm</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Full Controller</th><td>120.7 mm</td><td>0 / 22,501</td></tr>
-                <tr><th scope="row">Withdrawal-Path Adaptation</th><td>3.7 mm</td><td>53 / 22,501</td></tr>
-                <tr><th scope="row">Reduced Controller</th><td>120.7 mm</td><td>0 / 22,501</td></tr>
-              </tbody>
-            </table>
-          </figure>
-
-          <div class="gdf-work-grid">
-            <figure class="gdf-work-demo">
-              <h3>Torque-Controlled Bimanual Assembly</h3>
-              <div class="gdf-work-views" aria-hidden="true"><span>Workspace View</span><span>Contact Detail</span></div>
-              <video src="./static/videos/ongoing/torque-assembly.mp4?v=clean-charcoal-20261012"
-                poster="./static/videos/ongoing/torque-assembly.jpg?v=clean-charcoal-20261012"
-                controls muted playsinline loop preload="none"
-                aria-label="Simulated torque control with force feedback for A7–L6 bimanual assembly"></video>
-              <figcaption>The robot acquires, transfers, aligns, and inserts the part under torque control with force feedback while its other hand stabilizes the housing.</figcaption>
-            </figure>
-            <figure class="gdf-work-demo">
-              <h3>Progress Regulation Around a Dynamic Obstacle</h3>
-              <div class="gdf-work-views" aria-hidden="true"><span>Workspace View</span><span>Contact Detail</span></div>
-              <video src="./static/videos/ongoing/dynamic-obstacle-progress-governor.mp4?v=clean-charcoal-20261012"
-                poster="./static/videos/ongoing/dynamic-obstacle-progress-governor.jpg?v=clean-charcoal-20261012"
-                controls muted playsinline loop preload="none"
-                aria-label="A7–L6 assembly simulation with progress holding during a spherical obstacle intrusion"></video>
-              <figcaption>As a spherical obstacle approaches, the controller pauses task progression while maintaining the hand–object contacts. The robot resumes assembly along the prescribed route after the obstacle retreats.</figcaption>
-            </figure>
-          </div>
-          <p class="gdf-work-note">A7-L6 bimanual robot manipulator · Simulation rollouts at 1× playback speed</p>
+          <p class="gdf-work-status">Research in Progress</p>
+          <h2 class="gdf-h2" id="human-aware-manipulation-title">Manipulation in Human-Shared Workspaces</h2>
+          <p class="gdf-work-intro">In a separate study, we investigate bimanual assembly in a workspace shared with a moving person. The A7-L6 bimanual robot manipulator transports, aligns, and inserts the part while maintaining housing support.</p>
+          <p style="text-align:center"><a class="gdf-btn" href="../human-aware-manipulation/">View Demonstration</a></p>
         </div>
       </section>
 
