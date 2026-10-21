@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact-Rich Bimanual Manipulation</title>
+  <meta name="description" content="A7-L6 bimanual manipulation demonstrations: articulated door opening, part insertion, and constrained object relocation in MuJoCo.">
+  <link rel="canonical" href="https://clintonenwerem.com/bimanual-manipulation/">
+  <meta property="og:title" content="Contact-Rich Bimanual Manipulation">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://clintonenwerem.com/videos/bimanual-manipulation/demonstration.jpg?v=public-demo-20261021">
+  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('light-mode');}})();</script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../stylesheet.css?v=20261019-wrench">
+  <link rel="stylesheet" href="style.css?v=public-demo-20261021">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <div class="page-container"><div class="content-wrap">
+    <main class="wrench-project">
+      <header>
+        <p class="project-status">Research in Progress</p>
+        <h1>Contact-Rich Bimanual Manipulation</h1>
+        <p class="project-authors"><a href="../">Clinton Enwerem</a>, John S. Baras, and Calin Belta</p>
+        <p>Institute for Systems Research, University of Maryland, College Park</p>
+        <nav aria-label="Project sections"><a href="#overview">Overview</a><a href="#tasks">Task Demonstrations</a></nav>
+      </header>
+      <section id="overview" aria-labelledby="overview-title">
+        <h2 id="overview-title">Coordinated Manipulation Through Sustained Contact</h2>
+        <p class="project-prose">Dexterous bimanual manipulation requires coordinated motion and sustained contact as objects move, interact, and are released. We study articulated door opening, part insertion, and constrained object relocation using the A7-L6 bimanual robot manipulator. The demonstrations below present task execution in MuJoCo.</p>
+        <figure>
+          <video class="zoomable" controls muted playsinline preload="none" width="1920" height="1080" src="../videos/bimanual-manipulation/demonstration.mp4?v=public-demo-20261021" poster="../videos/bimanual-manipulation/demonstration.jpg" aria-label="Door opening, bimanual part insertion, and constrained object relocation"></video>
+          <figcaption>The robot opens an articulated door, inserts a part into a supported housing, and relocates an object while keeping a passive flap clear of its path. Excerpts play at the original execution speed.</figcaption>
+        </figure>
+      </section>
+<section aria-labelledby="tasks-title" id="tasks">
+<h2 id="tasks-title">Contact-Rich Bimanual Tasks</h2>
+<p class="project-prose">The A7-L6 bimanual robot manipulator executes the following tasks in MuJoCo. Videos play at the original execution speed.</p>
+<div class="task-grid">
+<figure>
+<h3>Articulated Door Opening</h3>
+<div class="task-media">
+<video aria-label="Full MuJoCo rollout of hinged-door opening and holding at the target opening" autoplay="" class="zoomable" controls="" height="1080" loop="" muted="" playsinline="" poster="../videos/bimanual-manipulation/door-full.jpg" preload="metadata" src="../videos/bimanual-manipulation/door-full.mp4" width="1920"></video>
+<a aria-label="Expand Articulated Door Opening" class="zoom-cue task-expand" data-video-lightbox="" href="../videos/bimanual-manipulation/door-full.mp4" title="Click to enlarge"><i aria-hidden="true" class="fas fa-expand"></i></a>
+</div>
+<figcaption>The robot establishes contact with the door panel and opens the door about its hinge before maintaining the target opening.</figcaption>
+</figure>
+<figure>
+<h3>Bimanual Part Insertion</h3>
+<div class="task-media">
+<video aria-label="Full MuJoCo rollout of a free part inserted into a hand-held housing" autoplay="" class="zoomable" controls="" height="1080" loop="" muted="" playsinline="" poster="../videos/bimanual-manipulation/insertion-full.jpg" preload="metadata" src="../videos/bimanual-manipulation/insertion-full.mp4" width="1920"></video>
+<a aria-label="Expand Bimanual Part Insertion" class="zoom-cue task-expand" data-video-lightbox="" href="../videos/bimanual-manipulation/insertion-full.mp4" title="Click to enlarge"><i aria-hidden="true" class="fas fa-expand"></i></a>
+</div>
+<figcaption>The robot acquires the part, aligns it with the movable housing, and completes insertion before releasing the part. Bimanual coordination maintains housing support and part–housing alignment throughout insertion.</figcaption>
+</figure>
+<figure>
+<h3>Constrained Object Relocation</h3>
+<div class="task-media">
+<video aria-label="Full MuJoCo rollout of object placement into a carton with a passive flap" autoplay="" class="zoomable" controls="" height="1080" loop="" muted="" playsinline="" poster="../videos/bimanual-manipulation/relocation-full.jpg" preload="metadata" src="../videos/bimanual-manipulation/relocation-full.mp4" width="1920"></video>
+<a aria-label="Expand Constrained Object Relocation" class="zoom-cue task-expand" data-video-lightbox="" href="../videos/bimanual-manipulation/relocation-full.mp4" title="Click to enlarge"><i aria-hidden="true" class="fas fa-expand"></i></a>
+</div>
+<figcaption>The robot manipulates the passive flap to clear the transfer path, lifts and relocates the object into the carton, and releases it after placement.</figcaption>
+</figure>
+</div>
+</section>
+    </main>
+  </div><div id="footer-placeholder"></div></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>window.SITE_ROOT='../';</script>
+  <script src="../scripts.js?v=20260913-interests"></script>
+</body>
+</html>

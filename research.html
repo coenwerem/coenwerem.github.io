@@ -153,23 +153,23 @@
                         <details class="research-theme" name="research-themes" id="theme-grasp-execution">
                           <summary class="research-theme-toggle">
                             <span class="research-theme-stack" aria-hidden="true">
-                              <img class="research-theme-layer" src="videos/gdf_home_demo.jpg?v=route-ablation-20261015" alt="" width="320" height="180" loading="lazy">
+                              <img class="research-theme-layer" src="videos/gdf_home_demo.jpg?v=gdf-only-20261019" alt="" width="320" height="180" loading="lazy">
                               <img class="research-theme-cover" src="videos/equidexflow_home_demo_poster.jpg" alt="" width="320" height="180" loading="lazy">
                             </span>
                             <span class="research-theme-heading">
-                              <span class="research-theme-title">Grasp Synthesis and Safe Grasp Execution</span>
-                              <span class="research-theme-description">Algorithms for end-to-end dexterous grasping from contact-grounded grasp generation to reactive, safety-filtered, and grasp-quality-preserving grasp execution.</span>
-                              <span class="research-theme-count">2 Demos</span>
+                              <span class="research-theme-title">Grasp Synthesis and Contact-Rich Manipulation</span>
+                              <span class="research-theme-description">From contact-grounded grasp synthesis to reactive grasp execution and bimanual manipulation under contact and collision constraints.</span>
+                              <span class="research-theme-count">4 Demos</span>
                             </span>
                             <span class="research-theme-chevron" aria-hidden="true"></span>
                           </summary>
-                          <div class="research-theme-cards">
+                          <div class="research-theme-cards research-theme-cards-paired">
                         <!-- Application 2: Reach-Aware Grasp Synthesis -->
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="background-image:url('videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918');">
-                                <video class="zoomable" src="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918" width="1280" height="720" loop muted playsinline preload="none" aria-label="EquiDexFlow pipeline and hardware reel: grasp prediction, contact-based retargeting to the LEAP Hand, and refinement; grasp renders paired with box, cube, mustard bottle, meat can, cylinder, and tennis-ball hardware executions"></video>
+                                <video class="zoomable" src="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918" width="1280" height="720" loop muted playsinline preload="none" aria-label="EquiDexFlow pipeline and hardware demonstrations: grasp prediction, contact-based retargeting to the LEAP Hand, and refinement; grasp renders paired with box, cube, mustard bottle, meat can, cylinder, and tennis-ball hardware executions"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
@@ -188,17 +188,48 @@
                         <div class="sw-entry">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/gdf_home_demo.jpg?v=route-ablation-20261015');">
-                                <video class="zoomable" src="videos/gdf_home_demo.mp4?v=route-ablation-20261015" poster="videos/gdf_home_demo.jpg?v=route-ablation-20261015" width="1920" height="1080" loop muted playsinline preload="none" aria-label="Safe dexterous grasp execution: feedback grasp selection, dynamic obstacle avoidance, collision-constrained poly-articulated grasping, reactive bimanual grasp execution, and grasp quality preservation using a wrench-quality CBF after hold onset, followed by A7-L6 bimanual assembly in a human-shared workspace: the robot adapts motion and task timing while preserving grasp retention, housing support, and insertion alignment through assembly and release; real-time playback"></video>
+                              <div class="sw-video" style="background-image:url('videos/gdf_home_demo.jpg?v=gdf-only-20261019');">
+                                <video class="zoomable" src="videos/gdf_home_demo.mp4?v=gdf-only-20261019" poster="videos/gdf_home_demo.jpg?v=gdf-only-20261019" width="1920" height="1080" loop muted playsinline preload="none" aria-label="GDF: feedback grasp selection, dynamic obstacle avoidance, collision-constrained poly-articulated grasp execution, and grasp-quality preservation"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Safe and Autonomous Poly-Articulated Dexterous Grasping &amp; Manipulation</p>
-                              <p class="sw-subtitle">The reel shows safe, quality-preserving grasp execution and task-preserving bimanual assembly in a human-shared workspace. During assembly, the robot adapts its motion and task timing to human activity while preserving the grasp, housing support, and insertion alignment needed to complete the task.</p>
+                              <p class="sw-title">Grasp Distance Fields</p>
+                              <p class="sw-subtitle">GDF supports autonomous dexterous grasp execution with dynamic obstacle avoidance and grasp-quality preservation.</p>
                               <div class="sw-links">
                                 <a href="gdf/" target="_blank"><i class="fas fa-globe"></i>
                                 GDF</a>
                               </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="sw-entry" id="human-aware-demo">
+            <div class="row align-items-start">
+              <div class="col-md-2 col-3">
+                <div class="sw-video" style="background-image:url('gdf/static/videos/ongoing/human-task-preserving-rerouting.jpg?v=route-ablation-20261015');">
+                  <video class="zoomable" src="gdf/static/videos/ongoing/human-task-preserving-rerouting.mp4?v=route-ablation-20261015" poster="gdf/static/videos/ongoing/human-task-preserving-rerouting.jpg?v=route-ablation-20261015" width="1920" height="800" loop muted playsinline preload="none" aria-label="Bimanual assembly while a simulated person reaches into the shared workspace"></video>
+                </div>
+              </div>
+              <div class="col-md-10 col-9 sw-details">
+                <p class="sw-title">Human-Aware Manipulation</p>
+                <p class="sw-subtitle">The A7-L6 bimanual robot manipulator completes assembly while a person reaches into the shared workspace, maintaining housing support and part–housing alignment through insertion.</p>
+                <div class="sw-links"><a href="human-aware-manipulation/"><i class="fas fa-globe"></i>Research Overview</a><span>Simulation</span></div>
+              </div>
+            </div>
+          </div>
+
+                        <!-- Contact-rich bimanual manipulation -->
+                        <div class="sw-entry" id="task-wrench-demo">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="background-image:url('videos/bimanual-manipulation/demonstration.jpg?v=public-demo-20261021');">
+                                <video class="zoomable" src="videos/bimanual-manipulation/demonstration.mp4?v=public-demo-20261021" poster="videos/bimanual-manipulation/demonstration.jpg?v=public-demo-20261021" width="1920" height="1080" loop muted playsinline preload="none" aria-label="A7-L6 bimanual robot manipulator in MuJoCo: door opening, part insertion, and constrained object relocation"></video>
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Contact-Rich Bimanual Manipulation</p>
+                              <p class="sw-subtitle">The A7-L6 bimanual robot manipulator executes articulated door opening, part insertion, and constrained object relocation in MuJoCo.</p>
+                              <div class="sw-links"><a href="bimanual-manipulation/"><i class="fas fa-globe"></i>Project Page</a><span>Research in Progress</span></div>
                             </div>
                           </div>
                         </div>
@@ -741,7 +772,7 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
     <!-- Your custom JavaScript -->
     <script src="scripts.js?v=20260913-interests"></script>
     <script src="coming-soon.js?v=20261004" defer></script>
-    <script src="research-themes.js?v=20260926" defer></script>
+    <script src="research-themes.js?v=20261019-project-links" defer></script>
 
 </body>
 

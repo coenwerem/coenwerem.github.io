@@ -29,6 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => observer.observe(video));
     theme.addEventListener('toggle', () => videos.forEach(update));
   });
+  // Open the containing demo stack when a project or preview links to it.
+  const openLinkedTheme = () => {
+    const target = document.getElementById(location.hash.slice(1));
+    const theme = target?.closest('.research-theme');
+    if (theme) theme.open = true;
+  };
+  openLinkedTheme();
+  window.addEventListener('hashchange', openLinkedTheme);
   const updateAll = () => themes.forEach(theme => theme.querySelectorAll('video').forEach(update));
   document.addEventListener('visibilitychange', updateAll);
   reducedMotion.addEventListener('change', updateAll);
