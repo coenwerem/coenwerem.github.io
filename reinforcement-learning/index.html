@@ -10,45 +10,55 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
-<link rel="stylesheet" href="static/rl.css">
+<link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
+<link rel="stylesheet" href="static/rl.css?v=20261022-sections">
+  <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
+  <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
 </head>
-<body>
+<body class="project-sections-page">
 <div id="navbar-placeholder"></div>
-<div class="page-container"><main class="content-wrap site-content rl-page">
-<header class="rl-hero">
+<div class="page-container"><main class="content-wrap rl-page">
+<header class="rl-hero gdf-hero">
 <p class="rl-eyebrow">Robot Learning · Control · Simulation</p>
-<h1>Reinforcement Learning for Robotics</h1><p class="rl-subtitle">Risk-Sensitive Learning · Demonstration-Guided Policies · Physics-Based Simulation</p>
+<h1 class="gdf-title">Reinforcement Learning for Robotics</h1><p class="rl-subtitle">Risk-Sensitive Learning · Demonstration-Guided Policies · Physics-Based Simulation</p>
 <p class="rl-author">Clinton Enwerem · University of Maryland, College Park</p>
 <p class="rl-intro">I develop and evaluate reinforcement learning algorithms for robotics, including risk-sensitive distributional RL, demonstration-guided dexterous manipulation, and residual RL for bimanual assembly.</p>
-<nav class="rl-links rl-navigation" aria-label="Page sections"><a href="#adroit-dapg">Adroit Learning</a><a href="#a7-rlpd">A7 Assembly</a><a href="#safe-rl">Published Safe RL</a><a href="#g1-ppo">G1 Reward Design</a></nav>
+<nav class="gdf-btns rl-navigation" aria-label="Page sections"><a class="gdf-btn" href="#adroit-dapg">Adroit Learning</a><a class="gdf-btn" href="#a7-rlpd">A7 Assembly</a><a class="gdf-btn" href="#safe-rl">Published Safe RL</a><a class="gdf-btn" href="#g1-ppo">G1 Reward Design</a></nav>
 </header>
-<section id="adroit-dapg" class="rl-study rl-featured">
+<section id="adroit-dapg" class="gdf-section rl-study rl-featured"><div class="gdf-wrap">
 <p class="rl-eyebrow">DAPG Reproduction · MuJoCo / Adroit</p>
-<h2 id="dexterous-relocation">From Demonstrations to Learned Dexterous Relocation</h2>
+<h2 class="gdf-h2" id="dexterous-relocation">From Demonstrations to Learned Dexterous Relocation</h2>
 <p>I reproduced dexterous relocation results using Rajeswaran et al.’s Demonstration-Augmented Policy Gradient (DAPG) <a class="rl-citation" href="#ref-dapg" aria-label="Reference 1: DAPG">[1]</a> implementation in MuJoCo / Adroit. I initialized a relocation policy with behavior cloning from 25 demonstrations, refined the policy through DAPG training, and evaluated the initial and trained policies over 100 episodes with held-out initial conditions.</p>
 <p>The paired execution compares behavior cloning with the trained DAPG policy using the same reset seed and mean actions. The robot must grasp and relocate the object to the green target; the comparison isolates the change in task execution after reinforcement learning.</p>
 <figure class="rl-comparison"><video controls autoplay muted loop playsinline preload="metadata" poster="static/adroit-dapg-poster.jpg"><source src="static/adroit-dapg-comparison.mp4" type="video/mp4"></video><figcaption><strong>Behavior Cloning versus Trained DAPG.</strong> Object relocation from the initial position to the green target. Playback: 0.5×.</figcaption></figure>
 <div class="rl-evidence-strip"><div><strong>95 / 100</strong><span>DAPG · Mean-Action Successes</span></div><div><strong>98 / 100</strong><span>DAPG · Stochastic Successes</span></div><div><strong>0 / 100</strong><span>Behavior Cloning · Both Action Modes</span></div></div>
 
+<figure class="control-diagram" aria-labelledby="dapg-training-diagram"><div class="control-flow control-flow--four"><div class="control-block"><h3>Expert Demonstrations</h3><p>25 relocation demonstrations from the authors’ dataset.</p></div>
+<div class="control-block"><h3>Behavior Cloning</h3><p>Initialize the policy by imitating demonstrated actions.</p></div>
+<div class="control-block control-block--controller"><h3>DAPG Training</h3><p>Refine the policy with demonstration-augmented policy gradients.</p></div>
+<div class="control-block"><h3>Held-Out Evaluation</h3><p>Compare behavior cloning and DAPG over 100 episodes.</p></div></div><figcaption id="dapg-training-diagram">The paired demonstration compares the behavior-cloning initialization with the policy after DAPG training.</figcaption></figure>
 <details class="rl-technical"><summary>Training Configuration</summary><div class="table-container"><table><tbody><tr><th scope="row">Demonstrations</th><td>25 demonstrations from Rajeswaran et al.; 9,942 samples</td></tr><tr><th scope="row">Training</th><td>5 BC epochs, then 100 DAPG iterations; 4 million control steps</td></tr><tr><th scope="row">Algorithm</th><td>Authors’ BC/DAPG implementation and example configuration</td></tr><tr><th scope="row">Runtime</th><td>Gymnasium Robotics 1.2.0; MuJoCo 2.3.7</td></tr><tr><th scope="row">Final Evaluation</th><td>Reset seeds 40000–40099; 200 steps per episode; sustained object relocation</td></tr></tbody></table></div></details>
 <p class="rl-resources"><a href="#ref-dapg">Paper [1]</a> · <a href="https://github.com/aravindr93/hand_dapg">Authors’ Implementation</a></p>
-</section>
-<section id="a7-rlpd" class="rl-study">
+</div></section>
+<section id="a7-rlpd" class="gdf-section gdf-section--alt rl-study"><div class="gdf-wrap">
 <p class="rl-eyebrow">Residual Reinforcement Learning · Drake Simulation</p>
-<h2 id="bimanual-assembly">Integrating Residual RL with Bimanual Assembly Control</h2>
+<h2 class="gdf-h2" id="bimanual-assembly">Integrating Residual RL with Bimanual Assembly Control</h2>
 <p>I adapted Reinforcement Learning with Prior Data (RLPD) <a class="rl-citation" href="#ref-rlpd" aria-label="Reference 2: RLPD">[2]</a> to an A7 bimanual arm–hand system, using demonstration data from my feedback controller and online reinforcement learning. I combined bounded residual joint-reference commands with feedback control to execute housing stabilization, part acquisition and transfer, insertion, and hand withdrawal.</p>
 <p>The recorded execution follows the complete assembly sequence, from acquisition through insertion and withdrawal. Its focus is coordinated task execution with learned corrections to the robot’s joint references, while feedback control remains part of the control architecture.</p>
 <figure class="rl-comparison"><video controls muted loop playsinline preload="metadata" poster="static/a7-rlpd-poster.jpg"><source src="static/a7-rlpd-assembly.mp4" type="video/mp4"></video><figcaption><strong>Bimanual Assembly with Residual RL.</strong> Learned joint-reference corrections combined with feedback control for bimanual assembly. Playback: 1×.</figcaption></figure>
 <div class="rl-evidence-strip rl-evidence-strip--pair"><div><strong>12 / 12</strong><span>Initial Policy · Completed Assemblies</span></div><div><strong>12 / 12</strong><span>Updated Policy · Completed Assemblies</span></div></div>
 
 <p>I trained a residual policy for seven arm joint references using 6,300 prior transitions and 6,300 online decisions, with 100 actor updates and 2,000 critic updates.</p>
-<div class="rl-flow"><span>Demonstrations + Online Experience</span><span aria-hidden="true">→</span><span>RLPD Training</span><span aria-hidden="true">→</span><span>Residual Commands + Feedback Control</span><span aria-hidden="true">→</span><span>Assembly Simulation</span></div>
+<figure class="control-diagram" aria-labelledby="rlpd-control-diagram"><div class="control-flow control-flow--four"><div class="control-block"><h3>Training Data</h3><p>Feedback-controller demonstrations and online experience.</p></div>
+<div class="control-block"><h3>RLPD Training</h3><p>Learn bounded residual commands for arm joint references.</p></div>
+<div class="control-block control-block--controller"><h3>Policy + Feedback Control</h3><p>Combine learned corrections with the feedback controller during execution.</p></div>
+<div class="control-block"><h3>Bimanual Assembly</h3><p>Acquire, transfer, align, and insert the part before withdrawal.</p></div></div><figcaption id="rlpd-control-diagram">Demonstrations and online experience support policy training; the trained residual policy operates together with feedback control during assembly.</figcaption></figure>
 <details class="rl-technical"><summary>Assembly Results by Friction</summary><div class="table-container"><table><thead><tr><th scope="col">Friction</th><th scope="col">Feedback Controller</th><th scope="col">Zero Residual</th><th scope="col">Initial Policy</th><th scope="col">Updated Policy</th></tr></thead><tbody><tr><th scope="row">0.70</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr><tr><th scope="row">0.65</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr><tr><th scope="row">0.60</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr></tbody></table></div></details>
 <p class="rl-resources"><a href="#ref-rlpd">Paper [2]</a> · <a href="https://github.com/ikostrikov/rlpd">Authors’ Implementation</a></p>
-</section>
-<section id="safe-rl" class="rl-study">
+</div></section>
+<section id="safe-rl" class="gdf-section rl-study"><div class="gdf-wrap">
 <p class="rl-eyebrow">Published Research · IEEE CDC 2025</p>
-<h2 id="risk-sensitive-navigation">Risk-Sensitive Distributional Reinforcement Learning</h2>
+<h2 class="gdf-h2" id="risk-sensitive-navigation">Risk-Sensitive Distributional Reinforcement Learning</h2>
 <p>For reach–avoid navigation, I developed quantile-based action-value iteration with a Conditional Value-at-Risk (CVaR) penalty estimated from the distribution of constraint-violation costs <a class="rl-citation" href="#ref-safe-rl" aria-label="Reference 3: Safety-aware reinforcement learning">[3]</a>. I integrated the risk-sensitive loss with quantile value estimation and evaluated the learned navigation policies in MuJoCo / Safety-Gymnasium. With my coauthors, I established a contraction result for the action-value update.</p>
 <p>The navigation demonstration depicts goal-reaching behavior in an environment containing hazards and obstacles. It provides a task-level view of a policy trained to account for constraint-violation costs; the accompanying evaluation compares goal attainment and violation costs across methods.</p>
 <div class="rl-safe-grid">
@@ -62,9 +72,12 @@
 </tbody></table></div>
 <div class="rl-resources"><a href="#ref-safe-rl">Paper [3]</a></div></div>
 </div>
-<details class="rl-technical"><summary>Algorithm and Implementation</summary><p>I used quantile regression to estimate action-value distributions and kernel density estimation to estimate constraint-violation cost distributions. I incorporated a CVaR penalty into the quantile loss to account for adverse-tail risk.</p><div class="rl-flow"><span>Experience Buffer</span><span aria-hidden="true">→</span><span>Quantile Value Estimation + Cost Distribution</span><span aria-hidden="true">→</span><span>CVaR-Regularized Update</span><span aria-hidden="true">→</span><span>Navigation Evaluation</span></div></details></section><section id="g1-ppo" class="rl-study">
+<details class="rl-technical"><summary>Algorithm and Implementation</summary><p>I used quantile regression to estimate action-value distributions and kernel density estimation to estimate constraint-violation cost distributions. I incorporated a CVaR penalty into the quantile loss to account for adverse-tail risk.</p><figure class="control-diagram" aria-labelledby="risk-sensitive-rl-diagram"><div class="control-flow control-flow--four"><div class="control-block"><h3>Experience Buffer</h3><p>State transitions, rewards, and constraint-violation costs.</p></div>
+<div class="control-block"><h3>Distribution Estimation</h3><p>Quantile action values and a constraint-violation cost distribution.</p></div>
+<div class="control-block control-block--controller"><h3>CVaR-Regularized Update</h3><p>Include adverse-tail cost in the quantile learning objective.</p></div>
+<div class="control-block"><h3>Navigation Evaluation</h3><p>Measure goal attainment and violation costs over evaluation episodes.</p></div></div><figcaption id="risk-sensitive-rl-diagram">The learning objective incorporates a CVaR penalty estimated from constraint-violation costs.</figcaption></figure></details></div></section><section id="g1-ppo" class="gdf-section gdf-section--alt rl-study"><div class="gdf-wrap">
 <p class="rl-eyebrow">Reward Design · Isaac Lab / PhysX</p>
-<h2>G1 PPO Reward Evaluation</h2><p>I trained Proximal Policy Optimization (PPO) policies in 1,024 parallel Isaac Lab environments to evaluate geometric rewards for dexterous pregrasp positioning.</p><details class="rl-technical"><summary>Pregrasp Reward Comparison</summary>
+<h2 class="gdf-h2">G1 PPO Reward Evaluation</h2><p>I trained Proximal Policy Optimization (PPO) policies in 1,024 parallel Isaac Lab environments to evaluate geometric rewards for dexterous pregrasp positioning.</p><details class="rl-technical"><summary>Pregrasp Reward Comparison</summary>
 <p>For a fixed-base Unitree G1 equipped with a RealHand L6, I designed a Grasp Distance Field reward based on proximity to candidate arm–hand configurations and evaluated policies trained with the GDF reward and policies trained with a palm-to-object distance reward.</p>
 <div class="rl-method" aria-label="PPO reward and control pipeline"><div><strong>Robot State</strong><span>Arm–hand configuration and object state</span></div><span class="rl-arrow" aria-hidden="true">→</span><div><strong>Geometric Reward</strong><span>Distance to candidate pregrasp configurations</span></div><span class="rl-arrow" aria-hidden="true">→</span><div><strong>PPO Training</strong><span>Policy updates from state, action, and reward samples</span></div></div>
 
@@ -77,14 +90,14 @@
 <figure><img src="static/g1-pregrasp-trace.svg" alt="Pregrasp field value over simulation time for the two recorded policy rollouts, with the arrival threshold at 0.25."><figcaption><strong>Pregrasp Reward Comparison.</strong> Distance to the candidate pregrasp set during policy execution.</figcaption></figure></div>
 
 <div class="rl-links"><a href="../gdf/">Grasp Distance Fields</a></div>
-</details></section><section id="references" class="rl-study">
-<h2>References</h2>
+</details></div></section><section id="references" class="gdf-section rl-study"><div class="gdf-wrap">
+<h2 class="gdf-h2">References</h2>
 <ol class="rl-references">
 <li id="ref-dapg" tabindex="-1"><strong>Learning Complex Dexterous Manipulation with Deep Reinforcement Learning and Demonstrations.</strong><br>Aravind Rajeswaran, Vikash Kumar, Abhishek Gupta, Giulia Vezzani, John Schulman, Emanuel Todorov, and Sergey Levine.<br>Robotics: Science and Systems (RSS), 2018.<br><a href="https://arxiv.org/abs/1709.10087">arXiv:1709.10087</a> · <a href="https://github.com/aravindr93/hand_dapg">Authors’ Implementation</a></li>
 <li id="ref-rlpd" tabindex="-1"><strong>Efficient Online Reinforcement Learning with Offline Data.</strong><br>Philip J. Ball, Laura Smith, Ilya Kostrikov, and Sergey Levine.<br>International Conference on Machine Learning (ICML), 2023.<br><a href="https://arxiv.org/abs/2302.02948">arXiv:2302.02948</a> · <a href="https://github.com/ikostrikov/rlpd">Authors’ Implementation</a></li>
 <li id="ref-safe-rl" tabindex="-1"><strong>Safety-Aware Reinforcement Learning for Control via Risk-Sensitive Action-Value Iteration and Quantile Regression.</strong><br>Clinton Enwerem, Aniruddh G. Puranic, John S. Baras, and Calin Belta.<br>2025 IEEE 64th Conference on Decision and Control, pp. 4890–4895.<br><a href="https://doi.org/10.1109/CDC57313.2025.11312575">DOI: 10.1109/CDC57313.2025.11312575</a> · <a href="https://arxiv.org/abs/2506.06954">arXiv:2506.06954</a></li>
 </ol>
 <p class="rl-return"><a href="../research.html">← Research Overview</a></p>
-</section></main><div id="footer-placeholder"></div></div>
+</div></section></main><div id="footer-placeholder"></div></div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script><script>window.SITE_ROOT="../";</script><script src="../scripts.js?v=20261014-rl"></script>
 </body></html>

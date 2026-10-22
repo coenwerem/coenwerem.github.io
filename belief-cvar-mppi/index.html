@@ -39,8 +39,10 @@
     };
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
+  <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
 </head>
-<body>
+<body class="project-sections-page">
   <div id="navbar-placeholder"></div>
   <div class="page-container"><div class="content-wrap">
     <header class="gdf-hero">
@@ -104,12 +106,10 @@
       <section class="gdf-section gdf-section--alt"><div class="gdf-wrap">
         <h2 class="gdf-h2">Overview &amp; Working Principle</h2>
         <div class="gdf-prose"><p>CVaR-MPPI is a risk-sensitive belief-space MPPI controller designed to be robust to latent uncertainty in contact model parameters represented by a particle-based belief distribution. Our controller jointly guarantees probabilistic safety by constraining the adverse tail of a trajectory safety margin. At each receding-horizon solve, CVaR-MPPI evaluates sampled control sequences across belief particles, applies the first control, and updates the belief from the next observation.</p></div>
-        <div class="method-steps">
-          <article class="method-card"><div class="mc-icon"><i class="fas fa-eye"></i></div><h4>Particle Belief</h4><p>We use a particle belief that captures time-invariant parameters, including receptacle pose and geometry unknown at decision time.</p></article>
-          <article class="method-card"><div class="mc-icon"><i class="fas fa-route"></i></div><h4>Sampled MPPI Rollouts</h4><p>Sampled MPPI rollouts propagate candidate control sequences across belief particles and compute trajectory cost and safety margin.</p></article>
-          <article class="method-card"><div class="mc-icon"><i class="fas fa-chart-line"></i></div><h4>Tail Risk Minimization</h4><p>The objective penalizes the trajectory-wise CVaR cost, and a separate CVaR constraint bounds the adverse tail of a trajectory-wise safety violation measure.</p></article>
-          <article class="method-card"><div class="mc-icon"><i class="fas fa-rotate"></i></div><h4>Feedback Planning</h4><p>The controller applies the first action, updates its belief, and re-solves the finite-horizon problem using the updated belief.</p></article>
-        </div>
+<figure class="control-diagram" aria-labelledby="belief-control-diagram"><div class="control-flow control-flow--four"><div class="control-block"><h3>Particle Belief</h3><p>Uncertain, time-invariant parameters, including receptacle pose and geometry.</p></div>
+<div class="control-block"><h3>Sampled Rollouts</h3><p>Candidate control sequences evaluated across belief particles for trajectory cost and safety margin.</p></div>
+<div class="control-block control-block--controller"><h3>Risk-Sensitive Planning</h3><p>CVaR cost penalty and a separate CVaR constraint on trajectory safety violations.</p></div>
+<div class="control-block"><h3>Control Execution</h3><p>Apply the first control action and obtain the next observation.</p></div></div><div class="control-feedback"><span aria-hidden="true">↩</span>Next observation → belief update → next receding-horizon solve</div><figcaption id="belief-control-diagram">At each planning step, the controller evaluates candidate actions under the current belief and accounts for adverse-tail risk in both performance and safety.</figcaption></figure>
       </div></section>
 
       <!-- Guarantees -->

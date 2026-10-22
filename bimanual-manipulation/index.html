@@ -13,29 +13,32 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
-  <link rel="stylesheet" href="style.css?v=public-demo-20261021">
+  <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
+  <link rel="stylesheet" href="style.css?v=20261022-sections">
+  <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
+  <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
 </head>
-<body>
+<body class="project-sections-page">
   <div id="navbar-placeholder"></div>
   <div class="page-container"><div class="content-wrap">
     <main class="wrench-project">
-      <header>
+      <header class="gdf-hero">
         <p class="project-status">Research in Progress</p>
-        <h1>Contact-Rich Bimanual Manipulation</h1>
+        <h1 class="gdf-title">Contact-Rich Bimanual Manipulation</h1>
         <p class="project-authors"><a href="../">Clinton Enwerem</a>, John S. Baras, and Calin Belta</p>
         <p>Institute for Systems Research, University of Maryland, College Park</p>
-        <nav aria-label="Project sections"><a href="#overview">Overview</a><a href="#tasks">Task Demonstrations</a></nav>
+        <nav class="gdf-btns" aria-label="Project sections"><a class="gdf-btn" href="#overview">Overview</a><a class="gdf-btn" href="#tasks">Task Demonstrations</a></nav>
       </header>
-      <section id="overview" aria-labelledby="overview-title">
-        <h2 id="overview-title">Coordinated Manipulation Through Sustained Contact</h2>
+      <section class="gdf-section" id="overview" aria-labelledby="overview-title"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="overview-title">Coordinated Manipulation Through Sustained Contact</h2>
         <p class="project-prose">Dexterous bimanual manipulation requires coordinated motion and sustained contact as objects move, interact, and are released. We study articulated door opening, part insertion, and constrained object relocation using the A7-L6 bimanual robot manipulator. The demonstrations below present task execution in MuJoCo. Door opening requires motion consistent with the door’s hinge; insertion requires part–housing alignment and housing support; constrained relocation requires clearing a passive flap before transferring the object. The three examples emphasize how the robot coordinates object motion with the surrounding mechanical constraints.</p>
         <figure>
           <video class="zoomable" controls muted playsinline preload="none" width="1920" height="1080" src="../videos/bimanual-manipulation/demonstration.mp4?v=public-demo-20261021" poster="../videos/bimanual-manipulation/demonstration.jpg" aria-label="Door opening, bimanual part insertion, and constrained object relocation"></video>
           <figcaption>The robot opens an articulated door, inserts a part into a supported housing, and relocates an object while keeping a passive flap clear of its path. Excerpts play at the original execution speed.</figcaption>
         </figure>
-      </section>
-<section aria-labelledby="tasks-title" id="tasks">
-<h2 id="tasks-title">Contact-Rich Bimanual Tasks</h2>
+      </div></section>
+<section class="gdf-section gdf-section--alt" aria-labelledby="tasks-title" id="tasks"><div class="gdf-wrap">
+<h2 class="gdf-h2" id="tasks-title">Contact-Rich Bimanual Tasks</h2>
 <p class="project-prose">The A7-L6 bimanual robot manipulator executes the following tasks in MuJoCo. Videos play at the original execution speed.</p>
 <div class="task-grid">
 <figure>
@@ -63,7 +66,7 @@
 <figcaption>The robot manipulates the passive flap to clear the transfer path, lifts and relocates the object into the carton, and releases it after placement.</figcaption>
 </figure>
 </div>
-</section>
+</div></section>
     </main>
   </div><div id="footer-placeholder"></div></div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
