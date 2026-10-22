@@ -30,6 +30,8 @@
   <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
   <link rel="stylesheet" href="./static/css/index.css?v=20260926a">
+  <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
+  <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
 </head>
 <body class="parcelstow-page">
   <a class="sr-only sr-only-focusable" href="#main">Skip to Content</a>
@@ -75,6 +77,9 @@
       <section class="gdf-section gdf-section--alt" id="results"><div class="gdf-wrap">
         <h2 class="gdf-h2">Expert–ACT Comparisons</h2>
         <div class="gdf-prose"><p>In the recorded evaluations, ACT matches or exceeds expert nominal task success on all three tasks. At the higher speedup factors shown below, the expert succeeds more often. For parcel insertion, this difference appears within the demonstrated speed range; for upright placement and keyed peg insertion, it appears beyond that range.</p></div>
+<figure class="control-diagram" aria-labelledby="parcelstow-evaluation-diagram"><div class="control-flow"><div class="control-block"><h3>Controlled Timing Variation</h3><p>Vary selected phase durations using the same task speedup factors for expert and learner.</p></div>
+<div class="control-block control-block--controller"><h3>Expert–ACT Evaluation</h3><p>Evaluate both policies on parcel insertion, upright placement, and keyed peg insertion.</p></div>
+<div class="control-block"><h3>Robustness Comparison</h3><p>Compare task-success counts and expert-minus-ACT differences across speedup factors.</p></div></div><figcaption id="parcelstow-evaluation-diagram">Task speedup changes the time available for execution. Video playback speed changes only how the recorded execution is viewed.</figcaption></figure>
         <div class="table-container ps-results-wrap" role="region" aria-label="Expert and ACT task success" tabindex="0">
           <table class="ps-results" aria-describedby="results-note">
             <thead>

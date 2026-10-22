@@ -38,7 +38,7 @@
 @media(max-width:420px) { .rl-method{grid-template-columns:1fr;gap:8px;} .rl-arrow{transform:rotate(90deg);justify-self:center;} .rl-page th,.rl-page td{padding:9px 6px;font-size:.81rem;} .rl-links{gap:7px;} .rl-links a{padding:8px 10px;font-size:.83rem;} }
 
 .rl-subtitle {font-size:1rem;line-height:1.6;color:var(--text-color);margin-bottom:20px;}
-.rl-navigation a {border:0;padding:6px 10px;text-decoration:underline;text-underline-offset:4px;}
+
 .rl-evidence-strip {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:22px 0;}
 .rl-evidence-strip--pair {grid-template-columns:repeat(2,minmax(0,1fr));}
 .rl-evidence-strip div {padding:15px 12px;background:rgba(66,113,167,.09);border-top:2px solid var(--theme-primary);text-align:center;}
@@ -49,8 +49,7 @@
 .rl-technical[open] summary {margin-bottom:18px;}
 .rl-resources {margin-top:22px;font-size:.92rem;line-height:1.9;}
 .rl-resources a {text-decoration:underline;text-underline-offset:3px;}
-.rl-flow {display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;padding:20px 12px;margin-block:20px;background:rgba(66,113,167,.06);font-size:.85rem;}
-.rl-flow span:not([aria-hidden]) {max-width:185px;text-align:center;}
+
 @media(max-width:768px) {.rl-hero{padding-bottom:18px;} .rl-page{padding-top:25px;} .rl-hero h1{margin-bottom:12px;} .rl-intro{margin-bottom:16px;} .rl-evidence-strip{gap:8px;} .rl-evidence-strip strong{font-size:1.35rem;} .rl-evidence-strip div{padding:12px 6px;} .rl-evidence-strip span{font-size:.75rem;} }
 @media print {.rl-page{padding:0;} .rl-study{break-inside:auto;} .rl-hero{padding-bottom:12px;} .rl-links{display:none;} .rl-page video{max-height:240px;} #navbar-placeholder,#footer-placeholder{display:none;} .rl-technical:not([open]){display:none;} }
 
@@ -64,3 +63,12 @@
 .rl-references li::before {content:"[" counter(rl-ref) "]";position:absolute;left:-2.6rem;font-weight:700;}
 .rl-references li:target {background:rgba(66,113,167,.12);border-radius:4px;outline:2px solid var(--theme-primary);outline-offset:7px;}
 .rl-references li:focus {outline:2px solid var(--theme-primary);outline-offset:7px;}
+
+/* Canonical project layout, with full-width section backgrounds. */
+.rl-page { width: 100%; max-width: none; padding: 0; }
+.rl-page .rl-hero { padding: 2.75rem var(--site-gutter) 1.25rem; }
+.rl-page .rl-study { padding: 2.25rem var(--site-gutter); }
+.rl-study .gdf-h2 { text-align: center; font-size: 1.6rem; }
+.rl-study > .gdf-wrap > .rl-eyebrow { text-align: center; }
+.rl-page .rl-navigation a { text-decoration: none; }
+.rl-page .control-diagram { margin: 1.5rem 0; }

@@ -1,0 +1,5 @@
+/* Shared section partitions for the homepage demonstration destinations. */
+.project-sections-page .gdf-section { border-top: 1px solid var(--border-color); }
+.project-sections-page .gdf-btn { min-height: 44px; }
+.project-sections-page .control-diagram { margin: 1.5rem 0; }
+.project-sections-page .gdf-section h2[id] { scroll-margin-top: 6rem; }
