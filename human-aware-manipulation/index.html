@@ -12,7 +12,7 @@
   <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('light-mode');}})();</script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="../stylesheet.css?v=20261019-wrench">
+  <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
   <link rel="stylesheet" href="../bimanual-manipulation/style.css?v=public-demo-20261021">
 </head>
 <body>
@@ -26,7 +26,7 @@
       </header>
       <section aria-labelledby="assembly-title">
         <h2 id="assembly-title">Bimanual Assembly in a Shared Workspace</h2>
-        <p class="project-prose">Manipulation in shared workspaces requires the robot to accommodate nearby human motion while maintaining the contacts needed to complete its task. We study bimanual assembly with the A7-L6 bimanual robot manipulator, including part transport, alignment, insertion, and withdrawal after release.</p>
+        <p class="project-prose">Manipulation in shared workspaces requires the robot to accommodate nearby human motion while maintaining the contacts needed to complete its task. We study bimanual assembly with the A7-L6 bimanual robot manipulator, including part transport, alignment, insertion, and withdrawal after release. The demonstration focuses on completing assembly while a person reaches into the workcell. Maintaining housing support and part–housing alignment is necessary while the robot remains in contact with the assembly; withdrawal follows release. The workspace view establishes the human–robot interaction, while the close view makes these object contacts visible.</p>
         <figure>
           <div class="workspace-views" aria-hidden="true"><span>Workspace View</span><span>Contact Detail</span></div>
           <video class="zoomable" controls muted loop playsinline preload="metadata" width="1920" height="800" src="../gdf/static/videos/ongoing/human-task-preserving-rerouting.mp4?v=route-ablation-20261015" poster="../gdf/static/videos/ongoing/human-task-preserving-rerouting.jpg?v=route-ablation-20261015" aria-label="A7-L6 bimanual assembly while a simulated person reaches into the workspace"></video>

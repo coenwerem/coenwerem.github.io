@@ -27,7 +27,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="../stylesheet.css?v=20260913-controls">
+  <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
   <link rel="stylesheet" href="./static/css/index.css?v=20260926a">
 </head>
@@ -41,6 +41,9 @@
       <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span>, <span class="text-nowrap">John S. Baras</span>, and <span class="text-nowrap">Calin Belta</span></p>
       <p class="gdf-affil">University of Maryland, College Park</p>
       <div class="gdf-btns">
+        <a class="gdf-btn" href="#g1-l6-parcelstow">G1-L6 Comparisons</a>
+        <a class="gdf-btn" href="#a7-l6-parcel-insertion">A7-L6 Parcel Insertion</a>
+        <a class="gdf-btn" href="#a7-l6-bimanual-assembly">Bimanual Assembly</a>
         <a class="gdf-btn" href="https://arxiv.org/abs/2609.01453"><i class="ai ai-arxiv" aria-hidden="true"></i><span>Paper</span></a>
         <a class="gdf-btn" href="https://github.com/coenwerem/parcelstow"><i class="fab fa-github" aria-hidden="true"></i><span>Code</span></a>
         <a class="gdf-btn" href="https://huggingface.co/datasets/cenwerem/parcelstow"><i class="fas fa-database" aria-hidden="true"></i><span>Data &amp; Checkpoints</span></a>
@@ -53,6 +56,8 @@
           <p>Matching expert task success at one operating condition does not establish robustness preservation as task conditions vary. ParcelStow evaluates the expert–learner performance difference across a controlled variation in execution timing. The difference can widen, narrow, or reverse sign.</p>
           <p>A scalar speedup factor <var>r</var> divides selected phase durations: at <var>r</var> = 2, those phases take half as long. Acquisition and settling durations are fixed. We evaluate expert and learner policies across the same speedup factors on three simulated manipulation tasks.</p>
         </div>
+        <h2 class="gdf-h2" id="g1-l6-parcelstow">ParcelStow with the G1-L6 Humanoid</h2>
+        <div class="gdf-prose"><p>The G1-L6 humanoid executes parcel insertion, upright placement, and keyed peg insertion using an expert controller and an Action Chunking Transformer (ACT) policy. Each task requires the robot to acquire an object and satisfy a distinct placement or insertion condition. The paired videos compare expert and learner behavior at a task speedup factor of <var>r</var> = 2; playback is also accelerated to 2×. The comparison distinguishes task execution under shortened phase durations from video playback speed.</p></div>
         <figure class="gdf-overview ps-demo">
           <video controls muted loop playsinline preload="metadata" poster="../videos/robot_learning_g1_comparison_poster.jpg" aria-label="Expert above ACT on three ParcelStow tasks at speedup factor 2, played at twice real-time speed">
             <source src="../videos/robot_learning_g1_comparison.mp4" type="video/mp4">
@@ -86,6 +91,28 @@
           <p>Expert-minus-ACT differences at the highlighted factors are 31, 40.5, and 73.5 percentage points, with pointwise 95% paired bootstrap intervals [18, 44], [32, 49], and [67.5, 79.5]. Each task reports one trained ACT policy; training replications are reported individually in the records.</p>
           <p>These evaluations use fixed state-based policies in Isaac Lab simulation. The release also contains Diffusion Policy and DAgger results, together with their pairing status and comparison limits. <a href="https://github.com/coenwerem/parcelstow/tree/main/data/manuscript_20260921">Explore the evaluation records.</a></p>
         </div>
+      </div></section>
+
+      <section class="gdf-section" aria-labelledby="a7-l6-parcel-insertion"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="a7-l6-parcel-insertion">Parcel Insertion with the A7-L6 Manipulator</h2>
+        <div class="gdf-prose">
+          <p>The A7-L6 bimanual robot manipulator executes dexterous parcel insertion in Isaac Lab. We compare an expert controller with an ACT policy from the same recorded initial parcel pose at the nominal task rate, <var>r</var> = 1. The expert completes the task, whereas ACT fails the final-orientation criterion. This matched trial makes the expert–learner difference visible at the placement stage, where reaching the receptacle must also produce the required object orientation.</p>
+        </div>
+        <figure class="gdf-overview ps-demo">
+          <video controls muted playsinline preload="none" poster="../videos/a7_expert_act_demo_poster.jpg" src="../videos/a7_expert_act_demo.mp4" aria-label="A7-L6 parcel insertion: expert and ACT from matched initial conditions"></video>
+          <figcaption>Expert–ACT comparison at the nominal task rate. Matched initial parcel pose · Isaac Lab · 1× playback.</figcaption>
+        </figure>
+      </div></section>
+
+      <section class="gdf-section gdf-section--alt" aria-labelledby="a7-l6-bimanual-assembly"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="a7-l6-bimanual-assembly">Bimanual Assembly through Imitation Learning</h2>
+        <div class="gdf-prose">
+          <p>The A7-L6 bimanual robot manipulator coordinates housing stabilization with part acquisition, alignment, and insertion in Isaac Lab. The comparison pairs an expert controller with ACT and feedback control from identical recorded initial configurations. Both complete the nominal assembly: the expert in 54.74 s and ACT in 58.80 s. ACT exhibits brief right-arm jerks at the transfer-to-alignment and alignment-to-insertion transitions, while the expert transitions smoothly in this recording. These phase-boundary behaviors distinguish the executions even though both satisfy the task-completion criterion.</p>
+        </div>
+        <figure class="gdf-overview ps-demo">
+          <video controls muted playsinline preload="none" poster="../videos/bimanual_expert_act_demo_poster.jpg" src="../videos/bimanual_expert_act_demo.mp4" aria-label="Successful nominal bimanual assembly by the expert and ACT with feedback control"></video>
+          <figcaption>Successful nominal demonstrations from identical initial configurations. Independent elapsed-time and task-phase labels · 1.5× playback.</figcaption>
+        </figure>
       </div></section>
 
       <section class="gdf-section" id="resources"><div class="gdf-wrap">
