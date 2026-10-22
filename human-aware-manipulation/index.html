@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manipulation in Human-Shared Workspaces</title>
-  <meta name="description" content="A7-L6 bimanual assembly in a shared workspace with nearby human motion.">
+  <meta name="description" content="Contact-rich bimanual assembly in human-shared workspaces: coordinating robot motion with grasp retention, housing support, insertion, and release.">
   <link rel="canonical" href="https://clintonenwerem.com/human-aware-manipulation/">
   <meta property="og:title" content="Manipulation in Human-Shared Workspaces">
   <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
-  <link rel="stylesheet" href="../bimanual-manipulation/style.css?v=public-demo-20261021">
+  <link rel="stylesheet" href="../bimanual-manipulation/style.css?v=human-workspace-context-20261022">
 </head>
 <body>
   <div id="navbar-placeholder"></div>
@@ -23,15 +23,42 @@
         <p class="project-status">Research in Progress</p>
         <h1>Manipulation in Human-Shared Workspaces</h1>
         <p>Institute for Systems Research, University of Maryland, College Park</p>
+        <nav aria-label="Project sections"><a href="#research-focus">Research Focus</a><a href="#assembly-title">Assembly Demonstration</a><a href="#task-requirements">Task Requirements</a></nav>
       </header>
+      <section aria-labelledby="research-focus">
+        <h2 id="research-focus">Human-Aware Motion During Contact-Rich Manipulation</h2>
+        <p class="project-prose">A robot working near a person must account for human motion while preserving the physical conditions needed to finish its task. During assembly, an avoidance motion can disrupt the grasp, displace the housing, or misalign a partially inserted part. The robot’s available motions therefore depend on its current contact with the objects and the stage of assembly.</p>
+        <p class="project-prose">We study this problem through bimanual assembly in a human-shared workcell. The objective is to accommodate nearby human motion while retaining the grasp, supporting the housing, and maintaining part–housing alignment through insertion and release. The demonstration emphasizes the interval before release, when the robot cannot simply withdraw its manipulating hand without interrupting the task.</p>
+      </section>
       <section aria-labelledby="assembly-title">
         <h2 id="assembly-title">Bimanual Assembly in a Shared Workspace</h2>
-        <p class="project-prose">Manipulation in shared workspaces requires the robot to accommodate nearby human motion while maintaining the contacts needed to complete its task. We study bimanual assembly with the A7-L6 bimanual robot manipulator, including part transport, alignment, insertion, and withdrawal after release. The demonstration focuses on completing assembly while a person reaches into the workcell. Maintaining housing support and part–housing alignment is necessary while the robot remains in contact with the assembly; withdrawal follows release. The workspace view establishes the human–robot interaction, while the close view makes these object contacts visible.</p>
+        <p class="project-prose">The A7-L6 bimanual robot manipulator acquires and transports a part, aligns it with a supported housing, and completes insertion while a simulated person reaches into the workcell. The robot then releases the part and withdraws. The two synchronized views connect the person’s movement through the workspace with the robot’s contact and alignment at the assembly.</p>
         <figure>
           <div class="workspace-views" aria-hidden="true"><span>Workspace View</span><span>Contact Detail</span></div>
           <video class="zoomable" controls muted loop playsinline preload="metadata" width="1920" height="800" src="../gdf/static/videos/ongoing/human-task-preserving-rerouting.mp4?v=route-ablation-20261015" poster="../gdf/static/videos/ongoing/human-task-preserving-rerouting.jpg?v=route-ablation-20261015" aria-label="A7-L6 bimanual assembly while a simulated person reaches into the workspace"></video>
           <figcaption>The robot completes assembly while a person reaches into the shared workspace, maintaining housing support and part–housing alignment through insertion. Simulation playback is at the original execution speed.</figcaption>
         </figure>
+      </section>
+      <section aria-labelledby="task-requirements">
+        <h2 id="task-requirements">Task Requirements Across the Assembly Sequence</h2>
+        <div class="workspace-requirements">
+          <article>
+            <h3>Acquisition and Transport</h3>
+            <p class="project-prose">The robot establishes a grasp and transports the part toward the housing. Grasp retention and object support must be maintained as the person moves near the transfer path.</p>
+          </article>
+          <article>
+            <h3>Alignment and Insertion</h3>
+            <p class="project-prose">The robot coordinates part motion with housing support. Their relative pose determines whether insertion can proceed, so changes in robot posture must remain compatible with the required alignment and contact.</p>
+          </article>
+          <article>
+            <h3>Release and Withdrawal</h3>
+            <p class="project-prose">After insertion, the robot releases the part before retracting its manipulating hand. This stage distinguishes motion constrained by assembly contact from withdrawal after that contact has ended.</p>
+          </article>
+        </div>
+      </section>
+      <section aria-labelledby="grasping-and-assembly">
+        <h2 id="grasping-and-assembly">From Grasp Execution to Assembly</h2>
+        <p class="project-prose"><a href="../gdf/#reactive-grasp-execution">Grasp Distance Fields</a> addresses reactive grasp execution with collision avoidance and grasp-quality preservation. This research studies a distinct problem: accommodating human motion during a manipulation task whose contact requirements change through transport, insertion, and release. The connection is the need to preserve useful object contact while adapting the robot’s motion to its surroundings.</p>
       </section>
     </main>
   </div><div id="footer-placeholder"></div></div>
