@@ -13,34 +13,52 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
-  <link rel="stylesheet" href="../bimanual-manipulation/style.css?v=human-workspace-context-20261022">
+  <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=route-ablation-20261015">
+  <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
+  <link rel="stylesheet" href="style.css?v=20261022-sections">
 </head>
-<body>
+<body class="human-workspace-page">
   <div id="navbar-placeholder"></div>
   <div class="page-container"><div class="content-wrap">
-    <main class="wrench-project human-workspace-project">
-      <header>
-        <p class="project-status">Research in Progress</p>
-        <h1>Manipulation in Human-Shared Workspaces</h1>
-        <p>Institute for Systems Research, University of Maryland, College Park</p>
-        <nav aria-label="Project sections"><a href="#research-focus">Research Focus</a><a href="#assembly-title">Assembly Demonstration</a><a href="#task-requirements">Task Requirements</a></nav>
+    <main>
+      <header class="gdf-hero">
+        <p class="gdf-work-status">Research in Progress</p>
+        <h1 class="gdf-title">Manipulation in Human-Shared Workspaces</h1>
+        <p class="gdf-affil">Institute for Systems Research, University of Maryland, College Park</p>
+        <nav class="gdf-btns" aria-label="Project sections"><a class="gdf-btn" href="#research-focus">Research Focus</a><a class="gdf-btn" href="#control-overview">Control Overview</a><a class="gdf-btn" href="#assembly-title">Assembly Demonstration</a><a class="gdf-btn" href="#task-requirements">Task Requirements</a></nav>
       </header>
-      <section aria-labelledby="research-focus">
-        <h2 id="research-focus">Human-Aware Motion During Contact-Rich Manipulation</h2>
+      <section class="gdf-section" aria-labelledby="research-focus"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="research-focus">Human-Aware Motion During Contact-Rich Manipulation</h2>
         <p class="project-prose">A robot working near a person must account for human motion while preserving the physical conditions needed to finish its task. During assembly, an avoidance motion can disrupt the grasp, displace the housing, or misalign a partially inserted part. The robot’s available motions therefore depend on its current contact with the objects and the stage of assembly.</p>
         <p class="project-prose">We study this problem through bimanual assembly in a human-shared workcell. The objective is to accommodate nearby human motion while retaining the grasp, supporting the housing, and maintaining part–housing alignment through insertion and release. The demonstration emphasizes the interval before release, when the robot cannot simply withdraw its manipulating hand without interrupting the task.</p>
-      </section>
-      <section aria-labelledby="assembly-title">
-        <h2 id="assembly-title">Bimanual Assembly in a Shared Workspace</h2>
+      </div></section>
+      <section class="gdf-section gdf-section--alt" aria-labelledby="control-overview"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="control-overview">Human-Aware Manipulation Control</h2>
+        <p class="project-prose">The control problem couples two requirements: responding to observed human motion and maintaining the object contacts required by the current assembly stage. The diagram summarizes these inputs and the robot’s feedback interaction with the workspace.</p>
+        <figure class="control-diagram" aria-labelledby="workspace-control-caption">
+          <div class="control-flow">
+            <div class="control-inputs">
+              <div class="control-block"><h3>Observed State</h3><p>Robot and objects<br>Nearby human motion</p></div>
+              <div class="control-block"><h3>Assembly Requirements</h3><p>Grasp retention · Housing support<br>Part–housing alignment</p></div>
+            </div>
+            <div class="control-block control-block--controller"><h3>Human-Aware Manipulation Control</h3><p>Adapt robot motion while maintaining the conditions needed for assembly</p><span class="control-output">Robot commands</span></div>
+            <div class="control-block"><h3>Bimanual Robot and Workspace</h3><p>Transport · Insertion<br>Release · Withdrawal</p></div>
+          </div>
+          <div class="control-feedback"><span aria-hidden="true">↶</span> Updated robot, object, and human state</div>
+          <figcaption id="workspace-control-caption">Observed human motion and assembly requirements inform robot motion throughout task execution. Object contact constrains the available motion before release; withdrawal follows completion of the insertion and release stages.</figcaption>
+        </figure>
+      </div></section>
+      <section class="gdf-section" aria-labelledby="assembly-title"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="assembly-title">Bimanual Assembly in a Shared Workspace</h2>
         <p class="project-prose">The A7-L6 bimanual robot manipulator acquires and transports a part, aligns it with a supported housing, and completes insertion while a simulated person reaches into the workcell. The robot then releases the part and withdraws. The two synchronized views connect the person’s movement through the workspace with the robot’s contact and alignment at the assembly.</p>
         <figure>
           <div class="workspace-views" aria-hidden="true"><span>Workspace View</span><span>Contact Detail</span></div>
           <video class="zoomable" controls muted loop playsinline preload="metadata" width="1920" height="800" src="../gdf/static/videos/ongoing/human-task-preserving-rerouting.mp4?v=route-ablation-20261015" poster="../gdf/static/videos/ongoing/human-task-preserving-rerouting.jpg?v=route-ablation-20261015" aria-label="A7-L6 bimanual assembly while a simulated person reaches into the workspace"></video>
           <figcaption>The robot completes assembly while a person reaches into the shared workspace, maintaining housing support and part–housing alignment through insertion. Simulation playback is at the original execution speed.</figcaption>
         </figure>
-      </section>
-      <section aria-labelledby="task-requirements">
-        <h2 id="task-requirements">Task Requirements Across the Assembly Sequence</h2>
+      </div></section>
+      <section class="gdf-section gdf-section--alt" aria-labelledby="task-requirements"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="task-requirements">Task Requirements Across the Assembly Sequence</h2>
         <div class="workspace-requirements">
           <article>
             <h3>Acquisition and Transport</h3>
@@ -55,11 +73,11 @@
             <p class="project-prose">After insertion, the robot releases the part before retracting its manipulating hand. This stage distinguishes motion constrained by assembly contact from withdrawal after that contact has ended.</p>
           </article>
         </div>
-      </section>
-      <section aria-labelledby="grasping-and-assembly">
-        <h2 id="grasping-and-assembly">From Grasp Execution to Assembly</h2>
+      </div></section>
+      <section class="gdf-section" aria-labelledby="grasping-and-assembly"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="grasping-and-assembly">From Grasp Execution to Assembly</h2>
         <p class="project-prose"><a href="../gdf/#reactive-grasp-execution">Grasp Distance Fields</a> addresses reactive grasp execution with collision avoidance and grasp-quality preservation. This research studies a distinct problem: accommodating human motion during a manipulation task whose contact requirements change through transport, insertion, and release. The connection is the need to preserve useful object contact while adapting the robot’s motion to its surroundings.</p>
-      </section>
+      </div></section>
     </main>
   </div><div id="footer-placeholder"></div></div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
