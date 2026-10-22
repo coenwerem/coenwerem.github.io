@@ -44,6 +44,7 @@
         <a class="gdf-btn" href="#g1-l6-parcelstow">G1-L6 Comparisons</a>
         <a class="gdf-btn" href="#a7-l6-parcel-insertion">A7-L6 Parcel Insertion</a>
         <a class="gdf-btn" href="#a7-l6-bimanual-assembly">Bimanual Assembly</a>
+        <a class="gdf-btn" href="#a7-l6-constrained-object-relocation">Constrained Object Relocation</a>
         <a class="gdf-btn" href="https://arxiv.org/abs/2609.01453"><i class="ai ai-arxiv" aria-hidden="true"></i><span>Paper</span></a>
         <a class="gdf-btn" href="https://github.com/coenwerem/parcelstow"><i class="fab fa-github" aria-hidden="true"></i><span>Code</span></a>
         <a class="gdf-btn" href="https://huggingface.co/datasets/cenwerem/parcelstow"><i class="fas fa-database" aria-hidden="true"></i><span>Data &amp; Checkpoints</span></a>
@@ -112,6 +113,17 @@
         <figure class="gdf-overview ps-demo">
           <video controls muted playsinline preload="none" poster="../videos/bimanual_expert_act_demo_poster.jpg" src="../videos/bimanual_expert_act_demo.mp4" aria-label="Successful nominal bimanual assembly by the expert and ACT with feedback control"></video>
           <figcaption>Successful nominal demonstrations from identical initial configurations. Independent elapsed-time and task-phase labels · 1.5× playback.</figcaption>
+        </figure>
+      </div></section>
+
+      <section class="gdf-section" aria-labelledby="a7-l6-constrained-object-relocation"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="a7-l6-constrained-object-relocation">Constrained Object Relocation through Imitation Learning</h2>
+        <div class="gdf-prose">
+          <p>The A7-L6 bimanual robot manipulator coordinates opening a passive carton flap with grasping, lifting, and placing an object inside the carton. The learned policy maintains flap clearance during object transfer, then releases the object and withdraws the robot’s hands after placement. Trained by behavior cloning with corrective imitation data, the policy commands the arms and hands from simulated state observations and elapsed time. The video presents a successful Isaac Lab execution at the original task speed, emphasizing coordinated contact and object placement throughout the sequence.</p>
+        </div>
+        <figure class="gdf-overview ps-demo">
+          <video class="zoomable" controls muted playsinline preload="none" poster="../videos/a7_l6_learned_object_relocation.jpg?v=20261022" src="../videos/a7_l6_learned_object_relocation.mp4?v=20261022" aria-label="Learned A7-L6 constrained object relocation: flap opening, grasp and transfer, placement, release, and withdrawal"></video>
+          <figcaption>Learned-policy execution of constrained object relocation. A7-L6 bimanual robot manipulator · Isaac Lab / PhysX · 1× playback.</figcaption>
         </figure>
       </div></section>
 
