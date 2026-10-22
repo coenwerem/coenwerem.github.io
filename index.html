@@ -131,7 +131,7 @@
                 src="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918"
                 controls muted playsinline preload="none" aria-label="EquiDexFlow pipeline and hardware demonstrations: grasp prediction, contact-based retargeting to the LEAP Hand, and refinement; grasp renders paired with box, cube, mustard bottle, meat can, cylinder, and tennis-ball hardware executions"></video>
             </div>
-            <figcaption>SE(3)-Equivariant, Reach-Aware Grasp Synthesis</figcaption>
+            <figcaption>SE(3)-Equivariant, Reach-Aware Grasp Synthesis · <a href="equidexflow/">EquiDexFlow Project Page</a></figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Reactive &amp; Risk-Aware Manipulation">
             <div class="home-demo-media" id="task-wrench-demo" data-demo-start-chapter="2">
@@ -167,7 +167,16 @@
             <div class="home-demo-media">
               <video class="home-demo-video" src="reinforcement-learning/static/adroit-dapg-comparison.mp4" poster="reinforcement-learning/static/adroit-dapg-poster.jpg" controls muted playsinline preload="none" aria-label="Adroit object relocation: behavior cloning initialization versus a trained Demonstration-Augmented Policy Gradient policy using the same reset seed and mean actions."></video>
             </div>
-            <figcaption>Demonstration-Augmented Reinforcement Learning for Dexterous Relocation · <a href="reinforcement-learning/">Reinforcement Learning Studies</a></figcaption>
+            <div class="home-demo-chapters" role="group" aria-label="Reinforcement Learning Demonstrations" hidden>
+              <button type="button" data-demo-source="reinforcement-learning/static/adroit-dapg-comparison.mp4" data-demo-poster="reinforcement-learning/static/adroit-dapg-poster.jpg" data-demo-duration="4" aria-pressed="true">Dexterous Relocation</button>
+              <button type="button" data-demo-source="reinforcement-learning/static/a7-rlpd-assembly.mp4" data-demo-poster="reinforcement-learning/static/a7-rlpd-poster.jpg" data-demo-duration="42.083333" aria-pressed="false">Bimanual Assembly</button>
+              <button type="button" data-demo-source="reinforcement-learning/static/safe-rl-navigation.mp4" data-demo-poster="reinforcement-learning/static/safe-rl-poster.jpg" data-demo-duration="3.72" aria-pressed="false">Risk-Sensitive Navigation</button>
+            </div>
+            <figcaption>
+              <span data-demo-chapter="0" data-demo-caption-start="0">Demonstration-Augmented Reinforcement Learning for Dexterous Relocation · <a href="reinforcement-learning/#adroit-dapg">Study Details</a><br>Behavior cloning initialization compared with a trained DAPG policy.</span>
+              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Residual Reinforcement Learning for Bimanual Assembly · <a href="reinforcement-learning/#a7-rlpd">Study Details</a><br>The A7-L6 bimanual robot manipulator executes assembly using learned joint-reference corrections and feedback control.</span>
+              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Risk-Sensitive Distributional Reinforcement Learning · <a href="reinforcement-learning/#safe-rl">Project Details</a><br>Goal-reaching navigation among hazards and obstacles in MuJoCo / Safety-Gymnasium.</span>
+            </figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Imitation Learning">
             <div class="home-demo-media">
@@ -175,7 +184,16 @@
                 src="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004"
                 controls muted playsinline preload="none" aria-label="Imitation Learning: G1-L6 expert-ACT comparisons for parcel insertion, upright placement, and keyed peg insertion at speedup factor r equals 2 and twice real-time playback, followed by a transition card and an A7-L6 parcel insertion comparison at nominal task rate and real-time playback. In the matched A7 trial, the expert completes the task and ACT misses the final-orientation criterion. A third segment compares successful nominal bimanual assembly by an expert and ACT with feedback control from identical initial states at 1.5 times playback speed. These are individual demonstrations; A7 work is ongoing."></video>
             </div>
-            <figcaption>Imitation Learning for Dexterous Manipulation · <a href="parcelstow/">ParcelStow Project Page</a></figcaption>
+            <div class="home-demo-chapters" role="group" aria-label="Imitation Learning Demonstrations" hidden>
+              <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" data-demo-start="0" data-demo-end="9.2" data-demo-duration="9.2" aria-pressed="true">ParcelStow · G1-L6</button>
+              <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" data-demo-start="9.2" data-demo-end="25.64" data-demo-duration="16.44" aria-pressed="false">Parcel Insertion · A7-L6</button>
+              <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" data-demo-start="25.64" data-demo-end="73.96" data-demo-duration="48.32" aria-pressed="false">Bimanual Assembly · A7-L6</button>
+            </div>
+            <figcaption>
+              <span data-demo-chapter="0" data-demo-caption-start="0">Imitation Learning for Dexterous Manipulation · <a href="parcelstow/">ParcelStow Project Page</a><br>G1-L6 expert–ACT comparisons for parcel insertion, upright placement, and keyed peg insertion.</span>
+              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Expert–Learner Comparison for Parcel Insertion · <a href="parcelstow/">ParcelStow Project Page</a><br>In this matched A7-L6 trial, the expert completes insertion; ACT misses the final-orientation criterion.</span>
+              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Bimanual Assembly through Imitation Learning<br>Successful nominal expert and ACT demonstrations from identical initial configurations, with annotations at task-phase transitions. Playback: 1.5×.</span>
+            </figcaption>
           </figure>
         </div>
         <div class="home-demo-controls" hidden>
@@ -264,7 +282,7 @@
 <script src="scripts.js?v=20261004-inline-demos"></script>
 
 <script src="coming-soon.js?v=20261004" defer></script>
-<script src="home-demo-carousel.js?v=20261019-demonstration-chapters" defer></script>
+<script src="home-demo-carousel.js?v=20261021-project-subtabs" defer></script>
 
 </body>
 </html>

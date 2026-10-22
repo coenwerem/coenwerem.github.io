@@ -51,6 +51,10 @@
   const chapterIndex = new WeakMap();
   const chapterButtons = slide => [...slide.querySelectorAll('[data-demo-source]')];
 
+  const currentChapter = slide => chapterButtons(slide)[chapterIndex.get(slide) || 0];
+  const chapterStart = slide => Number(currentChapter(slide)?.dataset.demoStart || 0);
+  const chapterEnd = slide => Number(currentChapter(slide)?.dataset.demoEnd || Infinity);
+
   function selectChapter(slide, next, shouldPlay = true) {
     const chapters = chapterButtons(slide);
     const chapter = chapters[next];
@@ -61,11 +65,13 @@
     video.pause();
     if (video.getAttribute('src') !== chapter.dataset.demoSource) {
       video.src = chapter.dataset.demoSource;
-      video.poster = chapter.dataset.demoPoster;
+      if (chapter.dataset.demoPoster) video.poster = chapter.dataset.demoPoster;
       video.load();
-    } else {
-      video.currentTime = 0;
     }
+    const seekToStart = () => { video.currentTime = chapterStart(slide); };
+    if (video.readyState >= 1) seekToStart();
+    else video.addEventListener('loadedmetadata', seekToStart, {once: true});
+    video.loop = !rotating && !Number.isFinite(chapterEnd(slide));
     video.setAttribute('aria-label', chapter.textContent.trim());
     video.dispatchEvent(new Event('timeupdate'));
     if (shouldPlay) {
@@ -76,7 +82,7 @@
 
   function updateControls() {
     const video = activeVideo();
-    if (video) video.loop = !rotating;
+    if (video) video.loop = !rotating && !Number.isFinite(chapterEnd(slides[index]));
     rotation.textContent = rotating ? 'Pause Rotation' : 'Resume Rotation';
     position.textContent = `${index + 1} / ${slides.length}`;
     position.setAttribute('aria-live', rotating ? 'off' : 'polite');
@@ -127,8 +133,19 @@
   });
 
   function advanceAfterVideo() {
-    if (activeVideo()?.ended && rotating && visible && !document.hidden && !document.fullscreenElement) {
-      const slide = slides[index];
+    const slide = slides[index];
+    const video = activeVideo();
+    if (!video) return;
+    const bounded = Number.isFinite(chapterEnd(slide));
+    const finished = video.ended || (bounded && video.currentTime >= chapterEnd(slide));
+    if (!finished) return;
+    if (bounded && !rotating) {
+      const playing = !video.paused || video.ended;
+      video.currentTime = chapterStart(slide);
+      if (playing) play(video);
+      return;
+    }
+    if (rotating && visible && !document.hidden && (!document.fullscreenElement || bounded)) {
       const nextChapter = (chapterIndex.get(slide) || 0) + 1;
       if (nextChapter < chapterButtons(slide).length) selectChapter(slide, nextChapter);
       else select((index + 1) % slides.length);
@@ -143,6 +160,14 @@
       slide.querySelector('.home-demo-chapters').hidden = false;
       chapters.forEach((button, i) => button.addEventListener('click', () => selectChapter(slide, i)));
     }
+    video.addEventListener('seeked', () => {
+      const matching = chapters.findIndex(chapter => chapter.dataset.demoEnd &&
+        video.currentTime >= Number(chapter.dataset.demoStart || 0) &&
+        video.currentTime < Number(chapter.dataset.demoEnd));
+      if (matching < 0) return;
+      chapterIndex.set(slide, matching);
+      chapters.forEach((button, i) => button.setAttribute('aria-pressed', String(i === matching)));
+    });
     const captions = [...slide.querySelectorAll('[data-demo-caption-start]')];
     const syncCaption = () => captions.forEach(caption => {
       const start = Number(caption.dataset.demoCaptionStart);
@@ -203,7 +228,10 @@
     const video = activeVideo();
     if (video) {
       // Follow media time, including buffering, native pause, seeking and playback speed.
-      const fraction = Number.isFinite(video.duration) && video.duration > 0 ? video.currentTime / video.duration : 0;
+      const start = chapterStart(slides[index]);
+      const duration = Math.min(chapterEnd(slides[index]), video.duration) - start;
+      const fraction = Number.isFinite(duration) && duration > 0 ?
+        Math.max(0, Math.min(1, (video.currentTime - start) / duration)) : 0;
       const chapters = chapterButtons(slides[index]);
       const currentChapter = chapterIndex.get(slides[index]) || 0;
       const durations = chapters.map(chapter => Number(chapter.dataset.demoDuration));
