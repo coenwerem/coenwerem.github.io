@@ -161,7 +161,8 @@
       chapters.forEach((button, i) => button.addEventListener('click', () => selectChapter(slide, i)));
     }
     video.addEventListener('seeked', () => {
-      const matching = chapters.findIndex(chapter => chapter.dataset.demoEnd &&
+      const matching = chapters.findIndex(chapter =>
+        chapter.dataset.demoSource === video.getAttribute('src') && chapter.dataset.demoEnd &&
         video.currentTime >= Number(chapter.dataset.demoStart || 0) &&
         video.currentTime < Number(chapter.dataset.demoEnd));
       if (matching < 0) return;
