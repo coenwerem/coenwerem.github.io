@@ -36,3 +36,12 @@
 
 .human-workspace-project video { aspect-ratio: 12 / 5; }
 .workspace-views { display: grid; grid-template-columns: 1fr 1fr; text-align: center; color: var(--text-secondary); margin-bottom: .6rem; }
+
+/* Task-level context on the public human-workspace overview. */
+.human-workspace-project .workspace-requirements { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.human-workspace-project .workspace-requirements article { min-width: 0; }
+.human-workspace-project .workspace-requirements h3 { text-align: left; }
+.human-workspace-project .workspace-requirements p { text-align: left; }
+@media (max-width: 768px) {
+  .human-workspace-project .workspace-requirements { grid-template-columns: 1fr; gap: .75rem; }
+}
