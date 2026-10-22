@@ -3218,3 +3218,6 @@ body:has(.robot-demo-dialog[open]) { overflow: hidden; }
 .robot-card--ur3e { --photo-width: 277.333333%; --photo-height: 198.8%; --photo-left: -27.777778%; }
 .robot-card--ur3e .robot-media img { top: -48%; }
 @media (max-width: 768px) { .robots-gallery:has(.robot-card--ur3e) { grid-template-columns: 1fr; } }
+
+/* Project demonstrations linked directly from homepage subtabs. */
+h2[id] { scroll-margin-top: 6rem; }

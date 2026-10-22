@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="stylesheet.css?v=20261004-link-alignment">
+  <link rel="stylesheet" href="stylesheet.css?v=20261021-demo-sections">
 </head>
 
 <body>
@@ -131,7 +131,7 @@
                 src="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918"
                 controls muted playsinline preload="none" aria-label="EquiDexFlow pipeline and hardware demonstrations: grasp prediction, contact-based retargeting to the LEAP Hand, and refinement; grasp renders paired with box, cube, mustard bottle, meat can, cylinder, and tennis-ball hardware executions"></video>
             </div>
-            <figcaption>SE(3)-Equivariant, Reach-Aware Grasp Synthesis · <a href="equidexflow/">EquiDexFlow Project Page</a></figcaption>
+            <figcaption>SE(3)-Equivariant, Reach-Aware Grasp Synthesis · <a href="equidexflow/#grasp-synthesis-and-hardware-execution">EquiDexFlow Project Page</a></figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Reactive &amp; Risk-Aware Manipulation">
             <div class="home-demo-media" id="task-wrench-demo" data-demo-start-chapter="2">
@@ -146,12 +146,12 @@
               <button type="button" data-demo-source="videos/belief_cvar_mppi_demo.mp4?v=cmu-method-application-20260918" data-demo-poster="videos/belief_cvar_mppi_demo_poster.jpg?v=cmu-method-application-20260918" data-demo-duration="39.2" aria-pressed="false">Risk-Aware Manipulation</button>
             </div>
             <figcaption>
-              <span data-demo-chapter="0" data-demo-caption-start="0">Grasp Distance Fields · <a href="gdf/">Project Page</a><br>GDF supports autonomous dexterous grasp execution with dynamic obstacle avoidance and grasp-quality preservation.</span>
-              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Manipulation in Human-Shared Workspaces · <a href="human-aware-manipulation/">Research Overview</a> · Simulation<br>
+              <span data-demo-chapter="0" data-demo-caption-start="0">Grasp Distance Fields · <a href="gdf/#reactive-grasp-execution">Project Page</a><br>GDF supports autonomous dexterous grasp execution with dynamic obstacle avoidance and grasp-quality preservation.</span>
+              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Manipulation in Human-Shared Workspaces · <a href="human-aware-manipulation/#assembly-title">Research Overview</a> · Simulation<br>
                 The A7-L6 bimanual robot manipulator completes assembly while a person reaches into the shared workspace, maintaining housing support and part–housing alignment through insertion.</span>
-              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Contact-Rich Bimanual Manipulation · <a href="bimanual-manipulation/">Research in Progress</a> · MuJoCo<br>
+              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Contact-Rich Bimanual Manipulation · <a href="bimanual-manipulation/#overview-title">Research in Progress</a> · MuJoCo<br>
                 The A7-L6 bimanual robot manipulator executes articulated door opening, part insertion, and constrained object relocation in MuJoCo.</span>
-              <span data-demo-chapter="3" data-demo-caption-start="0" hidden>Risk-Sensitive Belief-Space Control · <a href="belief-cvar-mppi/">Belief CVaR-MPPI</a><br>
+              <span data-demo-chapter="3" data-demo-caption-start="0" hidden>Risk-Sensitive Belief-Space Control · <a href="belief-cvar-mppi/#vision-guided-dexterous-stowing">Belief CVaR-MPPI</a><br>
                 Risk-sensitive dexterous stowing under latent uncertainty, comparing lower and higher risk aversion.</span>
             </figcaption>
           </figure>
@@ -173,9 +173,9 @@
               <button type="button" data-demo-source="reinforcement-learning/static/safe-rl-navigation.mp4" data-demo-poster="reinforcement-learning/static/safe-rl-poster.jpg" data-demo-duration="3.72" aria-pressed="false">Risk-Sensitive Navigation</button>
             </div>
             <figcaption>
-              <span data-demo-chapter="0" data-demo-caption-start="0">Demonstration-Augmented Reinforcement Learning for Dexterous Relocation · <a href="reinforcement-learning/#adroit-dapg">Study Details</a><br>Behavior cloning initialization compared with a trained DAPG policy.</span>
-              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Residual Reinforcement Learning for Bimanual Assembly · <a href="reinforcement-learning/#a7-rlpd">Study Details</a><br>The A7-L6 bimanual robot manipulator executes assembly using learned joint-reference corrections and feedback control.</span>
-              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Risk-Sensitive Distributional Reinforcement Learning · <a href="reinforcement-learning/#safe-rl">Project Details</a><br>Goal-reaching navigation among hazards and obstacles in MuJoCo / Safety-Gymnasium.</span>
+              <span data-demo-chapter="0" data-demo-caption-start="0">Demonstration-Augmented Reinforcement Learning for Dexterous Relocation · <a href="reinforcement-learning/#dexterous-relocation">Study Details</a><br>Behavior cloning initialization compared with a trained DAPG policy.</span>
+              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Residual Reinforcement Learning for Bimanual Assembly · <a href="reinforcement-learning/#bimanual-assembly">Study Details</a><br>The A7-L6 bimanual robot manipulator executes assembly using learned joint-reference corrections and feedback control.</span>
+              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Risk-Sensitive Distributional Reinforcement Learning · <a href="reinforcement-learning/#risk-sensitive-navigation">Project Details</a><br>Goal-reaching navigation among hazards and obstacles in MuJoCo / Safety-Gymnasium.</span>
             </figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Imitation Learning">
@@ -190,9 +190,9 @@
               <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" data-demo-start="25.64" data-demo-end="73.96" data-demo-duration="48.32" aria-pressed="false">Bimanual Assembly · A7-L6</button>
             </div>
             <figcaption>
-              <span data-demo-chapter="0" data-demo-caption-start="0">Imitation Learning for Dexterous Manipulation · <a href="parcelstow/">ParcelStow Project Page</a><br>G1-L6 expert–ACT comparisons for parcel insertion, upright placement, and keyed peg insertion.</span>
-              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Expert–Learner Comparison for Parcel Insertion · <a href="parcelstow/">ParcelStow Project Page</a><br>In this matched A7-L6 trial, the expert completes insertion; ACT misses the final-orientation criterion.</span>
-              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Bimanual Assembly through Imitation Learning<br>Successful nominal expert and ACT demonstrations from identical initial configurations, with annotations at task-phase transitions. Playback: 1.5×.</span>
+              <span data-demo-chapter="0" data-demo-caption-start="0">Imitation Learning for Dexterous Manipulation · <a href="parcelstow/#g1-l6-parcelstow">ParcelStow Project Page</a><br>G1-L6 expert–ACT comparisons for parcel insertion, upright placement, and keyed peg insertion.</span>
+              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Expert–Learner Comparison for Parcel Insertion · <a href="parcelstow/#a7-l6-parcel-insertion">ParcelStow Project Page</a><br>In this matched A7-L6 trial, the expert completes insertion; ACT misses the final-orientation criterion.</span>
+              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Bimanual Assembly through Imitation Learning · <a href="parcelstow/#a7-l6-bimanual-assembly">Demonstration Details</a><br>Successful nominal expert and ACT demonstrations from identical initial configurations, with annotations at task-phase transitions. Playback: 1.5×.</span>
             </figcaption>
           </figure>
         </div>

@@ -12,7 +12,7 @@
   <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('light-mode');}})();</script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="../stylesheet.css?v=20261019-wrench">
+  <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
   <link rel="stylesheet" href="style.css?v=public-demo-20261021">
 </head>
 <body>
@@ -28,7 +28,7 @@
       </header>
       <section id="overview" aria-labelledby="overview-title">
         <h2 id="overview-title">Coordinated Manipulation Through Sustained Contact</h2>
-        <p class="project-prose">Dexterous bimanual manipulation requires coordinated motion and sustained contact as objects move, interact, and are released. We study articulated door opening, part insertion, and constrained object relocation using the A7-L6 bimanual robot manipulator. The demonstrations below present task execution in MuJoCo.</p>
+        <p class="project-prose">Dexterous bimanual manipulation requires coordinated motion and sustained contact as objects move, interact, and are released. We study articulated door opening, part insertion, and constrained object relocation using the A7-L6 bimanual robot manipulator. The demonstrations below present task execution in MuJoCo. Door opening requires motion consistent with the door’s hinge; insertion requires part–housing alignment and housing support; constrained relocation requires clearing a passive flap before transferring the object. The three examples emphasize how the robot coordinates object motion with the surrounding mechanical constraints.</p>
         <figure>
           <video class="zoomable" controls muted playsinline preload="none" width="1920" height="1080" src="../videos/bimanual-manipulation/demonstration.mp4?v=public-demo-20261021" poster="../videos/bimanual-manipulation/demonstration.jpg" aria-label="Door opening, bimanual part insertion, and constrained object relocation"></video>
           <figcaption>The robot opens an articulated door, inserts a part into a supported housing, and relocates an object while keeping a passive flap clear of its path. Excerpts play at the original execution speed.</figcaption>
