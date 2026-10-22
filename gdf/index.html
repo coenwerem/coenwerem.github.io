@@ -65,6 +65,8 @@
   <link rel="stylesheet" href="./static/css/gdf.css?v=route-ablation-20261015">
   <link rel="stylesheet" href="./static/css/gdf-replay.css?v=20260913a">
 
+  <link rel="stylesheet" href="./static/css/control-diagrams.css?v=20261022">
+
   <!-- MathJax for inline math. Version 4 brings inline line breaking,
        which lets justified paragraphs wrap long formulas at operators
        and spares the surrounding words from stretched justification gaps -->
@@ -118,9 +120,10 @@
 
       <!-- Videos -->
       <section class="gdf-section" id="videos">
-        <div class="gdf-wrap gdf-scope">
+        <div class="gdf-wrap">
           <h2 class="gdf-h2" id="reactive-grasp-execution">Reactive Dexterous Grasp Execution</h2>
           <div class="gdf-prose"><p>GDF combines feedback grasp selection with collision-constrained execution across fixed-base, humanoid, and bimanual robot platforms. The robot approaches, grasps, and lifts an object while accommodating static or dynamic obstacles without a precomputed trajectory. The four-panel demonstration compares these execution settings. After hold onset, a wrench-quality control barrier function constrains degradation of the realized force-closure margin, coupling collision avoidance with grasp-quality preservation.</p></div>
+          <div class="gdf-scope">
           <figure class="gdf-overview">
             <div class="gdf-overview-labels" aria-hidden="true">
               <span>Static</span><span>Dynamic</span><span>Humanoid</span><span>Bimanual</span>
@@ -168,6 +171,7 @@
               </figure>
             </div>
           </details>
+          </div>
         </div>
       </section>
 
@@ -266,32 +270,19 @@
             </p>
           </div>
 
-          <div class="method-steps">
-            <div class="method-card">
-              <div class="mc-icon"><i class="fas fa-water"></i></div>
-              <h4>Grasp Distance Field</h4>
-              <p>The GDF is a smooth softmin distance to a finite pregrasp set, with approximation error bounded by $\log N/\rho$ and a bounded gradient.</p>
+          <figure class="control-diagram" aria-labelledby="gdf-control-caption">
+            <div class="control-flow control-flow--four">
+              <div class="control-block"><h3>Admitted Pregrasps</h3><p>Finite set of arm–hand configurations</p></div>
+              <div class="control-block"><h3>Grasp Distance Field</h3><p>Negative-gradient feedback</p><span class="control-output">Nominal velocity</span></div>
+              <div class="control-block control-block--controller"><h3>CLF–CBF Quadratic Program</h3><p>Collision and workspace constraints</p><p>Wrench-quality constraint from hold onset</p><span class="control-output">Filtered velocity</span></div>
+              <div class="control-block"><h3>Robot Execution</h3><p>Reach → Close → Hold → Lift</p></div>
             </div>
-            <div class="method-card">
-              <div class="mc-icon"><i class="fas fa-shield-alt"></i></div>
-              <h4>Safe Execution Law</h4>
-              <p>A CLF-CBF QP enforces self-collision, workspace, object, and obstacle-clearance constraints as hard constraints, relaxes convergence through nonnegative slack, and encodes the underactuated hand through dependent-joint equalities.</p>
-            </div>
-            <div class="method-card">
-              <div class="mc-icon"><i class="fas fa-hand-point-up"></i></div>
-              <h4>Contact-Mode Switch</h4>
-              <p>A hybrid mode structure over REACH, CLOSE, HOLD, and LIFT changes the active constraint set so fingertip contact can be admitted without sacrificing the safety constraints that remain active.</p>
-            </div>
-            <div class="method-card">
-              <div class="mc-icon"><i class="fas fa-certificate"></i></div>
-              <h4>Wrench-Quality CBF</h4>
-              <p>At hold onset, a wrench-quality CBF limits degradation of the realized risk-adjusted force-closure margin relative to its hold-onset value.</p>
-            </div>
-            <div class="method-card">
-              <div class="mc-icon"><i class="fas fa-robot"></i></div>
-              <h4>Humanoid Instantiation</h4>
-              <p>The same controller runs on a Unitree G1 model with the same underactuated hand; platform-specific structure comes from the rigid-body model and a grasp record synthesized for that embodiment.</p>
-            </div>
+            <div class="control-feedback"><span aria-hidden="true">↶</span> Updated robot configuration, obstacle poses, and contact mode</div>
+            <figcaption id="gdf-control-caption">The Grasp Distance Field supplies a nominal velocity to the quadratic program. Control Lyapunov function (CLF) slack permits reduced progress when the active control barrier function (CBF) constraints restrict motion. Feedback updates the command throughout execution.</figcaption>
+          </figure>
+          <div class="gdf-prose">
+            <p>The REACH, CLOSE, HOLD, and LIFT modes change the active constraints as object contacts form. At hold onset, the wrench-quality CBF limits degradation of the realized risk-adjusted force-closure margin relative to its hold-onset value. Dependent-joint equalities represent the underactuated hand.</p>
+            <p>The same controller runs on a Unitree G1 model with the same underactuated hand. Platform-specific structure enters through the rigid-body model and the grasp record synthesized for that embodiment.</p>
           </div>
         </div>
       </section>

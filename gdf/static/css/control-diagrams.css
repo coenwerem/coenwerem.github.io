@@ -1,0 +1,21 @@
+/* Theme-aware control diagrams shared by the public project pages. */
+.control-diagram { font-family: "CMU Sans Serif", sans-serif; margin: 1.5rem 0; }
+.control-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem; align-items: center; padding: .5rem 0; }
+.control-flow--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.control-flow > * { position: relative; min-width: 0; }
+.control-flow > :not(:last-child)::after { content: "→"; position: absolute; right: -1.9rem; top: 50%; transform: translateY(-50%); font-size: 1.65rem; color: var(--text-secondary); }
+.control-inputs { display: grid; gap: .75rem; }
+.control-block { border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-card); padding: 1.15rem .9rem; text-align: center; }
+.control-block--controller { border: 2px solid var(--theme-primary); padding: 1.5rem .9rem; }
+.control-diagram .control-block h3 { font: 700 1.05rem/1.35 "CMU Sans Serif", sans-serif; color: var(--text-color); text-align: center; margin: 0 0 .65rem; }
+.control-diagram .control-block p { font-size: .93rem; line-height: 1.5; color: var(--text-secondary); text-align: center; margin: .4rem 0 0; }
+.control-output { display: block; margin-top: .9rem; padding-top: .65rem; border-top: 1px solid var(--border-color); font-size: .88rem; color: var(--theme-primary); }
+.control-feedback { border-bottom: 1px solid var(--text-secondary); border-inline: 1px solid var(--text-secondary); border-radius: 0 0 8px 8px; padding: .5rem .75rem; margin: .7rem 1.25rem 1.2rem; text-align: center; color: var(--text-secondary); font-size: .9rem; }
+.control-feedback span { margin-right: .5rem; }
+.control-diagram figcaption { font-size: .95rem; line-height: 1.6; color: var(--text-secondary); text-align: justify; }
+@media (max-width: 768px) {
+  .control-flow, .control-flow--four { grid-template-columns: 1fr; gap: 2rem; max-width: 520px; margin-inline: auto; }
+  .control-flow > :not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -1.85rem; transform: translateX(-50%); }
+  .control-feedback { margin-inline: 0; }
+}
+@media (max-width: 420px) { .control-block { padding: 1rem .75rem; } }

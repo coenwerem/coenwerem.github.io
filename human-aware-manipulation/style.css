@@ -1,0 +1,12 @@
+/* Canonical project sections and site theme; all rules stay on this page. */
+.human-workspace-page .gdf-section { border-top: 1px solid var(--border-color); }
+.human-workspace-page .project-prose { text-align: justify; text-align-last: start; line-height: 1.65; margin: 0 0 1.25rem; }
+.human-workspace-page figure { margin: 0; min-width: 0; }
+.human-workspace-page video { display: block; width: 100%; height: auto; aspect-ratio: 12 / 5; background: #171a1d; }
+.human-workspace-page figcaption { color: var(--text-secondary); line-height: 1.6; margin-top: .8rem; }
+.human-workspace-page .workspace-views { display: grid; grid-template-columns: 1fr 1fr; text-align: center; color: var(--text-secondary); margin-bottom: .6rem; }
+.human-workspace-page .workspace-requirements { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.human-workspace-page .workspace-requirements article { min-width: 0; }
+.human-workspace-page .workspace-requirements h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .8rem; }
+.human-workspace-page .workspace-requirements p { text-align: left; }
+@media (max-width: 768px) { .human-workspace-page .workspace-requirements { grid-template-columns: 1fr; gap: .75rem; } }
