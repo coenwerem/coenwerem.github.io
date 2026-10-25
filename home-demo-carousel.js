@@ -99,6 +99,14 @@
       buttons[i].setAttribute('aria-pressed', String(i === next));
     });
     index = next;
+    // Keep the selected topic visible without moving the page vertically.
+    const topicBounds = topics.getBoundingClientRect();
+    const buttonBounds = buttons[index].getBoundingClientRect();
+    if (buttonBounds.left < topicBounds.left) {
+      topics.scrollLeft += buttonBounds.left - topicBounds.left;
+    } else if (buttonBounds.right > topicBounds.right) {
+      topics.scrollLeft += buttonBounds.right - topicBounds.right;
+    }
     selectChapter(slides[index], 0, false);
     elapsed = 0;
     progress.style.width = '0%';
