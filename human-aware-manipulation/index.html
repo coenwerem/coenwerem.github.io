@@ -28,12 +28,12 @@
         <nav class="gdf-btns" aria-label="Project sections"><a class="gdf-btn" href="#research-focus">Research Focus</a><a class="gdf-btn" href="#control-overview">Control Overview</a><a class="gdf-btn" href="#assembly-title">Assembly Demonstration</a><a class="gdf-btn" href="#task-requirements">Task Requirements</a></nav>
       </header>
       <section class="gdf-section" aria-labelledby="research-focus"><div class="gdf-wrap">
-        <h2 class="gdf-h2" id="research-focus">Human-Aware Motion During Contact-Rich Manipulation</h2>
+        <h2 class="gdf-h2" id="research-focus">Manipulation in Human-Shared Workspaces</h2>
         <p class="project-prose">A robot working near a person must account for human motion while preserving the physical conditions needed to finish its task. During assembly, an avoidance motion can disrupt the grasp, displace the housing, or misalign a partially inserted part. The robot’s available motions therefore depend on its current contact with the objects and the stage of assembly.</p>
         <p class="project-prose">We study this problem through bimanual assembly in a human-shared workcell. The objective is to accommodate nearby human motion while retaining the grasp, supporting the housing, and maintaining part–housing alignment through insertion and release. The demonstration emphasizes the interval before release, when the robot cannot simply withdraw its manipulating hand without interrupting the task.</p>
       </div></section>
       <section class="gdf-section gdf-section--alt" aria-labelledby="control-overview"><div class="gdf-wrap">
-        <h2 class="gdf-h2" id="control-overview">Human-Aware Manipulation Control</h2>
+        <h2 class="gdf-h2" id="control-overview">Control Overview</h2>
         <p class="project-prose">The control problem couples two requirements: responding to observed human motion and maintaining the object contacts required by the current assembly stage. The diagram summarizes these inputs and the robot’s feedback interaction with the workspace.</p>
         <figure class="control-diagram" aria-labelledby="workspace-control-caption">
           <div class="control-flow">
@@ -41,7 +41,7 @@
               <div class="control-block"><h3>Observed State</h3><p>Robot and objects<br>Nearby human motion</p></div>
               <div class="control-block"><h3>Assembly Requirements</h3><p>Grasp retention · Housing support<br>Part–housing alignment</p></div>
             </div>
-            <div class="control-block control-block--controller"><h3>Human-Aware Manipulation Control</h3><p>Adapt robot motion while maintaining the conditions needed for assembly</p><span class="control-output">Robot commands</span></div>
+            <div class="control-block control-block--controller"><h3>Manipulation Control</h3><p>Adapt robot motion while maintaining the conditions needed for assembly</p><span class="control-output">Robot commands</span></div>
             <div class="control-block"><h3>Bimanual Robot and Workspace</h3><p>Transport · Insertion<br>Release · Withdrawal</p></div>
           </div>
           <div class="control-feedback"><span aria-hidden="true">↶</span> Updated robot, object, and human state</div>
