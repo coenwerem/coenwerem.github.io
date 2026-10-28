@@ -1559,7 +1559,7 @@ body, p, td, th, tr, a, li {
 .home-demo-carousel { margin: 1.25rem 0 2rem; }
 .home-demo-carousel [hidden] { display: none !important; }
 .home-demo-carousel button { font: inherit; color: var(--text-color); background: transparent; border: 0; cursor: pointer; }
-.home-demo-topics { display: flex; flex-wrap: nowrap; gap: 0 0.8rem; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; font-size: 0.95rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
+.home-demo-topics { display: flex; flex-wrap: nowrap; justify-content: space-between; gap: 0 0.5rem; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; font-size: 0.95rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
 .home-demo-topics button { flex: 0 0 auto; min-height: 44px; white-space: nowrap; padding: 0.65rem 0; border-bottom: 2px solid transparent; }
 .home-demo-topics button[aria-pressed="true"] { color: var(--theme-primary); border-bottom-color: currentColor; }
 .home-demo-carousel button:focus:not(:focus-visible) { outline: none; box-shadow: none; }

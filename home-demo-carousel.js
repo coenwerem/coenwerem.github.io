@@ -14,6 +14,10 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = slide.dataset.topic || caption;
+    if (slide.dataset.topicLabel) {
+      button.title = slide.dataset.topicLabel;
+      button.setAttribute('aria-label', slide.dataset.topicLabel);
+    }
     button.id = `home-demo-topic-${index}`;
     slide.id = `home-demo-slide-${index}`;
     slide.setAttribute('role', 'group');
@@ -263,13 +267,16 @@
   topics.hidden = false;
   controls.hidden = false;
   select(0);
-  // A direct preview/project link can open this chapter without adding a topic tab.
-  if (location.hash === '#task-wrench-demo') {
-    const target = document.getElementById('task-wrench-demo');
+  // Direct links open the containing demonstration and optional chapter.
+  const linkedChapter = document.getElementById(location.hash.slice(1));
+  if (linkedChapter?.closest('.home-demo-slide')) {
+    const target = linkedChapter;
     const slide = target?.closest('.home-demo-slide');
     if (slide) {
       select(slides.indexOf(slide), true);
-      selectChapter(slide, Number(target.dataset.demoStartChapter));
+      if (target.hasAttribute('data-demo-start-chapter')) {
+        selectChapter(slide, Number(target.dataset.demoStartChapter));
+      }
       const reveal = () => requestAnimationFrame(() => carousel.scrollIntoView({block: 'start'}));
       if (document.readyState === 'complete') reveal();
       else window.addEventListener('load', reveal, {once: true});

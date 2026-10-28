@@ -230,6 +230,23 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => console.error('Error loading footer:', error));
 });
 
+// Preserve configured demo speed when loading a clip or opening its enlarged view.
+function configureDemoPlayback(video, rate) {
+  var speed = Number(rate);
+  if (!Number.isFinite(speed) || speed <= 0) return;
+  function applySpeed() {
+    video.defaultPlaybackRate = speed;
+    video.playbackRate = speed;
+  }
+  applySpeed();
+  video.addEventListener('loadedmetadata', applySpeed);
+}
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('video[data-playback-rate]').forEach(function (video) {
+    configureDemoPlayback(video, video.dataset.playbackRate);
+  });
+});
+
 // Click-to-enlarge lightbox for demo media (ported from the EquiDexFlow project page).
 // Targets the demo gifs/videos in research/software cards (.sw-video img), the index
 // research row (.embed-responsive-item), and anything explicitly tagged .zoomable / .hw-vid.
@@ -289,6 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
         s.setAttribute('src', src);
         s.setAttribute('type', 'video/mp4');
         node.appendChild(s);
+        configureDemoPlayback(node, isVideoLink ? (el.dataset.playbackRate || 1) : el.playbackRate);
       } else {
         node = document.createElement('img');
         node.setAttribute('src', el.getAttribute('src'));

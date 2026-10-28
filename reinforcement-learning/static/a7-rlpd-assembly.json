@@ -8093,7 +8093,12 @@
       ]
     }
   ],
-  "video_sha256": "11ed069b296ba535d7c6ad98d42c73546987c4fd6420d18803396fbba8a84d84",
+  "video_sha256": "3f6c97c291274cb193f744e8b9602426302179d5f5a5fe2c3257b3e3e8bb8df5",
   "scope": "Updated RLPD residual policy around native feedback control. Demonstrates assembly execution and retained competence; not a completion improvement.",
-  "verified_recorded_asset_count": 126
+  "verified_recorded_asset_count": 126,
+  "presentation_background": {
+    "color": "#171a1d",
+    "source_video_sha256": "11ed069b296ba535d7c6ad98d42c73546987c4fd6420d18803396fbba8a84d84",
+    "script": "scripts/normalize_demo_background.py"
+  }
 }
