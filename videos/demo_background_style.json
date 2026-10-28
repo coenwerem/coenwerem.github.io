@@ -1,7 +1,7 @@
 {
   "background": "#171a1d",
   "script": "scripts/normalize_demo_background.py",
-  "changes": "Presentation backgrounds only; simulation viewports, timing, text, and comparison overlays preserved.",
+  "changes": "Presentation background normalization; later timeline edits are recorded in demo_media_edits.json.",
   "videos": [
     {
       "profile": "adroit",
@@ -15,17 +15,19 @@
       "profile": "rlpd",
       "path": "src/templates/reinforcement-learning/static/a7-rlpd-assembly.mp4",
       "input_sha256": "11ed069b296ba535d7c6ad98d42c73546987c4fd6420d18803396fbba8a84d84",
-      "sha256": "3f6c97c291274cb193f744e8b9602426302179d5f5a5fe2c3257b3e3e8bb8df5",
+      "sha256": "fd7a6f7706b3036f744c831c480c3d2c15472f66169ec7158b8efcec5681d4ca",
       "poster": "src/templates/reinforcement-learning/static/a7-rlpd-poster.jpg",
-      "poster_time_s": 1
+      "poster_time_s": 1,
+      "background_normalized_sha256": "3f6c97c291274cb193f744e8b9602426302179d5f5a5fe2c3257b3e3e8bb8df5"
     },
     {
       "profile": "vla",
       "path": "videos/openvla_bimanual_recovery.mp4",
       "input_sha256": "6a06b1d3ae9348b8e9e71b46905ebc7625c12222212199e8ad488041045b838a",
-      "sha256": "f0da5acbb71fbc6419edfb68e7e96e7a96fefc6fc5e3bec6bd3862708007449f",
+      "sha256": "21b1ae14bac83a229323dfcd05b64b4b21b1e178dae6e216f0fd865bc9488b66",
       "poster": "videos/openvla_bimanual_recovery.jpg",
-      "poster_time_s": 2
+      "poster_time_s": 2,
+      "background_normalized_sha256": "f0da5acbb71fbc6419edfb68e7e96e7a96fefc6fc5e3bec6bd3862708007449f"
     },
     {
       "profile": "belief",
