@@ -23,7 +23,7 @@
 <h1 class="gdf-title">Reinforcement Learning for Robotics</h1><p class="rl-subtitle">Risk-Sensitive Learning · Demonstration-Guided Policies · Physics-Based Simulation</p>
 <p class="rl-author">Clinton Enwerem · University of Maryland, College Park</p>
 <p class="rl-intro">I develop and evaluate reinforcement learning algorithms for robotics, including risk-sensitive distributional RL, demonstration-guided dexterous manipulation, and residual RL for bimanual assembly.</p>
-<nav class="gdf-btns rl-navigation" aria-label="Page sections"><a class="gdf-btn" href="#adroit-dapg">Adroit Learning</a><a class="gdf-btn" href="#a7-rlpd">A7 Assembly</a><a class="gdf-btn" href="#safe-rl">Published Safe RL</a><a class="gdf-btn" href="#g1-ppo">G1 Reward Design</a></nav>
+<nav class="gdf-btns rl-navigation" aria-label="Page sections"><a class="gdf-btn" href="#adroit-dapg">Adroit Learning</a><a class="gdf-btn" href="#a7-rlpd">A7 Residual RL</a><a class="gdf-btn" href="#bimanual-reference-demos">Isaac Demonstrations</a><a class="gdf-btn" href="#safe-rl">Published Safe RL</a><a class="gdf-btn" href="#g1-ppo">G1 Reward Design</a></nav>
 </header>
 <section id="adroit-dapg" class="gdf-section rl-study rl-featured"><div class="gdf-wrap">
 <p class="rl-eyebrow">DAPG Reproduction · MuJoCo / Adroit</p>
@@ -45,7 +45,7 @@
 <h2 class="gdf-h2" id="bimanual-assembly">Integrating Residual RL with Bimanual Assembly Control</h2>
 <p>I adapted Reinforcement Learning with Prior Data (RLPD) <a class="rl-citation" href="#ref-rlpd" aria-label="Reference 2: RLPD">[2]</a> to an A7 bimanual arm–hand system, using demonstration data from my feedback controller and online reinforcement learning. I combined bounded residual joint-reference commands with feedback control to execute housing stabilization, part acquisition and transfer, insertion, and hand withdrawal.</p>
 <p>The recorded execution follows the complete assembly sequence, from acquisition through insertion and withdrawal. Its focus is coordinated task execution with learned corrections to the robot’s joint references, while feedback control remains part of the control architecture.</p>
-<figure class="rl-comparison"><video data-playback-rate="1.5" controls muted loop playsinline preload="metadata" poster="static/a7-rlpd-poster.jpg?v=edited-20261028"><source src="static/a7-rlpd-assembly.mp4?v=edited-20261028" type="video/mp4"></video><figcaption><strong>Bimanual Assembly with Residual RL.</strong> Learned joint-reference corrections combined with feedback control for bimanual assembly. Playback: 1×.</figcaption></figure>
+<figure class="rl-comparison"><video data-playback-rate="1.5" controls muted loop playsinline preload="metadata" poster="static/a7-rlpd-poster.jpg?v=edited-20261028"><source src="static/a7-rlpd-assembly.mp4?v=edited-20261028" type="video/mp4"></video><figcaption><strong>Bimanual Assembly with Residual RL.</strong> Learned joint-reference corrections combined with feedback control for bimanual assembly. Playback: 1.5×.</figcaption></figure>
 <div class="rl-evidence-strip rl-evidence-strip--pair"><div><strong>12 / 12</strong><span>Initial Policy · Completed Assemblies</span></div><div><strong>12 / 12</strong><span>Updated Policy · Completed Assemblies</span></div></div>
 
 <p>I trained a residual policy for seven arm joint references using 6,300 prior transitions and 6,300 online decisions, with 100 actor updates and 2,000 critic updates.</p>
@@ -56,6 +56,14 @@
 <details class="rl-technical"><summary>Assembly Results by Friction</summary><div class="table-container"><table><thead><tr><th scope="col">Friction</th><th scope="col">Feedback Controller</th><th scope="col">Zero Residual</th><th scope="col">Initial Policy</th><th scope="col">Updated Policy</th></tr></thead><tbody><tr><th scope="row">0.70</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr><tr><th scope="row">0.65</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr><tr><th scope="row">0.60</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr></tbody></table></div></details>
 <p class="rl-resources"><a href="#ref-rlpd">Paper [2]</a> · <a href="https://github.com/ikostrikov/rlpd">Authors’ Implementation</a></p>
 </div></section>
+<section id="bimanual-reference-demos" class="gdf-section rl-study"><div class="gdf-wrap">
+<p class="rl-eyebrow">Expert References · Isaac Sim / PhysX</p>
+<h2 class="gdf-h2">Bimanual Expert Demonstrations for Policy Learning</h2>
+<p>Expert reference control supplies demonstrations for bimanual policy learning in Isaac Sim. The A7-L6 bimanual robot manipulator executes key–housing assembly and box loading in the measured workcell; each recording combines synchronized overview, task-detail, and opposite views.</p>
+<div class="rl-results-grid">
+<figure id="isaac-reference-assembly"><h3>Key–Housing Assembly</h3><div class="rl-reference-media"><video data-playback-rate="1.5" class="zoomable" controls muted loop playsinline preload="metadata" poster="static/bimanual-assembly-reference.jpg?v=isaac-20261028" aria-label="Expert-reference key–housing assembly in Isaac Sim"><source src="static/bimanual-assembly-reference.mp4?v=isaac-20261028" type="video/mp4"></video></div><figcaption>The robot aligns and inserts the key, releases the objects, and withdraws. Expert reference · 1.5× playback.</figcaption></figure>
+<figure id="isaac-reference-box-loading"><h3>Box Loading</h3><div class="rl-reference-media"><video data-playback-rate="1.5" class="zoomable" controls muted loop playsinline preload="metadata" poster="static/bimanual-box-loading-reference.jpg?v=isaac-20261028" aria-label="Expert-reference bimanual box loading in Isaac Sim"><source src="static/bimanual-box-loading-reference.mp4?v=isaac-20261028" type="video/mp4"></video></div><figcaption>The robot maintains the box opening, places the insert, and releases it inside the box. Expert reference · 1.5× playback.</figcaption></figure>
+</div></div></section>
 <section id="safe-rl" class="gdf-section rl-study"><div class="gdf-wrap">
 <p class="rl-eyebrow">Published Research · IEEE CDC 2025</p>
 <h2 class="gdf-h2" id="risk-sensitive-navigation">Risk-Sensitive Distributional Reinforcement Learning</h2>
