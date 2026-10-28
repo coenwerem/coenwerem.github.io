@@ -1,0 +1,68 @@
+{
+  "role": "Expert reference controller demonstrations for bimanual policy learning",
+  "simulator": "Isaac Sim / PhysX",
+  "native_playback_rate": 1,
+  "website_playback_rate": 1.5,
+  "physics_advanced": false,
+  "views": [
+    "Overview",
+    "Task detail",
+    "Opposite view"
+  ],
+  "videos": [
+    {
+      "task": "Key\u2013housing assembly",
+      "role": "Expert reference controller",
+      "filename": "bimanual-assembly-reference.mp4",
+      "poster": "bimanual-assembly-reference.jpg",
+      "original_filename": "key_housing_reference_multicamera.mp4",
+      "source_sha256": "c1565066850685dee5e50358f3cffb7430770c14a10ff0d64f50f4c7f5deaef7",
+      "sha256": "c1565066850685dee5e50358f3cffb7430770c14a10ff0d64f50f4c7f5deaef7",
+      "encoding": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "20/1"
+          }
+        ],
+        "format": {
+          "duration": "43.800000",
+          "size": "4116694"
+        }
+      },
+      "full_decode_passed": true,
+      "presentation_edit": "None"
+    },
+    {
+      "task": "Box loading",
+      "role": "Expert reference controller",
+      "filename": "bimanual-box-loading-reference.mp4",
+      "poster": "bimanual-box-loading-reference.jpg",
+      "original_filename": "carton_reference_multicamera.mp4",
+      "source_sha256": "cd20be13e4a10dc0c0288e0e9ca9db0ca78b811821ffe976df41038f51b3c0d5",
+      "sha256": "42d87fd4ca7345ac82ca7cbcec7fd0d4c5f2ab24cd0521677abd6f8c257fb056",
+      "encoding": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "20/1"
+          }
+        ],
+        "format": {
+          "duration": "34.750000",
+          "size": "5548829"
+        }
+      },
+      "full_decode_passed": true,
+      "presentation_edit": "Title and closing caption use Box"
+    }
+  ]
+}
