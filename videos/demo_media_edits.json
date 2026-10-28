@@ -1,0 +1,80 @@
+{
+  "source_git_revision": "3f6764bdb35a70d42fd5d9c66cca79d577670950",
+  "player_speed_multiplier": 1.5,
+  "assets": [
+    {
+      "asset": "videos/openvla_bimanual_recovery.mp4",
+      "source_sha256": "f0da5acbb71fbc6419edfb68e7e96e7a96fefc6fc5e3bec6bd3862708007449f",
+      "sha256": "21b1ae14bac83a229323dfcd05b64b4b21b1e178dae6e216f0fd865bc9488b66",
+      "encoding": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "25/1"
+          }
+        ],
+        "format": {
+          "duration": "56.000000"
+        }
+      },
+      "poster": "videos/openvla_bimanual_recovery.jpg",
+      "kept_source_ranges_s": [
+        [
+          8,
+          64
+        ]
+      ]
+    },
+    {
+      "asset": "src/templates/reinforcement-learning/static/a7-rlpd-assembly.mp4",
+      "source_sha256": "3f6c97c291274cb193f744e8b9602426302179d5f5a5fe2c3257b3e3e8bb8df5",
+      "sha256": "fd7a6f7706b3036f744c831c480c3d2c15472f66169ec7158b8efcec5681d4ca",
+      "encoding": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1280,
+            "height": 960,
+            "r_frame_rate": "12/1"
+          }
+        ],
+        "format": {
+          "duration": "28.000000"
+        }
+      },
+      "poster": "src/templates/reinforcement-learning/static/a7-rlpd-poster.jpg",
+      "kept_source_ranges_s": [
+        [
+          0,
+          28
+        ]
+      ]
+    },
+    {
+      "asset": "src/templates/reinforcement-learning/static/safe-rl-navigation.mp4",
+      "source_sha256": "c65820cd580c8e089d02b8a9e5b77cd819bf353c49bfea08a56d528144e3b039",
+      "sha256": "751c2aa9533bf0c3f670fc2a215e355235908fe753540b136100313b120a08a6",
+      "encoding": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1184,
+            "height": 1184,
+            "r_frame_rate": "25/1"
+          }
+        ],
+        "format": {
+          "duration": "3.720000"
+        }
+      },
+      "poster": "src/templates/reinforcement-learning/static/safe-rl-poster.jpg",
+      "source_animation": "videos/safe_rl_quantile.gif",
+      "spatial_upscale": 4,
+      "method": "FSRCNN x4 luminance super-resolution with bicubic chroma upsampling; original GIF frame durations preserved",
+      "model_url": "https://raw.githubusercontent.com/Saafke/FSRCNN_Tensorflow/master/models/FSRCNN_x4.pb",
+      "model_sha256": "5c68d18db561aed8ead4ffedf1b897ea615baaf60ebf6c35f8e641f8fa4a21bf"
+    }
+  ]
+}

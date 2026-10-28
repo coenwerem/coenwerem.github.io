@@ -89,7 +89,13 @@
   "safe_rl_demo": {
     "source": "videos/safe_rl_quantile.gif",
     "source_sha256": "9180a3c5c433a842e75e250dae4df5d02d464db6400341018d77877dea2dff3d",
-    "conversion": "H.264 encoding at 25 fps, original animation timing preserved",
-    "scope": "Existing task illustration; not a matched algorithm comparison"
+    "conversion": "FSRCNN x4 luminance super-resolution with bicubic chroma upsampling; original GIF frame durations preserved",
+    "scope": "Existing task illustration; not a matched algorithm comparison",
+    "output_sha256": "751c2aa9533bf0c3f670fc2a215e355235908fe753540b136100313b120a08a6",
+    "output_resolution": [
+      1184,
+      1184
+    ],
+    "super_resolution_model_sha256": "5c68d18db561aed8ead4ffedf1b897ea615baaf60ebf6c35f8e641f8fa4a21bf"
   }
 }
