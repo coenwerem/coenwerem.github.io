@@ -1,0 +1,39 @@
+{
+  "background": "#171a1d",
+  "script": "scripts/normalize_demo_background.py",
+  "changes": "Presentation backgrounds only; simulation viewports, timing, text, and comparison overlays preserved.",
+  "videos": [
+    {
+      "profile": "adroit",
+      "path": "src/templates/reinforcement-learning/static/adroit-dapg-comparison.mp4",
+      "input_sha256": "8dc1bb5d9e54c95f28d093d515ad4ff547c95d64d014241a2fa5e88ba66c6dad",
+      "sha256": "8adc486379875c3fa862c903be541f9cbc06688ab0260dc578d777d3b9e33edb",
+      "poster": "src/templates/reinforcement-learning/static/adroit-dapg-poster.jpg",
+      "poster_time_s": 1
+    },
+    {
+      "profile": "rlpd",
+      "path": "src/templates/reinforcement-learning/static/a7-rlpd-assembly.mp4",
+      "input_sha256": "11ed069b296ba535d7c6ad98d42c73546987c4fd6420d18803396fbba8a84d84",
+      "sha256": "3f6c97c291274cb193f744e8b9602426302179d5f5a5fe2c3257b3e3e8bb8df5",
+      "poster": "src/templates/reinforcement-learning/static/a7-rlpd-poster.jpg",
+      "poster_time_s": 1
+    },
+    {
+      "profile": "vla",
+      "path": "videos/openvla_bimanual_recovery.mp4",
+      "input_sha256": "6a06b1d3ae9348b8e9e71b46905ebc7625c12222212199e8ad488041045b838a",
+      "sha256": "f0da5acbb71fbc6419edfb68e7e96e7a96fefc6fc5e3bec6bd3862708007449f",
+      "poster": "videos/openvla_bimanual_recovery.jpg",
+      "poster_time_s": 2
+    },
+    {
+      "profile": "belief",
+      "path": "videos/belief_cvar_mppi_demo.mp4",
+      "input_sha256": "45bc887da4970d40ef09025f207f801872ef9e92cf35317aedeeab498a069633",
+      "sha256": "9a3c64d04814f096912acdaf06e0562c323d457138afe5427e8eeb3da8f4f350",
+      "poster": "videos/belief_cvar_mppi_demo_poster.jpg",
+      "poster_time_s": 22
+    }
+  ]
+}
