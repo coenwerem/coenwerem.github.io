@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260926a">
+  <link rel="stylesheet" href="./static/css/index.css?v=iclr-g1-20261029">
   <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
   <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
 </head>
@@ -57,17 +57,20 @@
     <main id="main">
       <section class="gdf-section ps-intro" aria-label="Research Overview"><div class="gdf-wrap">
         <div class="gdf-prose">
-          <p>Matching an expert’s task-success rate at nominal execution speed does not establish that imitation learning preserves robustness as timing changes. ParcelStow is an Isaac Lab benchmark for measuring how the expert–learner task-success gap changes under controlled variation in execution timing.</p>
-          <p>A scalar speedup factor <var>r</var> divides selected phase durations: at <var>r</var> = 2, those phases take half as long. Acquisition and settling durations are fixed. We evaluate expert and learner task success as execution speed varies across three simulated manipulation tasks.</p>
+          <p>ParcelStow is an Isaac Lab benchmark for evaluating whether imitation learning preserves expert performance as task execution speed changes. We compare success rates and failure stages for parcel insertion, upright placement, and keyed peg insertion.</p>
+          <p>A scalar speedup factor <var>r</var> divides the durations of selected manipulation phases. At <var>r</var> = 2, those phases take half as long, while acquisition and settling retain their nominal durations.</p>
         </div>
         <h2 class="gdf-h2" id="g1-l6-parcelstow">ParcelStow with the G1-L6 Humanoid</h2>
-        <div class="gdf-prose"><p>The G1-L6 humanoid executes parcel insertion, upright placement, and keyed peg insertion using an expert controller and an Action Chunking Transformer (ACT) policy. Each task requires the robot to acquire an object and satisfy a distinct placement or insertion condition. The paired videos compare expert and learner behavior at a task speedup factor of <var>r</var> = 2; playback is also accelerated to 2×.</p></div>
+        <div class="gdf-prose">
+          <p>The fixed-base Unitree G1 humanoid, equipped with a RealHand L6 right hand, acquires and reorients a parcel for insertion into a receptacle, places an elongated object upright within a target region, and inserts a keyed peg into a pocket. We compare scripted experts with policies trained using Action Chunking with Transformers (ACT), Diffusion Policy, and DAgger.</p>
+          <p>The video compares expert and ACT execution at <var>r</var> = 2. This factor lies within the demonstrated speed range for parcel insertion and beyond it for upright placement and keyed peg insertion. Video playback is accelerated to 2×.</p>
+        </div>
         <figure class="gdf-overview ps-demo">
           <video controls muted loop playsinline preload="metadata" poster="../videos/robot_learning_g1_comparison_poster.jpg" aria-label="Expert above ACT on three ParcelStow tasks at speedup factor 2, played at twice real-time speed">
             <source src="../videos/robot_learning_g1_comparison.mp4" type="video/mp4">
             <a href="../videos/robot_learning_g1_comparison.mp4">Open the MP4 comparison.</a>
           </video>
-          <figcaption><strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2, played at 2× speed. Labels identify each recorded outcome. These clips depict individual trials; the table below reports success counts across the evaluated trials.</figcaption>
+          <figcaption><strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2. Playback: 2×.</figcaption>
         </figure>
         <div class="ps-media-links" aria-label="Demo Files">
           <a href="../videos/robot_learning_g1_comparison.mp4">MP4 · 1.4 MB</a>
@@ -96,6 +99,7 @@
         </div>
         <div class="gdf-prose" id="results-note">
           <p>At the highlighted speedup factors, the expert-minus-ACT success-rate differences are 31 percentage points for parcel insertion, 40.5 for upright placement, and 73.5 for keyed peg insertion. The corresponding pointwise 95% paired bootstrap confidence intervals are [18, 44], [32, 49], and [67.5, 79.5] percentage points. Each task’s main comparison uses one trained ACT policy.</p>
+          <p>At the higher speedup factors in the table, ACT failures differ by task: insertion misalignment and jamming for parcel insertion, final-pose errors after release for upright placement, and acquisition failures or transport losses for keyed peg insertion.</p>
           <p>These evaluations use fixed state-based policies in Isaac Lab simulation. The released evaluation data also include Diffusion Policy and DAgger results. <a href="https://github.com/coenwerem/parcelstow/tree/main/data/manuscript_20260921">Evaluation data.</a></p>
         </div>
       </div></section>

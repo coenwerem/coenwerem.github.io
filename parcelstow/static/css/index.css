@@ -3,6 +3,7 @@
 .parcelstow-page .gdf-prose p { text-align: left; }
 .parcelstow-page .gdf-authors { overflow-wrap: break-word; }
 .parcelstow-page .ps-intro { padding-top: 1rem; }
+.parcelstow-page #g1-l6-parcelstow { margin-top: 2rem; }
 .parcelstow-page .ps-demo { margin: 1.75rem 0 0; }
 .parcelstow-page .ps-demo video { max-width: 100%; height: auto; background: #171a1d; }
 .parcelstow-page .ps-demo figcaption { margin-top: .85rem; line-height: 1.5; color: var(--text-secondary); }
