@@ -1,0 +1,68 @@
+[
+  {
+    "filename": "diffusion-assembly.mp4",
+    "poster": "diffusion-assembly.jpg",
+    "model": "Learned diffusion policy",
+    "source_filename": "key_housing_learned_policy_multicamera.mp4",
+    "source_sha256": "21cef6e825ca9ed1ee00f1c02403c34f0c17ddba1c49d13e4c14d8f8c2e4ddde",
+    "sha256": "64d242b679eb44719fa34c824c11d77a1a6bee0525d41d3fb34b9086b36ca399",
+    "simulator": "Isaac Sim / PhysX",
+    "presentation": "Three synchronized views of a recorded simulation trajectory",
+    "presentation_edit": "Caption labels revised; source motion and timing preserved",
+    "playback_rate": 1,
+    "encoding": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "20/1",
+          "nb_frames": "849"
+        }
+      ],
+      "format": {
+        "duration": "42.450000",
+        "size": "4062075"
+      }
+    },
+    "full_decode_passed": true,
+    "command_replay": {
+      "setting": "Simulator dynamics replay",
+      "completion_time_s": 37.43,
+      "teacher_or_repair_commands": false,
+      "report_sha256": "9717ebb8bf59c1877afab82c817d1231e563b0525c6c1405e718419419c2fada"
+    }
+  },
+  {
+    "filename": "bc-box-loading.mp4",
+    "poster": "bc-box-loading.jpg",
+    "model": "Behavior-cloning policy",
+    "source_filename": "carton_learned_bc_multicamera.mp4",
+    "source_sha256": "a2526d2059ecc4d1f6862f5d18e6fa1e1de2f38d359bf13193b0db16cab08411",
+    "sha256": "22401300308b61f09aa9dbc902465788487c66e0af4649e5d92602dc93e8cd1c",
+    "simulator": "Isaac Sim / PhysX",
+    "presentation": "Three synchronized views of a recorded simulation trajectory",
+    "presentation_edit": "Caption labels revised; source motion and timing preserved",
+    "playback_rate": 1,
+    "encoding": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "20/1",
+          "nb_frames": "695"
+        }
+      ],
+      "format": {
+        "duration": "34.750000",
+        "size": "5613014"
+      }
+    },
+    "full_decode_passed": true
+  }
+]

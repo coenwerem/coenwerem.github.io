@@ -53,20 +53,15 @@
                         </p>
                         <p class="headhr"></p>
                         <p class="bd-text">
-                        I study <span class="keyword">contact-rich dexterous manipulation</span> under <span class="keyword">uncertainty</span>, connecting ideas from <span class="keyword">optimization-based control</span>, <span class="keyword">risk-sensitive optimization</span>, <span>kinodynamic motion planning</span>, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to make manipulation with multi-fingered hands more reliable when object pose, friction, contact modes, and target geometry are only partially observed.
-
-                          My early- to mid-career doctoral research focused on robust stochastic planning, safety-critical control through <span class="keyword">Boolean-composed CBFs</span> and <span class="keyword">distributional reinforcement learning</span>, and distributed multi-agent coordination under uncertainty. <a href="reinforcement-learning/">Explore my reinforcement learning algorithms, reproduced learning baselines, and robot control integration.</a> This work established the theoretical and algorithmic foundations in stochastic decision-making, uncertainty quantification, and learning-based control that now underpin my research program in dexterous robotic manipulation.
+                          I study <span class="keyword">contact-rich poly-articulated dexterous grasping and manipulation</span> under <span class="keyword">uncertainty</span>. My research combines <span class="keyword">optimization-based control</span>, <span class="keyword">kinodynamic motion planning</span>, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to address uncertain object pose, friction, contact modes, and target geometry. A central question is how a robot can acquire and retain a grasp, establish and change contact, and complete manipulation while satisfying collision-avoidance and task constraints. I investigate these questions with fixed-base serial-chain manipulators, bimanual robot manipulators, and humanoids.
                         </p>
+                        <p class="bd-text">My earlier doctoral work addressed robust stochastic planning, safety-critical control using Boolean combinations of control barrier functions, <span class="keyword">distributional reinforcement learning</span>, and distributed multi-agent coordination under uncertainty. These studies connect stochastic decision-making with safety and coordination constraints. The <a href="reinforcement-learning/">reinforcement learning studies</a> include my risk-sensitive algorithms, reproductions of published methods, and integration of learned policies with robot feedback control.</p>
                         <span class="project-section">current work</span>
                         <p class="headhr"></p>
-                        <p class="bd-text">
-                          My recent work spans <span class="keyword">dexterous grasp synthesis</span>, <span class="keyword">safety-critical hand control</span>, <span class="keyword">visuo-tactile policy learning</span>, and <span class="keyword">uncertainty-aware decision-making</span> for contact-rich manipulation. A central objective of this research is to develop poly-articulated robotic systems&mdash;including fixed-base serial-chain manipulators, bimanual platforms, humanoids, and mobile manipulators&mdash;that can infer task-relevant uncertainty from proprioceptive, exteroceptive, and tactile observations, and synthesize control policies that explicitly negotiate competing performance, robustness, and safety specifications under partial observability and contact uncertainty.
-                          
-                          On the learning and representation fronts, my work develops SE(3)-equivariant generative models for contact-grounded grasp synthesis, neural belief representations for multimodal uncertainty estimation, and risk-sensitive imitation-learning and diffusion-policy formulations for robust contact-rich manipulation. My goal with these efforts is to integrate geometric structure, multimodal sensing, probabilistic inference, and risk-aware policy optimization into a unified framework for reliable dexterous autonomy in uncertain and dynamic environments.
-
-                          <br><br>
-                          I validate the aforementioned ideas in simulation, leveraging optimization modeling frameworks (CasADi), QP and NLP solvers (qpsolvers, IPOPT), dynamics libraries (Pinocchio), physics simulators (MuJoCo, Drake, Isaac Sim), and reinforcement learning frameworks and environments (Isaac Lab, Safety Gymnasium), as well as on physical robotic hardware comprising serial and branched kinematic chains equipped with proprioception-only and tactile-sensorized multi-fingered hands (see <a href="robots.html" target="_blank">Robots</a>).
-                        </p>
+                        <p class="bd-text">My grasping research addresses both <span class="keyword">grasp synthesis</span> and <span class="keyword">feedback execution</span>. I develop SE(3)-equivariant generative models for articulated hand configurations and object contacts, and differentiable belief representations for risk-sensitive grasp optimization under uncertain contact parameters. For grasp execution, I study feedback grasp selection, collision avoidance through control barrier functions, and preservation of grasp quality without a precomputed trajectory.</p>
+                        <p class="bd-text">My manipulation research examines how uncertainty and changing contact conditions affect task completion. The model-based work includes risk-sensitive belief-space control for dexterous stowing and belief-informed hybrid control for bimanual assembly. A separate study addresses manipulation in human-shared workspaces, where collision avoidance must remain compatible with grasp retention, object support, and alignment through insertion and release.</p>
+                        <p class="bd-text">My learning research evaluates whether imitation-learned policies preserve expert robustness as execution timing varies, and includes ACT, diffusion policies, and residual reinforcement learning for bimanual manipulation. I also fine-tune vision-language-action models for monitoring task progress and triggering recovery from visuo-tactile feedback. A longer-term objective is to combine geometric structure, uncertainty estimation, and multimodal observations in manipulation policies that account explicitly for performance, robustness, and safety under partial observability.</p>
+                        <p class="bd-text">I evaluate these methods in MuJoCo, Drake, and Isaac Sim, and through hardware experiments on the platforms listed on the <a href="robots.html" target="_blank">Robots</a> page.</p>
 
                         <!-- Applications -->
                         <span class="project-section">Applications</span>
@@ -240,13 +235,13 @@
                         <details class="research-theme" name="research-themes" id="theme-robot-learning">
                           <summary class="research-theme-toggle">
                             <span class="research-theme-stack" aria-hidden="true">
-                              <img class="research-theme-layer" src="reinforcement-learning/static/bimanual-assembly-reference.jpg?v=isaac-20261028" alt="" width="320" height="180" loading="lazy">
+                              <img class="research-theme-layer" src="videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" alt="" width="320" height="180" loading="lazy">
                               <img class="research-theme-cover" src="reinforcement-learning/static/adroit-dapg-poster.jpg?v=charcoal-20261028" alt="" width="320" height="180" loading="lazy">
                             </span>
                             <span class="research-theme-heading">
                               <span class="research-theme-title">Robot Learning and Teleoperation</span>
                               <span class="research-theme-description">Reinforcement and imitation learning, vision-language-action models, manipulation policy evaluation, and teleoperation for demonstration collection.</span>
-                              <span class="research-theme-count">7 Demos</span>
+                              <span class="research-theme-count">8 Demos</span>
                             </span>
                             <span class="research-theme-chevron" aria-hidden="true"></span>
                           </summary>
@@ -260,7 +255,7 @@
                             </div>
                             <div class="col-md-10 col-9 sw-details">
                               <p class="sw-title">Demonstration-Augmented Reinforcement Learning for Dexterous Relocation</p>
-                              <p class="sw-subtitle">I reproduced DAPG relocation results in MuJoCo / Adroit: 95/100 successful episodes with mean actions and 98/100 with stochastic actions, compared with 0/100 for behavior cloning in both modes.</p>
+                              <p class="sw-subtitle">I reproduced DAPG relocation results in MuJoCo / Adroit: 95/100 successful episodes with deterministic action selection and 98/100 with stochastic actions, compared with 0/100 for behavior cloning in both modes.</p>
                               <div class="sw-links"><a href="reinforcement-learning/#adroit-dapg"><i class="fas fa-globe" aria-hidden="true"></i> Study and Results</a></div>
                             </div>
                           </div>
@@ -268,28 +263,42 @@
                         <div class="sw-entry" id="research-a7-rlpd">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('reinforcement-learning/static/bimanual-assembly-reference.jpg?v=isaac-20261028');">
-                                <video data-playback-rate="1.5" class="zoomable" src="reinforcement-learning/static/bimanual-assembly-reference.mp4?v=isaac-20261028" poster="reinforcement-learning/static/bimanual-assembly-reference.jpg?v=isaac-20261028" width="1280" height="720" loop muted playsinline preload="none" aria-label="Expert-reference key–housing assembly in Isaac Sim, with synchronized overview and task-detail views."></video>
+                              <div class="sw-video" style="background-image:url('reinforcement-learning/static/a7-rlpd-poster.jpg?v=edited-20261028');">
+                                <video data-playback-rate="1.5" class="zoomable" src="reinforcement-learning/static/a7-rlpd-assembly.mp4?v=edited-20261028" poster="reinforcement-learning/static/a7-rlpd-poster.jpg?v=edited-20261028" width="1280" height="960" loop muted playsinline preload="none" aria-label="Residual Reinforcement Learning for Bimanual Assembly."></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Demonstration-Guided Bimanual Assembly</p>
-                              <p class="sw-subtitle">The A7-L6 bimanual robot manipulator executes key–housing assembly under expert reference control in Isaac Sim, providing demonstrations for policy learning.</p>
-                              <div class="sw-links"><a href="reinforcement-learning/#isaac-reference-assembly"><i class="fas fa-globe" aria-hidden="true"></i> Study and Results</a></div>
+                              <p class="sw-title">Residual Reinforcement Learning for Bimanual Assembly</p>
+                              <p class="sw-subtitle">I integrated RLPD with feedback control for assembly using the A7-L6 bimanual robot manipulator. The initial and updated policies each completed 12/12 evaluations across three friction conditions.</p>
+                              <div class="sw-links"><a href="reinforcement-learning/#a7-rlpd"><i class="fas fa-globe" aria-hidden="true"></i> Study and Demonstration</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sw-entry" id="research-diffusion-assembly">
+                          <div class="row align-items-start">
+                            <div class="col-md-2 col-3">
+                              <div class="sw-video" style="background-image:url('videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028');">
+                                <video data-playback-rate="1" class="zoomable" src="videos/bimanual-learning/diffusion-assembly.mp4?v=learned-labels-20261028" poster="videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" width="1920" height="1080" loop muted playsinline preload="none" aria-label="Diffusion Policy for Bimanual Assembly."></video>
+                              </div>
+                            </div>
+                            <div class="col-md-10 col-9 sw-details">
+                              <p class="sw-title">Diffusion Policy for Bimanual Assembly</p>
+                              <p class="sw-subtitle">The A7-L6 bimanual robot manipulator completes key–housing assembly in Isaac Sim using a learned diffusion policy.</p>
+                              <div class="sw-links"><a href="parcelstow/#a7-l6-diffusion-assembly"><i class="fas fa-globe" aria-hidden="true"></i> Study and Demonstration</a></div>
                             </div>
                           </div>
                         </div>
                         <div class="sw-entry" id="research-bimanual-box-loading">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('reinforcement-learning/static/bimanual-box-loading-reference.jpg?v=isaac-20261028');">
-                                <video data-playback-rate="1.5" class="zoomable" src="reinforcement-learning/static/bimanual-box-loading-reference.mp4?v=isaac-20261028" poster="reinforcement-learning/static/bimanual-box-loading-reference.jpg?v=isaac-20261028" width="1920" height="1080" loop muted playsinline preload="none" aria-label="Expert-reference bimanual box loading in Isaac Sim, with synchronized overview and placement-detail views."></video>
+                              <div class="sw-video" style="background-image:url('videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028');">
+                                <video data-playback-rate="1" class="zoomable" src="videos/bimanual-learning/bc-box-loading.mp4?v=learned-labels-20261028" poster="videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028" width="1920" height="1080" loop muted playsinline preload="none" aria-label="Behavior Cloning for Bimanual Box Loading."></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Bimanual Box Loading for Policy Learning</p>
-                              <p class="sw-subtitle">Expert reference control coordinates box stabilization, insert placement, and release in Isaac Sim.</p>
-                              <div class="sw-links"><a href="reinforcement-learning/#isaac-reference-box-loading"><i class="fas fa-globe" aria-hidden="true"></i> Demonstration Details</a></div>
+                              <p class="sw-title">Behavior Cloning for Bimanual Box Loading</p>
+                              <p class="sw-subtitle">The A7-L6 bimanual robot manipulator places the insert in the box and withdraws using a behavior-cloning policy in Isaac Sim.</p>
+                              <div class="sw-links"><a href="parcelstow/#a7-l6-box-loading"><i class="fas fa-globe" aria-hidden="true"></i> Study and Demonstration</a></div>
                             </div>
                           </div>
                         </div>
@@ -313,15 +322,13 @@
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
                               <div class="sw-video" style="background-image:url('videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004');">
-                                <video class="zoomable" src="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" width="1280" height="720" loop muted playsinline preload="none" aria-label="Robot Learning: G1-L6 expert-ACT comparisons for parcel insertion, upright placement, and keyed peg insertion at speedup factor r equals 2 and twice real-time playback, followed by a transition card and an A7-L6 parcel insertion comparison at nominal task rate and real-time playback. In the matched A7 trial, the expert completes the task and ACT misses the final-orientation criterion. A third segment compares successful nominal bimanual assembly by an expert and ACT with feedback control from identical initial states at 1.5 times playback speed. These are individual demonstrations; A7 work is ongoing."></video>
+                                <video class="zoomable" src="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" width="1280" height="720" loop muted playsinline preload="none" aria-label="Expert–ACT comparisons for G1-L6 parcel insertion, upright placement, and keyed peg insertion, followed by A7-L6 parcel insertion and bimanual assembly in Isaac Lab."></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
                               <p class="sw-title">Imitation Learning for Dexterous Manipulation</p>
-                              <p class="sw-subtitle">Expert–learner comparisons for dexterous manipulation across task execution speeds, including parcel insertion and bimanual assembly.</p>
+                              <p class="sw-subtitle">Expert–ACT comparisons for parcel insertion, object placement, and bimanual assembly in Isaac Lab.</p>
                               <div class="sw-links">
-                                <a href="https://arxiv.org/abs/2609.01453" target="_blank"><i class="ai ai-arxiv"></i>
-                                  Temporal Robustness Study</a>
                                 <a href="parcelstow/"><i class="fas fa-globe" aria-hidden="true"></i>
                                   ParcelStow</a>
                               </div>

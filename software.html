@@ -70,12 +70,12 @@
             <div class="row align-items-start">
               <div class="col-md-4 col-5">
                 <div class="sw-video">
-                  <video class="zoomable" src="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" width="1280" height="720" autoplay loop muted playsinline aria-label="Robot Learning: G1–L6 expert–ACT comparisons for parcel insertion, upright placement, and keyed peg insertion at speedup factor r equals 2 and twice real-time playback, followed by a transition card and an A7–L6 parcel insertion comparison at nominal task rate and real-time playback. In the matched A7 trial, the expert completes the task and ACT misses the final-orientation criterion. A third segment compares successful nominal bimanual assembly by an expert and ACT with feedback control from identical initial states at 1.5 times playback speed. These are individual demonstrations; A7 work is ongoing."></video>
+                  <video class="zoomable" src="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" width="1280" height="720" autoplay loop muted playsinline aria-label="Expert–ACT comparisons for G1-L6 parcel insertion, upright placement, and keyed peg insertion, followed by A7-L6 parcel insertion and bimanual assembly in Isaac Lab."></video>
                 </div>
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/parcelstow" target="_blank">ParcelStow</a></p>
-                <p class="sw-subtitle">ParcelStow evaluates how dexterous manipulation policies respond to changes in task execution rate. The Isaac Lab benchmark includes three contact-rich tasks for the Unitree G1 with RealHand L6 hands, with scripted experts and ACT policies evaluated under matched conditions. Custom policies can use the same evaluation, and we provide scripts for reproducing our paper's experiments.</p>
+                <p class="sw-subtitle">ParcelStow is an Isaac Lab benchmark that compares expert and learned-policy task success under controlled changes in execution timing. The benchmark includes three contact-rich manipulation tasks for the Unitree G1 with RealHand L6 hands, scripted experts, trained policies, and a shared policy-evaluation interface. The release also includes demonstration data and scripts for reproducing the reported results.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/parcelstow" target="_blank"><i class="fab fa-github"></i> code</a>
                   <a href="https://arxiv.org/abs/2609.01453" target="_blank"><i class="ai ai-arxiv"></i> paper</a>
@@ -96,7 +96,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/realhand_l6_ros2" target="_blank">realhand_l6_ros2</a></p>
-                <p class="sw-subtitle">realhand_l6_ros2 controls the RealHand L6 dexterous hand over SocketCAN and detects fingertip contact from tactile sensing in ROS 2 Jazzy. The package includes the control driver, tactile controller, robot description, hardware bringup, and MoveIt configuration. The CAN protocol implementation and tactile contact controller are validated on a physical right-hand unit.</p>
+                <p class="sw-subtitle">realhand_l6_ros2 is a suite of ROS 2 Jazzy packages that provides hardware control and tactile contact detection for the RealHand L6 dexterous hand. The suite includes a SocketCAN driver, contact-gated control, robot descriptions, launch files, and MoveIt configuration. Communication, sensing, and control interfaces have been validated on a physical right-hand unit.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/realhand_l6_ros2" target="_blank"><i class="fab fa-github"></i> code</a>
                 </div>
@@ -114,7 +114,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/kinematic_planner_ros2" target="_blank">kinematic_planner_ros2</a></p>
-                <p class="sw-subtitle">kinematic_planner_ros2 computes collision-free paths for serial-chain manipulators with N degrees of freedom using sampling-based planning in ROS 2. It uses <a href="https://github.com/flexible-collision-library/fcl" target="_blank">FCL</a> for collision checking and the <a href="https://github.com/petercorke/robotics-toolbox-python" target="_blank">Robotics Toolbox for Python</a> for kinematics, with optional <a href="https://mujoco.org" target="_blank">MuJoCo</a> visualization. Robot and scene descriptions use <a href="http://wiki.ros.org/urdf" target="_blank">URDF</a>, and the planner can be configured via ROS 2 parameters.</p>
+                <p class="sw-subtitle">kinematic_planner_ros2 is a ROS 2 package that provides sampling-based path planning for serial-chain manipulators. The package implements RRT* and Informed RRT* in joint space, with <a href="https://github.com/flexible-collision-library/fcl" target="_blank">FCL</a> collision checking, <a href="https://github.com/petercorke/robotics-toolbox-python" target="_blank">Robotics Toolbox for Python</a> kinematics, and optional <a href="https://mujoco.org" target="_blank">MuJoCo</a> visualization. Robot and scene models are specified in <a href="http://wiki.ros.org/urdf" target="_blank">URDF</a>, and planner settings are exposed through ROS 2 parameters.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/kinematic_planner_ros2" target="_blank"><i class="fab fa-github"></i> code</a>
                 </div>
@@ -132,7 +132,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="http://equidexflow.github.io" target="_blank">EquiDexFlow</a></p>
-                <p class="sw-subtitle">EquiDexFlow generates reach-aware, collision-free dexterous grasps using contact-grounded SE(3)-equivariant flow matching. It jointly predicts articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces within one end-to-end SE(3)-equivariant architecture.</p>
+                <p class="sw-subtitle">EquiDexFlow is an SE(3)-equivariant generative model for reach-aware dexterous grasp synthesis. The model jointly predicts articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces from object geometry. The software release includes pretrained models and tools for grasp generation and visualization.</p>
                 <div class="sw-links">
                   <a href="https://equidexflow.github.io" target="_blank"><i class="fas fa-globe"></i> project page</a>
                   <a href="https://github.com/coenwerem/equidexflow" target="_blank"><i class="fab fa-github"></i> code</a>
@@ -152,7 +152,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="vnb-grasp/" target="_blank">VNB-Grasp</a></p>
-                <p class="sw-subtitle">VNB-Grasp computes pathwise conditional value-at-risk (CVaR) gradients for risk-sensitive dexterous grasping under uncertain contact parameters and object pose. VNB-Grasp adopts a differentiable Gaussian-mixture belief uncertainty representation and includes a MuJoCo benchmark for measuring friction sensitivity and perturbation tolerance.</p>
+                <p class="sw-subtitle">VNB-Grasp is a Python library for risk-sensitive dexterous grasp optimization under uncertain contact parameters and object pose. The library implements differentiable Gaussian-mixture beliefs and pathwise gradients of a conditional value-at-risk (CVaR) surrogate, alongside a MuJoCo benchmark for measuring friction sensitivity and perturbation tolerance.</p>
                 <div class="sw-links">
                   <a href="vnb-grasp/" target="_blank"><i class="fas fa-globe"></i> project page</a>
                   <a href="https://github.com/coenwerem/vnb-grasp" target="_blank"><i class="fab fa-github"></i> code</a>
@@ -172,7 +172,7 @@
               </div>
               <div class="col-md-8 col-7 sw-details">
                 <p class="sw-title"><a href="https://github.com/coenwerem/simple_urdf_parser" target="_blank">Simple URDF Parser</a></p>
-                <p class="sw-subtitle">Simple URDF Parser computes forward and inverse kinematics and Jacobians from URDF robot descriptions in Python. The library includes an interactive 3D visualizer.</p>
+                <p class="sw-subtitle">Simple URDF Parser is a Python library that provides forward and inverse kinematics and Jacobian computation from URDF robot descriptions. An optional interactive 3D visualizer supports inspection of robot configurations and inverse-kinematics solutions.</p>
                 <div class="sw-links">
                   <a href="https://github.com/coenwerem/simple_urdf_parser" target="_blank"><i class="fab fa-github"></i> code</a>
                 </div>
