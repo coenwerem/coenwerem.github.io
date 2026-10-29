@@ -2697,6 +2697,16 @@ font-size: 12px;
   }
 }
 
+/* Keep the demo taxonomy close to the research introduction. */
+#research .research-page-body { padding: 1rem 0; }
+#research .research-page-title { text-align: center; margin: 1rem 0; }
+#research .research-intro { margin: 0 0 .65rem; line-height: 1.4; }
+.research-overview { margin-bottom: 1.25rem; }
+.research-overview > summary { width: fit-content; cursor: pointer; font-weight: 600; }
+.research-overview > summary:focus-visible { outline: 2px solid var(--theme-primary); outline-offset: 4px; }
+.research-overview[open] { display: flow-root; }
+#research .research-browse-help { margin: .75rem 0 1rem; }
+
 /* Research themes: compact thumbnail stacks reveal the related demo cards. */
 .research-theme {
   border-bottom: 1px solid var(--border-color);

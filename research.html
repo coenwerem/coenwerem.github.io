@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <!-- Your custom CSS -->
-  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20261004-link-alignment">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=research-compact-20261029">
 </head>
 
 <body>
@@ -47,11 +47,14 @@
                   style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                   <tbody>
                     <tr style="padding:0px">
-                      <td style="padding:2.5% 0;width:100%;vertical-align:middle">
-                        <p style="text-align:center;margin-top: 3em;">
+                      <td class="research-page-body" style="width:100%;vertical-align:middle">
+                        <p class="research-page-title">
                           <name style="font-weight: 500;">Research</name>
                         </p>
                         <p class="headhr"></p>
+                        <p class="bd-text research-intro">I study <span class="keyword">dexterous grasping and contact-rich manipulation under uncertainty</span>, combining optimization-based control, belief-space planning, and robot learning.</p>
+                        <details class="research-overview">
+                          <summary>Research Overview</summary>
                         <p class="bd-text">
                           I study <span class="keyword">contact-rich poly-articulated dexterous grasping and manipulation</span> under <span class="keyword">uncertainty</span>. My research combines <span class="keyword">optimization-based control</span>, <span class="keyword">kinodynamic motion planning</span>, <span class="keyword">belief estimation</span>, and <span class="keyword">policy learning</span> to address uncertain object pose, friction, contact modes, and target geometry. A central question is how a robot can acquire and retain a grasp, establish and change contact, and complete manipulation while satisfying collision-avoidance and task constraints. I investigate these questions with fixed-base serial-chain manipulators, bimanual robot manipulators, and humanoids.
                         </p>
@@ -62,12 +65,13 @@
                         <p class="bd-text">My manipulation research examines how uncertainty and changing contact conditions affect task completion. The model-based work includes risk-sensitive belief-space control for dexterous stowing and belief-informed hybrid control for bimanual assembly. A separate study addresses manipulation in human-shared workspaces, where collision avoidance must remain compatible with grasp retention, object support, and alignment through insertion and release.</p>
                         <p class="bd-text">My learning research evaluates whether imitation-learned policies preserve expert robustness as execution timing varies, and includes ACT, diffusion policies, and residual reinforcement learning for bimanual manipulation. I also fine-tune vision-language-action models for monitoring task progress and triggering recovery from visuo-tactile feedback. A longer-term objective is to combine geometric structure, uncertainty estimation, and multimodal observations in manipulation policies that account explicitly for performance, robustness, and safety under partial observability.</p>
                         <p class="bd-text">I evaluate these methods in MuJoCo, Drake, and Isaac Sim, and through hardware experiments on the platforms listed on the <a href="robots.html" target="_blank">Robots</a> page.</p>
+                        </details>
 
                         <!-- Applications -->
                         <span class="project-section">Applications</span>
                         <p class="headhr"></p>
-                        <p class="bd-text">
-                          I target problems in dexterous grasping and manipulation spanning the following themes. Explore related demonstrations by research theme by selecting its demo stack on the left column. Selecting a video within each stack enlarges it.
+                        <p class="bd-text research-browse-help">
+                          Select a theme to browse its demonstrations; select a video to enlarge it.
                         </p>
 
                         <details class="research-theme" name="research-themes" id="theme-risk-aware">
