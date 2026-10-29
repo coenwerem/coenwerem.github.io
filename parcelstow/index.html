@@ -58,7 +58,7 @@
       <section class="gdf-section ps-intro" aria-label="Research Overview"><div class="gdf-wrap">
         <div class="gdf-prose">
           <p>Matching an expert’s task-success rate at nominal execution speed does not establish that imitation learning preserves robustness as timing changes. ParcelStow is an Isaac Lab benchmark for measuring how the expert–learner task-success gap changes under controlled variation in execution timing.</p>
-          <p>A scalar speedup factor <var>r</var> divides selected phase durations: at <var>r</var> = 2, those phases take half as long. Acquisition and settling durations are fixed. We evaluate expert and learner policies across the same speedup factors on three simulated manipulation tasks.</p>
+          <p>A scalar speedup factor <var>r</var> divides selected phase durations: at <var>r</var> = 2, those phases take half as long. Acquisition and settling durations are fixed. We evaluate expert and learner policies at matched speedup factors on three simulated manipulation tasks.</p>
         </div>
         <h2 class="gdf-h2" id="g1-l6-parcelstow">ParcelStow with the G1-L6 Humanoid</h2>
         <div class="gdf-prose"><p>The G1-L6 humanoid executes parcel insertion, upright placement, and keyed peg insertion using an expert controller and an Action Chunking Transformer (ACT) policy. Each task requires the robot to acquire an object and satisfy a distinct placement or insertion condition. The paired videos compare expert and learner behavior at a task speedup factor of <var>r</var> = 2; playback is also accelerated to 2×.</p></div>
@@ -78,7 +78,7 @@
       <section class="gdf-section gdf-section--alt" id="results"><div class="gdf-wrap">
         <h2 class="gdf-h2">Expert–ACT Comparisons</h2>
         <div class="gdf-prose"><p>In the recorded evaluations, ACT matches or exceeds expert nominal task success on all three tasks. At the higher speedup factors shown below, the expert succeeds more often. For parcel insertion, this difference appears within the demonstrated speed range; for upright placement and keyed peg insertion, it appears beyond that range.</p></div>
-<figure class="control-diagram" aria-labelledby="parcelstow-evaluation-diagram"><div class="control-flow"><div class="control-block"><h3>Controlled Timing Variation</h3><p>Vary selected phase durations using the same task speedup factors for expert and learner.</p></div>
+<figure class="control-diagram" aria-labelledby="parcelstow-evaluation-diagram"><div class="control-flow"><div class="control-block"><h3>Controlled Timing Variation</h3><p>Apply matched task speedup factors to selected expert and learner phase durations.</p></div>
 <div class="control-block control-block--controller"><h3>Expert–ACT Evaluation</h3><p>Evaluate both policies on parcel insertion, upright placement, and keyed peg insertion.</p></div>
 <div class="control-block"><h3>Robustness Comparison</h3><p>Compare task-success counts and expert-minus-ACT differences across speedup factors.</p></div></div><figcaption id="parcelstow-evaluation-diagram">Task speedup changes the time available for execution. Video playback speed changes only how the recorded execution is viewed.</figcaption></figure>
         <div class="table-container ps-results-wrap" role="region" aria-label="Expert and ACT task success" tabindex="0">
@@ -103,7 +103,7 @@
       <section class="gdf-section" aria-labelledby="a7-l6-parcel-insertion"><div class="gdf-wrap">
         <h2 class="gdf-h2" id="a7-l6-parcel-insertion">Parcel Insertion with the A7-L6 Manipulator</h2>
         <div class="gdf-prose">
-          <p>The A7-L6 bimanual robot manipulator executes dexterous parcel insertion in Isaac Lab. We compare an expert controller with an ACT policy from the same recorded initial parcel pose at the nominal task rate, <var>r</var> = 1. The robot completes insertion under expert control but fails the final-orientation criterion under ACT. The task requires both placement inside the receptacle and the specified final object orientation.</p>
+          <p>The A7-L6 bimanual robot manipulator executes dexterous parcel insertion in Isaac Lab. We compare an expert controller with an ACT policy from matched recorded initial parcel poses at the nominal task rate, <var>r</var> = 1. The robot completes insertion under expert control but fails the final-orientation criterion under ACT. The task requires both placement inside the receptacle and the specified final object orientation.</p>
         </div>
         <figure class="gdf-overview ps-demo">
           <video controls muted playsinline preload="none" poster="../videos/a7_expert_act_demo_poster.jpg" src="../videos/a7_expert_act_demo.mp4" aria-label="A7-L6 parcel insertion: expert and ACT from matched initial conditions"></video>

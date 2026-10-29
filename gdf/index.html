@@ -215,7 +215,7 @@
               the filtered safe set. To handle changes in contact topology, we combine a hysteretic
               contact-mode transition with a wrench-quality CBF that limits degradation of the realized
               force-closure margin relative to hold onset. Using our method, a fixed-base manipulator and a
-              Unitree G1 equipped with the same underactuated hand grasp and lift 46 of 50 test objects amid
+              Unitree G1 humanoid, both equipped with an underactuated hand, grasp and lift 46 of 50 test objects amid
               clutter and moving obstacles. The realized grasps also retain a median 94% of their synthesized
               quality margin, and each QP solve requires 0.09 ms within a 20 ms control interval.
             </p>
@@ -281,7 +281,7 @@
           </figure>
           <div class="gdf-prose">
             <p>The REACH, CLOSE, HOLD, and LIFT modes change the active constraints as object contacts form. At hold onset, the wrench-quality CBF limits degradation of the realized risk-adjusted force-closure margin relative to its hold-onset value. Dependent-joint equalities represent the underactuated hand.</p>
-            <p>The same controller runs on a Unitree G1 model with the same underactuated hand. Platform-specific structure enters through the rigid-body model and the grasp record synthesized for that embodiment.</p>
+            <p>We evaluate the controller on a Unitree G1 model equipped with an underactuated hand. Platform-specific structure enters through the rigid-body model and the grasp record synthesized for that embodiment.</p>
           </div>
         </div>
       </section>
@@ -313,7 +313,7 @@
           <h2 class="gdf-h2">Interactive Playback</h2>
           <div class="gdf-prose">
             <p>
-              The controls below play recorded execution data from three representative reach-avoid-stay trials: the fixed-base arm-hand system with static obstacles, the same system with a moving obstacle, and the Unitree G1 instantiation with static obstacles. Use the tabs to switch trials and the playback controls to inspect the timeline. The readouts report time, active mode, Grasp Distance Field value $d_G$, minimum barrier value, and contact count through REACH, CLOSE, HOLD, and LIFT.
+              The controls below play recorded execution data from three representative reach-avoid-stay trials: static-obstacle and moving-obstacle trials with a fixed-base arm-hand system, and a static-obstacle trial with the Unitree G1. Use the tabs to switch trials and the playback controls to inspect the timeline. The readouts report time, active mode, Grasp Distance Field value $d_G$, minimum barrier value, and contact count through REACH, CLOSE, HOLD, and LIFT.
             </p>
           </div>
 
@@ -415,7 +415,7 @@
             <p>
               <strong>We instantiate the controller on a humanoid to test whether the platform-specific
               structure comes from the rigid-body model alone.</strong> We combine the 29-degree-of-freedom
-              Unitree G1 body with the same 11-joint hand at the right wrist and fix the legs and left arm,
+              Unitree G1 body with an 11-joint hand at the right wrist and fix the legs and left arm,
               leaving a 21-dimensional fixed-pelvis chain. With a $4 \times 4 \times 36$ cm obstacle on the
               palm-to-object line, the closed loop completes the 12 cm rise in 434 steps with no infeasible
               step. The minimum obstacle-constraint value is 3.8 mm, true surface clearance is 3.4 cm, the
@@ -479,7 +479,7 @@
   <script src="../scripts.js?v=20260913-interests"></script>
 
   <!-- Interactive playback engine, recorded run logs played back on a canvas -->
-  <script defer src="./static/js/replay.js?v=20260913a"></script>
+  <script defer src="./static/js/replay.js?v=prose-20261029"></script>
 
 </body>
 
