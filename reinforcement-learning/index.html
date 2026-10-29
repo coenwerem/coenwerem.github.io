@@ -29,7 +29,7 @@
 <p class="rl-eyebrow">DAPG Reproduction · MuJoCo / Adroit</p>
 <h2 class="gdf-h2" id="dexterous-relocation">From Demonstrations to Learned Dexterous Relocation</h2>
 <p>I reproduced dexterous relocation results using Rajeswaran et al.’s Demonstration-Augmented Policy Gradient (DAPG) <a class="rl-citation" href="#ref-dapg" aria-label="Reference 1: DAPG">[1]</a> implementation in MuJoCo / Adroit. I initialized a relocation policy with behavior cloning from 25 demonstrations, refined the policy through DAPG training, and evaluated the initial and trained policies over 100 episodes with held-out initial conditions.</p>
-<p>The paired recordings compare behavior cloning and DAPG with a fixed initialization seed and deterministic action selection. The robot must grasp the object and relocate it to the green target.</p>
+<p>The recordings compare behavior cloning and DAPG with deterministic action selection. The robot must grasp the object and relocate it to the green target.</p>
 <figure class="rl-comparison"><video data-playback-rate="1.5" controls autoplay muted loop playsinline preload="metadata" poster="static/adroit-dapg-poster.jpg?v=charcoal-20261028"><source src="static/adroit-dapg-comparison.mp4?v=charcoal-20261028" type="video/mp4"></video><figcaption><strong>Behavior Cloning versus Trained DAPG.</strong> The paired recordings compare object relocation using behavior cloning and a trained DAPG policy.</figcaption></figure>
 <div class="rl-evidence-strip"><div><strong>95 / 100</strong><span>DAPG · Deterministic Actions</span></div><div><strong>98 / 100</strong><span>DAPG · Stochastic Actions</span></div><div><strong>0 / 100</strong><span>Behavior Cloning · Both Action Modes</span></div></div>
 

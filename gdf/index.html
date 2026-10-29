@@ -215,7 +215,7 @@
               the filtered safe set. To handle changes in contact topology, we combine a hysteretic
               contact-mode transition with a wrench-quality CBF that limits degradation of the realized
               force-closure margin relative to hold onset. Using our method, a fixed-base manipulator and a
-              Unitree G1 humanoid, both equipped with an underactuated hand, grasp and lift 46 of 50 test objects amid
+              Unitree G1 humanoid grasp and lift 46 of 50 test objects amid
               clutter and moving obstacles. The realized grasps also retain a median 94% of their synthesized
               quality margin, and each QP solve requires 0.09 ms within a 20 ms control interval.
             </p>
@@ -281,7 +281,7 @@
           </figure>
           <div class="gdf-prose">
             <p>The REACH, CLOSE, HOLD, and LIFT modes change the active constraints as object contacts form. At hold onset, the wrench-quality CBF limits degradation of the realized risk-adjusted force-closure margin relative to its hold-onset value. Dependent-joint equalities represent the underactuated hand.</p>
-            <p>We evaluate the controller on a Unitree G1 model equipped with an underactuated hand. Platform-specific structure enters through the rigid-body model and the grasp record synthesized for that embodiment.</p>
+            <p>For the Unitree G1 humanoid, we specify the rigid-body model and a grasp record synthesized for that platform.</p>
           </div>
         </div>
       </section>
