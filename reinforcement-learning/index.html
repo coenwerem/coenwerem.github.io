@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reinforcement Learning for Robotics | Clinton Enwerem</title>
-<meta name="description" content="Published risk-sensitive RL, reproduced Adroit DAPG learning, and residual-policy integration for simulated A7 bimanual assembly.">
+<meta name="description" content="Published risk-sensitive RL, reproduced Adroit DAPG learning, and residual reinforcement learning for simulated A7-L6 bimanual assembly.">
 <link rel="canonical" href="https://clintonenwerem.com/reinforcement-learning/">
 <link rel="icon" href="../images/favicon.ico">
 <script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark-mode':'light-mode');document.documentElement.classList.add(t);})();</script>
@@ -23,15 +23,15 @@
 <h1 class="gdf-title">Reinforcement Learning for Robotics</h1><p class="rl-subtitle">Risk-Sensitive Learning · Demonstration-Guided Policies · Physics-Based Simulation</p>
 <p class="rl-author">Clinton Enwerem · University of Maryland, College Park</p>
 <p class="rl-intro">I develop and evaluate reinforcement learning algorithms for robotics, including risk-sensitive distributional RL, demonstration-guided dexterous manipulation, and residual RL for bimanual assembly.</p>
-<nav class="gdf-btns rl-navigation" aria-label="Page sections"><a class="gdf-btn" href="#adroit-dapg">Adroit Learning</a><a class="gdf-btn" href="#a7-rlpd">A7 Residual RL</a><a class="gdf-btn" href="#bimanual-reference-demos">Isaac Demonstrations</a><a class="gdf-btn" href="#safe-rl">Published Safe RL</a><a class="gdf-btn" href="#g1-ppo">G1 Reward Design</a></nav>
+<nav class="gdf-btns rl-navigation" aria-label="Page sections"><a class="gdf-btn" href="#adroit-dapg">Adroit Learning</a><a class="gdf-btn" href="#a7-rlpd">A7-L6 Residual RL</a><a class="gdf-btn" href="#bimanual-reference-demos">Scripted Experts</a><a class="gdf-btn" href="#safe-rl">Published Safe RL</a><a class="gdf-btn" href="#g1-ppo">G1 Reward Design</a></nav>
 </header>
 <section id="adroit-dapg" class="gdf-section rl-study rl-featured"><div class="gdf-wrap">
 <p class="rl-eyebrow">DAPG Reproduction · MuJoCo / Adroit</p>
 <h2 class="gdf-h2" id="dexterous-relocation">From Demonstrations to Learned Dexterous Relocation</h2>
 <p>I reproduced dexterous relocation results using Rajeswaran et al.’s Demonstration-Augmented Policy Gradient (DAPG) <a class="rl-citation" href="#ref-dapg" aria-label="Reference 1: DAPG">[1]</a> implementation in MuJoCo / Adroit. I initialized a relocation policy with behavior cloning from 25 demonstrations, refined the policy through DAPG training, and evaluated the initial and trained policies over 100 episodes with held-out initial conditions.</p>
-<p>The paired execution compares behavior cloning with the trained DAPG policy using the same reset seed and mean actions. The robot must grasp and relocate the object to the green target; the comparison isolates the change in task execution after reinforcement learning.</p>
-<figure class="rl-comparison"><video data-playback-rate="1.5" controls autoplay muted loop playsinline preload="metadata" poster="static/adroit-dapg-poster.jpg?v=charcoal-20261028"><source src="static/adroit-dapg-comparison.mp4?v=charcoal-20261028" type="video/mp4"></video><figcaption><strong>Behavior Cloning versus Trained DAPG.</strong> Object relocation from the initial position to the green target. Playback: 0.5×.</figcaption></figure>
-<div class="rl-evidence-strip"><div><strong>95 / 100</strong><span>DAPG · Mean-Action Successes</span></div><div><strong>98 / 100</strong><span>DAPG · Stochastic Successes</span></div><div><strong>0 / 100</strong><span>Behavior Cloning · Both Action Modes</span></div></div>
+<p>The paired recordings compare behavior cloning and DAPG using the same initialization seed and deterministic action selection. The robot must grasp the object and relocate it to the green target.</p>
+<figure class="rl-comparison"><video data-playback-rate="1.5" controls autoplay muted loop playsinline preload="metadata" poster="static/adroit-dapg-poster.jpg?v=charcoal-20261028"><source src="static/adroit-dapg-comparison.mp4?v=charcoal-20261028" type="video/mp4"></video><figcaption><strong>Behavior Cloning versus Trained DAPG.</strong> The paired recordings compare object relocation using behavior cloning and a trained DAPG policy.</figcaption></figure>
+<div class="rl-evidence-strip"><div><strong>95 / 100</strong><span>DAPG · Deterministic Actions</span></div><div><strong>98 / 100</strong><span>DAPG · Stochastic Actions</span></div><div><strong>0 / 100</strong><span>Behavior Cloning · Both Action Modes</span></div></div>
 
 <figure class="control-diagram" aria-labelledby="dapg-training-diagram"><div class="control-flow control-flow--four"><div class="control-block"><h3>Expert Demonstrations</h3><p>25 relocation demonstrations from the authors’ dataset.</p></div>
 <div class="control-block"><h3>Behavior Cloning</h3><p>Initialize the policy by imitating demonstrated actions.</p></div>
@@ -43,8 +43,8 @@
 <section id="a7-rlpd" class="gdf-section gdf-section--alt rl-study"><div class="gdf-wrap">
 <p class="rl-eyebrow">Residual Reinforcement Learning · Drake Simulation</p>
 <h2 class="gdf-h2" id="bimanual-assembly">Integrating Residual RL with Bimanual Assembly Control</h2>
-<p>I adapted Reinforcement Learning with Prior Data (RLPD) <a class="rl-citation" href="#ref-rlpd" aria-label="Reference 2: RLPD">[2]</a> to an A7 bimanual arm–hand system, using demonstration data from my feedback controller and online reinforcement learning. I combined bounded residual joint-reference commands with feedback control to execute housing stabilization, part acquisition and transfer, insertion, and hand withdrawal.</p>
-<p>The recorded execution follows the complete assembly sequence, from acquisition through insertion and withdrawal. Its focus is coordinated task execution with learned corrections to the robot’s joint references, while feedback control remains part of the control architecture.</p>
+<p>I adapted Reinforcement Learning with Prior Data (RLPD) <a class="rl-citation" href="#ref-rlpd" aria-label="Reference 2: RLPD">[2]</a> to train a residual policy for bimanual assembly from feedback-controller demonstrations and online experience. During execution, the learned policy supplies bounded corrections to the arm joint references used by the feedback controller.</p>
+<p>The A7-L6 bimanual robot manipulator stabilizes the housing, acquires and transfers the part, completes alignment and insertion, then releases the objects and withdraws. The initial and updated residual policies each completed all 12 evaluations across three friction conditions.</p>
 <figure class="rl-comparison"><video data-playback-rate="1.5" controls muted loop playsinline preload="metadata" poster="static/a7-rlpd-poster.jpg?v=edited-20261028"><source src="static/a7-rlpd-assembly.mp4?v=edited-20261028" type="video/mp4"></video><figcaption><strong>Bimanual Assembly with Residual RL.</strong> Learned joint-reference corrections combined with feedback control for bimanual assembly. Playback: 1.5×.</figcaption></figure>
 <div class="rl-evidence-strip rl-evidence-strip--pair"><div><strong>12 / 12</strong><span>Initial Policy · Completed Assemblies</span></div><div><strong>12 / 12</strong><span>Updated Policy · Completed Assemblies</span></div></div>
 
@@ -57,18 +57,20 @@
 <p class="rl-resources"><a href="#ref-rlpd">Paper [2]</a> · <a href="https://github.com/ikostrikov/rlpd">Authors’ Implementation</a></p>
 </div></section>
 <section id="bimanual-reference-demos" class="gdf-section rl-study"><div class="gdf-wrap">
-<p class="rl-eyebrow">Expert References · Isaac Sim / PhysX</p>
+<p class="rl-eyebrow">Scripted Expert Controllers · Isaac Sim / PhysX</p>
 <h2 class="gdf-h2">Bimanual Expert Demonstrations for Policy Learning</h2>
-<p>Expert reference control supplies demonstrations for bimanual policy learning in Isaac Sim. The A7-L6 bimanual robot manipulator executes key–housing assembly and box loading in the measured workcell; each recording combines synchronized overview, task-detail, and opposite views.</p>
+<p>The A7-L6 bimanual robot manipulator executes key–housing assembly and box loading under scripted reference control in Isaac Sim. Each video presents the execution from three synchronized camera views.</p>
 <div class="rl-results-grid">
-<figure id="isaac-reference-assembly"><h3>Key–Housing Assembly</h3><div class="rl-reference-media"><video data-playback-rate="1.5" class="zoomable" controls muted loop playsinline preload="metadata" poster="static/bimanual-assembly-reference.jpg?v=isaac-20261028" aria-label="Expert-reference key–housing assembly in Isaac Sim"><source src="static/bimanual-assembly-reference.mp4?v=isaac-20261028" type="video/mp4"></video></div><figcaption>The robot aligns and inserts the key, releases the objects, and withdraws. Expert reference · 1.5× playback.</figcaption></figure>
-<figure id="isaac-reference-box-loading"><h3>Box Loading</h3><div class="rl-reference-media"><video data-playback-rate="1.5" class="zoomable" controls muted loop playsinline preload="metadata" poster="static/bimanual-box-loading-reference.jpg?v=isaac-20261028" aria-label="Expert-reference bimanual box loading in Isaac Sim"><source src="static/bimanual-box-loading-reference.mp4?v=isaac-20261028" type="video/mp4"></video></div><figcaption>The robot maintains the box opening, places the insert, and releases it inside the box. Expert reference · 1.5× playback.</figcaption></figure>
-</div></div></section>
+<figure id="isaac-reference-assembly"><h3>Key–Housing Assembly</h3><div class="rl-reference-media"><video data-playback-rate="1.5" class="zoomable" controls muted loop playsinline preload="metadata" poster="static/bimanual-assembly-reference.jpg?v=isaac-20261028" aria-label="Expert-reference key–housing assembly in Isaac Sim"><source src="static/bimanual-assembly-reference.mp4?v=isaac-20261028" type="video/mp4"></video></div><figcaption>The robot aligns and inserts the key, releases the objects, and withdraws. Scripted expert · 1.5× playback.</figcaption></figure>
+<figure id="isaac-reference-box-loading"><h3>Box Loading</h3><div class="rl-reference-media"><video data-playback-rate="1.5" class="zoomable" controls muted loop playsinline preload="metadata" poster="static/bimanual-box-loading-reference.jpg?v=isaac-20261028" aria-label="Expert-reference bimanual box loading in Isaac Sim"><source src="static/bimanual-box-loading-reference.mp4?v=isaac-20261028" type="video/mp4"></video></div><figcaption>The robot maintains the box opening, places the insert, and releases it inside the box. Scripted expert · 1.5× playback.</figcaption></figure>
+</div>
+<p class="rl-resources">Learned-policy demonstrations: <a href="../parcelstow/#a7-l6-diffusion-assembly">Diffusion Policy Assembly</a> · <a href="../parcelstow/#a7-l6-box-loading">Behavior Cloning for Box Loading</a></p>
+</div></section>
 <section id="safe-rl" class="gdf-section rl-study"><div class="gdf-wrap">
 <p class="rl-eyebrow">Published Research · IEEE CDC 2025</p>
 <h2 class="gdf-h2" id="risk-sensitive-navigation">Risk-Sensitive Distributional Reinforcement Learning</h2>
 <p>For reach–avoid navigation, I developed quantile-based action-value iteration with a Conditional Value-at-Risk (CVaR) penalty estimated from the distribution of constraint-violation costs <a class="rl-citation" href="#ref-safe-rl" aria-label="Reference 3: Safety-aware reinforcement learning">[3]</a>. I integrated the risk-sensitive loss with quantile value estimation and evaluated the learned navigation policies in MuJoCo / Safety-Gymnasium. With my coauthors, I established a contraction result for the action-value update.</p>
-<p>The navigation demonstration depicts goal-reaching behavior in an environment containing hazards and obstacles. It provides a task-level view of a policy trained to account for constraint-violation costs; the accompanying evaluation compares goal attainment and violation costs across methods.</p>
+<p>The simulated robot navigates toward goals among hazards and obstacles. The table compares total goals reached and mean constraint-violation costs over 100 episodes.</p>
 <div class="rl-safe-grid">
 <figure class="rl-navigation-demo"><video data-playback-rate="1.5" controls muted loop playsinline preload="metadata" poster="static/safe-rl-poster.jpg?v=edited-20261028"><source src="static/safe-rl-navigation.mp4?v=edited-20261028" type="video/mp4"></video><figcaption><strong>MuJoCo / Safety-Gymnasium Navigation.</strong> Goal-reaching navigation among hazards and obstacles.</figcaption></figure>
 <div><h3>Goal Attainment and Violation Costs</h3><p>100 episodes across five evaluation seeds.</p>

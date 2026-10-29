@@ -45,8 +45,9 @@
       <div class="gdf-btns">
         <a class="gdf-btn" href="#g1-l6-parcelstow">G1-L6 Comparisons</a>
         <a class="gdf-btn" href="#a7-l6-parcel-insertion">A7-L6 Parcel Insertion</a>
-        <a class="gdf-btn" href="#a7-l6-bimanual-assembly">Bimanual Assembly</a>
-        <a class="gdf-btn" href="#a7-l6-constrained-object-relocation">Constrained Object Relocation</a>
+        <a class="gdf-btn" href="#a7-l6-bimanual-assembly">Expert–ACT Assembly</a>
+        <a class="gdf-btn" href="#a7-l6-diffusion-assembly">Diffusion Assembly</a>
+        <a class="gdf-btn" href="#a7-l6-box-loading">Box Loading</a>
         <a class="gdf-btn" href="https://arxiv.org/abs/2609.01453"><i class="ai ai-arxiv" aria-hidden="true"></i><span>Paper</span></a>
         <a class="gdf-btn" href="https://github.com/coenwerem/parcelstow"><i class="fab fa-github" aria-hidden="true"></i><span>Code</span></a>
         <a class="gdf-btn" href="https://huggingface.co/datasets/cenwerem/parcelstow"><i class="fas fa-database" aria-hidden="true"></i><span>Data &amp; Checkpoints</span></a>
@@ -56,17 +57,17 @@
     <main id="main">
       <section class="gdf-section ps-intro" aria-label="Research Overview"><div class="gdf-wrap">
         <div class="gdf-prose">
-          <p>Matching expert task success at one operating condition does not establish robustness preservation as task conditions vary. ParcelStow evaluates the expert–learner performance difference across a controlled variation in execution timing. The difference can widen, narrow, or reverse sign.</p>
+          <p>Matching an expert’s task-success rate at nominal execution speed does not establish that imitation learning preserves robustness as timing changes. ParcelStow is an Isaac Lab benchmark for measuring how the expert–learner task-success gap changes under controlled variation in execution timing.</p>
           <p>A scalar speedup factor <var>r</var> divides selected phase durations: at <var>r</var> = 2, those phases take half as long. Acquisition and settling durations are fixed. We evaluate expert and learner policies across the same speedup factors on three simulated manipulation tasks.</p>
         </div>
         <h2 class="gdf-h2" id="g1-l6-parcelstow">ParcelStow with the G1-L6 Humanoid</h2>
-        <div class="gdf-prose"><p>The G1-L6 humanoid executes parcel insertion, upright placement, and keyed peg insertion using an expert controller and an Action Chunking Transformer (ACT) policy. Each task requires the robot to acquire an object and satisfy a distinct placement or insertion condition. The paired videos compare expert and learner behavior at a task speedup factor of <var>r</var> = 2; playback is also accelerated to 2×. The comparison distinguishes task execution under shortened phase durations from video playback speed.</p></div>
+        <div class="gdf-prose"><p>The G1-L6 humanoid executes parcel insertion, upright placement, and keyed peg insertion using an expert controller and an Action Chunking Transformer (ACT) policy. Each task requires the robot to acquire an object and satisfy a distinct placement or insertion condition. The paired videos compare expert and learner behavior at a task speedup factor of <var>r</var> = 2; playback is also accelerated to 2×.</p></div>
         <figure class="gdf-overview ps-demo">
           <video controls muted loop playsinline preload="metadata" poster="../videos/robot_learning_g1_comparison_poster.jpg" aria-label="Expert above ACT on three ParcelStow tasks at speedup factor 2, played at twice real-time speed">
             <source src="../videos/robot_learning_g1_comparison.mp4" type="video/mp4">
             <a href="../videos/robot_learning_g1_comparison.mp4">Open the MP4 comparison.</a>
           </video>
-          <figcaption><strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2, played at 2× speed. Labels identify each recorded outcome. These clips depict individual trials; the table below reports evaluation-bank success counts.</figcaption>
+          <figcaption><strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2, played at 2× speed. Labels identify each recorded outcome. These clips depict individual trials; the table below reports success counts across the evaluated trials.</figcaption>
         </figure>
         <div class="ps-media-links" aria-label="Demo Files">
           <a href="../videos/robot_learning_g1_comparison.mp4">MP4 · 1.4 MB</a>
@@ -94,15 +95,15 @@
           </table>
         </div>
         <div class="gdf-prose" id="results-note">
-          <p>Expert-minus-ACT differences at the highlighted factors are 31, 40.5, and 73.5 percentage points, with pointwise 95% paired bootstrap intervals [18, 44], [32, 49], and [67.5, 79.5]. Each task reports one trained ACT policy; training replications are reported individually in the records.</p>
-          <p>These evaluations use fixed state-based policies in Isaac Lab simulation. The release also contains Diffusion Policy and DAgger results, together with their pairing status and comparison limits. <a href="https://github.com/coenwerem/parcelstow/tree/main/data/manuscript_20260921">Explore the evaluation records.</a></p>
+          <p>At the highlighted speedup factors, the expert-minus-ACT success-rate differences are 31 percentage points for parcel insertion, 40.5 for upright placement, and 73.5 for keyed peg insertion. The corresponding pointwise 95% paired bootstrap confidence intervals are [18, 44], [32, 49], and [67.5, 79.5] percentage points. Each task’s main comparison uses one trained ACT policy.</p>
+          <p>These evaluations use fixed state-based policies in Isaac Lab simulation. The released evaluation data also include Diffusion Policy and DAgger results. <a href="https://github.com/coenwerem/parcelstow/tree/main/data/manuscript_20260921">Evaluation data.</a></p>
         </div>
       </div></section>
 
       <section class="gdf-section" aria-labelledby="a7-l6-parcel-insertion"><div class="gdf-wrap">
         <h2 class="gdf-h2" id="a7-l6-parcel-insertion">Parcel Insertion with the A7-L6 Manipulator</h2>
         <div class="gdf-prose">
-          <p>The A7-L6 bimanual robot manipulator executes dexterous parcel insertion in Isaac Lab. We compare an expert controller with an ACT policy from the same recorded initial parcel pose at the nominal task rate, <var>r</var> = 1. The expert completes the task, whereas ACT fails the final-orientation criterion. This matched trial makes the expert–learner difference visible at the placement stage, where reaching the receptacle must also produce the required object orientation.</p>
+          <p>The A7-L6 bimanual robot manipulator executes dexterous parcel insertion in Isaac Lab. We compare an expert controller with an ACT policy from the same recorded initial parcel pose at the nominal task rate, <var>r</var> = 1. The robot completes insertion under expert control but fails the final-orientation criterion under ACT. The task requires both placement inside the receptacle and the specified final object orientation.</p>
         </div>
         <figure class="gdf-overview ps-demo">
           <video controls muted playsinline preload="none" poster="../videos/a7_expert_act_demo_poster.jpg" src="../videos/a7_expert_act_demo.mp4" aria-label="A7-L6 parcel insertion: expert and ACT from matched initial conditions"></video>
@@ -113,7 +114,7 @@
       <section class="gdf-section gdf-section--alt" aria-labelledby="a7-l6-bimanual-assembly"><div class="gdf-wrap">
         <h2 class="gdf-h2" id="a7-l6-bimanual-assembly">Bimanual Assembly through Imitation Learning</h2>
         <div class="gdf-prose">
-          <p>The A7-L6 bimanual robot manipulator coordinates housing stabilization with part acquisition, alignment, and insertion in Isaac Lab. The comparison pairs an expert controller with ACT and feedback control from identical recorded initial configurations. Both complete the nominal assembly: the expert in 54.74 s and ACT in 58.80 s. ACT exhibits brief right-arm jerks at the transfer-to-alignment and alignment-to-insertion transitions, while the expert transitions smoothly in this recording. These phase-boundary behaviors distinguish the executions even though both satisfy the task-completion criterion.</p>
+          <p>The A7-L6 bimanual robot manipulator coordinates housing stabilization with part acquisition, alignment, and insertion in Isaac Lab. The comparison pairs an expert controller with ACT and feedback control from identical recorded initial configurations. Both trials succeed: assembly takes 54.74 s under expert control and 58.80 s under ACT. During the ACT-controlled execution, the robot’s right arm exhibits brief jerks at the transfer-to-alignment and alignment-to-insertion transitions; these transitions are smooth under expert control in this recording.</p>
         </div>
         <figure class="gdf-overview ps-demo">
           <video controls muted playsinline preload="none" poster="../videos/bimanual_expert_act_demo_poster.jpg" src="../videos/bimanual_expert_act_demo.mp4" aria-label="Successful nominal bimanual assembly by the expert and ACT with feedback control"></video>
@@ -121,22 +122,33 @@
         </figure>
       </div></section>
 
-      <section class="gdf-section" aria-labelledby="a7-l6-constrained-object-relocation"><div class="gdf-wrap">
-        <h2 class="gdf-h2" id="a7-l6-constrained-object-relocation">Constrained Object Relocation through Imitation Learning</h2>
+      <section class="gdf-section" aria-labelledby="a7-l6-diffusion-assembly"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="a7-l6-diffusion-assembly">Key–Housing Assembly with a Diffusion Policy</h2>
         <div class="gdf-prose">
-          <p>The A7-L6 bimanual robot manipulator coordinates opening a passive flap on the target box with grasping, lifting, and placing an object inside the box. The learned policy maintains flap clearance during object transfer, then releases the object and withdraws the robot’s hands after placement. Trained by behavior cloning with corrective imitation data, the policy commands the arms and hands from simulated state observations and elapsed time. The video presents a successful Isaac Lab execution at the original task speed, emphasizing coordinated contact and object placement throughout the sequence.</p>
+          <p>The A7-L6 bimanual robot manipulator aligns and inserts the key into the housing using a learned diffusion policy. The three synchronized views visualize a successful simulator replay of recorded policy commands, in which the robot completed assembly at 37.43 s without teacher or repair commands.</p>
         </div>
         <figure class="gdf-overview ps-demo">
-          <video class="zoomable" controls muted playsinline preload="none" poster="../videos/a7_l6_learned_object_relocation.jpg?v=20261022" src="../videos/a7_l6_learned_object_relocation.mp4?v=20261022" aria-label="Learned A7-L6 constrained object relocation: flap opening, grasp and transfer, placement, release, and withdrawal"></video>
-          <figcaption>Learned-policy execution of constrained object relocation. A7-L6 bimanual robot manipulator · Isaac Lab / PhysX · 1× playback.</figcaption>
+          <div class="ps-demo-media"><video class="zoomable" controls muted playsinline preload="none" poster="../videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" src="../videos/bimanual-learning/diffusion-assembly.mp4?v=learned-labels-20261028" aria-label="Key–housing assembly using a learned diffusion policy in Isaac Sim"></video></div>
+          <figcaption>The robot completes assembly under the recorded diffusion-policy commands, then withdraws. Isaac Sim / PhysX · 1× playback.</figcaption>
+        </figure>
+      </div></section>
+
+      <section class="gdf-section gdf-section--alt" id="a7-l6-box-loading" aria-labelledby="a7-l6-constrained-object-relocation"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="a7-l6-constrained-object-relocation">Bimanual Box Loading through Behavior Cloning</h2>
+        <div class="gdf-prose">
+          <p>In this Isaac Sim demonstration, the A7-L6 bimanual robot manipulator coordinates box stabilization with insert grasping, transfer, placement, and release. A policy trained by behavior cloning commands both arms and hands using simulated state observations and elapsed task time.</p>
+        </div>
+        <figure class="gdf-overview ps-demo">
+          <div class="ps-demo-media"><video class="zoomable" controls muted playsinline preload="none" poster="../videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028" src="../videos/bimanual-learning/bc-box-loading.mp4?v=learned-labels-20261028" aria-label="Learned behavior-cloning policy for bimanual box loading in Isaac Sim"></video></div>
+          <figcaption>The robot places the insert in the box, releases it, and withdraws using a behavior-cloning policy. Isaac Sim / PhysX · 1× playback.</figcaption>
         </figure>
       </div></section>
 
       <section class="gdf-section" id="resources"><div class="gdf-wrap">
         <h2 class="gdf-h2">Use the Benchmark</h2>
         <div class="gdf-prose">
-          <p>The benchmark includes 937 successful expert demonstrations and 970,565 control steps across the three tasks. Learned policies use 147-dimensional state observations and share a 16-dimensional joint-position action interface with the scripted experts at 50 Hz.</p>
-          <p>The frozen evaluation bundle contains 136 conditions from 20 source series and 23,200 episodes. Reproduce success counts and paired intervals on a CPU without running the simulator:</p>
+          <p>The G1-L6 benchmark includes 937 successful expert demonstrations and 970,565 control steps across the three tasks. Learned policies in this benchmark use 147-dimensional state observations and share a 16-dimensional joint-position action interface with the scripted experts at 50 Hz.</p>
+          <p>The released evaluation data contain 23,200 episodes across 136 test conditions. Reproduce success counts and paired bootstrap confidence intervals on a CPU without running the simulator:</p>
         </div>
         <pre><code>git clone https://github.com/coenwerem/parcelstow.git
 cd parcelstow
