@@ -5,7 +5,7 @@
     {
       "asset": "videos/openvla_bimanual_recovery.mp4",
       "source_sha256": "f0da5acbb71fbc6419edfb68e7e96e7a96fefc6fc5e3bec6bd3862708007449f",
-      "sha256": "21b1ae14bac83a229323dfcd05b64b4b21b1e178dae6e216f0fd865bc9488b66",
+      "sha256": "3170bcfcdc85b97208637af95e29347f9cdfd6ec9f4088bd3c5675de4e568da2",
       "encoding": {
         "programs": [],
         "streams": [
@@ -25,6 +25,24 @@
           8,
           64
         ]
+      ],
+      "poster_sha256": "26541a9218c601b0e79214344d605f6525d97a6a69132ea30124c5a5c1e7ba28",
+      "presentation_edits": [
+        {
+          "description": "Remove the bottom simulation/case/illustration footer line from both segments.",
+          "input_sha256": "21b1ae14bac83a229323dfcd05b64b4b21b1e178dae6e216f0fd865bc9488b66",
+          "script": "scripts/remove_vla_demo_footer.py",
+          "footer_rectangle_px": [
+            0,
+            1036,
+            1920,
+            44
+          ],
+          "background": "#171a1d",
+          "duration_s": 56.0,
+          "frames": 1400,
+          "full_decode": "passed"
+        }
       ]
     },
     {
