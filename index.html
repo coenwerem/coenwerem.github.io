@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="stylesheet.css?v=compact-topics-20261028">
+  <link rel="stylesheet" href="stylesheet.css?v=home-news-tags-20261031">
 </head>
 
 <body>
@@ -65,6 +65,7 @@
                           <!-- tab panes -->
                           <div class="tab-content" id="bioTabContent">
                             <div class="tab-pane fade show active" id="bio" role="tabpanel" aria-labelledby="bio-tab">
+                              <p class="home-availability"><span class="home-availability-highlight">I am on track to complete my PhD <strong>this Fall</strong> and am seeking full-time roles in robot learning, robotics research engineering, and planning and control, with availability from <strong>January 2027</strong>.</span></p>
                               <p class="bd-text">I am an Electrical & Computer Engineering (ECE) Ph.D. candidate at the University
                                 of Maryland (UMD), College Park, MD, USA, working with Professor <a href="https://johnbaras.com/"
                                 target="_blank">John S. Baras</a>, Distinguished University Professor and Endowed Lockheed Martin Chair
@@ -104,9 +105,9 @@
             <p class="addr-text">8223 Paint Branch Dr</p>
             <p class="addr-text">College Park, MD 20740</p>
             <div class="contact-links">
-              <a class="addr-email" id="contact-email" href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a>
+              <a class="addr-email" id="contact-email" href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span>Email</span></a>
               <span aria-hidden="true">|</span>
-              <a href="https://www.linkedin.com/in/clinton-e-191ab133a?trk=profile-badge"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+              <a href="https://www.linkedin.com/in/clinton-e-191ab133a?trk=profile-badge"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
             </div>
           </div>
         </div>
@@ -225,62 +226,55 @@
       <p style="text-align:right;margin-top:-0.5rem;"><a href="research.html">Publications and more &rarr;</a></p>
     </section>
 
-    <section id="news" class="home-section">
-      <span class="sub-heading">News</span>
+    <section id="news" class="home-section" aria-labelledby="home-news-title">
+      <h2 id="home-news-title" class="sub-heading home-news-title">News</h2>
       <p class="headhr"></p>
-      <table class="table table-sm table-borderless home-news-table">
-        <colgroup><col class="home-news-kind"><col></colgroup>
-        <tbody>
-          <tr>
-            <td><span class="badge badge-talk">[talk]</span></td>
-            <td>Delivered a talk at IROS 2026 in Pittsburgh, PA on <a href="https://arxiv.org/abs/2604.25897" target="_blank">VNB-Grasp</a>. Slides (static content): <a href="https://drive.google.com/file/d/1l51N55BEl36YFKNcw2vcl0dIRy1DIgC6/view?usp=sharing" target="_blank">Robust Dexterous Grasping with Variational Neural Beliefs</a>.</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-paper">[preprint]</span></td>
-            <td>In our ParcelStow study, we show that nominal task success does not establish preservation of expert performance across task execution speeds. Links: <a href="https://arxiv.org/abs/2609.01453" target="_blank">arXiv</a>, <a href="parcelstow/" target="_blank">project page</a>.</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-paper">[preprint]</span></td>
-            <td>We introduced a CBF-CLF-based control framework for safe and planner-free dexterous grasping with safe-set forward invariance and grasp quality preservation. Project page: <a href="gdf/" target="_blank">Grasp Distance Fields</a>.</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-paper">[paper]</span></td>
-            <td>Our <a href="https://arxiv.org/abs/2604.03868" target="_blank">paper</a> introducing a CVaR-based belief-space MPPI algorithm for safe control has been accepted for presentation at <a href="https://cdc2026.ieeecss.org/" target="_blank">CDC 2026</a>. Links: <a href="belief-cvar-mppi/" target="_blank">demos</a>, <a href="https://arxiv.org/abs/2604.03868" target="_blank">arXiv</a>.</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-paper">[preprint]</span></td>
-            <td>New preprint on <a href="https://arxiv.org/abs/2607.25049" target="_blank">FIRMGrasp</a> introducing a novel grasp quality metric (&epsilon;<sup>(&beta;)</sup>) for robust grasp synthesis under uncertain friction. Grasps certified by &epsilon;<sup>(&beta;)</sup> achieve a 70% lift success rate under lateral pull, compared to 25% for grasps certified by the nominal Ferrari-Canny margin but are rejected by &epsilon;<sup>(&beta;)</sup>.</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-paper">[paper]</span></td>
-            <td>VNB-Grasp, our variational neural belief framework for robust dexterous grasping under visuo-tactile uncertainty, has been accepted to <a href="https://2026.ieee-iros.org/" target="_blank">IROS 2026</a>. Links: <a href="vnb-grasp/" target="_blank">project page</a>, <a href="https://arxiv.org/abs/2604.25897" target="_blank">arXiv</a>.</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-model">[model]</span></td>
-            <td>If you work on learning-based dexterous manipulation, have a look at <a href="https://equidexflow.github.io" target="_blank">EquiDexFlow</a>, our SE(3)-equivariant flow-matching model for synthesizing contact-aware multi-fingered grasps. To our knowledge, EquiDexFlow is the first learned dexterous grasp generator to produce articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces jointly within one end-to-end SE(3)-equivariant VAE architecture.</td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <details class="older-news">
-                <summary>Older News</summary>
-                <table class="table table-sm table-borderless home-news-table older-news-list">
-                  <colgroup><col class="home-news-kind"><col></colgroup>
-                  <tbody>
-                    <tr>
-                      <td><span class="badge badge-paper">[paper]</span></td>
-                      <td>Our <a href="https://arxiv.org/abs/2506.06954" target="_blank">paper</a> on quantile-based distributional RL for safe control was accepted for presentation at <a href="https://cdc2025.ieeecss.org/" target="_blank">CDC 2025</a>. Links: <a href="reinforcement-learning/#safe-rl">study summary</a>.</td>
-                    </tr>
-                    <tr>
-                      <td><span class="badge badge-epoch">[epoch]</span></td>
-                      <td>I passed my research proposal exam and advanced to doctoral candidacy.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </details>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="home-news-feed">
+        <div class="home-news-group">
+          <h3 class="home-news-date"><time datetime="2026-09">Sep 2026</time></h3>
+          <ul class="home-news-items" role="list">
+            <li class="home-news-item"><p><span class="home-news-type home-news-type--talk">Talk</span> I presented <a href="https://arxiv.org/abs/2604.25897" target="_blank" rel="noopener">VNB-Grasp</a> at IROS 2026 in Pittsburgh, PA. Slides (static content): <a href="https://drive.google.com/file/d/1l51N55BEl36YFKNcw2vcl0dIRy1DIgC6/view?usp=sharing" target="_blank" rel="noopener">Robust Dexterous Grasping with Variational Neural Beliefs</a>.</p></li>
+            <li class="home-news-item"><p><span class="home-news-type home-news-type--paper">Paper</span> Our paper on CVaR-based belief-space MPPI control under latent uncertainty has been accepted to <a href="https://cdc2026.ieeecss.org/" target="_blank" rel="noopener">CDC 2026</a>. The updated preprint and demonstrations are available: <a href="https://arxiv.org/abs/2604.03868" target="_blank" rel="noopener">arXiv</a>, <a href="belief-cvar-mppi/" target="_blank" rel="noopener">project page</a>.</p></li>
+            <li class="home-news-item"><p><span class="home-news-type home-news-type--preprint">Preprint</span> In our ParcelStow study, we show that nominal task success does not establish preservation of expert performance across task execution speeds. Links: <a href="https://arxiv.org/abs/2609.01453" target="_blank" rel="noopener">arXiv</a>, <a href="parcelstow/" target="_blank" rel="noopener">project page</a>.</p></li>
+          </ul>
+        </div>
+        <div class="home-news-group">
+          <h3 class="home-news-date"><time datetime="2026-08">Aug 2026</time></h3>
+          <ul class="home-news-items" role="list">
+            <li class="home-news-item"><p><span class="home-news-type home-news-type--preprint">Preprint</span> We introduced a CBF-CLF-based method for planner-free dexterous grasp execution, with safe-set forward invariance and grasp-quality preservation. Project page: <a href="gdf/" target="_blank" rel="noopener">Grasp Distance Fields</a>.</p></li>
+          </ul>
+        </div>
+        <div class="home-news-group">
+          <h3 class="home-news-date"><time datetime="2026-07">Jul 2026</time></h3>
+          <ul class="home-news-items" role="list">
+            <li class="home-news-item"><p><span class="home-news-type home-news-type--preprint">Preprint</span> In <a href="https://arxiv.org/abs/2607.25049" target="_blank" rel="noopener">FIRMGrasp</a>, we introduce a CVaR-based grasp-quality margin for uncertain friction. Among grasps that established contact, simulated lift-and-pull success at a friction coefficient of 0.2 was 70% for 27 grasps certified by our margin, compared with 25% for 24 grasps certified only by the nominal Ferrari&ndash;Canny margin.</p></li>
+            <li class="home-news-item"><p><span class="home-news-type home-news-type--paper">Paper</span> VNB-Grasp, our variational neural belief method for risk-sensitive dexterous grasping under visuo-tactile uncertainty, has been accepted to <a href="https://2026.ieee-iros.org/" target="_blank" rel="noopener">IROS 2026</a>. The updated preprint is available. Links: <a href="https://arxiv.org/abs/2604.25897" target="_blank" rel="noopener">arXiv</a>, <a href="vnb-grasp/" target="_blank" rel="noopener">project page</a>.</p></li>
+          </ul>
+        </div>
+        <div class="home-news-group">
+          <h3 class="home-news-date"><time datetime="2026-06">Jun 2026</time></h3>
+          <ul class="home-news-items" role="list">
+            <li class="home-news-item"><p><span class="home-news-type home-news-type--model">Model</span> We introduce <a href="equidexflow/" target="_blank" rel="noopener">EquiDexFlow</a>, an SE(3)-equivariant flow-matching model for joint prediction of wrist pose, hand joint configuration, fingertip contacts, contact normals, and contact forces from an object point cloud. We retarget the predicted contacts to the LEAP Hand for hardware grasp-and-lift execution.</p></li>
+          </ul>
+        </div>
+      </div>
+      <details class="older-news home-news-archive">
+        <summary>Older News</summary>
+        <div class="home-news-feed">
+          <div class="home-news-group">
+            <h3 class="home-news-date"><time datetime="2025">2025</time></h3>
+            <ul class="home-news-items" role="list">
+              <li class="home-news-item"><p><span class="home-news-type home-news-type--paper">Paper</span> Our <a href="https://arxiv.org/abs/2506.06954" target="_blank" rel="noopener">CDC 2025 paper</a> develops quantile-based distributional reinforcement learning for safe control. <a href="reinforcement-learning/#safe-rl">Study summary</a>.</p></li>
+            </ul>
+          </div>
+          <div class="home-news-group">
+            <h3 class="home-news-date"><time datetime="2025-06">Jun 2025</time></h3>
+            <ul class="home-news-items" role="list">
+              <li class="home-news-item"><p><span class="home-news-type home-news-type--milestone">Milestone</span> I passed my research proposal exam and advanced to doctoral candidacy.</p></li>
+            </ul>
+          </div>
+        </div>
+      </details>
     </section>
   </div>
   <!-- ----------------------------------->
