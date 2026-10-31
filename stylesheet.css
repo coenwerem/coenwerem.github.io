@@ -1541,7 +1541,8 @@ body, p, td, th, tr, a, li {
 #home-bio .addr-box p { margin: 0; }
 #home-bio .addr-box .addr-header { margin-bottom: 0.25em; }
 #home-bio .contact-links { display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 0; }
-#home-bio .contact-links a { margin: 0; display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; }
+#home-bio .contact-links a { margin: 0; display: inline-flex; align-items: baseline; gap: 0.35em; white-space: nowrap; }
+#home-bio .contact-links i { flex: none; width: 1em; line-height: 1; text-align: center; }
 @media (max-width: 768px) {
   .home-bio-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
   #home-bio .bio-image-container { margin: 1em 0 0; }
@@ -1588,15 +1589,75 @@ body, p, td, th, tr, a, li {
   .home-demo-controls { gap: 0.5rem; }
   .home-demo-controls .home-demo-rotation { min-width: 7rem; }
 }
-.home-news-table {
-  width: 100%;
-  table-layout: fixed;
-  margin: 0;
+/* Inline availability highlight follows the site's steel-blue palette. */
+.home-availability { margin: 1rem 0; line-height: 1.65; text-align: left; }
+.home-availability-highlight {
+  background-image: linear-gradient(hsla(210, 65%, 50%, 0.14) 0 100%);
+  background-size: 100% 1.1em;
+  background-position: 0 0.12em;
+  background-repeat: no-repeat;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 0.16em;
+  border-radius: 0.1em;
+  color: var(--text-color);
 }
-.home-news-kind { width: 6rem; }
-.home-news-table td { overflow-wrap: anywhere; }
-.home-news-table > tbody > tr > td:first-child { padding-left: 0; }
-.home-news-table > tbody > tr > td:last-child { padding-right: 0; }
+.dark-mode .home-availability-highlight {
+  background-image: linear-gradient(hsla(210, 65%, 65%, 0.22) 0 100%);
+}
+/* Group announcements by month; type is secondary metadata, not a badge. */
+.home-news-title { margin: 0; font-weight: 400; }
+.home-news-feed { margin: 0; }
+.home-news-group {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 0 1.25rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.home-news-group:first-child { padding-top: 0.25rem; }
+.home-news-group:last-child { border-bottom: 0; padding-bottom: 0; }
+.home-news-date {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.home-news-items { min-width: 0; list-style: none; padding: 0; margin: 0; }
+.home-news-item { padding: 0; margin: 0 0 0.5rem; }
+.home-news-item:last-child { margin-bottom: 0; }
+.home-news-item p { margin: 0; line-height: 1.35; text-align: left; overflow-wrap: anywhere; }
+.home-news-type {
+  display: inline-block;
+  margin-right: 0.45rem;
+  padding: 0.12em 0.4em;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.home-news-type--paper { color: #175b9b; background-color: #e7eff7; }
+.home-news-type--preprint { color: #8a4a08; background-color: #f8ecd9; }
+.home-news-type--talk { color: #6750a4; background-color: #efeaf8; }
+.home-news-type--model { color: #146c61; background-color: #e2f1ee; }
+.home-news-type--milestone { color: #367047; background-color: #e6f0e8; }
+.dark-mode .home-news-type--paper { color: #8fc6ff; background-color: #2b3c50; }
+.dark-mode .home-news-type--preprint { color: #e7be79; background-color: #423729; }
+.dark-mode .home-news-type--talk { color: #c3b0ed; background-color: #393247; }
+.dark-mode .home-news-type--model { color: #80d3c4; background-color: #25433f; }
+.dark-mode .home-news-type--milestone { color: #9bd0a9; background-color: #2e4034; }
+.home-news-archive { margin-top: 1.25rem; }
+.home-news-archive > .home-news-feed { margin-top: 1rem; }
+@media (max-width: 768px) {
+  .home-news-group { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+  .home-news-date { font-weight: 700; }
+}
 /* Consistent section spacing */
 #news {
     margin-bottom: 3rem;

@@ -440,11 +440,10 @@
       <!-- Results -->
       <section class="edf-section">
         <div class="edf-wrap--wide">
-          <h2 class="edf-h2">Results</h2>
+          <h2 class="edf-h2" id="results">Results</h2>
           <div class="edf-prose" style="margin: 0 auto;">
             <p>
-              Grasp quality on 811 test grasps, 10 samples each.
-              All variants achieve 0% friction violations (architectural guarantee).
+              We compare contact and force prediction across 81 objects using the full model and three training ablations. All four variants have zero friction-cone violations in this evaluation.
             </p>
           </div>
           <div class="edf-table-wrap edf-table-wrap--main">
@@ -501,6 +500,8 @@
             </table>
           </div>
 
+          <div class="edf-prose"><p>The full model has the highest composite scores and lowest predicted-wrench residual among the four training variants. PoseOnly has lower nearest-reference contact and force errors: 0.040 m and 1.57 N, compared with 0.042 m and 1.99 N for the full model. Contact and force errors measure agreement with reference grasps; the wrench residual measures the predicted force and torque imbalance.</p></div>
+
           <div class="edf-halves" style="margin: 1rem auto 0;">
             <div>
               <h4 class="edf-h4" style="margin-top: 0.5rem;">Equivariance by Rotation Angle</h4>
@@ -547,8 +548,7 @@
           </div>
 
           <p class="edf-footnote" style="margin-top: 1rem; margin-left: auto; margin-right: auto;">
-            Disabling cone projection degrades the composite score by over 6&times; and drives
-            friction violations to 100%, confirming the 0% rate is a structural guarantee.
+            Without cone projection, the Top-1 score decreases from &minus;0.95 to &minus;5.92, and the friction-violation rate increases from 0% to 100%.
           </p>
         </div>
       </section>

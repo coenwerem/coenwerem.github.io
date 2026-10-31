@@ -71,18 +71,35 @@
       <section class="gdf-section" id="results"><div class="gdf-wrap">
         <h2 class="gdf-h2">Simulation and Hardware Results</h2>
         <div class="gdf-prose"><p>The paper’s Table III reports means over objects, risk levels, and seeds in <strong>three friction regimes</strong>: nominal, wide, and bimodal. The released benchmark additionally includes the adversarial regime. Robust success requires nominal success and survival of at least 50% of the perturbation tests.</p></div>
-        <p class="gdf-footnote" id="results-caption">Selected Table III Results: Robust Success and Wall-Clock Time per Episode. Scroll the table on narrow screens to view all columns.</p>
-        <div class="table-container gdf-table-wrap" role="region" aria-label="Simulation results by friction regime" tabindex="0">
-          <table class="gdf-table" aria-describedby="results-caption">
-
-            <thead><tr><th scope="col">Friction Regime</th><th scope="col" class="num">VNB Robust Success</th><th scope="col" class="num">CEM Robust Success</th><th scope="col" class="num">VNB Time</th><th scope="col" class="num">Particle-Filter MPC Time</th></tr></thead>
+        <h3 class="gdf-h3">Robust Grasp Success</h3>
+        <div class="table-container gdf-table-wrap" role="region" aria-label="Robust Grasp Success by friction regime" tabindex="0">
+          <table class="gdf-table">
+            <caption>Robust grasp success (%), reproduced from Table III. Higher is better.</caption>
+            <thead><tr><th scope="col">Method</th><th scope="col" class="num">Nominal</th><th scope="col" class="num">Wide</th><th scope="col" class="num">Bimodal</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Nominal</th><td class="num"><strong>79%</strong></td><td class="num">63%</td><td class="num">8.5 s</td><td class="num">49.6 s</td></tr>
-              <tr><th scope="row">Wide</th><td class="num"><strong>67%</strong></td><td class="num">67%</td><td class="num">7.1 s</td><td class="num">32.6 s</td></tr>
-              <tr><th scope="row">Bimodal</th><td class="num"><strong>38%</strong></td><td class="num">33%</td><td class="num">6.8 s</td><td class="num">41.7 s</td></tr>
+              <tr><th scope="row">Particle-Filter MPC</th><td class="num">67%</td><td class="num">39%</td><td class="num">28%</td></tr>
+              <tr><th scope="row">Gaussian MPC</th><td class="num">75%</td><td class="num">63%</td><td class="num">42%</td></tr>
+              <tr><th scope="row">Gaussian-CVaR MPC</th><td class="num">75%</td><td class="num">63%</td><td class="num">42%</td></tr>
+              <tr><th scope="row">CEM MPC</th><td class="num">63%</td><td class="num">67%</td><td class="num">33%</td></tr>
+              <tr><th scope="row">VNB-MPC (ours)</th><td class="num">79%</td><td class="num">67%</td><td class="num">38%</td></tr>
             </tbody>
           </table>
         </div>
+        <h3 class="gdf-h3">Wall-Clock Time per Episode</h3>
+        <div class="table-container gdf-table-wrap" role="region" aria-label="Wall-Clock Time per Episode by friction regime" tabindex="0">
+          <table class="gdf-table">
+            <caption>Mean wall-clock time per episode, reproduced from Table III. Lower is better.</caption>
+            <thead><tr><th scope="col">Method</th><th scope="col" class="num">Nominal</th><th scope="col" class="num">Wide</th><th scope="col" class="num">Bimodal</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Particle-Filter MPC</th><td class="num">49.6 s</td><td class="num">32.6 s</td><td class="num">41.7 s</td></tr>
+              <tr><th scope="row">Gaussian MPC</th><td class="num">3.2 s</td><td class="num">3.4 s</td><td class="num">4.3 s</td></tr>
+              <tr><th scope="row">Gaussian-CVaR MPC</th><td class="num">3.1 s</td><td class="num">3.4 s</td><td class="num">4.3 s</td></tr>
+              <tr><th scope="row">CEM MPC</th><td class="num">5.5 s</td><td class="num">5.4 s</td><td class="num">5.1 s</td></tr>
+              <tr><th scope="row">VNB-MPC (ours)</th><td class="num">8.5 s</td><td class="num">7.1 s</td><td class="num">6.8 s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gdf-prose"><p>VNB-MPC achieved higher robust success than particle-filter MPC in all three friction regimes and required 6.8&ndash;8.5 s per episode, compared with 32.6&ndash;49.6 s. The Gaussian MPC variants were faster; under bimodal friction, they achieved 42% robust success, compared with 38% for VNB-MPC.</p></div>
         <div class="gdf-prose"><p><strong>Hardware under Pose Uncertainty.</strong> Across three objects and four pose offsets (12 trials per method), both VNB and Gaussian MPC achieved 100% grasp-and-lift success. VNB required a median of 6 steps and 11.5 s, compared with 7 steps and 14.2 s for Gaussian MPC (Table IV). This small trial set supports an execution and convergence comparison.</p></div>
         <a class="d-inline-flex align-items-center py-2" href="https://arxiv.org/abs/2604.25897">Read the Evaluation in the Paper</a>
       </div></section>

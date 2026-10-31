@@ -53,6 +53,7 @@
 <div class="control-block"><h3>RLPD Training</h3><p>Learn bounded residual commands for arm joint references.</p></div>
 <div class="control-block control-block--controller"><h3>Policy + Feedback Control</h3><p>Combine learned corrections with the feedback controller during execution.</p></div>
 <div class="control-block"><h3>Bimanual Assembly</h3><p>Acquire, transfer, align, and insert the part before withdrawal.</p></div></div><figcaption id="rlpd-control-diagram">Demonstrations and online experience support policy training; the trained residual policy operates together with feedback control during assembly.</figcaption></figure>
+<p>The feedback controller and the zero-residual configuration also completed all three reference trials. The learned-policy results establish successful execution with residual commands in these conditions.</p>
 <details class="rl-technical"><summary>Assembly Results by Friction</summary><div class="table-container"><table><thead><tr><th scope="col">Friction</th><th scope="col">Feedback Controller</th><th scope="col">Zero Residual</th><th scope="col">Initial Policy</th><th scope="col">Updated Policy</th></tr></thead><tbody><tr><th scope="row">0.70</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr><tr><th scope="row">0.65</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr><tr><th scope="row">0.60</th><td>1/1</td><td>1/1</td><td>4/4</td><td>4/4</td></tr></tbody></table></div></details>
 <p class="rl-resources"><a href="#ref-rlpd">Paper [2]</a> · <a href="https://github.com/ikostrikov/rlpd">Authors’ Implementation</a></p>
 </div></section>
@@ -95,6 +96,7 @@
 <h3>Evaluation Results</h3>
 <div class="table-container"><table><caption>Pregrasp positioning and lift results over 64 episodes per policy.</caption><thead><tr><th scope="col">Reward Configuration</th><th scope="col">Pregrasp Arrivals</th><th scope="col">Lifts</th></tr></thead><tbody><tr class="rl-emphasis"><th scope="row">GDF (Full)</th><td>64 / 64</td><td>0 / 64</td></tr><tr><th scope="row">Palm Distance (Gated)</th><td>0 / 64</td><td>0 / 64</td></tr></tbody></table></div>
 <p>I counted a pregrasp arrival when the GDF value fell below <strong>0.25</strong> during an episode, using a smooth minimum of weighted joint-space distances to compute the field value.</p>
+<p>These archived counts measure entry into the candidate pregrasp set; neither policy completed a lift. The reward configurations differ in closure and field-decrease terms as well as the geometric reward.</p>
 
 </div>
 <figure><img src="static/g1-pregrasp-trace.svg" alt="Pregrasp field value over simulation time for the two recorded policy rollouts, with the arrival threshold at 0.25."><figcaption><strong>Pregrasp Reward Comparison.</strong> Distance to the candidate pregrasp set during policy execution.</figcaption></figure></div>
