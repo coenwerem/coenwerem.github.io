@@ -21,7 +21,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=robot-cropped-viewer-20261029">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=robot-card-framing-20261031">
 </head>
 
 <body>
@@ -48,12 +48,21 @@
         </header>
 
         <div class="robots-help">
-          <p class="zoom-hint"><i class="fas fa-expand"></i> Expand a robot to inspect its components&nbsp;&nbsp; <span class="robot-marker-key" aria-hidden="true"><i class="fas fa-plus"></i></span> Hover or tap markers for specs</p>
+          <p class="zoom-hint">Select Hardware for component specifications. Expand either view for a closer look.</p>
+          <button type="button" class="robot-pause-all"><i class="fas fa-pause" aria-hidden="true"></i> Pause Demos</button>
         </div>
         <section class="robots-gallery" aria-label="Robot systems">
           <figure class="robot-card robot-card--featured">
-            <div class="robot-visual" style="--robot-aspect: 900 / 1350;">
-            <div class="robot-media" data-crop="100,0,900,1350">
+            <div class="robot-view-switch" role="group" aria-label="A7–L6 Bimanual view">
+              <button type="button" data-view="demo" aria-pressed="true">Demo</button>
+              <button type="button" data-view="hardware" aria-pressed="false">Hardware</button>
+            </div>
+            <div class="robot-stage" data-view="demo">
+              <video class="robot-inline-demo" src="videos/robots/a7-l6-constrained-object-relocation.mp4?v=ready-3x-20261030" muted loop playsinline preload="metadata" aria-label="A7–L6 Bimanual demonstration"></video>
+              <button class="robot-inline-pause" type="button" aria-label="Pause A7–L6 Bimanual demonstration"><i class="fas fa-pause" aria-hidden="true"></i></button>
+              <button class="robot-inline-expand" type="button" aria-label="Expand A7–L6 Bimanual demonstration"><i class="fas fa-expand" aria-hidden="true"></i></button>
+              <div class="robot-visual" style="--robot-aspect: 900 / 1350;">
+            <div class="robot-media" data-crop="100,0,900,1350" data-card-crop="0,0,1086,1086">
               <img class="robot-photo" src="images/robots/bimanual-realhand-a7-l6-clean.webp?v=3" width="1086" height="1448" alt="Bimanual robot with two RealHand A7 arms and two RealHand L6 hands" decoding="async">
               <button class="robot-component" type="button" data-source-x="300" data-source-y="550" aria-label="RealHand A7 arm (7 DoF, right variant)" aria-describedby="component-0-0" title="RealHand A7 arm (7 DoF, right variant)">
                 <i class="fas fa-plus" aria-hidden="true"></i>
@@ -74,10 +83,12 @@
             </div>
               <button class="robot-expand" type="button" aria-label="Expand A7–L6 Bimanual"><i class="fas fa-expand" aria-hidden="true"></i></button>
             </div>
+
+            </div>
             <figcaption class="robot-caption">
               <h2>A7–L6 Bimanual</h2>
               <div class="robot-actions">
-                <button class="robot-demo-button" type="button" data-demo="videos/robots/a7-l6-constrained-object-relocation.mp4?v=ready-3x-20261030" data-title="Constrained Object Relocation · Hardware Teleoperation · 3×" data-poster="videos/robots/a7-l6-constrained-object-relocation_poster.jpg?v=ready-3x-20261030" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play Bimanual A7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+                <button class="robot-demo-button" hidden type="button" data-demo="videos/robots/a7-l6-constrained-object-relocation.mp4?v=ready-3x-20261030" data-title="Constrained Object Relocation · Hardware Teleoperation · 3×" data-poster="videos/robots/a7-l6-constrained-object-relocation_poster.jpg?v=ready-3x-20261030" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play Bimanual A7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
                 <a class="robot-product-link" href="https://www.realhand.com/a7" target="_blank" rel="noopener noreferrer" aria-label="RealHand A7 arm product (opens in a new tab)" title="RealHand A7 arm product (opens in a new tab)">Arm</a>
                 <a class="robot-product-link" href="https://www.realhand.com/l6" target="_blank" rel="noopener noreferrer" aria-label="RealHand L6 hand product (opens in a new tab)" title="RealHand L6 hand product (opens in a new tab)">Hand</a>
               </div>
@@ -85,8 +96,16 @@
           </figure>
 
           <figure class="robot-card">
-            <div class="robot-visual" style="--robot-aspect: 360 / 540;">
-            <div class="robot-media" data-crop="539,287,360,540">
+            <div class="robot-view-switch" role="group" aria-label="xArm7 + L6 view">
+              <button type="button" data-view="demo" aria-pressed="true">Demo</button>
+              <button type="button" data-view="hardware" aria-pressed="false">Hardware</button>
+            </div>
+            <div class="robot-stage" data-view="demo">
+              <video class="robot-inline-demo" src="videos/robots/xarm7-l6-teleoperation.mp4" muted loop playsinline preload="metadata" aria-label="xArm7 + L6 demonstration"></video>
+              <button class="robot-inline-pause" type="button" aria-label="Pause xArm7 + L6 demonstration"><i class="fas fa-pause" aria-hidden="true"></i></button>
+              <button class="robot-inline-expand" type="button" aria-label="Expand xArm7 + L6 demonstration"><i class="fas fa-expand" aria-hidden="true"></i></button>
+              <div class="robot-visual" style="--robot-aspect: 360 / 540;">
+            <div class="robot-media" data-crop="539,287,360,540" data-card-crop="449,287,540,540">
               <img class="robot-photo" src="images/robots/xarm7-realhand-l6-front-clean.png?v=cleaned-crop-20261029" width="1448" height="1086" alt="xArm7 robot arm fitted with a RealHand L6 hand" loading="lazy" decoding="async">
               <button class="robot-component robot-component--right" type="button" data-source-x="682" data-source-y="646" aria-label="xArm7 arm (7-DoF)" aria-describedby="component-1-0" title="xArm7 arm (7-DoF)">
                 <i class="fas fa-plus" aria-hidden="true"></i>
@@ -99,10 +118,12 @@
             </div>
               <button class="robot-expand" type="button" aria-label="Expand xArm7 + L6"><i class="fas fa-expand" aria-hidden="true"></i></button>
             </div>
+
+            </div>
             <figcaption class="robot-caption">
               <h2>xArm7 + L6</h2>
               <div class="robot-actions">
-                <button class="robot-demo-button" type="button" data-demo="videos/xarm_dimos.gif" data-title="xArm7–L6 demo" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play xArm7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+                <button class="robot-demo-button" hidden type="button" data-demo="videos/robots/xarm7-l6-teleoperation.mp4" data-title="xArm7–L6 demo" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play xArm7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
                 <a class="robot-product-link" href="https://www.ufactory.cc/xarm-collaborative-robot/" target="_blank" rel="noopener noreferrer" aria-label="UFACTORY xArm7 arm product (opens in a new tab)" title="UFACTORY xArm7 arm product (opens in a new tab)">Arm</a>
                 <a class="robot-product-link" href="https://www.realhand.com/l6" target="_blank" rel="noopener noreferrer" aria-label="RealHand L6 hand product (opens in a new tab)" title="RealHand L6 hand product (opens in a new tab)">Hand</a>
               </div>
@@ -110,8 +131,16 @@
           </figure>
 
           <figure class="robot-card">
-            <div class="robot-visual" style="--robot-aspect: 660 / 990;">
-            <div class="robot-media" data-crop="0,0,660,990">
+            <div class="robot-view-switch" role="group" aria-label="FR3 + LEAP Hand view">
+              <button type="button" data-view="demo" aria-pressed="true">Demo</button>
+              <button type="button" data-view="hardware" aria-pressed="false">Hardware</button>
+            </div>
+            <div class="robot-stage" data-view="demo">
+              <video class="robot-inline-demo" src="videos/robots/fr3-leap.mp4" muted loop playsinline preload="metadata" aria-label="FR3 + LEAP Hand demonstration"></video>
+              <button class="robot-inline-pause" type="button" aria-label="Pause FR3 + LEAP Hand demonstration"><i class="fas fa-pause" aria-hidden="true"></i></button>
+              <button class="robot-inline-expand" type="button" aria-label="Expand FR3 + LEAP Hand demonstration"><i class="fas fa-expand" aria-hidden="true"></i></button>
+              <div class="robot-visual" style="--robot-aspect: 660 / 990;">
+            <div class="robot-media" data-crop="0,0,660,990" data-card-crop="0,0,1020,1020">
               <img class="robot-photo" src="images/robots/fairino-fr3-leap-hand-clean.webp" width="1542" height="1020" alt="FAIRINO FR3 collaborative robot fitted with a LEAP Hand" loading="lazy" decoding="async">
               <button class="robot-component" type="button" data-source-x="310" data-source-y="620" aria-label="FAIRINO FR3 arm (6-DoF)" aria-describedby="component-2-0" title="FAIRINO FR3 arm (6-DoF)">
                 <i class="fas fa-plus" aria-hidden="true"></i>
@@ -124,18 +153,28 @@
             </div>
               <button class="robot-expand" type="button" aria-label="Expand FR3 + LEAP Hand"><i class="fas fa-expand" aria-hidden="true"></i></button>
             </div>
+
+            </div>
             <figcaption class="robot-caption">
               <h2>FR3 + LEAP Hand</h2>
               <div class="robot-actions">
-                <button class="robot-demo-button" type="button" data-demo="videos/robots/fr3-leap.gif?v=2" data-title="FR3–LEAP demo" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play FR3–LEAP demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+                <button class="robot-demo-button" hidden type="button" data-demo="videos/robots/fr3-leap.mp4" data-title="FR3–LEAP demo" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play FR3–LEAP demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
                 <a class="robot-product-link" href="https://www.fairino.us/collaborative-robot/fairino/fr3" target="_blank" rel="noopener noreferrer" aria-label="FAIRINO FR3 arm product (opens in a new tab)" title="FAIRINO FR3 arm product (opens in a new tab)">Arm</a>
                 <a class="robot-product-link" href="https://v1.leaphand.com/" target="_blank" rel="noopener noreferrer" aria-label="LEAP Hand product (opens in a new tab)" title="LEAP Hand product (opens in a new tab)">Hand</a>
               </div>
             </figcaption>
           </figure>
           <figure class="robot-card robot-card--ur3e">
-            <div class="robot-visual" style="--robot-aspect: 586 / 879;">
-              <div class="robot-media" data-crop="214,101,586,879">
+            <div class="robot-view-switch" role="group" aria-label="UR3e + Hand-E view">
+              <button type="button" data-view="demo" aria-pressed="true">Demo</button>
+              <button type="button" data-view="hardware" aria-pressed="false">Hardware</button>
+            </div>
+            <div class="robot-stage" data-view="demo">
+              <video class="robot-inline-demo" src="videos/robots/ur3e-hande-pick-place.mp4?v=phase-aligned-20261020" muted loop playsinline preload="metadata" aria-label="UR3e + Hand-E demonstration"></video>
+              <button class="robot-inline-pause" type="button" aria-label="Pause UR3e + Hand-E demonstration"><i class="fas fa-pause" aria-hidden="true"></i></button>
+              <button class="robot-inline-expand" type="button" aria-label="Expand UR3e + Hand-E demonstration"><i class="fas fa-expand" aria-hidden="true"></i></button>
+              <div class="robot-visual" style="--robot-aspect: 586 / 879;">
+              <div class="robot-media" data-crop="214,101,586,879" data-card-crop="220,101,879,879">
                 <img class="robot-photo" src="images/robots/ur3e-hande-upright-clean.png?v=cleaned-crop-20261029" width="1405" height="1119" alt="Universal Robots UR3e with a Robotiq Hand-E gripper executing hardware pick-and-place" loading="lazy" decoding="async">
                 <button class="robot-component" type="button" data-source-x="619" data-source-y="462" aria-label="Universal Robots UR3e arm" aria-describedby="component-3-0" title="Universal Robots UR3e arm">
                   <i class="fas fa-plus" aria-hidden="true"></i>
@@ -148,10 +187,12 @@
               </div>
               <button class="robot-expand" type="button" aria-label="Expand UR3e + Hand-E"><i class="fas fa-expand" aria-hidden="true"></i></button>
             </div>
+
+            </div>
             <figcaption class="robot-caption">
               <h2>UR3e + Hand-E</h2>
               <div class="robot-actions">
-                <button class="robot-demo-button" type="button" data-demo="videos/robots/ur3e-hande-pick-place.mp4?v=phase-aligned-20261020" data-title="UR3e–Hand-E Hardware Pick-and-Place · Simulation Inset" data-poster="videos/robots/ur3e-hande-pick-place.jpg?v=phase-aligned-20261020" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play UR3e–Hand-E hardware pick-and-place demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+                <button class="robot-demo-button" hidden type="button" data-demo="videos/robots/ur3e-hande-pick-place.mp4?v=phase-aligned-20261020" data-title="UR3e–Hand-E Hardware Pick-and-Place · Simulation Inset" data-poster="videos/robots/ur3e-hande-pick-place.jpg?v=phase-aligned-20261020" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play UR3e–Hand-E hardware pick-and-place demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
                 <a class="robot-product-link" href="https://www.universal-robots.com/products/ur3e/" target="_blank" rel="noopener noreferrer" aria-label="Universal Robots UR3e arm product (opens in a new tab)" title="Universal Robots UR3e arm product (opens in a new tab)">Arm</a>
                 <a class="robot-product-link" href="https://robotiq.com/products/adaptive-grippers" target="_blank" rel="noopener noreferrer" aria-label="Robotiq Hand-E gripper product (opens in a new tab)" title="Robotiq Hand-E gripper product (opens in a new tab)">Gripper</a>
               </div>
@@ -193,6 +234,7 @@
             media.controls = true;
             media.muted = true;
             media.autoplay = true;
+            media.loop = true;
             media.playsInline = true;
             media.preload = 'metadata';
             media.setAttribute('aria-label', button.dataset.title);
@@ -227,7 +269,8 @@
         const media = visual.querySelector('.robot-media');
         const img = media.querySelector('img');
         if (!img.naturalWidth || !visual.clientWidth || !visual.clientHeight) return;
-        const [x, y, width, height] = media.dataset.crop.split(',').map(Number);
+        const crop = visual.closest('.robot-stage') ? (media.dataset.cardCrop || media.dataset.crop) : media.dataset.crop;
+        const [x, y, width, height] = crop.split(',').map(Number);
         const scale = Math.min(visual.clientWidth / width, visual.clientHeight / height);
         media.style.width = (width * scale) + 'px';
         media.style.height = (height * scale) + 'px';
@@ -334,5 +377,55 @@
       window.addEventListener('scroll', repositionSpecs, true);
     })();
   </script>
+
+<script>
+(() => {
+  const cards = [...document.querySelectorAll('.robot-card')];
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let paused = reduceMotion.matches;
+  const pauseAll = document.querySelector('.robot-pause-all');
+  const refresh = () => {
+    pauseAll.innerHTML = `<i class="fas fa-${paused ? 'play' : 'pause'}" aria-hidden="true"></i> ${paused ? 'Play' : 'Pause'} Demos`;
+    cards.forEach(card => {
+      const video = card.querySelector('.robot-inline-demo');
+      const shouldPlay = !paused && card.dataset.inView !== 'false' && card.querySelector('.robot-stage').dataset.view === 'demo' && card.dataset.paused !== 'true' && !document.hidden && !document.querySelector('dialog[open]');
+      if (shouldPlay) video.play().catch(() => {}); else video.pause();
+      const localPause = card.querySelector('.robot-inline-pause');
+      localPause.innerHTML = `<i class="fas fa-${shouldPlay ? 'pause' : 'play'}" aria-hidden="true"></i>`;
+      localPause.setAttribute('aria-label', `${shouldPlay ? 'Pause' : 'Play'} ${card.querySelector('h2').textContent} demonstration`);
+    });
+  };
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { entry.target.dataset.inView = String(entry.isIntersecting); });
+    refresh();
+  }, {threshold: .15});
+  cards.forEach(card => {
+    const stage = card.querySelector('.robot-stage');
+    observer.observe(card);
+    card.querySelectorAll('[data-view]').forEach(button => {
+      if (button.tagName !== 'BUTTON') return;
+      button.addEventListener('click', () => {
+        stage.dataset.view = button.dataset.view;
+        card.querySelectorAll('.robot-view-switch button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+        refresh();
+      });
+    });
+    card.querySelector('.robot-inline-expand').addEventListener('click', () => {card.querySelector('.robot-demo-button').click(); refresh();});
+    card.querySelector('.robot-inline-pause').addEventListener('click', () => {
+      card.dataset.paused = String(!card.querySelector('.robot-inline-demo').paused);
+      if (paused) { paused = false; cards.forEach(c => c.dataset.paused = String(c !== card)); }
+      refresh();
+    });
+  });
+  pauseAll.addEventListener('click', () => {paused = !paused; cards.forEach(card => card.dataset.paused = 'false'); refresh();});
+  document.addEventListener('visibilitychange', refresh);
+  document.querySelectorAll('dialog').forEach(dialog => {
+    dialog.addEventListener('close', refresh);
+    new MutationObserver(refresh).observe(dialog, {attributes:true, attributeFilter:['open']});
+  });
+  reduceMotion.addEventListener('change', e => {paused = e.matches; refresh();});
+  refresh();
+})();
+</script>
 </body>
 </html>

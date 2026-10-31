@@ -10,14 +10,15 @@
   <meta property="og:description" content="Expert–learner performance under execution-timing variation. Three simulated manipulation tasks, reproducible comparisons, and open code, data, and checkpoints.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/parcelstow/">
-  <meta property="og:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_poster.jpg">
-  <meta property="og:image:width" content="1440">
-  <meta property="og:image:height" content="810">
+  <meta property="og:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_share.gif">
+  <meta property="og:image:type" content="image/gif">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
   <meta property="og:image:alt" content="Expert and ACT executions of parcel insertion, upright placement, and keyed peg insertion">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ParcelStow: Does Imitation Learning Preserve Robustness?">
   <meta name="twitter:description" content="Expert–learner performance under execution-timing variation, with open code, demonstrations, checkpoints, and evaluation records.">
-  <meta name="twitter:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_poster.jpg">
+  <meta name="twitter:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_share.gif">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
   <style>
     html { background-color: #f8f8f8; }
@@ -29,7 +30,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
-  <link rel="stylesheet" href="./static/css/index.css?v=iclr-g1-20261029">
+  <link rel="stylesheet" href="./static/css/index.css?v=g1-gif-20261031">
   <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
   <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
 </head>
@@ -66,15 +67,15 @@
           <p>The video compares expert and ACT execution at <var>r</var> = 2. This factor lies within the demonstrated speed range for parcel insertion and beyond it for upright placement and keyed peg insertion. Video playback is accelerated to 2×.</p>
         </div>
         <figure class="gdf-overview ps-demo">
-          <video controls muted loop playsinline preload="metadata" poster="../videos/robot_learning_g1_comparison_poster.jpg" aria-label="Expert above ACT on three ParcelStow tasks at speedup factor 2, played at twice real-time speed">
-            <source src="../videos/robot_learning_g1_comparison.mp4" type="video/mp4">
-            <a href="../videos/robot_learning_g1_comparison.mp4">Open the MP4 comparison.</a>
-          </video>
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="../videos/robot_learning_g1_comparison_poster.jpg">
+            <img src="../videos/robot_learning_g1_comparison_share.gif" alt="Expert above ACT on three ParcelStow tasks at speedup factor 2, played at twice real-time speed" decoding="async">
+          </picture>
           <figcaption><strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2. Playback: 2×.</figcaption>
         </figure>
         <div class="ps-media-links" aria-label="Demo Files">
           <a href="../videos/robot_learning_g1_comparison.mp4">MP4 · 1.4 MB</a>
-          <a href="../videos/robot_learning_g1_comparison.gif">GIF · 11.5 MB</a>
+          <a href="../videos/robot_learning_g1_comparison_share.gif">GIF · 4.6 MB</a>
         </div>
       </div></section>
 
