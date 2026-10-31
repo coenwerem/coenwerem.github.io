@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ParcelStow | Robustness Preservation in Imitation Learning</title>
-  <meta name="description" content="Does imitation learning preserve expert robustness under execution-timing variation? Explore the ParcelStow benchmark, expert–ACT comparisons, demonstrations, checkpoints, and reproducible evaluation records.">
+  <title>ParcelStow | Imitation Learning Under Variation in Execution Timing</title>
+  <meta name="description" content="We show that nominal task success does not establish preservation of expert performance under variation in execution timing.">
   <link rel="canonical" href="https://clintonenwerem.com/parcelstow/">
-  <meta property="og:title" content="ParcelStow: Does Imitation Learning Preserve Robustness?">
-  <meta property="og:description" content="Expert–learner performance under execution-timing variation. Three simulated manipulation tasks, reproducible comparisons, and open code, data, and checkpoints.">
+  <meta property="og:title" content="ParcelStow: Imitation Learning Under Variation in Execution Timing">
+  <meta property="og:description" content="We show that nominal task success does not establish preservation of expert performance under variation in execution timing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/parcelstow/">
   <meta property="og:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_share.gif">
@@ -16,8 +16,8 @@
   <meta property="og:image:height" content="675">
   <meta property="og:image:alt" content="Expert and ACT executions of parcel insertion, upright placement, and keyed peg insertion">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ParcelStow: Does Imitation Learning Preserve Robustness?">
-  <meta name="twitter:description" content="Expert–learner performance under execution-timing variation, with open code, demonstrations, checkpoints, and evaluation records.">
+  <meta name="twitter:title" content="ParcelStow: Imitation Learning Under Variation in Execution Timing">
+  <meta name="twitter:description" content="We show that nominal task success does not establish preservation of expert performance under variation in execution timing.">
   <meta name="twitter:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_share.gif">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
   <style>
@@ -28,7 +28,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="../stylesheet.css?v=20261021-demo-sections">
+  <link rel="stylesheet" href="../stylesheet.css?v=bold-size-inherit-20261031">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
   <link rel="stylesheet" href="./static/css/index.css?v=g1-mp4-20261031">
   <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
@@ -40,7 +40,7 @@
   <div class="page-container"><div class="content-wrap">
     <header class="gdf-hero">
       <h1 class="gdf-title">ParcelStow</h1>
-      <h2 class="gdf-subtitle">Does Imitation Learning Preserve Robustness<br class="ps-title-break"> Under Execution-Timing Variation?</h2>
+      <h2 class="gdf-subtitle">Imitation Learning Under Variation in Execution Timing</h2>
       <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span>, <span class="text-nowrap">John S. Baras</span>, and <span class="text-nowrap">Calin Belta</span></p>
       <p class="gdf-affil">University of Maryland, College Park</p>
       <div class="gdf-btns">
@@ -58,7 +58,7 @@
     <main id="main">
       <section class="gdf-section ps-intro" aria-label="Research Overview"><div class="gdf-wrap">
         <div class="gdf-prose">
-          <p>We introduce ParcelStow, an Isaac Lab benchmark for evaluating whether imitation learning preserves expert performance as task execution speed changes. We compare success rates and failure stages for parcel insertion, upright placement, and keyed peg insertion.</p>
+          <p>We introduce ParcelStow, an Isaac Lab benchmark for evaluating whether imitation learning preserves expert performance under variation in execution timing. We compare success rates and failure stages for parcel insertion, upright placement, and keyed peg insertion.</p>
           <p>We divide the durations of selected manipulation phases by a scalar speedup factor <var>r</var>. At <var>r</var> = 2, we halve those durations while keeping acquisition and settling durations fixed.</p>
         </div>
         <h2 class="gdf-h2" id="g1-l6-parcelstow">ParcelStow with the G1-L6 Humanoid</h2>
@@ -71,7 +71,7 @@
             <source src="../videos/robot_learning_g1_comparison.mp4" type="video/mp4">
             <a href="../videos/robot_learning_g1_comparison.mp4">Open the MP4 comparison.</a>
           </video>
-          <figcaption><strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2. Playback: 2×.</figcaption>
+          <figcaption>We show that nominal task success does not establish preservation of expert performance under variation in execution timing. <strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2. Playback: 2×.</figcaption>
         </figure>
       </div></section>
 
