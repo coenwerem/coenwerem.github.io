@@ -1610,8 +1610,8 @@ body, p, td, th, tr, a, li {
 .home-news-feed { margin: 0; }
 .home-news-group {
   display: grid;
-  grid-template-columns: 6rem minmax(0, 1fr);
-  gap: 0 1.25rem;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  gap: 0 0.75rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--border-color);
 }
