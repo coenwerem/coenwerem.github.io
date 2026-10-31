@@ -3039,6 +3039,39 @@ font-size: 12px;
   .robots-gallery { grid-template-columns: 1fr; }
 }
 
+/* Demo-first cards retain protected hardware photographs for inspection. */
+.robots-help { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+.robots-help .zoom-hint { font-size:.86rem; }
+.robot-pause-all { display:flex; align-items:center; gap:.45rem; flex:none; min-height:36px; padding:.35rem .7rem; border:1px solid var(--border-color); border-radius:5px; color:var(--text-color); background:var(--bg-card); font-size:.82rem; }
+.robots-gallery { align-items:stretch; gap:.8rem; }
+.robot-card { overflow:hidden; }
+.robot-view-switch { display:grid; grid-template-columns:1fr 1fr; padding:.3rem; gap:.25rem; border-bottom:1px solid var(--border-color); }
+.robot-view-switch button { min-height:36px; border:1px solid transparent; border-radius:2px; background:transparent; color:var(--text-color); cursor:pointer; font-size:.83rem; }
+.robot-view-switch button[aria-pressed=true] { background:var(--bg-card-img); border-color:var(--border-color); color:var(--theme-primary); font-weight:600; box-shadow:none; }
+.robot-stage { position:relative; aspect-ratio:1; width:100%; overflow:hidden; background:#171b1e; }
+.robot-inline-demo { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#171b1e; }
+/* Card-only source-pixel crops; expanded demonstrations retain the full video. */
+.robot-card--featured .robot-inline-demo { width:calc(100% * 1280 / 966); height:calc(100% * 1024 / 966); left:calc(-100% * 20 / 966); top:calc(-100% * 58 / 966); object-fit:fill; }
+.robot-card--ur3e .robot-inline-demo { width:calc(100% * 1248 / 950); height:calc(100% * 994 / 950); object-fit:fill; }
+.robot-stage > .robot-visual { position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; border-radius:0; background:#171b1e; }
+.robot-stage[data-view=demo] > .robot-visual { visibility:hidden; pointer-events:none; }
+.robot-stage[data-view=hardware] > video, .robot-stage[data-view=hardware] > .robot-inline-pause, .robot-stage[data-view=hardware] > .robot-inline-expand { visibility:hidden; pointer-events:none; }
+.robot-inline-pause, .robot-inline-expand { display:grid; place-items:center; position:absolute; bottom:6px; width:36px; height:36px; border:0; border-radius:50%; color:#fff; background:#0008; font-size:.8rem; }
+.robot-inline-pause { left:6px; } .robot-inline-expand { right:6px; }
+.robot-caption { padding:.75rem .6rem .6rem; }
+.robot-caption h2 { font-size:1rem; min-height:2.6em; margin-bottom:.6rem; }
+.robot-actions { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.4rem; }
+.robots-page .robot-demo-button[hidden] { display:none; }
+@media(max-width:600px) { .robots-help { align-items:start; } .robots-help .zoom-hint { flex:1; } .robot-caption h2 { font-size:.94rem; } }
+@media(max-width:480px) { .robots-help { flex-direction:column; gap:.5rem; } .robots-gallery { gap:.6rem; } .robot-view-switch button { font-size:.78rem; } }
+.robots-page .robot-product-link,
+.robots-page .robot-product-link:hover,
+.robots-page .robot-product-link:focus,
+.robots-page .robot-product-link:active { text-decoration: none; }
+.robot-pause-all, .robot-inline-pause, .robot-inline-expand { cursor: pointer; }
+.robot-view-switch button:focus-visible, .robot-pause-all:focus-visible,
+.robot-inline-pause:focus-visible, .robot-inline-expand:focus-visible { outline: 2px solid var(--theme-primary); outline-offset: -2px; }
+
 /* Match the translucent Font Awesome enlarge badges without a solid rim. */
 .robot-component, .robot-marker-key {
   position: absolute;
