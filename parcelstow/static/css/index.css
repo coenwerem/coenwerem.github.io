@@ -5,11 +5,8 @@
 .parcelstow-page .ps-intro { padding-top: 1rem; }
 .parcelstow-page #g1-l6-parcelstow { margin-top: 2rem; }
 .parcelstow-page .ps-demo { margin: 1.75rem 0 0; }
-.parcelstow-page .ps-demo video,
-.parcelstow-page .ps-demo img { display: block; width: 100%; max-width: 100%; height: auto; background: #171a1d; }
+.parcelstow-page .ps-demo video { max-width: 100%; height: auto; background: #171a1d; }
 .parcelstow-page .ps-demo figcaption { margin-top: .85rem; line-height: 1.5; color: var(--text-secondary); }
-.parcelstow-page .ps-media-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-.parcelstow-page .ps-media-links a { display: inline-flex; align-items: center; min-height: 44px; }
 .parcelstow-page .ps-results-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; }
 .parcelstow-page .ps-results { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .parcelstow-page .ps-results th,
