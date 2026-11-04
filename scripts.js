@@ -301,6 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
         node.loop = true;
         node.muted = true;
         node.controls = true;
+        node.setAttribute('controlslist', 'nodownload');
         node.setAttribute('playsinline', '');
         var s = document.createElement('source');
         s.setAttribute('src', src);

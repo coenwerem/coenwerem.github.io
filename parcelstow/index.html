@@ -67,7 +67,7 @@
           <p>The video compares expert and ACT execution at <var>r</var> = 2. This factor lies within the demonstrated speed range for parcel insertion and beyond it for upright placement and keyed peg insertion. Video playback is accelerated to 2×.</p>
         </div>
         <figure class="gdf-overview ps-demo">
-          <video controls muted loop playsinline preload="metadata" poster="../videos/robot_learning_g1_comparison_poster.jpg" aria-label="Expert above ACT on three ParcelStow tasks at speedup factor 2, played at twice real-time speed">
+          <video controls muted loop playsinline preload="metadata" poster="../videos/robot_learning_g1_comparison_poster.jpg" aria-label="Expert above ACT on three ParcelStow tasks at speedup factor 2, played at twice real-time speed" controlslist="nodownload">
             <source src="../videos/robot_learning_g1_comparison.mp4" type="video/mp4">
             <a href="../videos/robot_learning_g1_comparison.mp4">Open the MP4 comparison.</a>
           </video>
@@ -107,7 +107,7 @@
           <p>The A7-L6 bimanual robot manipulator executes dexterous parcel insertion in Isaac Lab. We compare expert-controlled and ACT-controlled execution at the nominal task rate, <var>r</var> = 1. The robot completes insertion under expert control but fails the final-orientation criterion under ACT. The task requires both placement inside the receptacle and the specified final object orientation.</p>
         </div>
         <figure class="gdf-overview ps-demo">
-          <video controls muted playsinline preload="none" poster="../videos/a7_expert_act_demo_poster.jpg" src="../videos/a7_expert_act_demo.mp4" aria-label="Expert-controlled and ACT-controlled parcel insertion with the A7-L6 manipulator in Isaac Lab"></video>
+          <video controls muted playsinline preload="none" poster="../videos/a7_expert_act_demo_poster.jpg" src="../videos/a7_expert_act_demo.mp4" aria-label="Expert-controlled and ACT-controlled parcel insertion with the A7-L6 manipulator in Isaac Lab" controlslist="nodownload"></video>
           <figcaption>Expert–ACT parcel insertion at the nominal task rate. Isaac Lab · 1× playback.</figcaption>
         </figure>
       </div></section>
@@ -118,7 +118,7 @@
           <p>The A7-L6 bimanual robot manipulator coordinates housing stabilization with part acquisition, alignment, and insertion in Isaac Lab. The comparison pairs an expert controller with ACT and feedback control. Both trials succeed: assembly takes 54.74 s under expert control and 58.80 s under ACT. During the ACT-controlled execution, the robot’s right arm exhibits brief jerks at the transfer-to-alignment and alignment-to-insertion transitions; these transitions are smooth under expert control in this recording.</p>
         </div>
         <figure class="gdf-overview ps-demo">
-          <video controls muted playsinline preload="none" poster="../videos/bimanual_expert_act_demo_poster.jpg" src="../videos/bimanual_expert_act_demo.mp4" aria-label="Successful nominal bimanual assembly by the expert and ACT with feedback control"></video>
+          <video controls muted playsinline preload="none" poster="../videos/bimanual_expert_act_demo_poster.jpg" src="../videos/bimanual_expert_act_demo.mp4" aria-label="Successful nominal bimanual assembly by the expert and ACT with feedback control" controlslist="nodownload"></video>
           <figcaption>Successful nominal assembly demonstrations. Independent elapsed-time and task-phase labels · 1.5× playback.</figcaption>
         </figure>
       </div></section>
@@ -129,7 +129,7 @@
           <p>The A7-L6 bimanual robot manipulator aligns and inserts the key into the housing using a learned diffusion policy. The three synchronized views visualize a successful simulator replay of recorded policy commands, in which the robot completed assembly at 37.43 s without teacher or repair commands.</p>
         </div>
         <figure class="gdf-overview ps-demo">
-          <div class="ps-demo-media"><video class="zoomable" controls muted playsinline preload="none" poster="../videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" src="../videos/bimanual-learning/diffusion-assembly.mp4?v=learned-labels-20261028" aria-label="Key–housing assembly using a learned diffusion policy in Isaac Sim"></video></div>
+          <div class="ps-demo-media"><video class="zoomable" controls muted playsinline preload="none" poster="../videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" src="../videos/bimanual-learning/diffusion-assembly.mp4?v=learned-labels-20261028" aria-label="Key–housing assembly using a learned diffusion policy in Isaac Sim" controlslist="nodownload"></video></div>
           <figcaption>The robot completes assembly under the recorded diffusion-policy commands, then withdraws. Isaac Sim / PhysX · 1× playback.</figcaption>
         </figure>
       </div></section>
@@ -140,7 +140,7 @@
           <p>In this Isaac Sim demonstration, the A7-L6 bimanual robot manipulator coordinates box stabilization with insert grasping, transfer, placement, and release. A policy trained by behavior cloning commands both arms and hands using simulated state observations and elapsed task time.</p>
         </div>
         <figure class="gdf-overview ps-demo">
-          <div class="ps-demo-media"><video class="zoomable" controls muted playsinline preload="none" poster="../videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028" src="../videos/bimanual-learning/bc-box-loading.mp4?v=learned-labels-20261028" aria-label="Learned behavior-cloning policy for bimanual box loading in Isaac Sim"></video></div>
+          <div class="ps-demo-media"><video class="zoomable" controls muted playsinline preload="none" poster="../videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028" src="../videos/bimanual-learning/bc-box-loading.mp4?v=learned-labels-20261028" aria-label="Learned behavior-cloning policy for bimanual box loading in Isaac Sim" controlslist="nodownload"></video></div>
           <figcaption>The robot places the insert in the box, releases it, and withdraws using a behavior-cloning policy. Isaac Sim / PhysX · 1× playback.</figcaption>
         </figure>
       </div></section>
@@ -190,6 +190,6 @@ python3 scripts/reproduce_manuscript.py --bootstrap \
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>window.SITE_ROOT="../";</script>
-  <script src="../scripts.js?v=20260913-interests"></script>
+  <script src="../scripts.js?v=video-controls-20261103"></script>
 </body>
 </html>
