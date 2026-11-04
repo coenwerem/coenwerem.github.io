@@ -1527,7 +1527,7 @@ body, p, td, th, tr, a, li {
     font-size: 16px;
 }
 
-/* Keep room for contact details; the centered portrait adds 50px to the gutter. */
+/* Reserve space for the portrait and contact details. */
 .home-bio-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
@@ -1590,7 +1590,7 @@ body, p, td, th, tr, a, li {
   .home-demo-controls .home-demo-rotation { min-width: 7rem; }
 }
 /* Inline availability highlight follows the site's steel-blue palette. */
-.home-availability { margin: 1rem 0; line-height: 1.65; text-align: left; }
+.home-availability { margin: 1rem 0; line-height: 1.65; text-align: justify; }
 .home-availability-highlight {
   background-image: linear-gradient(hsla(210, 65%, 50%, 0.14) 0 100%);
   background-size: 100% 1.1em;
@@ -2871,6 +2871,52 @@ font-size: 12px;
 @media (prefers-reduced-motion: reduce) {
   .research-theme-stack img, .research-theme-chevron { transition: none; }
   .research-theme[open] .research-theme-cards { animation: none; }
+}
+
+/* Demo results use plain theme-aware values and neutral separators. */
+.demo-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .7rem 1rem;
+  padding: .65rem 0 0;
+  margin: .8rem 0 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+.demo-metrics > div { display: flex; flex-direction: column; min-width: 0; }
+.demo-metrics dt { order: 2; margin: .15rem 0 0; font-size: .8rem; font-weight: 400; line-height: 1.3; color: var(--text-secondary); }
+.demo-metrics dd { order: 1; margin: 0; font-size: 1.1rem; font-weight: 700; line-height: 1.25; color: var(--text-color); }
+.demo-metrics--teleop { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.demo-metrics--teleop dd { font-size: .95rem; }
+.research-demo-description { margin: 0; }
+.research-theme-cards--learning { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.research-theme-cards--learning .sw-entry { grid-row: span 5; position: relative; }
+.research-theme-cards--learning .research-demo-controls { grid-row: 3; min-width: 0; }
+.research-theme-cards--learning .sw-subtitle { grid-row: 4; }
+.research-theme-cards--learning .sw-links { grid-row: 5; }
+.research-demo-anchor { position: absolute; top: 0; left: 0; scroll-margin-top: 6rem; }
+.research-demo-select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: .35rem 1.5rem .35rem .4rem;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background: var(--bg-secondary);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+.research-demo-select:focus-visible { outline: 2px solid var(--theme-primary); outline-offset: 2px; }
+@media (max-width: 768px) {
+  .home-demo-slide .demo-metrics--planning { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .demo-metrics { column-gap: .6rem; }
+}
+@media (max-width: 420px) {
+  .research-theme-cards--learning { grid-template-columns: 1fr; }
+  .demo-metrics dt { font-size: .78rem; }
 }
 
 /* ===== Print / PDF styles ===== */

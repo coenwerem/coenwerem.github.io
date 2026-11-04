@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <!-- Your custom CSS -->
-  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=research-compact-20261029">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=heading-stats-20261104">
 </head>
 
 <body>
@@ -156,7 +156,7 @@
                               <img class="research-theme-cover" src="videos/equidexflow_home_demo_poster.jpg" alt="" width="320" height="180" loading="lazy">
                             </span>
                             <span class="research-theme-heading">
-                              <span class="research-theme-title">Grasp Synthesis and Contact-Rich Manipulation</span>
+                              <span class="research-theme-title">Grasp Planning and Contact-Rich Manipulation</span>
                               <span class="research-theme-description">Grasp synthesis, reactive grasp execution, visuo-tactile-guided planning, and contact-rich bimanual manipulation.</span>
                               <span class="research-theme-count">4 Demos</span>
                             </span>
@@ -205,13 +205,13 @@
                         <div class="sw-entry" id="perception-guided-planning-demo">
                           <div class="row align-items-start">
                             <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/perception-guided-planning/assembly.jpg?v=realtime-label-20261103');">
-                                <video class="zoomable" src="videos/perception-guided-planning/assembly.mp4?v=realtime-label-20261103" poster="videos/perception-guided-planning/assembly.jpg?v=realtime-label-20261103" loop muted playsinline preload="none" aria-label="Visuo-tactile-guided bimanual key–housing assembly in MuJoCo, with three camera views and per-finger contact-force traces" controlslist="nodownload"></video>
+                              <div class="sw-video" style="background-image:url('videos/perception-guided-planning/assembly.jpg?v=speed-2x-20261104');">
+                                <video class="zoomable" src="videos/perception-guided-planning/assembly.mp4?v=speed-2x-20261104" poster="videos/perception-guided-planning/assembly.jpg?v=speed-2x-20261104" loop muted playsinline preload="none" aria-label="Visuo-tactile-guided bimanual key–housing assembly in MuJoCo, with three camera views and per-finger contact-force traces" controlslist="nodownload"></video>
                               </div>
                             </div>
                             <div class="col-md-10 col-9 sw-details">
                               <p class="sw-title">Visuo-Tactile-Guided Bimanual Planning and Control</p>
-                              <p class="sw-subtitle">We combine depth-based object-pose estimation, constrained trajectory optimization, and tactile contact feedback to guide bimanual assembly.</p>
+                              <div class="sw-subtitle"><p class="research-demo-description">We combine depth-based object-pose estimation, constrained trajectory optimization, and tactile contact feedback to guide bimanual assembly.</p></div>
                             </div>
                           </div>
                         </div>
@@ -246,125 +246,50 @@
                             <span class="research-theme-heading">
                               <span class="research-theme-title">Robot Learning and Teleoperation</span>
                               <span class="research-theme-description">Reinforcement and imitation learning, vision-language-action models, manipulation policy evaluation, and teleoperation for demonstration collection.</span>
-                              <span class="research-theme-count">7 Demos</span>
+                              <span class="research-theme-count">8 Demos</span>
                             </span>
                             <span class="research-theme-chevron" aria-hidden="true"></span>
                           </summary>
-                          <div class="research-theme-cards">
-                        <div class="sw-entry" id="research-adroit-dapg">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('reinforcement-learning/static/adroit-dapg-poster.jpg?v=charcoal-20261028');">
-                                <video data-playback-rate="1.5" class="zoomable" src="reinforcement-learning/static/adroit-dapg-comparison.mp4?v=charcoal-20261028" poster="reinforcement-learning/static/adroit-dapg-poster.jpg?v=charcoal-20261028" width="1280" height="720" loop muted playsinline preload="none" aria-label="Adroit relocation comparison between behavior cloning and a trained DAPG policy." controlslist="nodownload"></video>
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Demonstration-Augmented Reinforcement Learning for Dexterous Relocation</p>
-                              <p class="sw-subtitle">I reproduced DAPG relocation results in MuJoCo / Adroit: 95/100 successful episodes with deterministic action selection and 98/100 with stochastic actions, compared with 0/100 for behavior cloning in both modes.</p>
-                              <div class="sw-links"><a href="reinforcement-learning/#adroit-dapg"><i class="fas fa-globe" aria-hidden="true"></i> Study and Results</a></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="sw-entry" id="research-a7-rlpd">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('reinforcement-learning/static/a7-rlpd-poster.jpg?v=edited-20261028');">
-                                <video data-playback-rate="1.5" class="zoomable" src="reinforcement-learning/static/a7-rlpd-assembly.mp4?v=edited-20261028" poster="reinforcement-learning/static/a7-rlpd-poster.jpg?v=edited-20261028" width="1280" height="960" loop muted playsinline preload="none" aria-label="Residual Reinforcement Learning for Bimanual Assembly." controlslist="nodownload"></video>
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Residual Reinforcement Learning for Bimanual Assembly</p>
-                              <p class="sw-subtitle">I integrated RLPD with feedback control for assembly using the A7-L6 bimanual robot manipulator. The initial and updated policies each completed 12/12 evaluations across three friction conditions.</p>
-                              <div class="sw-links"><a href="reinforcement-learning/#a7-rlpd"><i class="fas fa-globe" aria-hidden="true"></i> Study and Demonstration</a></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="sw-entry" id="research-diffusion-assembly">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028');">
-                                <video data-playback-rate="1" class="zoomable" src="videos/bimanual-learning/diffusion-assembly.mp4?v=learned-labels-20261028" poster="videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" width="1920" height="1080" loop muted playsinline preload="none" aria-label="Diffusion Policy for Bimanual Assembly." controlslist="nodownload"></video>
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Diffusion Policy for Bimanual Assembly</p>
-                              <p class="sw-subtitle">The A7-L6 bimanual robot manipulator completes key–housing assembly in Isaac Sim using a learned diffusion policy.</p>
-                              <div class="sw-links"><a href="parcelstow/#a7-l6-diffusion-assembly"><i class="fas fa-globe" aria-hidden="true"></i> Study and Demonstration</a></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="sw-entry" id="research-bimanual-box-loading">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028');">
-                                <video data-playback-rate="1" class="zoomable" src="videos/bimanual-learning/bc-box-loading.mp4?v=learned-labels-20261028" poster="videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028" width="1920" height="1080" loop muted playsinline preload="none" aria-label="Behavior Cloning for Bimanual Box Loading." controlslist="nodownload"></video>
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Behavior Cloning for Bimanual Box Loading</p>
-                              <p class="sw-subtitle">The A7-L6 bimanual robot manipulator places the insert in the box and withdraws using a behavior-cloning policy in Isaac Sim.</p>
-                              <div class="sw-links"><a href="parcelstow/#a7-l6-box-loading"><i class="fas fa-globe" aria-hidden="true"></i> Study and Demonstration</a></div>
-                            </div>
-                          </div>
-                        </div>
+                          <div class="research-theme-cards research-theme-cards--learning">
+<div class="sw-entry research-demo-card" id="research-adroit-dapg" data-demo-picker data-demo-target="relocation">
+<span class="research-demo-anchor" id="research-a7-rlpd" data-demo-target="assembly" aria-hidden="true"></span>
+<span class="research-demo-anchor" id="research-adroit-pen" data-demo-target="pen" aria-hidden="true"></span>
+<div class="sw-video" style="background-image:url('reinforcement-learning/static/adroit-dapg-poster.jpg?v=charcoal-20261028');"><video class="zoomable" src="reinforcement-learning/static/adroit-dapg-comparison.mp4?v=charcoal-20261028" poster="reinforcement-learning/static/adroit-dapg-poster.jpg?v=charcoal-20261028" data-playback-rate="1.5" loop muted playsinline preload="none" controlslist="nodownload" aria-label="Relocation · DAPG"></video></div>
+<p class="sw-title">Reinforcement Learning</p>
+<div class="research-demo-controls"><label class="sr-only" for="research-adroit-dapg-choice">Choose a reinforcement learning demonstration</label><select class="research-demo-select" id="research-adroit-dapg-choice">
+<option value="relocation" data-demo-source="reinforcement-learning/static/adroit-dapg-comparison.mp4?v=charcoal-20261028" data-demo-poster="reinforcement-learning/static/adroit-dapg-poster.jpg?v=charcoal-20261028" data-demo-description="I reproduced DAPG relocation results in MuJoCo / Adroit: 95/100 successful episodes with deterministic action selection and 98/100 with stochastic actions, compared with 0/100 for behavior cloning in both modes." data-demo-href="reinforcement-learning/#adroit-dapg" data-demo-link-label="Study and Results" data-playback-rate="1.5">Relocation · DAPG</option>
+<option value="assembly" data-demo-source="reinforcement-learning/static/a7-rlpd-assembly.mp4?v=edited-20261028" data-demo-poster="reinforcement-learning/static/a7-rlpd-poster.jpg?v=edited-20261028" data-demo-description="I integrated RLPD with feedback control for assembly using the A7-L6 bimanual robot manipulator. The initial and updated policies each completed 12/12 evaluations across three friction conditions." data-demo-href="reinforcement-learning/#a7-rlpd" data-demo-link-label="Study and Demonstration" data-playback-rate="1.5">Bimanual Assembly · Residual RL</option>
+<option value="pen" data-demo-source="reinforcement-learning/static/adroit-pen.mp4?v=pen-075x-20261104" data-demo-poster="reinforcement-learning/static/adroit-pen.jpg?v=pen-075x-20261104" data-demo-description="We evaluate a pretrained Demonstration-Augmented Policy Gradient (DAPG) policy for in-hand pen reorientation." data-demo-href="" data-demo-link-label="Study and Demonstration" data-playback-rate="1.5">Pen Reorientation · Pretrained DAPG</option>
+</select></div>
+<div class="sw-subtitle"><p class="research-demo-description">I reproduced DAPG relocation results in MuJoCo / Adroit: 95/100 successful episodes with deterministic action selection and 98/100 with stochastic actions, compared with 0/100 for behavior cloning in both modes.</p></div>
+<div class="sw-links"><a href="reinforcement-learning/#adroit-dapg"><i class="fas fa-globe" aria-hidden="true"></i><span>Study and Results</span></a></div></div>
 
+<div class="sw-entry research-demo-card" id="research-imitation-learning" data-demo-picker data-demo-target="comparisons">
+<span class="research-demo-anchor" id="research-diffusion-assembly" data-demo-target="diffusion" aria-hidden="true"></span>
+<span class="research-demo-anchor" id="research-bimanual-box-loading" data-demo-target="bc" aria-hidden="true"></span>
+<div class="sw-video" style="background-image:url('videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004');"><video class="zoomable" src="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" data-playback-rate="1" loop muted playsinline preload="none" controlslist="nodownload" aria-label="Expert–ACT Comparisons"></video></div>
+<p class="sw-title">Imitation Learning</p>
+<div class="research-demo-controls"><label class="sr-only" for="research-imitation-learning-choice">Choose an imitation learning demonstration</label><select class="research-demo-select" id="research-imitation-learning-choice">
+<option value="comparisons" data-demo-source="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" data-demo-poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" data-demo-description="We show that nominal task success does not establish preservation of expert performance under variation in execution timing." data-demo-href="parcelstow/" data-demo-link-label="ParcelStow" data-playback-rate="1">Expert–ACT Comparisons</option>
+<option value="diffusion" data-demo-source="videos/bimanual-learning/diffusion-assembly.mp4?v=learned-labels-20261028" data-demo-poster="videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" data-demo-description="The A7-L6 bimanual robot manipulator completes key–housing assembly in Isaac Sim using a learned diffusion policy." data-demo-href="parcelstow/#a7-l6-diffusion-assembly" data-demo-link-label="Study and Demonstration" data-playback-rate="1">Bimanual Assembly · Diffusion Policy</option>
+<option value="bc" data-demo-source="videos/bimanual-learning/bc-box-loading.mp4?v=learned-labels-20261028" data-demo-poster="videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028" data-demo-description="The A7-L6 bimanual robot manipulator places the insert in the box and withdraws using a behavior-cloning policy in Isaac Sim." data-demo-href="parcelstow/#a7-l6-box-loading" data-demo-link-label="Study and Demonstration" data-playback-rate="1">Box Loading · Behavior Cloning</option>
+</select></div>
+<div class="sw-subtitle"><p class="research-demo-description">We show that nominal task success does not establish preservation of expert performance under variation in execution timing.</p></div>
+<div class="sw-links"><a href="parcelstow/"><i class="fas fa-globe" aria-hidden="true"></i><span>ParcelStow</span></a></div></div>
 
-                        <!-- Application 4: Robustness-Preserving Imitation Learning -->
-                        <div class="sw-entry">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004');">
-                                <video class="zoomable" src="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" width="1280" height="720" loop muted playsinline preload="none" aria-label="Expert–ACT comparisons for G1-L6 parcel insertion, upright placement, and keyed peg insertion, followed by A7-L6 parcel insertion and bimanual assembly in Isaac Lab." controlslist="nodownload"></video>
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Imitation Learning Under Variation in Execution Timing</p>
-                              <p class="sw-subtitle">We show that nominal task success does not establish preservation of expert performance under variation in execution timing.</p>
-                              <div class="sw-links">
-                                <a href="parcelstow/"><i class="fas fa-globe" aria-hidden="true"></i>
-                                  ParcelStow</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+<div class="sw-entry research-demo-card" id="openvla-manipulation-monitoring">
+<div class="sw-video" style="background-image:url('videos/openvla_bimanual_recovery.jpg?v=footer-clean-20261031');"><video class="zoomable" src="videos/openvla_bimanual_recovery.mp4?v=footer-clean-20261031" poster="videos/openvla_bimanual_recovery.jpg?v=footer-clean-20261031" data-playback-rate="1.5" loop muted playsinline preload="none" controlslist="nodownload" aria-label="OpenVLA-7B monitoring and recovery"></video></div>
+<p class="sw-title">Foundation Policies · OpenVLA-7B</p>
+<div class="sw-subtitle"><p class="research-demo-description">Supervised fine-tuning (SFT) of VLAs for monitoring task progress and triggering recovery from visuo-tactile feedback.</p></div>
+<div class="sw-links" hidden><a href=""><i class="fas fa-globe" aria-hidden="true"></i><span>Study and Demonstration</span></a></div></div>
 
-                        <div class="sw-entry" id="openvla-manipulation-monitoring">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video">
-                                <video data-playback-rate="1.5" class="zoomable" src="videos/openvla_bimanual_recovery.mp4?v=footer-clean-20261031" poster="videos/openvla_bimanual_recovery.jpg?v=footer-clean-20261031" width="1920" height="1080" loop muted playsinline preload="none" aria-label="OpenVLA-supervised recovery during simulated bimanual box loading, compared with nominal trajectory replay and fixed-schedule recovery." controlslist="nodownload"></video>
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">OpenVLA-7B for Manipulation Monitoring and Recovery</p>
-                              <p class="sw-subtitle">Supervised fine-tuning (SFT) of VLAs for monitoring task progress and triggering recovery from visuo-tactile feedback.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Application 6: Safe Dexterous Data Collection -->
-                        <div class="sw-entry" id="safe-teleoperation">
-                          <div class="row align-items-start">
-                            <div class="col-md-2 col-3">
-                              <div class="sw-video" style="background-image:url('videos/safe_teleoperation_poster.jpg?v=neutral-sdr-20261031');">
-                                <video class="zoomable" src="videos/safe_teleoperation.mp4?v=neutral-sdr-20261031" poster="videos/safe_teleoperation_poster.jpg?v=neutral-sdr-20261031" width="1116" height="528" loop muted playsinline preload="none" aria-label="VR-assisted dexterous teleoperation for demonstration collection: single-arm motion with workspace-boundary enforcement and bimanual constrained object relocation at 3 times speed." controlslist="nodownload"></video>
-                              </div>
-                            </div>
-                            <div class="col-md-10 col-9 sw-details">
-                              <p class="sw-title">Safe Teleoperation for Dexterous Data Collection &amp; Safe Manipulation Policy Rollout</p>
-                              <p class="sw-subtitle">Scene-aware and collision-free VR-assisted teleoperation for demonstration data collection and policy rollout.</p>
-                              <div class="sw-links">
-                                <a href="gdf/" target="_blank"><i class="fas fa-globe"></i>
-                                GDF</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Application 3: Policy Learning from Multimodal Data -->
-                          </div>
-
-                        </details>
+<div class="sw-entry research-demo-card" id="safe-teleoperation">
+<div class="sw-video" style="background-image:url('videos/safe_teleoperation_poster.jpg?v=neutral-sdr-20261031');"><video class="zoomable" src="videos/safe_teleoperation.mp4?v=neutral-sdr-20261031" poster="videos/safe_teleoperation_poster.jpg?v=neutral-sdr-20261031" data-playback-rate="1" loop muted playsinline preload="none" controlslist="nodownload" aria-label="Safe VR-assisted teleoperation"></video></div>
+<p class="sw-title">Safe Teleoperation</p>
+<div class="sw-subtitle"><p class="research-demo-description">Scene-aware and collision-free VR-assisted teleoperation for demonstration data collection and policy rollout.</p></div>
+<div class="sw-links"><a href="gdf/"><i class="fas fa-globe" aria-hidden="true"></i><span>GDF</span></a></div></div>
+</div>
+</details>
 
                         <span class="sub-heading">Publications</span>
                         <p class="headhr"></p>
@@ -800,7 +725,7 @@ keywords = {Computer Science - Robotics, Computer Science - Machine Learning},
     <!-- Your custom JavaScript -->
     <script src="scripts.js?v=video-controls-20261103"></script>
     <script src="coming-soon.js?v=20261004" defer></script>
-    <script src="research-themes.js?v=20261019-project-links" defer></script>
+    <script src="research-themes.js?v=grouped-demos-20261104" defer></script>
 
 </body>
 
