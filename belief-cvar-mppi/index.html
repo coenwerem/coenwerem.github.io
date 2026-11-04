@@ -69,13 +69,13 @@
         <div class="cvar-demo-compare" aria-label="Side-by-side comparison of low- and high-risk-aversion insertion trials">
           
           <figure class="cvar-demo-card">
-            <video controls autoplay muted loop playsinline preload="metadata" poster="./static/images/risk-neutral-contact.jpg?v=cmu-bold-captions-20260918">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="./static/images/risk-neutral-contact.jpg?v=cmu-bold-captions-20260918" controlslist="nodownload">
               <source src="./static/videos/beta050-contact.mp4?v=cmu-bold-captions-20260918" type="video/mp4">
             </video>
             <figcaption><strong>Low Risk Aversion, $\beta_s = 0.50$.</strong> At low risk aversion, the object being transported by the robot collides with the blue stowed object, and the robot subsequently fails the insertion task.</figcaption>
           </figure>
           <figure class="cvar-demo-card">
-            <video controls autoplay muted loop playsinline preload="metadata" poster="./static/images/risk-aware-safe.jpg?v=cmu-bold-captions-20260918">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="./static/images/risk-aware-safe.jpg?v=cmu-bold-captions-20260918" controlslist="nodownload">
               <source src="./static/videos/beta095-contact-free.mp4?v=cmu-bold-captions-20260918" type="video/mp4">
             </video>
             <figcaption><strong>High Risk Aversion, $\beta_s = 0.95$.</strong> At high risk aversion, the robot avoids collision with the receptacle exterior and successfully places the object on the shelf.</figcaption>
@@ -129,7 +129,7 @@
         <div class="gdf-prose cvar-results-prose"><p>Increasing the safety confidence level from $\beta_s = 0.50$ to $0.95$ raised task success from $55\%$ to $82\%$ and reduced the exterior-contact rate from $27\%$ to $0\%$. CVaR-MPPI at $\beta_s = 0.90$ and CCMPPI both produced zero exterior contact, but CVaR-MPPI achieved $73\%$ success compared with $50\%$ for CCMPPI. Because CCMPPI uses a point estimate and omits both CVaR terms, this comparison evaluates the complete controllers rather than either CVaR component in isolation.</p></div>
 
         <figure class="cvar-beta-demo">
-          <video controls muted loop playsinline preload="metadata">
+          <video controls muted loop playsinline preload="metadata" controlslist="nodownload">
             <source src="./static/videos/beta-safety-constraint.mp4" type="video/mp4">
           </video>
           <figcaption><strong>Effect of $\beta_s$.</strong> Across $11$ randomized MuJoCo trials per setting, increasing $\beta_s$ from $0.50$ to $0.90$ or $0.95$ eliminated exterior-contact violations while task success rose from $55\%$ to $73\%$ and $82\%$, respectively.</figcaption>
@@ -156,6 +156,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>window.SITE_ROOT="../";</script>
-  <script src="../scripts.js?v=20260913-interests"></script>
+  <script src="../scripts.js?v=video-controls-20261103"></script>
 </body>
 </html>

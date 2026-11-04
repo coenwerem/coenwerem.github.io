@@ -109,9 +109,6 @@
           <a href="#quality" class="gdf-btn">
             <i class="fas fa-certificate"></i><span>Quality-Constrained Grasping</span>
           </a>
-          <a href="#human-aware-manipulation" class="gdf-btn">
-            <span>Manipulation in Human-Shared Workspaces</span>
-          </a>
           <a href="#replay" class="gdf-btn">
             <i class="fas fa-play"></i><span>Interactive Playback</span>
           </a>
@@ -129,7 +126,7 @@
             <video src="./static/videos/overview.mp4?v=footage-only-20260918"
               poster="./static/videos/overview_poster.jpg?v=footage-only-20260918"
               autoplay muted playsinline loop controls preload="metadata"
-              aria-label="Safe dexterous grasp execution: feedback grasp selection, dynamic obstacle avoidance, collision-constrained poly-articulated grasping, reactive bimanual grasp execution, and grasp quality preservation using a wrench-quality CBF after hold onset"></video>
+              aria-label="Safe dexterous grasp execution: feedback grasp selection, dynamic obstacle avoidance, collision-constrained poly-articulated grasping, reactive bimanual grasp execution, and grasp quality preservation using a wrench-quality CBF after hold onset" controlslist="nodownload"></video>
             <figcaption>
               <div class="gdf-overview-captions">
                 <span>Feedback Grasp Selection Without Trajectory Planning</span>
@@ -144,27 +141,27 @@
             <summary>Individual Trials (6)</summary>
             <div class="gdf-vids">
               <figure class="gdf-vid">
-                <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video"></video>
+                <video src="./static/videos/tabletop_tube_pair.mp4" muted playsinline loop controls preload="metadata" aria-label="Tabletop arm and hand run video" controlslist="nodownload"></video>
                 <figcaption>(a) A fixed-base manipulator grasps and lifts an object obstructed by a 6 x 6 x 50 cm obstacle pair.</figcaption>
               </figure>
               <figure class="gdf-vid">
-                <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video"></video>
+                <video src="./static/videos/moving_obstacle.mp4" muted playsinline loop controls preload="metadata" aria-label="Moving obstacle run video" controlslist="nodownload"></video>
                 <figcaption>(b) The robot in (a) avoids a 5 x 5 x 45 cm obstacle translating at 0.05 m/s across its approach path.</figcaption>
               </figure>
               <figure class="gdf-vid">
-                <video src="./static/videos/three_post_trap.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="xArm7-L6 obstructed approach window"></video>
+                <video src="./static/videos/three_post_trap.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="xArm7-L6 obstructed approach window" controlslist="nodownload"></video>
                 <figcaption>(c) The robot in (a) grasps and lifts an object obstructed by three obstacles.</figcaption>
               </figure>
               <figure class="gdf-vid">
-                <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video"></video>
+                <video src="./static/videos/g1_humanoid.mp4" muted playsinline loop controls preload="metadata" aria-label="G1 humanoid run video" controlslist="nodownload"></video>
                 <figcaption>(d) A Unitree G1 humanoid safely lifts an object obstructed by two 4 x 4 x 36 cm obstacles.</figcaption>
               </figure>
               <figure class="gdf-vid">
-                <video src="./static/videos/a7_static_lift.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="A7 DUal Arm-Hand static-obstacle run video"></video>
+                <video src="./static/videos/a7_static_lift.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="A7 DUal Arm-Hand static-obstacle run video" controlslist="nodownload"></video>
                 <figcaption>(e) A bimanual manipulator safely lifts an object obstructed by two static cylindrical obstacles.</figcaption>
               </figure>
               <figure class="gdf-vid">
-                <video src="./static/videos/a7_dynamic_lift.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="A7 DUal Arm-Hand dynamic-obstacle run video"></video>
+                <video src="./static/videos/a7_dynamic_lift.mp4?v=2" muted playsinline loop controls preload="metadata" aria-label="A7 DUal Arm-Hand dynamic-obstacle run video" controlslist="nodownload"></video>
                 <figcaption>(f) A bimanual manipulator safely lifts an object obstructed by two dynamic cylindrical obstacles.</figcaption>
               </figure>
             </div>
@@ -299,7 +296,7 @@
             </p>
           </div>
           <figure class="gdf-quality-video">
-            <video src="./static/videos/quality_safety.mp4" poster="./static/videos/quality_safety_poster.jpg" muted playsinline loop controls preload="metadata" aria-label="Three outcomes, barrier violation, certificate failure, and task success"></video>
+            <video src="./static/videos/quality_safety.mp4" poster="./static/videos/quality_safety_poster.jpg" muted playsinline loop controls preload="metadata" aria-label="Three outcomes, barrier violation, certificate failure, and task success" controlslist="nodownload"></video>
             <figcaption class="gdf-figcap">
               Representative outcomes. The nominal command without safety filtering drives the wrist into an obstacle. The quality-neutral QP lifts a grasp after its closure certificate fails, and the object slips under gravity. Our filtered closed loop completes the reach-grasp-lift task with every active CBF positive.
             </figcaption>
@@ -433,15 +430,6 @@
         </div>
       </section>
 
-      <span id="ongoing-work" aria-hidden="true"></span>
-      <section class="gdf-section" id="human-aware-manipulation" aria-labelledby="human-aware-manipulation-title">
-        <div class="gdf-wrap">
-          <p class="gdf-work-status">Research in Progress</p>
-          <h2 class="gdf-h2" id="human-aware-manipulation-title">Manipulation in Human-Shared Workspaces</h2>
-          <p class="gdf-work-intro">In a separate study, we investigate bimanual assembly in a workspace shared with a moving person. The A7-L6 bimanual robot manipulator transports, aligns, and inserts the part while maintaining housing support.</p>
-          <p style="text-align:center"><a class="gdf-btn" href="../human-aware-manipulation/">View Demonstration</a></p>
-        </div>
-      </section>
 
       <!-- BibTeX -->
       <section class="gdf-section" id="BibTeX">
@@ -476,7 +464,7 @@
   <!-- Site scripts, navbar and footer fetch, theme toggle, lightbox.
        SITE_ROOT tells them this page sits one directory below the site root. -->
   <script>window.SITE_ROOT = '../';</script>
-  <script src="../scripts.js?v=20260913-interests"></script>
+  <script src="../scripts.js?v=video-controls-20261103"></script>
 
   <!-- Interactive playback engine, recorded run logs played back on a canvas -->
   <script defer src="./static/js/replay.js?v=prose-20261029"></script>

@@ -91,45 +91,5 @@
     ]
   },
   "arrival_criterion": "minimum pregrasp field value < 0.25 during an episode",
-  "scope": "Fixed-base simulation; arrival does not establish grasping or lifting. Reward configurations differ in multiple terms.",
-  "published_safe_rl": {
-    "doi": "10.1109/CDC57313.2025.11312575",
-    "arxiv": "2506.06954v2",
-    "table": 3,
-    "episodes": 100,
-    "seeds": [
-      0,
-      5,
-      10,
-      15,
-      20
-    ],
-    "episodes_per_seed": 20,
-    "rows": [
-      {
-        "algorithm": "QR-AVI",
-        "goals": 239,
-        "violation_cost_mean": 0.05,
-        "violation_cost_sd": 0.01
-      },
-      {
-        "algorithm": "Expected-Value QR-AVI",
-        "goals": 329,
-        "violation_cost_mean": 0.06,
-        "violation_cost_sd": 0.01
-      },
-      {
-        "algorithm": "CVaR QR-AVI beta=0.90",
-        "goals": 448,
-        "violation_cost_mean": 0.05,
-        "violation_cost_sd": 0.01
-      },
-      {
-        "algorithm": "CVaR QR-AVI beta=0.95",
-        "goals": 448,
-        "violation_cost_mean": 0.05,
-        "violation_cost_sd": 0.01
-      }
-    ]
-  }
+  "scope": "Fixed-base simulation; arrival does not establish grasping or lifting. Reward configurations differ in multiple terms."
 }
