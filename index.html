@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="stylesheet.css?v=bold-size-inherit-20261031">
+  <link rel="stylesheet" href="stylesheet.css?v=shorter-heading-20261104">
 </head>
 
 <body>
@@ -46,7 +46,7 @@
                         <td style="padding:2.5% 0;width:63%;vertical-align:middle">
                           <p style="text-align:center;margin-top: 2em;">
                             <name style="font-weight: 500; display: block;">Clinton Enwerem</name>
-                            <span>ECE Doctoral Candidate | Policy Learning for Safe &amp; Robust Poly-Articulated Dexterous Robotic Manipulation</span>
+                            <span class="home-bio-tagline">ECE Doctoral Candidate | Policy Learning for Safe &amp; Robust Dexterous Robotic Manipulation</span>
                           </p>
                           <p class="headhr" style="margin-top: -1em;"></p>
                           <!-- nav tabs -->
@@ -65,7 +65,7 @@
                           <!-- tab panes -->
                           <div class="tab-content" id="bioTabContent">
                             <div class="tab-pane fade show active" id="bio" role="tabpanel" aria-labelledby="bio-tab">
-                              <p class="home-availability"><span class="home-availability-highlight">I am on track to complete my PhD <strong>this Fall</strong> and am seeking full-time roles in robot learning, robotics research engineering, and motion planning and control, with availability from <strong>January 2027</strong>.</span></p>
+                              <p class="home-availability"><span class="home-availability-highlight">I am on track to complete my PhD <strong>this Fall</strong> and am seeking full-time roles in robot learning, robotics research engineering, and motion planning and control, starting from <strong>January 2027</strong>.</span></p>
                               <p class="bd-text">I am an Electrical & Computer Engineering (ECE) Ph.D. candidate at the University
                                 of Maryland (UMD), College Park, MD, USA, working with Professor <a href="https://johnbaras.com/"
                                 target="_blank">John S. Baras</a>, Distinguished University Professor and Endowed Lockheed Martin Chair
@@ -124,7 +124,7 @@
       <div class="home-demo-carousel" data-home-carousel role="region" aria-roledescription="carousel" aria-label="Research Demonstrations">
         <div class="home-demo-topics" role="group" aria-label="Choose a Research Topic" hidden></div>
         <div class="home-demo-stage">
-          <figure class="home-demo-slide" data-topic="Grasp Synthesis">
+          <figure class="home-demo-slide" data-topic="Grasp Planning">
             <div class="home-demo-media">
               <video class="home-demo-video"
                 src="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918"
@@ -132,21 +132,21 @@
             </div>
             <figcaption>SE(3)-Equivariant, Reach-Aware Grasp Synthesis · <a href="equidexflow/#grasp-synthesis-and-hardware-execution">EquiDexFlow Project Page</a></figcaption>
           </figure>
-          <figure class="home-demo-slide" data-topic="Reactive Manipulation">
-            <div class="home-demo-media" id="task-wrench-demo" data-demo-start-chapter="2">
+          <figure class="home-demo-slide" data-topic="Autonomous Manipulation">
+            <div class="home-demo-media" id="task-wrench-demo" data-demo-start-chapter="1">
               <video class="home-demo-video"
-                src="videos/gdf_home_demo.mp4?v=gdf-only-20261019" poster="videos/gdf_home_demo.jpg?v=gdf-only-20261019"
-                controls muted playsinline preload="none" aria-label="GDF: feedback grasp selection, dynamic obstacle avoidance, collision-constrained poly-articulated grasp execution, and grasp-quality preservation" controlslist="nodownload"></video>
+                src="videos/perception-guided-planning/assembly.mp4?v=speed-2x-20261104" poster="videos/perception-guided-planning/assembly.jpg?v=speed-2x-20261104"
+                controls muted playsinline preload="none" aria-label="Autonomous visuo-tactile-guided bimanual assembly at 2 times speed" controlslist="nodownload"></video>
             </div>
-            <div class="home-demo-chapters" role="group" aria-label="Reactive Manipulation Demonstrations" hidden>
-              <button type="button" data-demo-source="videos/gdf_home_demo.mp4?v=gdf-only-20261019" data-demo-poster="videos/gdf_home_demo.jpg?v=gdf-only-20261019" data-demo-duration="7.566667" aria-pressed="true">Grasp Execution</button>
-              <button id="perception-guided-planning-demo" type="button" data-demo-start-chapter="1" data-demo-source="videos/perception-guided-planning/assembly.mp4?v=realtime-label-20261103" data-demo-poster="videos/perception-guided-planning/assembly.jpg?v=realtime-label-20261103" data-demo-start="54" data-demo-end="103" data-demo-duration="49" aria-pressed="false">Visuo-Tactile Planning</button>
+            <div class="home-demo-chapters" role="group" aria-label="Autonomous Manipulation Demonstrations" hidden>
+
+              <button id="perception-guided-planning-demo" type="button" data-demo-start-chapter="0" data-demo-source="videos/perception-guided-planning/assembly.mp4?v=speed-2x-20261104" data-demo-poster="videos/perception-guided-planning/assembly.jpg?v=speed-2x-20261104" data-demo-start="27" data-demo-end="51.5" data-demo-duration="24.5" aria-pressed="true">Visuo-Tactile Planning</button>
               <button type="button" data-demo-source="videos/bimanual-manipulation/demonstration.mp4?v=bounded-arms-20261025" data-demo-poster="videos/bimanual-manipulation/demonstration.jpg?v=bounded-arms-20261025" data-demo-duration="24" aria-pressed="false">Bimanual Manipulation</button>
             </div>
             <figcaption>
-              <span data-demo-chapter="0" data-demo-caption-start="0">Grasp Distance Fields · <a href="gdf/#reactive-grasp-execution">Project Page</a><br>GDF supports autonomous dexterous grasp execution with dynamic obstacle avoidance and grasp-quality preservation.</span>
-              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Visuo-Tactile-Guided Bimanual Planning and Control<br>We combine depth-based object-pose estimation, constrained trajectory optimization, and tactile contact feedback to guide bimanual assembly.</span>
-              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Contact-Rich Bimanual Manipulation · <a href="bimanual-manipulation/#overview-title">Research in Progress</a> · MuJoCo<br>
+
+              <div data-demo-chapter="0" data-demo-caption-start="0">Visuo-Tactile-Guided Bimanual Planning and Control<br>We combine depth-based object-pose estimation, constrained trajectory optimization, and tactile contact feedback to guide bimanual assembly.<dl class="demo-metrics demo-metrics--planning" aria-label="Planning results"><div title="Nominal MuJoCo key–housing insertion-depth error."><dt>Simulated Insertion-Depth Error</dt><dd>0.02 mm</dd></div><div title="Independent XY placement offsets for the key and housing in MuJoCo."><dt>Simulated Trials at ±1 cm</dt><dd>12/12</dd></div><div title="58 IPOPT solves; 6.69 s total solver time in the recorded nominal evaluation."><dt>&lt;7 s Total Solver Time</dt><dd>58 solves</dd></div><div title="Maximum per-axis standard deviation across eight real RealSense frames; approximately 0.49 mm."><dt>Key Position Repeatability</dt><dd>0.5 mm</dd></div></dl></div>
+              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Contact-Rich Bimanual Manipulation · <a href="bimanual-manipulation/#overview-title">Research in Progress</a> · MuJoCo<br>
                 The A7-L6 bimanual robot manipulator executes articulated door opening, part insertion, and constrained object relocation in MuJoCo.</span>
             </figcaption>
           </figure>
@@ -156,18 +156,18 @@
                 src="videos/safe_teleoperation.mp4?v=neutral-sdr-20261031" poster="videos/safe_teleoperation_poster.jpg?v=neutral-sdr-20261031"
                 controls muted playsinline preload="none" aria-label="VR-assisted dexterous teleoperation for demonstration collection: single-arm motion with workspace-boundary enforcement and bimanual constrained object relocation at 3 times speed." controlslist="nodownload"></video>
             </div>
-            <figcaption>VR-assisted dexterous teleoperation for demonstration collection, with workspace-boundary enforcement and collision avoidance.<br><a href="videos/robots/a7-l6-constrained-object-relocation.mp4?v=neutral-sdr-20261031" data-video-lightbox aria-label="Bimanual constrained object relocation using hardware teleoperation at 3 times speed">Bimanual Hardware Video</a></figcaption>
+            <figcaption>VR-assisted dexterous teleoperation for demonstration collection, with workspace-boundary enforcement and collision avoidance.<br><a href="videos/robots/a7-l6-constrained-object-relocation.mp4?v=neutral-sdr-20261031" data-video-lightbox aria-label="Bimanual constrained object relocation using hardware teleoperation at 3 times speed">Bimanual Hardware Video</a><dl class="demo-metrics demo-metrics--teleop" aria-label="Hardware teleoperation features"><div title="Command admission includes MoveIt mesh collision checks."><dt>Full-Mesh Collision Check</dt><dd>Every Command</dd></div><div title="Backoff after a sustained arm-joint tracking stall."><dt>Stall Backoff Threshold</dt><dd>0.3 s</dd></div><div title="A disabled motor is re-enabled at its measured position while the other motors hold."><dt>Motor Recovery</dt><dd>Zero Commanded Motion</dd></div></dl></figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Reinforcement Learning">
-            <div class="home-demo-media">
-              <video data-playback-rate="1.5" class="home-demo-video" src="reinforcement-learning/static/adroit-dapg-comparison.mp4?v=charcoal-20261028" poster="reinforcement-learning/static/adroit-dapg-poster.jpg?v=charcoal-20261028" controls muted playsinline preload="none" aria-label="Adroit object relocation under behavior cloning and a trained Demonstration-Augmented Policy Gradient policy with deterministic action selection." controlslist="nodownload"></video>
+            <div class="home-demo-media" id="adroit-pen-demo">
+              <video data-playback-rate="1.5" class="home-demo-video" src="reinforcement-learning/static/adroit-pen.mp4?v=pen-075x-20261104" poster="reinforcement-learning/static/adroit-pen.jpg?v=pen-075x-20261104" controls muted playsinline preload="none" aria-label="Adroit in-hand pen reorientation using a pretrained Demonstration-Augmented Policy Gradient policy." controlslist="nodownload"></video>
             </div>
             <div class="home-demo-chapters" role="group" aria-label="Reinforcement Learning Demonstrations" hidden>
-              <button type="button" data-demo-source="reinforcement-learning/static/adroit-dapg-comparison.mp4?v=charcoal-20261028" data-demo-poster="reinforcement-learning/static/adroit-dapg-poster.jpg?v=charcoal-20261028" data-demo-duration="4" aria-pressed="true">Dexterous Relocation</button>
+              <button type="button" data-demo-source="reinforcement-learning/static/adroit-pen.mp4?v=pen-075x-20261104" data-demo-poster="reinforcement-learning/static/adroit-pen.jpg?v=pen-075x-20261104" data-demo-duration="4" aria-pressed="true">Pen Reorientation</button>
               <button type="button" data-demo-source="reinforcement-learning/static/a7-rlpd-assembly.mp4?v=edited-20261028" data-demo-poster="reinforcement-learning/static/a7-rlpd-poster.jpg?v=edited-20261028" data-demo-duration="28" aria-pressed="false">Bimanual Assembly</button>
             </div>
             <figcaption>
-              <span data-demo-chapter="0" data-demo-caption-start="0">Demonstration-Augmented Reinforcement Learning for Dexterous Relocation · <a href="reinforcement-learning/#dexterous-relocation">Study Details</a><br>Behavior cloning initialization compared with a trained DAPG policy.</span>
+              <span data-demo-chapter="0" data-demo-caption-start="0">Adroit Pen Reorientation<br>We evaluate a pretrained Demonstration-Augmented Policy Gradient (DAPG) policy for in-hand pen reorientation.</span>
               <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Residual Reinforcement Learning for Bimanual Assembly · <a href="reinforcement-learning/#bimanual-assembly">Study Details</a><br>The A7-L6 bimanual robot manipulator executes assembly using learned joint-reference corrections and feedback control.</span>
             </figcaption>
           </figure>
