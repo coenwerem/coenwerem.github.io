@@ -29,6 +29,9 @@
 .dexreach-page pre { max-width: 100%; overflow-x: auto; padding: 1rem; background: var(--bg-secondary); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 6px; }
 .dexreach-page pre code { white-space: pre; overflow-wrap: normal; word-break: normal; color: inherit; }
 .dexreach-page .dx-resource-links { margin-top: 1.25rem; }
+.dexreach-page .dx-equation { max-width: 100%; overflow-x: auto; padding: .5rem 0; margin: 1rem 0; -webkit-overflow-scrolling: touch; }
+.dexreach-page .dx-equation mjx-container[display="true"] { margin: .5rem 0; }
+.dexreach-page .lightbox-close { min-width: 44px; min-height: 44px; }
 .dexreach-page a:focus-visible,
 .dexreach-page .dx-results-wrap:focus-visible { outline: 2px solid var(--theme-primary); outline-offset: 3px; }
 
