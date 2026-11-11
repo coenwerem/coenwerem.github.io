@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dexreach | GPU Whole-Body Dexterous Grasp and Manipulation Planning</title>
-  <meta name="description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, on the GPU with NVIDIA cuRobo.">
+  <title>dexreach | GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</title>
+  <meta name="description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, GPU-accelerated with NVIDIA cuRobo.">
   <link rel="canonical" href="https://clintonenwerem.com/dexreach/">
-  <meta property="og:title" content="dexreach: GPU Whole-Body Dexterous Grasp and Manipulation Planning">
-  <meta property="og:description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, on the GPU with NVIDIA cuRobo.">
+  <meta property="og:title" content="dexreach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
+  <meta property="og:description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, GPU-accelerated with NVIDIA cuRobo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/dexreach/">
   <meta property="og:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg">
   <meta property="og:image:alt" content="Isaac Lab replay of a dual Franka-Ability robot moving two objects">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="dexreach: GPU Whole-Body Dexterous Grasp and Manipulation Planning">
-  <meta name="twitter:description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, on the GPU with NVIDIA cuRobo.">
+  <meta name="twitter:title" content="dexreach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
+  <meta name="twitter:description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, GPU-accelerated with NVIDIA cuRobo.">
   <meta name="twitter:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
   <style>
@@ -37,7 +37,7 @@
   <div class="page-container"><div class="content-wrap">
     <header class="gdf-hero">
       <h1 class="gdf-title">dexreach</h1>
-      <h2 class="gdf-subtitle">GPU Whole-Body Dexterous Grasp and Manipulation Planning</h2>
+      <h2 class="gdf-subtitle">GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</h2>
       <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span></p>
       <p class="gdf-affil">University of Maryland, College Park</p>
       <div class="gdf-btns">
@@ -53,7 +53,7 @@
     <main id="main">
       <section class="gdf-section dx-intro" aria-label="Overview"><div class="gdf-wrap">
         <div class="gdf-prose">
-          <p>dexreach is an Apache-2.0 Python package that plans dexterous grasps and manipulation for an arm and a multifingered hand treated as one robot. It runs on the GPU with <a href="https://github.com/NVlabs/curobo">NVIDIA cuRobo</a>. Each grasp is a full arm-and-hand configuration that reaches the object without collision, and the planner reports whether the grasp can supply the wrenches its task demands within friction and actuator limits.</p>
+          <p>dexreach is an Apache-2.0 Python package that plans dexterous grasps and manipulation for an arm and a multifingered hand treated as one robot. It is GPU-accelerated with <a href="https://github.com/NVlabs/curobo">NVIDIA cuRobo</a>. Each grasp is a full arm-and-hand configuration that reaches the object without collision, and the planner reports whether the grasp can supply the wrenches its task demands within friction and actuator limits.</p>
           <p>From each grasp, dexreach plans the whole-body approach, insertion, closing, lift, carry, place, release, and retreat motions. It also plans the contact forces that hold the object along these motions, and it plans two arms that move two objects at the same time. An Isaac Lab validator executes the exported plans with joint torques capped at the actuator limits.</p>
         </div>
         <figure class="gdf-overview dx-demo">
@@ -107,6 +107,10 @@
           <figure class="dx-tile">
             <video class="zoomable" autoplay loop muted playsinline preload="metadata" poster="./static/videos/franka_ability_soup_poster.jpg" src="./static/videos/franka_ability_soup.mp4" aria-label="Franka arm with an Ability Hand grasping a soup can in the dexreach viewer" controlslist="nodownload"></video>
             <figcaption><strong>Franka-Ability</strong><span>Soup can</span></figcaption>
+          </figure>
+          <figure class="dx-tile">
+            <video class="zoomable" autoplay loop muted playsinline preload="metadata" poster="./static/videos/g1_dex3_box_poster.jpg" src="./static/videos/g1_dex3_box.mp4" aria-label="Unitree G1 humanoid with a Dex3 hand grasping a box at a table in the dexreach viewer" controlslist="nodownload"></video>
+            <figcaption><strong>G1-Dex3</strong><span>Box</span></figcaption>
           </figure>
         </div>
         <p class="dx-note">Planned grasps and whole-body motions in the dexreach viewer.</p>
@@ -192,7 +196,7 @@
       <section class="gdf-section" id="citation"><div class="gdf-wrap">
         <h2 class="gdf-h2">Citation</h2>
         <pre><code>@software{enwerem2026dexreach,
-  title   = {dexreach: GPU Whole-Body Dexterous Grasp and
+  title   = {dexreach: GPU-Accelerated Whole-Body Dexterous Grasp and
              Manipulation Planning},
   author  = {Enwerem, Clinton},
   year    = {2026},
