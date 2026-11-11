@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dexreach | GPU Whole-Body Dexterous Grasp and Manipulation Planning</title>
+  <meta name="description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, on the GPU with NVIDIA cuRobo.">
+  <link rel="canonical" href="https://clintonenwerem.com/dexreach/">
+  <meta property="og:title" content="dexreach: GPU Whole-Body Dexterous Grasp and Manipulation Planning">
+  <meta property="og:description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, on the GPU with NVIDIA cuRobo.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clintonenwerem.com/dexreach/">
+  <meta property="og:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg">
+  <meta property="og:image:alt" content="Isaac Lab replay of a dual Franka-Ability robot moving two objects">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="dexreach: GPU Whole-Body Dexterous Grasp and Manipulation Planning">
+  <meta name="twitter:description" content="dexreach plans dexterous grasps, whole-body motions, contact forces, and two-arm tasks for an arm and hand treated as one robot, on the GPU with NVIDIA cuRobo.">
+  <meta name="twitter:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg">
+  <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
+  <style>
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #22272e; }
+  </style>
+  <script>(function(){var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark-mode":"light-mode");document.documentElement.classList.add(t);})();</script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../stylesheet.css?v=bold-size-inherit-20261031">
+  <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261111a">
+  <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
+  <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
+</head>
+<body class="dexreach-page">
+  <a class="sr-only sr-only-focusable" href="#main">Skip to Content</a>
+  <div id="navbar-placeholder"></div>
+  <div class="page-container"><div class="content-wrap">
+    <header class="gdf-hero">
+      <h1 class="gdf-title">dexreach</h1>
+      <h2 class="gdf-subtitle">GPU Whole-Body Dexterous Grasp and Manipulation Planning</h2>
+      <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span></p>
+      <p class="gdf-affil">University of Maryland, College Park</p>
+      <div class="gdf-btns">
+        <a class="gdf-btn" href="#" data-coming-soon><i class="fab fa-github" aria-hidden="true"></i><span>Code (Coming Soon)</span></a>
+        <a class="gdf-btn" href="#" data-coming-soon><i class="fas fa-file-pdf" aria-hidden="true"></i><span>Paper (Coming Soon)</span></a>
+        <a class="gdf-btn" href="#method"><i class="fas fa-diagram-project" aria-hidden="true"></i><span>Method</span></a>
+        <a class="gdf-btn" href="#embodiments"><i class="fas fa-robot" aria-hidden="true"></i><span>Embodiments</span></a>
+        <a class="gdf-btn" href="#validation"><i class="fas fa-chart-line" aria-hidden="true"></i><span>Isaac Lab Validation</span></a>
+        <a class="gdf-btn" href="#two-arms">Two Arms, Two Objects</a>
+        <a class="gdf-btn" href="#citation">Citation</a>
+      </div>
+    </header>
+    <main id="main">
+      <section class="gdf-section dx-intro" aria-label="Overview"><div class="gdf-wrap">
+        <div class="gdf-prose">
+          <p>dexreach is an Apache-2.0 Python package that plans dexterous grasps and manipulation for an arm and a multifingered hand treated as one robot. It runs on the GPU with <a href="https://github.com/NVlabs/curobo">NVIDIA cuRobo</a>. Each grasp is a full arm-and-hand configuration that reaches the object without collision, and the planner reports whether the grasp can supply the wrenches its task demands within friction and actuator limits.</p>
+          <p>From each grasp, dexreach plans the whole-body approach, insertion, closing, lift, carry, place, release, and retreat motions. It also plans the contact forces that hold the object along these motions, and it plans two arms that move two objects at the same time. An Isaac Lab validator executes the exported plans with joint torques capped at the actuator limits.</p>
+        </div>
+        <figure class="gdf-overview dx-demo">
+          <video autoplay loop controls muted playsinline preload="metadata" poster="./static/videos/overview_poster.jpg" aria-label="Isaac Lab replays of planned motions: two arms moving two objects, a 45-degree object yaw, a 30-degree mid-path tilt, and pick and place" controlslist="nodownload">
+            <source src="./static/videos/overview.mp4" type="video/mp4">
+            <a href="./static/videos/overview.mp4">Open the MP4 overview.</a>
+          </video>
+          <figcaption>Isaac Lab replays of dexreach plans with Franka-Ability and dual Franka-Ability: two arms with two objects, a 45° object yaw, a 30° tilt at mid-path, and pick and place.</figcaption>
+        </figure>
+      </div></section>
+
+      <section class="gdf-section gdf-section--alt" aria-labelledby="method"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="method">Method</h2>
+<figure class="control-diagram" aria-labelledby="dexreach-pipeline-diagram"><div class="control-flow control-flow--four"><div class="control-block"><h3>Whole-Body Grasp Synthesis</h3><p>Optimize arm and hand joints together under contact, quality, and collision terms.</p></div>
+<div class="control-block"><h3>Motions from the Grasp</h3><p>Plan approach, lift, carry, place, release, and retreat from the grasp configuration.</p></div>
+<div class="control-block control-block--controller"><h3>Force-Aware Contact Planning</h3><p>Plan object motion, fingertip forces, and table support forces together.</p></div>
+<div class="control-block"><h3>Isaac Lab Validation</h3><p>Execute the plan under torque limits and check every task stage.</p></div></div><figcaption id="dexreach-pipeline-diagram">The planner keeps the arm and hand as one kinematic chain at every stage, so each grasp it returns is reachable by the arm that will execute it.</figcaption></figure>
+        <h3 class="gdf-h3">Whole-Body Grasp Synthesis</h3>
+        <div class="gdf-prose">
+          <p>Grasp proposals are built from points sampled on the object surface. cuRobo's batched inverse kinematics places the hand at each proposal with the fingers open, avoiding the workcell and the object; this gives the pregrasp. From each pregrasp, a joint hand-arm optimization updates all arm and hand joints at once. Its objective combines the fingertip-to-surface gap, the min-weight grasp quality of FRoGGeR, penetration of the object, table, and robot itself, a posture term, joint-limit margins, and a patch term that keeps each fingertip contact one pad radius from an object edge. A pad on an edge rocks, and the object turns out of the grip.</p>
+          <p>Each resulting grasp is then checked for the wrenches its task requires. A linear program over the contact friction pyramids, bounded by the hand's joint torques or fingertip force limits, decides whether the grasp supplies the task wrench and ranks the feasible grasps by the scale of task wrench they can sustain.</p>
+        </div>
+        <h3 class="gdf-h3">Motions Planned from the Grasp</h3>
+        <div class="gdf-prose">
+          <p>Motions are built backward from the optimized grasp, so the arm executes the configuration that was scored. Lift and retreat integrate damped least squares from the exact grasp, and the approach uses a straight joint-space path when it is collision-free and cuRobo's motion planner otherwise. Every motion is checked against the workcell and against objects resting on the table.</p>
+        </div>
+        <h3 class="gdf-h3">Force-Aware Contact Planning with Object Dynamics</h3>
+        <div class="gdf-prose">
+          <p>For each grasp, one optimization plans the object state together with the fingertip and table contact forces, which are its inputs. The fingertips touch down at the end of the close, the squeeze rises to each grasp's balanced-hold margin, and the table supports the object during the hold and again after set-down. The executor applies the joint torques that produce the planned contact forces and ramps them down at release, so the release does not push the object. The forces can be planned against the bounds of an uncertainty set; the results below use the low end of the friction range and the high end of the object mass range.</p>
+        </div>
+        <h3 class="gdf-h3">Simultaneous Two-Arm, Two-Object Planning</h3>
+        <div class="gdf-prose">
+          <p>Two arms that move two objects are planned as one robot. The left and right plans merge into one timeline in which every phase lasts as long as the slower arm needs, so both arms approach, close, lift, carry, place, release, and retreat together. The force-aware optimization covers both objects in one solve and constrains the clearance between the palm and five distal links of each hand, and between the two objects. When a minimum hand clearance of 20&nbsp;cm is requested, the hands end 19.76&nbsp;cm apart.</p>
+        </div>
+      </div></section>
+
+      <section class="gdf-section" aria-labelledby="embodiments"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="embodiments">Embodiments</h2>
+        <div class="gdf-prose">
+          <p>An embodiment is one registry file that names the arm, the hand's fingers and pad points, its joint couplings, and its open and closed preshapes.</p>
+        </div>
+        <div class="dx-gallery">
+          <figure class="dx-tile">
+            <video class="zoomable" autoplay loop muted playsinline preload="metadata" poster="./static/videos/xarm7_l6_mustard_poster.jpg" src="./static/videos/xarm7_l6_mustard.mp4" aria-label="xArm7 with a LinkerBot L6 hand grasping a mustard bottle in the dexreach viewer" controlslist="nodownload"></video>
+            <figcaption><strong>xArm7-L6</strong><span>Mustard bottle</span></figcaption>
+          </figure>
+          <figure class="dx-tile">
+            <video class="zoomable" autoplay loop muted playsinline preload="metadata" poster="./static/videos/franka_leap_soup_poster.jpg" src="./static/videos/franka_leap_soup.mp4" aria-label="Franka arm with a LEAP Hand grasping a soup can in the dexreach viewer" controlslist="nodownload"></video>
+            <figcaption><strong>Franka-LEAP</strong><span>Soup can</span></figcaption>
+          </figure>
+          <figure class="dx-tile">
+            <video class="zoomable" autoplay loop muted playsinline preload="metadata" poster="./static/videos/franka_ability_soup_poster.jpg" src="./static/videos/franka_ability_soup.mp4" aria-label="Franka arm with an Ability Hand grasping a soup can in the dexreach viewer" controlslist="nodownload"></video>
+            <figcaption><strong>Franka-Ability</strong><span>Soup can</span></figcaption>
+          </figure>
+        </div>
+        <p class="dx-note">Planned grasps and whole-body motions in the dexreach viewer.</p>
+      </div></section>
+
+      <section class="gdf-section gdf-section--alt" aria-labelledby="validation"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="validation">Validation in Isaac Lab</h2>
+        <div class="gdf-prose">
+          <p>The validator runs physics at 240&nbsp;Hz and control at 60&nbsp;Hz, caps each joint's torque at its actuator rating, and couples mimic joints as PhysX constraints. A rollout counts as retreated when the object is lifted, carried, placed within its goal tolerance, released, and left settled while the robot retreats. During the carry, the validator also monitors contact loss and stops the task when the object drops.</p>
+        </div>
+        <h3 class="gdf-h3">Grasp Selection across Embodiments and Objects</h3>
+        <div class="gdf-prose">
+          <p>For each embodiment and object, ten grasps chosen by an in-place physics check each execute the full sequence three times, with the object's start pose, friction, and mass randomized (perturbation seed 2000).</p>
+        </div>
+        <div class="table-container dx-results-wrap" role="region" aria-label="Retreated rollouts by embodiment and object" tabindex="0">
+          <table class="dx-results">
+            <caption>Retreated rollouts out of 30 (10 grasps × 3 rollouts) per case.</caption>
+            <thead>
+              <tr><th scope="col">Embodiment</th><th scope="col">Cylinder</th><th scope="col">Cube</th><th scope="col">Box</th><th scope="col">Soup Can</th><th scope="col">Mustard Bottle</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">xArm7-L6</th><td>29</td><td>20</td><td>29</td><td>27</td><td>30</td></tr>
+              <tr><th scope="row">Franka-LEAP</th><td>30</td><td>28</td><td>30</td><td>15</td><td>8</td></tr>
+              <tr><th scope="row">Franka-Ability</th><td>30</td><td>28</td><td>30</td><td>27</td><td>30</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="gdf-h3">Object Waypoints and Task Sequences</h3>
+        <div class="gdf-prose">
+          <p>Object waypoints prescribe translation and rotation while the contacts stay fixed. These rollouts use the soup can, Franka-Ability, friction coefficient 0.7, and the full sequence with a 20&nbsp;cm carry; the two-arm scene uses dual Franka-Ability with one rollout per plan.</p>
+        </div>
+        <div class="table-container dx-results-wrap" role="region" aria-label="Isaac Lab sequence results" tabindex="0">
+          <table class="dx-results dx-results--left">
+            <thead><tr><th scope="col">Task</th><th scope="col">Isaac Lab Outcome</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Place</th><td>8/10 complete the sequence</td></tr>
+              <tr><th scope="row">Yaw, 45°</th><td>8/10 complete the sequence</td></tr>
+              <tr><th scope="row">Mid-path tilt, 30°</th><td>7/9 complete the sequence</td></tr>
+              <tr><th scope="row">Two arms, two objects</th><td>6/6 complete both objects, with final position errors of 4 to 19&nbsp;mm</td></tr>
+              <tr><th scope="row">Contact-loss stop</th><td>5/5 injected drops detected; 0/5 false stops in control trials</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="gdf-h3">Force-Aware Execution</h3>
+        <div class="gdf-prose">
+          <p>With forces from the force-aware contact plan and the plan shifted to the measured object start pose, Franka-LEAP carries the soup can through the full sequence in 76/90 rollouts (26, 26, and 24 of 30 at perturbation seeds 2000, 2001, and 2002).</p>
+        </div>
+      </div></section>
+
+      <section class="gdf-section" aria-labelledby="two-arms"><div class="gdf-wrap">
+        <h2 class="gdf-h2" id="two-arms">Two Arms, Two Objects</h2>
+        <div class="gdf-prose">
+          <p>The dual A7-L6 robot carries a cylinder with its left hand and a soup can with its right, both arms moving at once under one force-aware plan. Nine grasp pairs each run three times per seed. Each rollout draws object start offsets of up to 5&nbsp;mm and ±10°, a friction coefficient between 0.5 and 0.9, and a soup-can mass between 0.8 and 1.2 times nominal. The forces are planned for friction 0.5 and 1.2 times the soup-can mass, and the plan is shifted to the measured object start poses.</p>
+        </div>
+        <div class="table-container dx-results-wrap" role="region" aria-label="Dual A7-L6 simultaneous execution" tabindex="0">
+          <table class="dx-results">
+            <caption>Retreated rollouts with simultaneous force-aware execution, 27 per seed.</caption>
+            <thead><tr><th scope="col">Perturbation Seed</th><th scope="col">Cylinder</th><th scope="col">Soup Can</th><th scope="col">Both Objects</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">2000</th><td>23/27</td><td>22/27</td><td>19/27</td></tr>
+              <tr><th scope="row">2001</th><td>21/27</td><td>21/27</td><td>18/27</td></tr>
+              <tr><th scope="row">2002</th><td>23/27</td><td>18/27</td><td>16/27</td></tr>
+              <tr class="dx-total"><th scope="row">Pooled</th><td><strong>67/81</strong></td><td><strong>61/81</strong></td><td><strong>53/81</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="gdf-prose">
+          <p>Moving both arms at once completes the two-object task in 8.93&nbsp;s. Executing the same grasps and motions one arm after the other takes 17.4&nbsp;s.</p>
+        </div>
+      </div></section>
+
+      <section class="gdf-section gdf-section--alt" id="code"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Use dexreach</h2>
+        <div class="gdf-prose">
+          <p>The code release is coming soon. dexreach requires a CUDA environment with NVIDIA cuRobo; validation additionally requires Isaac Lab.</p>
+        </div>
+        <div class="gdf-btns dx-resource-links">
+          <a class="gdf-btn" href="#" data-coming-soon><i class="fab fa-github" aria-hidden="true"></i><span>Code (Coming Soon)</span></a>
+          <a class="gdf-btn" href="https://github.com/NVlabs/curobo">NVIDIA cuRobo</a>
+        </div>
+      </div></section>
+
+      <section class="gdf-section" id="citation"><div class="gdf-wrap">
+        <h2 class="gdf-h2">Citation</h2>
+        <pre><code>@software{enwerem2026dexreach,
+  title   = {dexreach: GPU Whole-Body Dexterous Grasp and
+             Manipulation Planning},
+  author  = {Enwerem, Clinton},
+  year    = {2026},
+  version = {0.1.0},
+  license = {Apache-2.0},
+  url     = {https://clintonenwerem.com/dexreach/}
+}</code></pre>
+      </div></section>
+    </main>
+  </div><div id="footer-placeholder"></div></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>window.SITE_ROOT="../";</script>
+  <script src="../scripts.js?v=video-controls-20261103"></script>
+  <script src="../coming-soon.js?v=20261004" defer></script>
+</body>
+</html>

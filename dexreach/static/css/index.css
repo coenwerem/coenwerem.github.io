@@ -1,0 +1,51 @@
+/* dexreach uses the site's shared project-page typography and themes. */
+.dexreach-page .gdf-btn { min-height: 44px; min-width: 44px; }
+.dexreach-page .gdf-prose p { text-align: left; }
+.dexreach-page .gdf-authors { overflow-wrap: break-word; }
+.dexreach-page .dx-intro { padding-top: 1rem; }
+.dexreach-page .gdf-h3 { margin-top: 1.75rem; }
+.dexreach-page .dx-demo { margin: 1.75rem 0 0; }
+.dexreach-page .dx-demo video { display: block; width: 100%; max-width: 640px; height: auto; margin: 0 auto; background: #171a1d; }
+.dexreach-page .dx-demo figcaption,
+.dexreach-page .dx-note { margin-top: .85rem; line-height: 1.5; color: var(--text-secondary); text-align: center; }
+.dexreach-page .dx-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.dexreach-page .dx-tile { margin: 0; min-width: 0; }
+.dexreach-page .dx-tile video { display: block; width: 100%; height: auto; aspect-ratio: 480 / 678; object-fit: cover; border-radius: 6px; background: #f2f2f2; cursor: zoom-in; }
+.dexreach-page .dx-tile figcaption { margin-top: .5rem; text-align: center; line-height: 1.35; }
+.dexreach-page .dx-tile figcaption strong { display: block; color: var(--text-color); }
+.dexreach-page .dx-tile figcaption span { display: block; font-size: .9rem; color: var(--text-secondary); }
+.dexreach-page .dx-placeholder-box { display: flex; flex-direction: column; justify-content: center; gap: .5rem; aspect-ratio: 480 / 678; padding: 1rem; border: 2px dashed #c0392b; border-radius: 6px; text-align: center; font-size: .85rem; color: #c0392b; }
+.dexreach-page .dx-placeholder-box span:first-child { font-weight: 700; letter-spacing: .05em; }
+.dexreach-page .dx-results-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.25rem 0 1.5rem; }
+.dexreach-page .dx-results { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.dexreach-page .dx-results caption { caption-side: bottom; padding-top: .6rem; text-align: center; color: var(--text-secondary); }
+.dexreach-page .dx-results th,
+.dexreach-page .dx-results td { padding: .65rem .6rem; border-bottom: 1px solid var(--border-color); text-align: center; vertical-align: middle; color: var(--text-color); }
+.dexreach-page .dx-results thead th { white-space: nowrap; }
+.dexreach-page .dx-results tbody th { text-align: left; white-space: nowrap; }
+.dexreach-page .dx-results--left td { text-align: left; }
+.dexreach-page .dx-total th,
+.dexreach-page .dx-total td { background-color: rgba(70, 170, 130, .13); }
+.dexreach-page pre { max-width: 100%; overflow-x: auto; padding: 1rem; background: var(--bg-secondary); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 6px; }
+.dexreach-page pre code { white-space: pre; overflow-wrap: normal; word-break: normal; color: inherit; }
+.dexreach-page .dx-resource-links { margin-top: 1.25rem; }
+.dexreach-page a:focus-visible,
+.dexreach-page .dx-results-wrap:focus-visible { outline: 2px solid var(--theme-primary); outline-offset: 3px; }
+
+@media (max-width: 768px) {
+  .dexreach-page .gdf-subtitle { font-size: clamp(1.05rem, 3.4vw, 1.35rem); }
+  .dexreach-page .dx-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+  .dexreach-page .dx-results th,
+  .dexreach-page .dx-results td { padding: .5rem .4rem; font-size: .88rem; }
+  .dexreach-page pre { font-size: .78rem; -webkit-overflow-scrolling: touch; }
+  .dexreach-page .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .dexreach-page .social-icon { display: inline-flex; align-items: center; justify-content: center; margin: 0; min-height: 44px; min-width: 44px; }
+}
+
+@media (max-width: 420px) {
+  .dexreach-page .dx-gallery { gap: .5rem; }
+  .dexreach-page .dx-tile figcaption span { font-size: .8rem; }
+  .dexreach-page .dx-results th,
+  .dexreach-page .dx-results td { font-size: .78rem; padding: .45rem .3rem; }
+  .dexreach-page .dx-demo figcaption { font-size: .9rem; }
+}
