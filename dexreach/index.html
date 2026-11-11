@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexReach | GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</title>
+  <meta name="description" content="DexReach is a GPU-accelerated Python package built on cuRobo for whole-body dexterous grasp and manipulation planning.">
+  <meta name="author" content="Clinton Enwerem, John S. Baras, Calin Belta">
+  <link rel="canonical" href="https://clintonenwerem.com/dexreach/">
+  <meta property="og:title" content="DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
+  <meta property="og:description" content="DexReach is a GPU-accelerated Python package built on cuRobo for whole-body dexterous grasp and manipulation planning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clintonenwerem.com/dexreach/">
+  <meta property="og:image" content="https://clintonenwerem.com/videos/dexreach_overview_poster.jpg?v=ee196aa75078">
+  <meta property="og:image:alt" content="Simulated manipulation with Franka-Ability and dual Franka-Ability.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
+  <meta name="twitter:description" content="DexReach is a GPU-accelerated Python package built on cuRobo for whole-body dexterous grasp and manipulation planning.">
+  <meta name="twitter:image" content="https://clintonenwerem.com/videos/dexreach_overview_poster.jpg?v=ee196aa75078">
+  <meta name="twitter:image:alt" content="Simulated manipulation with Franka-Ability and dual Franka-Ability.">
+  <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
+  <style>
+    html { background-color: #f8f8f8; }
+    html.dark-mode { background-color: #22272e; }
+  </style>
+  <script>(function(){var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark-mode":"light-mode");document.documentElement.classList.add(t);})();</script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../stylesheet.css?v=bold-size-inherit-20261031">
+  <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261121b">
+  <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
+</head>
+<body class="dexreach-page">
+  <a class="sr-only sr-only-focusable" href="#main">Skip to Content</a>
+  <div id="navbar-placeholder"></div>
+  <div class="page-container"><div class="content-wrap">
+    <header class="gdf-hero">
+      <h1 class="gdf-title">DexReach</h1>
+      <h2 class="gdf-subtitle">GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</h2>
+      <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span>, <span class="text-nowrap">John S. Baras</span>, &amp; <span class="text-nowrap">Calin Belta</span></p>
+      <p class="gdf-affil">University of Maryland, College Park</p>
+      <div class="gdf-btns">
+        <a class="gdf-btn" href="#" data-coming-soon><i class="fab fa-github" aria-hidden="true"></i><span>Code (Coming Soon)</span></a>
+        <a class="gdf-btn" href="#" data-coming-soon><i class="fas fa-file-pdf" aria-hidden="true"></i><span>Paper (Coming Soon)</span></a>
+        <a class="gdf-btn" href="#demonstrations"><i class="fas fa-play" aria-hidden="true"></i><span>Simulation Demonstrations</span></a>
+      </div>
+    </header>
+    <main id="main">
+      <section class="gdf-section dx-intro" id="overview" aria-label="Overview">
+        <div class="gdf-wrap">
+          <div class="gdf-prose"><p>DexReach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, built on <a href="https://github.com/NVlabs/curobo" target="_blank" rel="noopener">cuRobo</a>. The videos show simulated grasping, pick-and-place, object reorientation, and bimanual manipulation across several arm–hand platforms.</p></div>
+<figure class="gdf-overview dx-demo">
+<video aria-label="Isaac Lab demonstrations with Franka-Ability and dual Franka-Ability, xArm7–LEAP pick-and-place, and G1–Dex3 box grasping and lifting." autoplay="" controls="" controlslist="nodownload" loop="" muted="" playsinline="" poster="../videos/dexreach_overview_poster.jpg?v=ee196aa75078" preload="metadata">
+<source src="../videos/dexreach_overview.mp4?v=a0368a940d2b" type="video/mp4"/>
+<a href="../videos/dexreach_overview.mp4">Open the MP4 overview.</a>
+</video>
+<figcaption>Isaac Lab demonstrations with Franka-Ability and dual Franka-Ability, xArm7–LEAP pick-and-place, and G1–Dex3 box grasping and lifting.</figcaption>
+</figure>
+        </div>
+      </section>
+      <section class="gdf-section gdf-section--alt" id="demonstrations">
+        <div class="gdf-wrap">
+          <h2 class="gdf-h2">Simulation Demonstrations</h2>
+<div class="dx-gallery" role="group" aria-label="Recorded grasps rendered in Isaac Lab">
+      <figure>
+        <video width="1536" height="864" controls muted playsinline preload="metadata" poster="./static/videos/xarm7_l6_mustard_poster.jpg?v=ab1fde67d675" aria-label="xArm7 with an L6 hand grasping a mustard bottle">
+          <source src="./static/videos/xarm7_l6_mustard.mp4?v=92e59851e221" type="video/mp4">
+          <a href="./static/videos/xarm7_l6_mustard.mp4">Open the recording.</a>
+        </video>
+        <figcaption><strong>xArm7-L6</strong><span>Mustard bottle</span></figcaption>
+      </figure>
+      <figure>
+        <video width="1536" height="864" controls muted playsinline preload="metadata" poster="./static/videos/franka_leap_soup_poster.jpg?v=28ca230ed6a7" aria-label="Franka arm with a LEAP Hand grasping a soup can">
+          <source src="./static/videos/franka_leap_soup.mp4?v=23aed2617e19" type="video/mp4">
+          <a href="./static/videos/franka_leap_soup.mp4">Open the recording.</a>
+        </video>
+        <figcaption><strong>Franka-LEAP</strong><span>Soup can</span></figcaption>
+      </figure>
+      <figure>
+        <video width="2560" height="1360" controls muted playsinline preload="metadata" poster="./static/videos/franka_ability_soup_poster.jpg?v=eb3772f4b96d" aria-label="Franka arm with an Ability Hand grasping a soup can">
+          <source src="./static/videos/franka_ability_soup.mp4?v=58f3d9b99273" type="video/mp4">
+          <a href="./static/videos/franka_ability_soup.mp4">Open the recording.</a>
+        </video>
+        <figcaption><strong>Franka-Ability</strong><span>Soup can</span></figcaption>
+      </figure>
+      <figure>
+        <video width="1920" height="1080" controls muted playsinline preload="metadata" poster="./static/videos/g1_dex3_box_poster.jpg?v=d309aea74db8" aria-label="Unitree G1 with a Dex3 hand lifting a box">
+          <source src="./static/videos/g1_dex3_box.mp4?v=33b53fd89e22" type="video/mp4">
+          <a href="./static/videos/g1_dex3_box.mp4">Open the recording.</a>
+        </video>
+        <figcaption><strong>G1-Dex3</strong><span>Box</span></figcaption>
+      </figure>
+    </div>
+          <p><a href="./static/videos/franka_ability_soup_sequence.mp4">Watch the complete Franka-Ability soup-can sequence</a></p>
+          <h3 class="gdf-h3" id="xarm7-leap">xArm7–LEAP Pick and Place</h3>
+<figure class="gdf-overview">
+      <video width="2050" height="1004" controls muted playsinline preload="metadata" poster="./static/media/xarm7-leap-isaac.jpg?v=c43b055d9aa9" aria-labelledby="xarm7-leap-caption">
+        <source src="./static/media/xarm7-leap-isaac.mp4?v=a26cef8fbf85" type="video/mp4">
+        <a href="./static/media/xarm7-leap-isaac.mp4">Open the xArm7–LEAP recording.</a>
+      </video>
+      <figcaption id="xarm7-leap-caption">xArm7–LEAP pick-and-place with a tomato soup can, sugar box, and mustard bottle in Isaac Lab.</figcaption>
+    </figure>
+          <h3 class="gdf-h3" id="key-insertion">Bimanual Key Insertion</h3>
+<figure class="gdf-overview">
+      <video controls muted playsinline preload="none" poster="./static/media/a7-key-insertion-isaac.jpg" aria-labelledby="a7-insertion-caption">
+        <source src="./static/media/a7-key-insertion-isaac.mp4" type="video/mp4">
+
+        <a href="./static/media/a7-key-insertion-isaac.mp4">Open the bimanual key insertion recording.</a>
+      </video>
+      <figcaption id="a7-insertion-caption">Isaac Lab renders the arm, hand, key, and housing poses recorded during the MuJoCo trial.</figcaption>
+    </figure>
+        </div>
+      </section>
+    </main>
+  </div><div id="footer-placeholder"></div></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>window.SITE_ROOT="../";</script>
+  <script src="../scripts.js?v=video-controls-20261103"></script>
+  <script src="../coming-soon.js?v=20261004" defer></script>
+</body>
+</html>
