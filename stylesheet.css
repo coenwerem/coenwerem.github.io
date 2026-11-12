@@ -3125,6 +3125,7 @@ font-size: 12px;
 .robot-caption { display: flex; flex: 1; flex-direction: column; padding: .7rem .45rem; }
 .robot-caption h2 { min-height: 2.6em; margin: 0 0 .5rem; font-size: 1.02rem; font-weight: 600; line-height: 1.3; color: var(--text-color); }
 .robot-actions { display: grid; grid-template-columns: repeat(3, minmax(44px, 1fr)); align-items: center; gap: .25rem; margin-top: auto; }
+.robot-card--featured .robot-actions { grid-template-columns: minmax(100px, 1.6fr) repeat(2, minmax(44px, 1fr)); }
 .robot-actions > * { box-sizing: border-box; width: 100%; white-space: nowrap; }
 .robots-page .robot-demo-button { min-width: 44px; min-height: 44px; justify-content: center; margin: 0; padding: .35rem .3rem; font-size: .8rem; }
 .robots-page .robot-demo-button i { display: none; }
@@ -3169,6 +3170,7 @@ font-size: 12px;
 .robot-caption { padding:.75rem .6rem .6rem; }
 .robot-caption h2 { font-size:1rem; min-height:2.6em; margin-bottom:.6rem; }
 .robot-actions { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.4rem; }
+.robot-card--featured .robot-actions { grid-template-columns:minmax(100px,1.6fr) repeat(2,minmax(44px,1fr)); }
 .robots-page .robot-demo-button[hidden] { display:none; }
 @media(max-width:600px) { .robots-help { align-items:start; } .robots-help .zoom-hint { flex:1; } .robot-caption h2 { font-size:.94rem; } }
 @media(max-width:480px) { .robots-help { flex-direction:column; gap:.5rem; } .robots-gallery { gap:.6rem; } .robot-view-switch button { font-size:.78rem; } }
