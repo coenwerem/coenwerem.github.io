@@ -89,6 +89,7 @@
               <h2>A7–L6 Bimanual</h2>
               <div class="robot-actions">
                 <button class="robot-demo-button" hidden type="button" data-demo="videos/robots/a7-l6-constrained-object-relocation.mp4?v=neutral-sdr-20261031" data-title="Constrained Object Relocation · Hardware Teleoperation · 3×" data-poster="videos/robots/a7-l6-constrained-object-relocation_poster.jpg?v=neutral-sdr-20261031" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play Bimanual A7–L6 demo"><i class="fas fa-play" aria-hidden="true"></i> Demo</button>
+                <button class="robot-demo-button" type="button" data-demo="videos/teleop_key_housing.mp4?v=crop-20261112" data-title="Key–Housing Insertion · Hardware Teleoperation · 4×" data-poster="videos/teleop_key_housing.jpg?v=crop-20261112" data-demo-aspect="4 / 3" aria-haspopup="dialog" aria-controls="robot-demo" aria-label="Play A7–L6 key–housing insertion teleoperation"><i class="fas fa-play" aria-hidden="true"></i> Key–Housing</button>
                 <a class="robot-product-link" href="https://www.realhand.com/a7" target="_blank" rel="noopener noreferrer" aria-label="RealHand A7 arm product (opens in a new tab)" title="RealHand A7 arm product (opens in a new tab)">Arm</a>
                 <a class="robot-product-link" href="https://www.realhand.com/l6" target="_blank" rel="noopener noreferrer" aria-label="RealHand L6 hand product (opens in a new tab)" title="RealHand L6 hand product (opens in a new tab)">Hand</a>
               </div>
@@ -229,7 +230,7 @@
           const isVideo = /\.mp4(?:[?#]|$)/i.test(button.dataset.demo);
           const media = document.createElement(isVideo ? 'video' : 'img');
           dialog.classList.toggle('robot-demo-dialog--wide', isVideo);
-          dialog.style.setProperty('--demo-aspect', button.dataset.demo.includes('ur3e-hande') ? '1248 / 994' : '2 / 1');
+          dialog.style.setProperty('--demo-aspect', button.dataset.demoAspect || (button.dataset.demo.includes('ur3e-hande') ? '1248 / 994' : '2 / 1'));
           if (isVideo) {
             media.controls = true;
             media.muted = true;
