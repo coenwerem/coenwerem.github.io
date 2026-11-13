@@ -45,7 +45,6 @@
       <p class="gdf-affil">University of Maryland, College Park</p>
       <div class="gdf-btns">
         <a class="gdf-btn" href="#g1-l6-parcelstow">G1-L6 Comparisons</a>
-        <a class="gdf-btn" href="#a7-l6-parcel-insertion">A7-L6 Parcel Insertion</a>
         <a class="gdf-btn" href="#a7-l6-bimanual-assembly">Expert–ACT Assembly</a>
         <a class="gdf-btn" href="#a7-l6-diffusion-assembly">Diffusion Assembly</a>
         <a class="gdf-btn" href="#a7-l6-box-loading">Box Loading</a>
@@ -99,17 +98,6 @@
           <p>At the higher speedup factors in the table, ACT failures differ by task: insertion misalignment and jamming for parcel insertion, final-pose errors after release for upright placement, and acquisition failures or transport losses for keyed peg insertion.</p>
           <p>These evaluations use fixed state-based policies in Isaac Lab simulation. The released evaluation data also include Diffusion Policy and DAgger results. <a href="https://github.com/coenwerem/parcelstow/tree/main/data/manuscript_20260921">Evaluation data.</a></p>
         </div>
-      </div></section>
-
-      <section class="gdf-section" aria-labelledby="a7-l6-parcel-insertion"><div class="gdf-wrap">
-        <h2 class="gdf-h2" id="a7-l6-parcel-insertion">Parcel Insertion with the A7-L6 Manipulator</h2>
-        <div class="gdf-prose">
-          <p>The A7-L6 bimanual robot manipulator executes dexterous parcel insertion in Isaac Lab. We compare expert-controlled and ACT-controlled execution at the nominal task rate, <var>r</var> = 1. The robot completes insertion under expert control but fails the final-orientation criterion under ACT. The task requires both placement inside the receptacle and the specified final object orientation.</p>
-        </div>
-        <figure class="gdf-overview ps-demo">
-          <video controls muted playsinline preload="none" poster="../videos/a7_expert_act_demo_poster.jpg" src="../videos/a7_expert_act_demo.mp4" aria-label="Expert-controlled and ACT-controlled parcel insertion with the A7-L6 manipulator in Isaac Lab" controlslist="nodownload"></video>
-          <figcaption>Expert–ACT parcel insertion at the nominal task rate. Isaac Lab · 1× playback.</figcaption>
-        </figure>
       </div></section>
 
       <section class="gdf-section gdf-section--alt" aria-labelledby="a7-l6-bimanual-assembly"><div class="gdf-wrap">

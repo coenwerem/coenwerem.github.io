@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="stylesheet.css?v=shorter-heading-20261104">
+  <link rel="stylesheet" href="stylesheet.css?v=demo-layout-20261113">
 </head>
 
 <body>
@@ -133,21 +133,13 @@
             <figcaption>SE(3)-Equivariant, Reach-Aware Grasp Synthesis · <a href="equidexflow/#grasp-synthesis-and-hardware-execution">EquiDexFlow Project Page</a></figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Visuo-Tactile Manipulation">
-            <div class="home-demo-media" id="task-wrench-demo" data-demo-start-chapter="1">
-              <video class="home-demo-video"
-                src="videos/perception-guided-planning/assembly.mp4?v=speed-2x-20261104" poster="videos/perception-guided-planning/assembly.jpg?v=speed-2x-20261104"
-                controls muted playsinline preload="none" aria-label="Autonomous visuo-tactile-guided bimanual assembly at 2 times speed" controlslist="nodownload"></video>
+            <div class="home-demo-media" id="task-wrench-demo">
+              <video class="home-demo-video" id="perception-guided-planning-demo"
+                src="videos/visuo_tactile_bimanual_demo.mp4" poster="videos/visuo_tactile_bimanual_demo_poster.jpg"
+                controls muted playsinline preload="none" aria-label="Visuo-tactile bimanual assembly planning followed by wrench-aware control demonstrations in MuJoCo" controlslist="nodownload"></video>
             </div>
-            <div class="home-demo-chapters" role="group" aria-label="Visuo-Tactile Manipulation Demonstrations" hidden>
-
-              <button id="perception-guided-planning-demo" type="button" data-demo-start-chapter="0" data-demo-source="videos/perception-guided-planning/assembly.mp4?v=speed-2x-20261104" data-demo-poster="videos/perception-guided-planning/assembly.jpg?v=speed-2x-20261104" data-demo-start="0" data-demo-duration="54.2" aria-pressed="true">Visuo-Tactile Planning</button>
-              <button type="button" data-demo-source="videos/bimanual-manipulation/demonstration.mp4?v=bounded-arms-20261025" data-demo-poster="videos/bimanual-manipulation/demonstration.jpg?v=bounded-arms-20261025" data-demo-duration="24" aria-pressed="false">Contact-Rich Manipulation</button>
-            </div>
-            <figcaption>
-
-              <div data-demo-chapter="0" data-demo-caption-start="0">Visuo-Tactile-Guided Bimanual Planning and Control<br>Autonomous bimanual assembly using depth-based pose estimation, collision-constrained joint-space trajectory optimization, and gravity-compensated position control with fingertip-contact monitoring.</div>
-              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Contact-Rich Bimanual Manipulation · <a href="bimanual-manipulation/#overview-title">Research in Progress</a> · MuJoCo<br>
-                The A7-L6 bimanual robot manipulator executes articulated door opening, part insertion, and constrained object relocation in MuJoCo.</span>
+            <figcaption>Visuo-Tactile-Guided Bimanual Planning and Wrench-Aware Control · <a href="bimanual-manipulation/">Project Page</a><br>
+              Autonomous bimanual assembly using depth-based pose estimation, collision-constrained joint-space trajectory optimization, tactile-informed and gravity-compensated position control, and wrench-aware control.
             </figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Safe Teleoperation" data-topic-label="Safe Teleoperation">
@@ -174,22 +166,20 @@
           <figure class="home-demo-slide" data-topic="Imitation Learning">
             <div class="home-demo-media">
               <video class="home-demo-video"
-                src="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004"
-                controls muted playsinline preload="none" aria-label="Imitation learning demonstrations in Isaac Lab and Isaac Sim: G1-L6 and A7-L6 expert–ACT comparisons, bimanual assembly using ACT and diffusion policies, and box loading using behavior cloning." controlslist="nodownload"></video>
+                src="videos/robot_learning_home_demo.mp4?v=timing-and-assembly-20261113" poster="videos/robot_learning_home_demo_poster.jpg?v=timing-and-assembly-20261113"
+                controls muted playsinline preload="none" aria-label="Imitation learning demonstrations in Isaac Lab and Isaac Sim: G1-L6 expert–ACT timing comparisons, A7-L6 bimanual assembly using ACT and diffusion policies, and box loading using behavior cloning." controlslist="nodownload"></video>
             </div>
             <div class="home-demo-chapters" role="group" aria-label="Imitation Learning Demonstrations" hidden>
-              <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" data-demo-poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" data-demo-start="0" data-demo-end="9.2" data-demo-duration="9.2" aria-pressed="true">Execution Timing</button>
-              <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" data-demo-poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" data-demo-start="9.2" data-demo-end="25.64" data-demo-duration="16.44" aria-pressed="false">Parcel Insertion</button>
-              <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=bimanual-phase-notes-20261004" data-demo-poster="videos/robot_learning_home_demo_poster.jpg?v=bimanual-phase-notes-20261004" data-demo-start="25.64" data-demo-end="73.96" data-demo-duration="48.32" aria-pressed="false">ACT Assembly</button>
-              <button id="learned-box-loading-demo" type="button" data-demo-start-chapter="3" data-demo-source="videos/bimanual-learning/bc-box-loading.mp4?v=learned-labels-20261028" data-demo-poster="videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028" data-demo-duration="34.75" aria-pressed="false">BC Box Loading</button>
-              <button id="learned-assembly-demo" type="button" data-demo-start-chapter="4" data-demo-source="videos/bimanual-learning/diffusion-assembly.mp4?v=learned-labels-20261028" data-demo-poster="videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" data-demo-duration="42.45" aria-pressed="false">Diffusion Assembly</button>
+              <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=timing-and-assembly-20261113" data-demo-poster="videos/robot_learning_home_demo_poster.jpg?v=timing-and-assembly-20261113" data-demo-start="0" data-demo-end="9.2" data-demo-duration="9.2" aria-pressed="true">Execution Timing</button>
+              <button type="button" data-demo-source="videos/robot_learning_home_demo.mp4?v=timing-and-assembly-20261113" data-demo-poster="videos/robot_learning_home_demo_poster.jpg?v=timing-and-assembly-20261113" data-demo-start="9.2" data-demo-end="57.52" data-demo-duration="48.32" aria-pressed="false">ACT Assembly</button>
+              <button id="learned-box-loading-demo" type="button" data-demo-start-chapter="2" data-demo-source="videos/bimanual-learning/bc-box-loading.mp4?v=learned-labels-20261028" data-demo-poster="videos/bimanual-learning/bc-box-loading.jpg?v=learned-labels-20261028" data-demo-duration="34.75" aria-pressed="false">BC Box Loading</button>
+              <button id="learned-assembly-demo" type="button" data-demo-start-chapter="3" data-demo-source="videos/bimanual-learning/diffusion-assembly.mp4?v=learned-labels-20261028" data-demo-poster="videos/bimanual-learning/diffusion-assembly.jpg?v=learned-labels-20261028" data-demo-duration="42.45" aria-pressed="false">Diffusion Assembly</button>
             </div>
             <figcaption>
               <span data-demo-chapter="0" data-demo-caption-start="0">Imitation Learning Under Variation in Execution Timing · <a href="parcelstow/#g1-l6-parcelstow">ParcelStow Project Page</a><br>We compare expert and learned-policy success rates under variation in execution timing.</span>
-              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Expert–Learner Comparison for Parcel Insertion · <a href="parcelstow/#a7-l6-parcel-insertion">ParcelStow Project Page</a><br>Under expert control, the robot completes parcel insertion; under ACT, it fails the final-orientation criterion.</span>
-              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Bimanual Assembly through Imitation Learning · <a href="parcelstow/#a7-l6-bimanual-assembly">Demonstration Details</a><br>Successful nominal expert and ACT assembly demonstrations, with annotations at task-phase transitions. Playback: 1.5×.</span>
-              <span data-demo-chapter="3" data-demo-caption-start="0" hidden>Behavior Cloning for Bimanual Box Loading · <a href="parcelstow/#a7-l6-box-loading">Demonstration Details</a><br>The A7-L6 bimanual robot manipulator places the insert in the box and withdraws using a behavior-cloning policy in Isaac Sim.</span>
-              <span data-demo-chapter="4" data-demo-caption-start="0" hidden>Diffusion Policy for Bimanual Assembly · <a href="parcelstow/#a7-l6-diffusion-assembly">Demonstration Details</a><br>The A7-L6 bimanual robot manipulator completes key–housing assembly in Isaac Sim using a learned diffusion policy.</span>
+              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Bimanual Assembly through Imitation Learning · <a href="parcelstow/#a7-l6-bimanual-assembly">Demonstration Details</a><br>Successful nominal expert and ACT assembly demonstrations, with annotations at task-phase transitions. Playback: 1.5×.</span>
+              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Behavior Cloning for Bimanual Box Loading · <a href="parcelstow/#a7-l6-box-loading">Demonstration Details</a><br>The A7-L6 bimanual robot manipulator places the insert in the box and withdraws using a behavior-cloning policy in Isaac Sim.</span>
+              <span data-demo-chapter="3" data-demo-caption-start="0" hidden>Diffusion Policy for Bimanual Assembly · <a href="parcelstow/#a7-l6-diffusion-assembly">Demonstration Details</a><br>The A7-L6 bimanual robot manipulator completes key–housing assembly in Isaac Sim using a learned diffusion policy.</span>
             </figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Foundation Policies">
