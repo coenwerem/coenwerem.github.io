@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ParcelStow | Imitation Learning Under Variation in Execution Timing</title>
+  <title>ParcelStow | Imitation Learning under Variation in Execution Timing</title>
   <meta name="description" content="We compare expert and learned-policy success rates under variation in execution timing.">
   <link rel="canonical" href="https://clintonenwerem.com/parcelstow/">
-  <meta property="og:title" content="ParcelStow: Imitation Learning Under Variation in Execution Timing">
+  <meta property="og:title" content="ParcelStow: Imitation Learning under Variation in Execution Timing">
   <meta property="og:description" content="We compare expert and learned-policy success rates under variation in execution timing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/parcelstow/">
@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="675">
   <meta property="og:image:alt" content="Expert and ACT executions of parcel insertion, upright placement, and keyed peg insertion">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ParcelStow: Imitation Learning Under Variation in Execution Timing">
+  <meta name="twitter:title" content="ParcelStow: Imitation Learning under Variation in Execution Timing">
   <meta name="twitter:description" content="We compare expert and learned-policy success rates under variation in execution timing.">
   <meta name="twitter:image" content="https://clintonenwerem.com/videos/robot_learning_g1_comparison_share.gif">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
@@ -40,7 +40,7 @@
   <div class="page-container"><div class="content-wrap">
     <header class="gdf-hero">
       <h1 class="gdf-title">ParcelStow</h1>
-      <h2 class="gdf-subtitle">Imitation Learning Under Variation in Execution Timing</h2>
+      <h2 class="gdf-subtitle">Imitation Learning under Variation in Execution Timing</h2>
       <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span>, <span class="text-nowrap">John S. Baras</span>, and <span class="text-nowrap">Calin Belta</span></p>
       <p class="gdf-affil">University of Maryland, College Park</p>
       <div class="gdf-btns">
@@ -58,11 +58,12 @@
       <section class="gdf-section ps-intro" aria-label="Research Overview"><div class="gdf-wrap">
         <div class="gdf-prose">
           <p>We introduce ParcelStow, an Isaac Lab benchmark for comparing expert and learned-policy success rates under variation in execution timing. We analyze task-stage failures in parcel insertion, upright placement, and keyed peg insertion.</p>
-          <p>We divide the durations of selected manipulation phases by a scalar speedup factor <var>r</var>. At <var>r</var> = 2, we halve those durations while keeping acquisition and settling durations fixed.</p>
+          <p>The timing intervention changes the time available for selected manipulation phases: we divide their durations by a scalar speedup factor <var>r</var>. At <var>r</var> = 2, we halve those durations while keeping acquisition and settling durations fixed.</p>
         </div>
         <h2 class="gdf-h2" id="g1-l6-parcelstow">ParcelStow with the G1-L6 Humanoid</h2>
         <div class="gdf-prose">
           <p>The fixed-base Unitree G1 humanoid, equipped with a RealHand L6 right hand, acquires and reorients a parcel for insertion into a receptacle, places an elongated object upright within a target region, and inserts a keyed peg into a pocket. We compare scripted experts with policies trained using Action Chunking with Transformers (ACT), Diffusion Policy, and DAgger.</p>
+          <p>Learned policies in this benchmark use 147-dimensional state observations and share a 16-dimensional joint-position action interface with the scripted experts at 50 Hz.</p>
           <p>The video compares expert and ACT execution at <var>r</var> = 2. This factor lies within the demonstrated speed range for parcel insertion and beyond it for upright placement and keyed peg insertion. Video playback is accelerated to 2×.</p>
         </div>
         <figure class="gdf-overview ps-demo">
@@ -70,13 +71,13 @@
             <source src="../videos/robot_learning_g1_comparison.mp4" type="video/mp4">
             <a href="../videos/robot_learning_g1_comparison.mp4">Open the MP4 comparison.</a>
           </video>
-          <figcaption>We compare expert and learned-policy success rates under variation in execution timing. <strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2. Playback: 2×.</figcaption>
+          <figcaption><strong>Expert above ACT.</strong> Parcel insertion, upright placement, and keyed peg insertion at <var>r</var> = 2. Playback: 2×.</figcaption>
         </figure>
       </div></section>
 
       <section class="gdf-section gdf-section--alt" id="results"><div class="gdf-wrap">
         <h2 class="gdf-h2">Expert–ACT Comparisons</h2>
-        <div class="gdf-prose"><p>In the recorded evaluations, ACT matches or exceeds expert nominal task success on all three tasks. At the higher speedup factors shown below, the expert succeeds more often. For parcel insertion, this difference appears within the demonstrated speed range; for upright placement and keyed peg insertion, it appears beyond that range.</p></div>
+        <div class="gdf-prose"><p>These evaluations use fixed state-based policies in Isaac Lab simulation. ACT matched or exceeded expert nominal task success on all three tasks. At the higher speedup factors in the table, the expert succeeded more often. For parcel insertion, this difference appears within the demonstrated speed range; for upright placement and keyed peg insertion, it appears beyond that range.</p></div>
 <figure class="control-diagram" aria-labelledby="parcelstow-evaluation-diagram"><div class="control-flow"><div class="control-block"><h3>Controlled Timing Variation</h3><p>Vary selected task-phase durations.</p></div>
 <div class="control-block control-block--controller"><h3>Expert–ACT Evaluation</h3><p>Evaluate both policies on parcel insertion, upright placement, and keyed peg insertion.</p></div>
 <div class="control-block"><h3>Robustness Comparison</h3><p>Compare task-success counts and expert-minus-ACT differences across speedup factors.</p></div></div><figcaption id="parcelstow-evaluation-diagram">Task speedup changes the time available for execution. Video playback speed changes only how the recorded execution is viewed.</figcaption></figure>
@@ -96,14 +97,15 @@
         <div class="gdf-prose" id="results-note">
           <p>At the highlighted speedup factors, the expert-minus-ACT success-rate differences are 31 percentage points for parcel insertion, 40.5 for upright placement, and 73.5 for keyed peg insertion. The corresponding pointwise 95% paired bootstrap confidence intervals are [18, 44], [32, 49], and [67.5, 79.5] percentage points. Each task’s main comparison uses one trained ACT policy.</p>
           <p>At the higher speedup factors in the table, ACT failures differ by task: insertion misalignment and jamming for parcel insertion, final-pose errors after release for upright placement, and acquisition failures or transport losses for keyed peg insertion.</p>
-          <p>These evaluations use fixed state-based policies in Isaac Lab simulation. The released evaluation data also include Diffusion Policy and DAgger results. <a href="https://github.com/coenwerem/parcelstow/tree/main/data/manuscript_20260921">Evaluation data.</a></p>
+          <p>The released evaluation data also include Diffusion Policy and DAgger results. <a href="https://github.com/coenwerem/parcelstow/tree/main/data/manuscript_20260921">Evaluation data.</a></p>
         </div>
       </div></section>
 
       <section class="gdf-section gdf-section--alt" aria-labelledby="a7-l6-bimanual-assembly"><div class="gdf-wrap">
         <h2 class="gdf-h2" id="a7-l6-bimanual-assembly">Bimanual Assembly through Imitation Learning</h2>
         <div class="gdf-prose">
-          <p>The A7-L6 bimanual robot manipulator coordinates housing stabilization with part acquisition, alignment, and insertion in Isaac Lab. The comparison pairs an expert controller with ACT and feedback control. Both trials succeed: assembly takes 54.74 s under expert control and 58.80 s under ACT. During the ACT-controlled execution, the robot’s right arm exhibits brief jerks at the transfer-to-alignment and alignment-to-insertion transitions; these transitions are smooth under expert control in this recording.</p>
+          <p>The A7-L6 bimanual robot manipulator coordinates housing stabilization with part acquisition, alignment, and insertion in Isaac Lab. The comparison pairs an expert controller with ACT and feedback control.</p>
+          <p>Both trials succeeded: assembly took 54.74 s under expert control and 58.80 s under ACT. During the ACT-controlled execution, the robot’s right arm exhibited brief jerks at the transfer-to-alignment and alignment-to-insertion transitions; these transitions were smooth under expert control in this recording.</p>
         </div>
         <figure class="gdf-overview ps-demo">
           <video controls muted playsinline preload="none" poster="../videos/bimanual_expert_act_demo_poster.jpg" src="../videos/bimanual_expert_act_demo.mp4" aria-label="Successful nominal bimanual assembly by the expert and ACT with feedback control" controlslist="nodownload"></video>
@@ -134,10 +136,10 @@
       </div></section>
 
       <section class="gdf-section" id="resources"><div class="gdf-wrap">
-        <h2 class="gdf-h2">Use the Benchmark</h2>
+        <h2 class="gdf-h2">Benchmark Data and Reproduction</h2>
         <div class="gdf-prose">
-          <p>The G1-L6 benchmark includes 937 successful expert demonstrations and 970,565 control steps across the three tasks. Learned policies in this benchmark use 147-dimensional state observations and share a 16-dimensional joint-position action interface with the scripted experts at 50 Hz.</p>
-          <p>The released evaluation data contain 23,200 episodes across 136 test conditions. Reproduce success counts and paired bootstrap confidence intervals on a CPU without running the simulator:</p>
+          <p>The G1-L6 benchmark includes 937 successful expert demonstrations and 970,565 control steps across the three tasks.</p>
+          <p>The released evaluation data contain 23,200 episodes across 136 test conditions. Success counts and paired bootstrap confidence intervals can be reproduced on a CPU without running the simulator using the following command:</p>
         </div>
         <pre><code>git clone https://github.com/coenwerem/parcelstow.git
 cd parcelstow
@@ -150,7 +152,7 @@ python3 scripts/reproduce_manuscript.py --bootstrap \
           <a class="gdf-btn" href="https://huggingface.co/datasets/cenwerem/parcelstow">Demonstrations &amp; Checkpoints</a>
         </div>
         <div class="ps-support">
-          <p>Using ParcelStow?</p>
+          <p>Project Resources</p>
           <div class="gdf-btns">
             <a class="gdf-btn" href="https://github.com/coenwerem/parcelstow"><span aria-hidden="true">★</span> Star on GitHub</a>
             <a class="gdf-btn" href="https://huggingface.co/datasets/cenwerem/parcelstow"><span aria-hidden="true">♥</span> Like on Hugging Face</a>

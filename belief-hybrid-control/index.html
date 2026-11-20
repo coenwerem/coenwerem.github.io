@@ -7,7 +7,7 @@
   <meta name="description" content="Belief-informed dual control with bounded cumulative slack and posterior-conditioned lookahead: almost-sure target-set convergence, planar regulation, and bimanual assembly.">
   <link rel="canonical" href="https://clintonenwerem.com/belief-hybrid-control/">
   <meta property="og:title" content="Belief-Informed Hybrid Control with Almost-Sure Target-Set Convergence">
-  <meta property="og:description" content="How can a controller take informative actions that temporarily move a system away from its target? A belief-space receding-horizon algorithm with convergence guarantees.">
+  <meta property="og:description" content="Belief-space receding-horizon action selection permits informative actions through bounded cumulative slack while guaranteeing almost-sure target-set convergence under the stated conditions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/belief-hybrid-control/">
   <meta property="og:image" content="https://clintonenwerem.com/videos/belief_hybrid_assembly_poster.jpg">
@@ -23,7 +23,7 @@
   <div class="page-container"><div class="content-wrap">
     <header class="gdf-hero">
       <p class="publication-status">Preprint · 2026</p>
-      <h1 class="gdf-title">Belief-Informed Hybrid Control<span class="title-continuation">with Almost-Sure Target-Set Convergence</span></h1>
+      <h1 class="gdf-title">Belief-Informed Hybrid Control <span class="title-continuation">with Almost-Sure Target-Set Convergence</span></h1>
       <p class="gdf-authors"><a href="../">Clinton Enwerem</a>, <span>Saleh Kemal</span>, <span>John S. Baras</span>, and <span>Calin Belta</span></p>
       <p class="gdf-affil">Institute for Systems Research, University of Maryland, College Park</p>
       <nav class="gdf-btns" aria-label="Project resources">
@@ -55,17 +55,18 @@
         <div class="gdf-wrap">
           <h2 class="gdf-h2" id="method-title">Belief-Space Receding-Horizon Action Selection</h2>
           <div class="gdf-prose">
-            <p>We consider a hybrid system with continuous flows, discrete mode transitions, and an unknown parameter that remains fixed during an execution. Each candidate feedback action specifies a feedback law and a stopping rule. We maintain a probability distribution over the unknown parameter and update this belief from the observed action outcome.</p>
+            <p>We consider a hybrid system with continuous flows, discrete mode transitions, and an unknown parameter that remains fixed during an execution. A candidate feedback action consists of a feedback law and a stopping rule, so action selection determines both the feedback applied and when its outcome is observed. We maintain a probability distribution over the unknown parameter and update this belief from the observed action outcome.</p>
           </div>
           <ol class="method-steps">
-            <li><h3>Predict Progress</h3><p>For each candidate action, we predict the expected endpoint value of a nonnegative target-set progress function using the current parameter belief.</p></li>
-            <li><h3>Enforce Admissibility</h3><p>An action must satisfy an expected-decrease constraint with nonnegative slack. A scalar controller state tracks the remaining slack so its cumulative sum stays bounded.</p></li>
-            <li><h3>Anticipate Information</h3><p>In two-step selection, we update the predicted belief for each possible observation before evaluating the next feedback action. We execute the first action, observe its outcome, and replan.</p></li>
+            <li><h3>Predict Progress</h3><p>A nonnegative target-set progress function supplies the quantity used in the expected-decrease constraint. For each candidate feedback action, we predict its expected value at the action endpoint using the current parameter belief.</p></li>
+            <li><h3>Enforce Admissibility</h3><p>Nonnegative slack relaxes the expected-decrease requirement for an individual action. A scalar controller state tracks the remaining slack and enforces a bounded cumulative sum.</p></li>
+            <li><h3>Anticipate Information</h3><p>In two-step selection, each possible observation conditions a predicted posterior belief. We evaluate the next feedback action under that posterior, execute the first action, observe its outcome, and replan.</p></li>
           </ol>
           <div class="theory-result">
             <h3>Almost-Sure Target-Set Convergence</h3>
-            <p>Under distance-comparison bounds, correct conditional prediction, and recursive feasibility, we prove almost-sure convergence to the target set at decision times. We also bound the sum of expected progress-function values and the expected time to enter a target neighborhood. Upper confidence bounds extend the analysis to bounded model samples with summable error probabilities.</p>
-            <p>The dual-control connection is explicit: the predicted observation changes the parameter belief, which changes both the cost and admissibility of the subsequent feedback action.</p>
+            <p>Under distance-comparison bounds, correct conditional prediction, and recursive feasibility, we prove almost-sure convergence to the target set at decision times. We also bound the sum of expected progress-function values and the expected time to enter a target neighborhood.</p>
+            <p>Upper confidence bounds extend the analysis to bounded model samples with summable error probabilities.</p>
+            <p>Posterior-conditioned lookahead accounts for how an action changes the information available at the next decision. The predicted observation changes the parameter belief and therefore both the cost and admissibility of the subsequent feedback action.</p>
           </div>
         </div>
       </section>
@@ -74,10 +75,11 @@
         <div class="gdf-wrap">
           <p class="section-label">Numerical Example 1</p>
           <h2 class="gdf-h2" id="planar-title">Learning an Unknown Control Direction</h2>
+          <div class="gdf-prose"><p class="planar-explanation">In a two-dimensional regulation problem, the unknown input sign determines which feedback gain contracts the state toward the origin. Two-step selection first applies a test input to identify this sign, then applies the corresponding contracting feedback. We verified recursive feasibility along both resulting trajectories; the state norm fell below 0.01 within 11 decisions for either sign. A one-step selector instead applied zero input and left no admissible action at the next decision.</p></div>
           <figure class="planar-scenario" id="planar-scenario">
             <a href="./static/images/planar-scenario.png" aria-label="Enlarge the planar control trajectories"><img src="./static/images/planar-scenario.png" alt="Planar trajectories from the initial state (1, 0) toward the origin: a test input distinguishes the two unknown control directions before contracting feedback follows" loading="lazy" width="1615" height="1534"></a>
             <figcaption>
-              <p class="planar-explanation">In a two-dimensional regulation problem, the unknown input sign determines which feedback gain contracts the state toward the origin. Two-step selection first applies a test input to identify this sign, then applies the corresponding contracting feedback. We verify recursive feasibility along both resulting trajectories; the state norm falls below 0.01 within 11 decisions for either sign. A one-step selector instead applies zero input and leaves no admissible action at the next decision.</p>
+
               <p class="planar-key"><strong>Planar Control with an Unknown Input Sign.</strong> The axes are the state coordinates <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>; the star marks the target at the origin and the black dot marks the initial state. Blue solid and green dashed curves show two-step selection for control-direction signs θ = +1 and θ = −1, respectively. The first test interval reveals the sign through a change in radius, after which the selected feedback contracts both trajectories toward the target. The dotted circle shows the constant-radius motion produced by the rotational drift with zero input.</p>
             </figcaption>
           </figure>
@@ -99,19 +101,19 @@
           <p class="section-label">Numerical Example 2</p>
           <h2 class="gdf-h2" id="assembly-title">Feedback Selection in Bimanual Assembly</h2>
           <div class="gdf-prose">
-            <p>We instantiate one-step selection on a RealHand A7 Black bimanual robot with two L6 hands in Drake. Physical finger contacts support the acquisition and transport of two free-body parts. Following insertion, selected clearance feedback drives hand withdrawal while preserving the assembled part pose.</p>
+            <p>The assembly example instantiates one-step feedback selection on a RealHand A7 Black bimanual robot with two L6 hands in Drake. Physical finger contacts support acquisition and transport of two free-body parts. After insertion, the selector chooses clearance feedback for hand withdrawal while preserving the assembled part pose.</p>
           </div>
           <figure class="assembly-comparison">
             <div class="comparison-grid">
-              <div class="comparison-panel"><h3 class="ours-label">Belief-Informed</h3><div class="assembly-views"><div class="assembly-view"><span>Overview</span><a href="./static/images/ours-overview.png" aria-label="Enlarge the ours overview view"><img class="scene-image" src="./static/images/ours-overview.png" alt="Reverse oblique view of the assembled part with the hands withdrawn under belief-informed control" loading="lazy"></a></div><div class="assembly-view"><span>Insertion detail</span><a href="./static/images/ours-detail.png" aria-label="Enlarge the ours insertion detail view"><img class="detail-image" src="./static/images/ours-detail.png" alt="Insertion detail under belief-informed control, closely aligned with the dashed desired-pose outline" loading="lazy"></a></div></div><p class="result-number">0.188 mm <span>position error</span></p></div>
-              <div class="comparison-panel"><h3 class="baseline-label">Reference Tracking</h3><div class="assembly-views"><div class="assembly-view"><span>Overview</span><a href="./static/images/reference-overview.png" aria-label="Enlarge the reference overview view"><img class="scene-image" src="./static/images/reference-overview.png" alt="Reverse oblique view of the reference-tracking endpoint with residual hand–housing contact" loading="lazy"></a></div><div class="assembly-view"><span>Insertion detail</span><a href="./static/images/reference-detail.png" aria-label="Enlarge the reference insertion detail view"><img class="detail-image" src="./static/images/reference-detail.png" alt="Reference-tracking insertion detail showing displacement from the dashed desired-pose outline" loading="lazy"></a></div></div><p class="result-number">5.20 mm <span>position error</span></p></div>
+              <div class="comparison-panel"><h3 class="ours-label">Belief-Informed</h3><div class="assembly-views"><div class="assembly-view"><span>Overview</span><a href="./static/images/ours-overview.png" aria-label="Enlarge the ours overview view"><img class="scene-image" src="./static/images/ours-overview.png" alt="Reverse oblique view of the assembled part with the hands withdrawn under belief-informed control" loading="lazy"></a></div><div class="assembly-view"><span>Insertion Detail</span><a href="./static/images/ours-detail.png" aria-label="Enlarge the ours insertion detail view"><img class="detail-image" src="./static/images/ours-detail.png" alt="Insertion detail under belief-informed control, closely aligned with the dashed desired-pose outline" loading="lazy"></a></div></div><p class="result-number">0.188 mm <span>position error</span></p></div>
+              <div class="comparison-panel"><h3 class="baseline-label">Reference Tracking</h3><div class="assembly-views"><div class="assembly-view"><span>Overview</span><a href="./static/images/reference-overview.png" aria-label="Enlarge the reference overview view"><img class="scene-image" src="./static/images/reference-overview.png" alt="Reverse oblique view of the reference-tracking endpoint with residual hand–housing contact" loading="lazy"></a></div><div class="assembly-view"><span>Insertion Detail</span><a href="./static/images/reference-detail.png" aria-label="Enlarge the reference insertion detail view"><img class="detail-image" src="./static/images/reference-detail.png" alt="Reference-tracking insertion detail showing displacement from the dashed desired-pose outline" loading="lazy"></a></div></div><p class="result-number">5.20 mm <span>position error</span></p></div>
             </div>
-            <figcaption><strong>Nominal-Friction Assembly Trial.</strong> At a friction coefficient of 0.7, we evaluate both controllers at 30.96 s, when the robot completes assembly under belief-informed control. In this trial, its infinity-norm relative-position error is 96.4% lower than the reference-tracking baseline’s error. Dashed outlines mark the desired part pose.</figcaption>
+            <figcaption><strong>Nominal-Friction Assembly Trial.</strong> At a friction coefficient of 0.7, we evaluated both controllers at 30.96 s, when the robot completed assembly under belief-informed control. At this time, the infinity-norm relative-position error under belief-informed control was 96.4% lower than the reference-tracking baseline’s error. Dashed outlines mark the desired part pose.</figcaption>
           </figure>
           <div class="table-container" tabindex="0" role="region" aria-label="Assembly endpoint comparison table">
             <table class="results-table">
               <caption>Endpoint measurements for the nominal-friction trial at 30.96 s. Mint denotes belief-informed selection; salmon denotes reference tracking.</caption>
-              <thead><tr><th scope="col">Quantity</th><th scope="col">Belief-informed</th><th scope="col">Reference tracking</th></tr></thead>
+              <thead><tr><th scope="col">Quantity</th><th scope="col">Belief-Informed</th><th scope="col">Reference Tracking</th></tr></thead>
               <tbody>
                 <tr><th scope="row">Infinity-norm relative-position error</th><td class="ours-value">0.188 mm</td><td class="baseline-value">5.20 mm</td></tr>
                 <tr><th scope="row">Minimum hand–assembly clearance</th><td class="ours-value">7.14 mm</td><td class="baseline-value">0 mm</td></tr>
@@ -121,7 +123,7 @@
           </div>
           <div class="gdf-prose posterior-result">
             <h3 class="gdf-h3">Effect of Belief Refinement</h3>
-            <p>At lower friction, 0.35, conditioning on acquisition observations produces an empty admissible set. With the prior held fixed, the alternative selector admits an action that violates the conditional expected-decrease constraint. This comparison shows how posterior conditioning changes action admissibility; the planar example establishes recursive feasibility and demonstrates informative two-step lookahead.</p>
+            <p>At lower friction, 0.35, conditioning on acquisition observations produced an empty admissible set. With the prior held fixed, the alternative selector admitted an action that violated the conditional expected-decrease constraint. The acquisition observations therefore changed which actions were admissible. The planar example separately establishes recursive feasibility and demonstrates informative two-step lookahead.</p>
           </div>
         </div>
       </section>
