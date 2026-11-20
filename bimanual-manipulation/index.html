@@ -30,8 +30,9 @@
         <nav class="gdf-btns" aria-label="Project sections"><a class="gdf-btn" href="#overview">Overview</a><a class="gdf-btn" href="#tasks">Task Demonstrations</a></nav>
       </header>
       <section class="gdf-section" id="overview" aria-labelledby="overview-title"><div class="gdf-wrap">
-        <h2 class="gdf-h2" id="overview-title">Coordinated Manipulation Through Sustained Contact</h2>
-        <p class="project-prose">Dexterous bimanual manipulation requires coordinated motion and sustained contact as objects move, interact, and are released. We study articulated door opening, part insertion, and constrained object relocation using the A7-L6 bimanual robot manipulator. The demonstrations below present task execution in MuJoCo. Door opening requires motion consistent with the door’s hinge; insertion requires part–housing alignment and housing support; constrained relocation requires clearing a passive flap before transferring the object. The three examples emphasize how the robot coordinates object motion with the surrounding mechanical constraints.</p>
+        <h2 class="gdf-h2" id="overview-title">Coordinated Manipulation through Sustained Contact</h2>
+        <p class="project-prose">Dexterous bimanual manipulation requires coordinated motion and sustained contact during object handling. We study articulated door opening, part insertion, and constrained object relocation using the A7-L6 bimanual robot manipulator in MuJoCo.</p>
+        <p class="project-prose">The three tasks impose distinct mechanical constraints. Door opening requires motion about the door’s hinge; insertion requires simultaneous part–housing alignment and housing support; constrained relocation requires clearing a passive flap before transferring the object.</p>
         <figure>
           <video class="zoomable" controls muted playsinline preload="none" width="1920" height="1080" src="../videos/bimanual-manipulation/demonstration.mp4?v=bounded-arms-20261025" poster="../videos/bimanual-manipulation/demonstration.jpg?v=bounded-arms-20261025" aria-label="Door opening, bimanual part insertion, and constrained object relocation" controlslist="nodownload"></video>
           <figcaption>The robot opens an articulated door, inserts a part into a supported housing, and relocates an object while keeping a passive flap clear of its path. Excerpts play at the original execution speed.</figcaption>
@@ -47,7 +48,7 @@
 <video aria-label="Full MuJoCo rollout of hinged-door opening and holding at the target opening" autoplay="" class="zoomable" controls="" height="1080" loop="" muted="" playsinline="" poster="../videos/bimanual-manipulation/door-full.jpg" preload="metadata" src="../videos/bimanual-manipulation/door-full.mp4" width="1920" controlslist="nodownload"></video>
 <a aria-label="Expand Articulated Door Opening" class="zoom-cue task-expand" data-video-lightbox="" href="../videos/bimanual-manipulation/door-full.mp4" title="Click to enlarge"><i aria-hidden="true" class="fas fa-expand"></i></a>
 </div>
-<figcaption>The robot establishes contact with the door panel and opens the door about its hinge before maintaining the target opening.</figcaption>
+<figcaption>The robot establishes contact with the door panel, opens the door about its hinge, and maintains the target opening.</figcaption>
 </figure>
 <figure>
 <h3>Bimanual Key–Housing Insertion</h3>
@@ -55,7 +56,7 @@
 <video aria-label="Multi-view MuJoCo rollout of key insertion into a supported housing" autoplay="" class="zoomable" controls="" height="1080" loop="" muted="" playsinline="" poster="../videos/bimanual-manipulation/insertion-full.jpg?v=multiview-20261025" preload="metadata" src="../videos/bimanual-manipulation/insertion-full.mp4?v=multiview-20261025" width="1920" controlslist="nodownload"></video>
 <a aria-label="Expand Bimanual Key–Housing Insertion" class="zoom-cue task-expand" data-video-lightbox="" href="../videos/bimanual-manipulation/insertion-full.mp4?v=multiview-20261025" title="Click to enlarge"><i aria-hidden="true" class="fas fa-expand"></i></a>
 </div>
-<figcaption>The robot acquires the part, aligns it with the movable housing, and completes insertion before releasing the part. Bimanual coordination maintains housing support and part–housing alignment throughout insertion.</figcaption>
+<figcaption>The robot acquires the part and aligns it with the movable housing. Bimanual coordination maintains housing support and part–housing alignment throughout insertion; the robot completes insertion before releasing the part.</figcaption>
 </figure>
 <figure>
 <h3>Constrained Object Relocation</h3>
@@ -63,7 +64,7 @@
 <video aria-label="Multi-view MuJoCo rollout of object placement into a target box with a passive flap" autoplay="" class="zoomable" controls="" height="1080" loop="" muted="" playsinline="" poster="../videos/bimanual-manipulation/relocation-full.jpg?v=bounded-arms-20261025" preload="metadata" src="../videos/bimanual-manipulation/relocation-full.mp4?v=bounded-arms-20261025" width="1920" controlslist="nodownload"></video>
 <a aria-label="Expand Constrained Object Relocation" class="zoom-cue task-expand" data-video-lightbox="" href="../videos/bimanual-manipulation/relocation-full.mp4?v=bounded-arms-20261025" title="Click to enlarge"><i aria-hidden="true" class="fas fa-expand"></i></a>
 </div>
-<figcaption>The robot manipulates the passive flap to clear the transfer path, lifts and relocates the object into the target box, and releases it after placement.</figcaption>
+<figcaption>The robot first manipulates the passive flap to clear the transfer path. It then lifts and relocates the object into the target box and releases it after placement.</figcaption>
 </figure>
 </div>
 </div></section>

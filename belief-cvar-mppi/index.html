@@ -65,20 +65,20 @@
         <div class="gdf-wrap">
          
         <h2 class="gdf-h2" id="vision-guided-dexterous-stowing">Vision-Guided Dexterous Stowing under Uncertainty</h2>
-        <div class="gdf-prose"><p>The robot transports a grasped object into an occupied receptacle while accounting for uncertainty in the receptacle’s pose and geometry. Belief-space Model Predictive Path Integral (MPPI) control evaluates candidate motions under this uncertainty, with Conditional Value-at-Risk (CVaR) used to account for adverse outcomes. The paired trials compare low and high risk aversion: the low-risk-aversion execution collides with a stowed object and fails insertion, whereas the high-risk-aversion execution avoids exterior contact and completes placement.</p></div>
+        <div class="gdf-prose"><p>Transporting a grasped object into an occupied receptacle requires accounting for uncertainty in the receptacle’s pose and geometry. Belief-space Model Predictive Path Integral (MPPI) control evaluates candidate motions under this uncertainty, and Conditional Value-at-Risk (CVaR) accounts for adverse outcomes. In the paired trials, the low-risk-aversion execution collided with a stowed object and failed insertion; the high-risk-aversion execution avoided exterior contact and completed placement.</p></div>
         <div class="cvar-demo-compare" aria-label="Side-by-side comparison of low- and high-risk-aversion insertion trials">
           
           <figure class="cvar-demo-card">
             <video controls autoplay muted loop playsinline preload="metadata" poster="./static/images/risk-neutral-contact.jpg?v=cmu-bold-captions-20260918" controlslist="nodownload">
               <source src="./static/videos/beta050-contact.mp4?v=cmu-bold-captions-20260918" type="video/mp4">
             </video>
-            <figcaption><strong>Low Risk Aversion, $\beta_s = 0.50$.</strong> At low risk aversion, the object being transported by the robot collides with the blue stowed object, and the robot subsequently fails the insertion task.</figcaption>
+            <figcaption><strong>Low Risk Aversion, $\beta_s = 0.50$.</strong> The transported object collides with the blue stowed object, after which the robot fails the insertion task.</figcaption>
           </figure>
           <figure class="cvar-demo-card">
             <video controls autoplay muted loop playsinline preload="metadata" poster="./static/images/risk-aware-safe.jpg?v=cmu-bold-captions-20260918" controlslist="nodownload">
               <source src="./static/videos/beta095-contact-free.mp4?v=cmu-bold-captions-20260918" type="video/mp4">
             </video>
-            <figcaption><strong>High Risk Aversion, $\beta_s = 0.95$.</strong> At high risk aversion, the robot avoids collision with the receptacle exterior and successfully places the object on the shelf.</figcaption>
+            <figcaption><strong>High Risk Aversion, $\beta_s = 0.95$.</strong> The robot avoids collision with the receptacle exterior and successfully places the object on the shelf.</figcaption>
           </figure>
         </div>
       </div>
@@ -88,10 +88,10 @@
       <section class="gdf-section gdf-section--alt">
       <div class="gdf-wrap">
         <div class="key-results">
-            <div class="key-result"><div class="kr-value">82%</div><div class="kr-label">task success<br>CVaR-MPPI, $\beta_s = 0.95$</div></div>
-            <div class="key-result"><div class="kr-value">0%</div><div class="kr-label">exterior-contact rate<br>CVaR-MPPI, $\beta_s = 0.95$</div></div>
-            <div class="key-result"><div class="kr-value">55%</div><div class="kr-label">task success<br>CVaR-MPPI, $\beta_s = 0.50$</div></div>
-            <div class="key-result"><div class="kr-value">50%</div><div class="kr-label">task success<br>CCMPPI baseline</div></div>
+            <div class="key-result"><div class="kr-value">82%</div><div class="kr-label">Task Success<br>CVaR-MPPI, $\beta_s = 0.95$</div></div>
+            <div class="key-result"><div class="kr-value">0%</div><div class="kr-label">Exterior-Contact Rate<br>CVaR-MPPI, $\beta_s = 0.95$</div></div>
+            <div class="key-result"><div class="kr-value">55%</div><div class="kr-label">Task Success<br>CVaR-MPPI, $\beta_s = 0.50$</div></div>
+            <div class="key-result"><div class="kr-value">50%</div><div class="kr-label">Task Success<br>CCMPPI Baseline</div></div>
         </div>
       </div>
       </section>
@@ -99,26 +99,26 @@
       <!-- Abstract -->
       <section class="gdf-section" id="abstract"><div class="gdf-wrap">
         <h2 class="gdf-h2">Abstract</h2>
-        <div class="gdf-prose"><p>Many safety-critical control systems operate under latent uncertainty that sensors cannot resolve at decision time. Such uncertainty, arising from unknown physical properties, disturbances, or unobserved geometry, affects dynamics, task feasibility, and safety margins. Standard methods optimize expected performance and offer limited protection against rare but severe outcomes, while robust formulations treat uncertainty conservatively without exploiting its probabilistic structure. We consider systems with measured state and an unknown, time-invariant parameter represented by a belief distribution. We propose a risk-sensitive belief-space Model Predictive Path Integral (MPPI) controller that plans under this belief, regularizes performance using Conditional Value-at-Risk (CVaR), and imposes a CVaR constraint on a trajectory safety margin over the horizon. For the exact risk-constrained formulation underlying this controller, we establish three properties: (1) the CVaR constraint implies a probabilistic safety guarantee, (2) the controller recovers the risk-neutral optimum as the objective risk weight tends to zero, and (3) a union-bound argument extends the per-horizon guarantee to cumulative safety over repeated solves. In contact-rich MuJoCo simulations of vision-guided dexterous stowing, where a manipulator inserts a grasped object into an occupied slot with pose uncertainty exceeding prescribed lateral clearance requirements, our method achieves $82\%$ success with zero contact violations at high risk aversion, compared with $55\%$ and $50\%$ for a risk-neutral configuration and a chance-constrained baseline, both of which incur nonzero exterior contact forces.</p></div>
+        <div class="gdf-prose"><p>Many safety-critical control systems operate under latent uncertainty that sensors cannot resolve at decision time. Such uncertainty, arising from unknown physical properties, disturbances, or unobserved geometry, affects dynamics, task feasibility, and safety margins. Standard methods optimize expected performance and offer limited protection against rare but severe outcomes, while robust formulations treat uncertainty conservatively without exploiting its probabilistic structure. We consider systems with measured state and an unknown, time-invariant parameter represented by a belief distribution.</p><p>We propose a risk-sensitive belief-space Model Predictive Path Integral (MPPI) controller that plans under this belief, regularizes performance using Conditional Value-at-Risk (CVaR), and imposes a CVaR constraint on a trajectory safety margin over the horizon. For the exact risk-constrained formulation underlying this controller, we establish three properties: (1) the CVaR constraint implies a probabilistic safety guarantee, (2) the controller recovers the risk-neutral optimum as the objective risk weight tends to zero, and (3) a union-bound argument extends the per-horizon guarantee to cumulative safety over repeated solves. </p><p>In contact-rich MuJoCo simulations of vision-guided dexterous stowing, where a manipulator inserts a grasped object into an occupied slot with pose uncertainty exceeding prescribed lateral clearance requirements, our method achieves $82\%$ success with zero contact violations at high risk aversion, compared with $55\%$ and $50\%$ for a risk-neutral configuration and a chance-constrained baseline, both of which incur nonzero exterior contact forces.</p></div>
       </div></section>
 
       <!-- Method -->
       <section class="gdf-section gdf-section--alt"><div class="gdf-wrap">
-        <h2 class="gdf-h2">Overview &amp; Working Principle</h2>
-        <div class="gdf-prose"><p>CVaR-MPPI is a risk-sensitive belief-space MPPI controller designed to be robust to latent uncertainty in contact model parameters represented by a particle-based belief distribution. Our controller jointly guarantees probabilistic safety by constraining the adverse tail of a trajectory safety margin. At each receding-horizon solve, CVaR-MPPI evaluates sampled control sequences across belief particles, applies the first control, and updates the belief from the next observation.</p></div>
+        <h2 class="gdf-h2">Belief-Space Risk-Constrained Control</h2>
+        <div class="gdf-prose"><p>CVaR-MPPI represents uncertainty in time-invariant contact-model parameters with a particle-based belief distribution. At each receding-horizon solve, it evaluates sampled control sequences across belief particles to predict trajectory cost and safety margin. A CVaR penalty accounts for adverse-tail trajectory costs, while a separate CVaR constraint regulates trajectory safety.</p><p>Our controller guarantees probabilistic safety by constraining the adverse tail of the trajectory safety margin. It applies the first control, obtains the next observation, and updates the parameter belief before replanning. The objective risk weight controls the performance penalty; the safety confidence specifies the probabilistic safety requirement.</p></div>
 <figure class="control-diagram" aria-labelledby="belief-control-diagram"><div class="control-flow control-flow--four"><div class="control-block"><h3>Particle Belief</h3><p>Uncertain, time-invariant parameters, including receptacle pose and geometry.</p></div>
 <div class="control-block"><h3>Sampled Rollouts</h3><p>Candidate control sequences evaluated across belief particles for trajectory cost and safety margin.</p></div>
 <div class="control-block control-block--controller"><h3>Risk-Sensitive Planning</h3><p>CVaR cost penalty and a separate CVaR constraint on trajectory safety violations.</p></div>
-<div class="control-block"><h3>Control Execution</h3><p>Apply the first control action and obtain the next observation.</p></div></div><div class="control-feedback"><span aria-hidden="true">↩</span>Next observation → belief update → next receding-horizon solve</div><figcaption id="belief-control-diagram">At each planning step, the controller evaluates candidate actions under the current belief and accounts for adverse-tail risk in both performance and safety.</figcaption></figure>
+<div class="control-block"><h3>Control Execution</h3><p>Apply the first control action and obtain the next observation.</p></div></div><div class="control-feedback"><span aria-hidden="true">↩</span>Next observation → belief update → next receding-horizon solve</div><figcaption id="belief-control-diagram">The particle belief determines the predicted cost and safety margin of each sampled control sequence. Performance risk enters the objective, while a separate risk constraint governs safety; the next observation updates the belief for subsequent planning.</figcaption></figure>
       </div></section>
 
       <!-- Guarantees -->
       <section class="gdf-section"><div class="gdf-wrap">
         <h2 class="gdf-h2">Theoretical Guarantees</h2>
         <div class="cvar-claims">
-          <article><span>1</span><p><strong>CVaR Safety Implication</strong> If $\operatorname{CVaR}_{\beta_s}(-M_H) \le 0$, then $\Pr(M_H \ge 0) \ge \beta_s$.</p></article>
-          <article><span>2</span><p><strong>Risk-Neutral Limit</strong> Under the paper’s compactness and continuity assumptions, every cluster point of the optimizer minimizes expected trajectory cost as $\lambda_r \downarrow 0$.</p></article>
-          <article><span>3</span><p><strong>Cumulative Safety</strong> If the constraint holds at $T$ successive solves, all predicted horizons are safe with probability at least $1 - T(1 - \beta_s)$.</p></article>
+          <article><span>1</span><p><strong>CVaR Safety Implication</strong> A nonnegative trajectory safety margin represents safety over the predicted horizon. Its negation is the loss constrained by CVaR, so negative margins contribute adverse safety outcomes. If $\operatorname{CVaR}_{\beta_s}(-M_H) \le 0$, then $\Pr(M_H \ge 0) \ge \beta_s$.</p></article>
+          <article><span>2</span><p><strong>Risk-Neutral Limit</strong> The objective risk weight scales the CVaR penalty on trajectory cost. Under the paper’s compactness and continuity assumptions, every cluster point of the optimizer minimizes expected trajectory cost as $\lambda_r \downarrow 0$.</p></article>
+          <article><span>3</span><p><strong>Cumulative Safety</strong> A union-bound argument combines the per-horizon safety guarantees. If the constraint holds at $T$ successive solves, all predicted horizons are safe with probability at least $1 - T(1 - \beta_s)$.</p></article>
         </div>
       </div></section>
 
@@ -126,13 +126,13 @@
       <section class="gdf-section gdf-section--alt" id="Results"><div class="gdf-wrap">
         <h2 class="gdf-h2">Simulation Results</h2>
         <h3 class="gdf-h3">Risk Confidence and Task Success</h3>
-        <div class="gdf-prose cvar-results-prose"><p>Increasing the safety confidence level from $\beta_s = 0.50$ to $0.95$ raised task success from $55\%$ to $82\%$ and reduced the exterior-contact rate from $27\%$ to $0\%$. CVaR-MPPI at $\beta_s = 0.90$ and CCMPPI both produced zero exterior contact, but CVaR-MPPI achieved $73\%$ success compared with $50\%$ for CCMPPI. Because CCMPPI uses a point estimate and omits both CVaR terms, this comparison evaluates the complete controllers rather than either CVaR component in isolation.</p></div>
+        <div class="gdf-prose cvar-results-prose"><p>Increasing the safety confidence level from $\beta_s = 0.50$ to $0.95$ raised task success from $55\%$ to $82\%$ and reduced the exterior-contact rate from $27\%$ to $0\%$. </p><p>CVaR-MPPI at $\beta_s = 0.90$ and CCMPPI both produced zero exterior contact, but CVaR-MPPI achieved $73\%$ success compared with $50\%$ for CCMPPI. Because CCMPPI uses a point estimate and omits both CVaR terms, this comparison evaluates the complete controllers rather than either CVaR component in isolation.</p></div>
 
         <figure class="cvar-beta-demo">
           <video controls muted loop playsinline preload="metadata" controlslist="nodownload">
             <source src="./static/videos/beta-safety-constraint.mp4" type="video/mp4">
           </video>
-          <figcaption><strong>Effect of $\beta_s$.</strong> Across $11$ randomized MuJoCo trials per setting, increasing $\beta_s$ from $0.50$ to $0.90$ or $0.95$ eliminated exterior-contact violations while task success rose from $55\%$ to $73\%$ and $82\%$, respectively.</figcaption>
+          <figcaption><strong>Effect of Safety Confidence, $\beta_s$.</strong> Across $11$ randomized MuJoCo trials per setting, increasing $\beta_s$ from $0.50$ to $0.90$ or $0.95$ eliminated exterior-contact violations while task success rose from $55\%$ to $73\%$ and $82\%$, respectively.</figcaption>
 
         </figure>
       </div></section>

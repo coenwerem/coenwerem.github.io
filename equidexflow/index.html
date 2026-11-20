@@ -115,9 +115,10 @@
             </div>
           </div>
           <p class="edf-teaser-cap edf-teaser-cap--claim">
-            Under a 120&deg; object rotation, a non-equivariant baseline retains the original grasp (with invalid contacts that may place the hand's links in a deeply-penetrating configuration),
-            while <span class="equidexflow-plain">EquiDexFlow</span> co-rotates the grasp and preserves contacts, and force closure by extension.
-            <span class="edf-hl">To our knowledge, <span class="equidexflow-plain">EquiDexFlow</span> is the first learned robotic dexterous grasp generator to jointly generate articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces within an end-to-end SE(3)-equivariant architecture.</span>
+            The input is an object point cloud. Under a 120&deg; object rotation, a non-equivariant baseline retains the original grasp, leaving invalid contacts that may place the hand’s links in a deeply penetrating configuration,
+            while <span class="equidexflow-plain">EquiDexFlow</span> co-rotates the grasp and preserves contacts and, by extension, force closure.
+            </p>
+          <p class="edf-teaser-cap edf-teaser-cap--claim"><span class="edf-hl">To our knowledge, <span class="equidexflow-plain">EquiDexFlow</span> is the first learned robotic dexterous grasp generator to jointly generate articulated hand configuration, fingertip contacts, contact normals, and friction-constrained contact forces within an end-to-end SE(3)-equivariant architecture.</span>
           </p>
         </div>
       </section>
@@ -126,7 +127,7 @@
       <section class="edf-section">
         <div class="edf-wrap--wide">
           <h2 class="edf-h2" id="grasp-synthesis-and-hardware-execution">Grasp Synthesis and Hardware Execution</h2>
-          <div class="edf-prose"><p>EquiDexFlow generates articulated grasps that transform consistently with the object’s pose. The demonstrations connect predicted grasps with execution on physical hardware: generated Allegro grasps are retargeted to the LEAP Hand and executed at object orientations of 0° and 120°. The paired recordings focus on grasp-and-lift execution across these orientations, with examples spanning primitive shapes and everyday objects. The full demonstration also presents grasp prediction, contact-based retargeting, and refinement before hardware execution.</p></div>
+          <div class="edf-prose"><p>EquiDexFlow generates articulated grasps that transform consistently with the object’s pose. Generated Allegro grasps are retargeted through fingertip-contact inverse kinematics to the LEAP Hand and executed at object orientations of 0° and 120°. The paired recordings show grasp-and-lift execution across these orientations for primitive shapes and everyday objects. The full demonstration connects grasp prediction, contact-based retargeting, refinement, and hardware execution.</p></div>
           <p class="zoom-hint edf-center"><i class="fas fa-search-plus"></i>Click to enlarge</p>
           <div class="hw-pair-grid hw-pair-grid--featured">
             <figure class="hw-pair-card">
@@ -208,7 +209,7 @@
           <h2 class="edf-h2">Architecture</h2>
           <div class="edf-prose">
             <p>
-              <span class="equidexflow-plain">EquiDexFlow</span> takes an object point cloud and a kinematic model of a $D$-DoF, $M$-fingered robotic hand and produces, in a single forward pass: a wrist SE(3) pose, $D$ joint angles from a conditional normalizing flow, a set of $M$ contact points projected onto the object surface, and per-contact forces projected into the friction cone, all jointly consistent with the learned distribution. The released Allegro checkpoints use $D{=}16$ and $M{=}4$. Both are set per-hand in the model config.
+              <span class="equidexflow-plain">EquiDexFlow</span> takes an object point cloud and a kinematic model of a $D$-DoF, $M$-fingered robotic hand and produces, in a single forward pass: a wrist SE(3) pose, $D$ joint angles from a conditional normalizing flow, a set of $M$ contact points projected onto the object surface, contact normals, and per-contact forces projected into the friction cone, all jointly consistent with the learned distribution. The wrist pose specifies the hand’s position and orientation, and the joint angles specify its articulation. Contact positions and normals describe the predicted hand–object interface; the normals orient the contact friction cones. The released Allegro checkpoints use $D{=}16$ and $M{=}4$. The hand dimensions are configured per embodiment.
             </p>
           </div>
 
@@ -252,9 +253,7 @@
               <p>
                 <span class="equidexflow-plain">EquiDexFlow</span> jointly predicts hand
                 configuration, fingertip contacts, and contact forces from a point cloud
-                in one forward pass, without post-hoc force recovery. Cone projection
-                enforces Coulomb friction and differentiable surface projection places
-                contacts on the object. Both hold by construction for every sample.
+                in one forward pass, without post-hoc force recovery. Cone projection enforces Coulomb friction, and differentiable surface projection places the decoded contact targets on the object. Both hold by construction for every sample. Refinement of the wrist and joints then brings the kinematic fingertips to those contact targets.
               </p>
             </div>
             <div class="edf-idea">
@@ -265,7 +264,7 @@
             </div>
             <div class="edf-idea">
               <h4>Cross-Embodiment Transfer</h4>
-              <p><span class="equidexflow-plain">EquiDexFlow</span>'s contact-grounded grasp representation is embodiment-agnostic: the encoder, flow backbone, and decoder heads do not depend on the hand model. To demonstrate this fact, we retarget Allegro grasps to a physical LEAP Hand via inverse kinematics and confirm that the grasps transfer to hardware.
+              <p><span class="equidexflow-plain">EquiDexFlow</span>'s contact-grounded grasp representation is embodiment-agnostic: the encoder, flow backbone, and decoder heads do not depend on the hand model. We retarget Allegro grasps to a physical LEAP Hand via inverse kinematics and confirm transfer to hardware.
               </p>
             </div>
           </div>
@@ -278,7 +277,8 @@
           <h2 class="edf-h2">Architectural SE(3) Equivariance</h2>
           <div class="edf-prose" style="margin: 0 auto;">
             <p>
-              <span class="equidexflow-plain">EquiDexFlow</span> grasps co-rotate with the object under arbitrary rotations. We verify this empirically over 200 rotations, with wrist residual &lt;0.04&deg; and joint deviation exactly zero. What's more: this equivariance guarantee is architectural, and not data-driven. Other learned grasp generators (FFHFlow, ContactGen, GraspDiffusion) achieve rotation robustness through data augmentation. <span class="equidexflow-plain">EquiDexFlow</span> guarantees it <em>by construction</em> via the VN-DGCNN backbone and equivariant flow. Our joint contact-and-force prediction is also distinctive: most learned methods output only wrist pose and joint angles and leave contact quality as a post-hoc filter. EquiDexFlow predicts force-closure-compatible contact configurations directly, meaning downstream planners get richer information <em>without</em> running a separate grasp evaluator.
+              <span class="equidexflow-plain">EquiDexFlow</span> grasps co-rotate with the object under arbitrary rotations. We verify this empirically over 200 rotations, with wrist residual &lt;0.04&deg; and joint deviation exactly zero. The VN-DGCNN backbone and equivariant flow provide this architectural guarantee <em>by construction</em>. Other learned grasp generators (FFHFlow, ContactGen, GraspDiffusion) achieve rotation robustness through data augmentation.</p>
+            <p>Joint contact-and-force prediction also supplies information beyond wrist pose and joint angles. Most learned methods leave contact quality to a post-hoc filter. <span class="equidexflow-plain">EquiDexFlow</span> predicts force-closure-compatible contact configurations directly, providing downstream planners with richer information <em>without</em> running a separate grasp evaluator.
             </p>
           </div>
 
@@ -424,10 +424,7 @@
               <h2 class="edf-h2" style="text-align: left;">Wrist Refinement</h2>
               <div class="edf-prose">
                 <p>
-                  The flow-decoded wrist typically places fingertips a few centimeters off the
-                  object surface. Test-time optimization jointly refines the full 6-DoF wrist
-                  pose and the 16-DoF joint vector so the kinematic fingertips reach the predicted
-                  contacts, with trust-region regularization and mesh penetration penalties. The
+                  Surface projection defines contact targets on the object. The flow-decoded wrist typically leaves the kinematic fingertips a few centimeters off the object surface. Test-time optimization jointly refines the full 6-DoF wrist pose and the 16-DoF joint vector to bring those fingertips to the predicted contacts, with trust-region regularization and mesh penetration penalties. The
                   refinement is frame-invariant and commutes with any SE(3) action, preserving
                   the equivariance guarantee.
                 </p>
@@ -451,12 +448,12 @@
               <thead>
                 <tr>
                   <th>Method</th>
-                  <th>Contact Err (m) $\downarrow$</th>
-                  <th>Force Err (N) $\downarrow$</th>
-                  <th>Fric. Viol. (%) $\downarrow$</th>
+                  <th>Contact Error (m) $\downarrow$</th>
+                  <th>Force Error (N) $\downarrow$</th>
+                  <th>Friction Violations (%) $\downarrow$</th>
                   <th>Top-1 Score $\uparrow$</th>
                   <th>Top-3 Score $\uparrow$</th>
-                  <th>Wrench Res (Nm) $\downarrow$</th>
+                  <th>Wrench Residual (Nm) $\downarrow$</th>
                 </tr>
               </thead>
               <tbody>
@@ -505,6 +502,7 @@
           <div class="edf-halves" style="margin: 1rem auto 0;">
             <div>
               <h4 class="edf-h4" style="margin-top: 0.5rem;">Equivariance by Rotation Angle</h4>
+              <p class="edf-note">The rotation-angle comparison reports wrist rotation residual, wrist translation residual, and maximum hand-joint deviation.</p>
               <div class="edf-table-wrap edf-half-table">
                 <table class="edf-table">
                   <thead>
@@ -534,13 +532,13 @@
                       <th>Configuration</th>
                       <th>Top-1 $\uparrow$</th>
                       <th>Top-3 $\uparrow$</th>
-                      <th>FVR (%) $\downarrow$</th>
+                      <th>Friction Violations (%) $\downarrow$</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr><td>Stochastic</td><td>&minus;0.95</td><td>&minus;1.22</td><td>0.0</td></tr>
                     <tr><td>Deterministic ($z{=}0$)</td><td>&minus;0.97</td><td>&minus;1.24</td><td>0.0</td></tr>
-                    <tr><td>No cone projection</td><td>&minus;5.92</td><td>&minus;5.95</td><td>100</td></tr>
+                    <tr><td>No Cone Projection</td><td>&minus;5.92</td><td>&minus;5.95</td><td>100</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -559,8 +557,7 @@
           <h2 class="edf-h2">Cross-Embodiment Transfer to the LEAP Hand</h2>
           <div class="edf-prose" style="margin: 0 auto 1rem;">
             <p>
-              Allegro grasps retargeted to the LEAP Hand via inverse kinematics, validated in
-              simulation, and executed on physical hardware.
+              We retarget Allegro grasps to the LEAP Hand through contact-point inverse kinematics, validate them in simulation, and execute them on physical hardware.
             </p>
           </div>
 
@@ -575,7 +572,7 @@
             </div>
           </div>
           <p class="edf-note edf-note--sm">
-            Front view. Retargeted from Allegro to LEAP via contact-point IK. Mean fingertip residual 14 mm.
+            The front view shows Allegro grasps retargeted to LEAP via contact-point IK, with a mean fingertip residual of 14 mm.
             Objects, left to right and top to bottom: box primitive, SNS cup, sugar box, tennis ball,
             tomato soup can, apple, EGAD G6, cube, softball, EGAD E4, EGAD A4, and EGAD F6.
           </p>
@@ -583,10 +580,7 @@
           <!-- Simulated shake-test robustness -->
           <h4 class="edf-h4">Simulated Shake-Test Robustness</h4>
           <p class="edf-note" style="margin-bottom: 1rem;">
-            Gravity-off robustness check (GenDexGrasp/GAGrasp protocol in Drake): a &plusmn;<em>xyz</em>
-            inertial load is applied to the object along all six axes, and a grasp passes if the object
-            drifts under 2&nbsp;cm in every direction. Both objects pass at the canonical pose and its
-            120&deg; co-rotation, and the held object stays nearly stationary throughout.
+            We evaluate shake-test robustness using the GenDexGrasp/GAGrasp protocol in Drake with gravity disabled. A &plusmn;<em>xyz</em> inertial load is applied to the object along all six axes, and a grasp passes if the object drifts under 2&nbsp;cm in every direction. Both objects pass at the canonical pose and its 120&deg; co-rotation, and the held object stays nearly stationary throughout.
           </p>
           <div class="shake-grid">
             <div class="shake-cell">
@@ -635,9 +629,10 @@
             </div>
             <div class="edf-col--txt">
               <p class="edf-note" style="margin-top: 0;">
-                Equivariant grasps executed on a physical <a href="https://leaphand.com/" target="_blank" rel="noopener noreferrer">LEAP Hand</a> mounted on a 6-DoF <a href="https://www.frtech.fr/FR/5.html" target="_blank" rel="noopener noreferrer">ZArm</a>. All six hardware test objects
+                We execute equivariant grasps on a physical <a href="https://leaphand.com/" target="_blank" rel="noopener noreferrer">LEAP Hand</a> mounted on a 6-DoF <a href="https://www.frtech.fr/FR/5.html" target="_blank" rel="noopener noreferrer">ZArm</a>. All six hardware test objects
                 complete open-loop pick-and-hold trials, with every asymmetric object succeeding at both 0&deg; and 120&deg;.
-                A <a href="https://www.stereolabs.com/store/products/zed-2i" target="_blank" rel="noopener noreferrer"><b>ZED&nbsp;2i</b></a> stereo camera (right) supplies a <b>single-shot object-pose advisory</b> before each
+                </p>
+              <p class="edf-note">A <a href="https://www.stereolabs.com/store/products/zed-2i" target="_blank" rel="noopener noreferrer"><b>ZED&nbsp;2i</b></a> stereo camera (right) supplies a <b>single-shot object-pose advisory</b> before each
                 grasp: the wrist target is recomputed from the perceived object pose, so execution is perception-informed. The video excerpts below are cropped to the arm and object, so the camera
                 falls outside frame.
               </p>
@@ -708,7 +703,7 @@
                 <thead>
                   <tr>
                     <th>Object</th>
-                    <th>IK Tip (mm)</th>
+                    <th>IK Fingertip Residual (mm)</th>
                     <th>0&deg;</th>
                     <th>120&deg;</th>
                   </tr>
