@@ -48,14 +48,11 @@
   "poster": "franka_ability_soup_sequence_poster.jpg",
   "poster_source_index": 198,
   "poster_sha256": "34b8fb3c9b78fb1042fc04c0c2c22f1741fddac059eda87d1e0ecfb89e23e198",
-  "panels": [
+  "source_repository": "coenwerem/dexreach",
+  "paper_figure_samples": [
     {
-      "file": "../media/franka-ability-soup-approach.png",
-      "source": "results/v0_place_soup_sim.pt",
-      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
-      "trial_key": 5633,
-      "source_sample": 48,
       "phase": "approach",
+      "source_sample": 48,
       "camera": "wide",
       "crop_ltrb": [
         0,
@@ -67,12 +64,8 @@
       "panel_sha256": "50aba67633039120738dec1f64c3424db9f3ccd877f722bb4cfc24970756c295"
     },
     {
-      "file": "../media/franka-ability-soup-acquisition.png",
-      "source": "results/v0_place_soup_sim.pt",
-      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
-      "trial_key": 5633,
-      "source_sample": 144,
       "phase": "acquisition",
+      "source_sample": 144,
       "camera": "detail",
       "crop_ltrb": [
         0,
@@ -84,12 +77,8 @@
       "panel_sha256": "a0f964d763a661a44814d1d80a504392983135c6ff72c92e787af6af39aeea95"
     },
     {
-      "file": "../media/franka-ability-soup-lift.png",
-      "source": "results/v0_place_soup_sim.pt",
-      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
-      "trial_key": 5633,
-      "source_sample": 180,
       "phase": "lift",
+      "source_sample": 180,
       "camera": "detail",
       "crop_ltrb": [
         0,
@@ -101,12 +90,8 @@
       "panel_sha256": "fd29e8033a74741b29a626d7ab5a541bb0bf181066741ae89fb3d4c3bf4df46a"
     },
     {
-      "file": "../media/franka-ability-soup-transport.png",
-      "source": "results/v0_place_soup_sim.pt",
-      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
-      "trial_key": 5633,
-      "source_sample": 208,
       "phase": "transport",
+      "source_sample": 208,
       "camera": "detail",
       "crop_ltrb": [
         0,
@@ -118,12 +103,8 @@
       "panel_sha256": "2890e06ebfec77b21755a47c235405aa3f55bfa8cb502970a8dda4755cdd188a"
     },
     {
-      "file": "../media/franka-ability-soup-release.png",
-      "source": "results/v0_place_soup_sim.pt",
-      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
-      "trial_key": 5633,
-      "source_sample": 264,
       "phase": "release",
+      "source_sample": 264,
       "camera": "detail",
       "crop_ltrb": [
         0,
@@ -135,12 +116,8 @@
       "panel_sha256": "8f21eaaf352e2d0b4e0f667471966a8f1320a11659ad81dee09536f23e563f1e"
     },
     {
-      "file": "../media/franka-ability-soup-retreat.png",
-      "source": "results/v0_place_soup_sim.pt",
-      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
-      "trial_key": 5633,
-      "source_sample": 308,
       "phase": "retreat",
+      "source_sample": 308,
       "camera": "detail",
       "crop_ltrb": [
         0,
@@ -151,6 +128,5 @@
       "native_frame_sha256": "c49ea7139dd540ace7d5cce2d46aed5c933a31727a8e686e5f612e1af3c7e403",
       "panel_sha256": "8c0a13a2cc28f0c28e19c7707b9033f094f161c0a7ba8f187dd7dbaf0873ea4c"
     }
-  ],
-  "source_repository": "coenwerem/dexreach"
+  ]
 }

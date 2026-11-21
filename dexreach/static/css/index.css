@@ -13,9 +13,6 @@
 .dexreach-page .dx-gallery video { display: block; width: 100%; height: auto; object-fit: contain; }
 .dexreach-page .dx-gallery figcaption { margin-top: .45rem; text-align: center; }
 .dexreach-page .dx-gallery figcaption strong, .dexreach-page .dx-gallery figcaption span { display: block; }
-.dexreach-page .dx-sequence ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin: 0 0 .6rem; padding: 0; list-style: none; }
-.dexreach-page .dx-sequence img { display: block; width: 100%; height: auto; }
-.dexreach-page .dx-sequence li span { display: block; text-align: center; }
 .dexreach-page .dx-placeholder-box { display: flex; flex-direction: column; justify-content: center; gap: .5rem; aspect-ratio: 480 / 678; padding: 1rem; border: 2px dashed #c0392b; border-radius: 6px; text-align: center; font-size: .85rem; color: #c0392b; }
 .dexreach-page .dx-placeholder-box span:first-child { font-weight: 700; letter-spacing: .05em; }
 .dexreach-page .dx-results-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.25rem 0 1.5rem; }
@@ -39,7 +36,6 @@
 
 @media (max-width: 768px) {
   .dexreach-page .dx-gallery { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
-  .dexreach-page .dx-sequence ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dexreach-page .gdf-subtitle { font-size: clamp(1.05rem, 3.4vw, 1.35rem); }
   .dexreach-page .dx-results th,
   .dexreach-page .dx-results td { padding: .5rem .4rem; font-size: .88rem; }

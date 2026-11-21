@@ -10,12 +10,12 @@
   <meta property="og:description" content="dexreach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/dexreach/">
-  <meta property="og:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg">
+  <meta property="og:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg?v=17b1a6ad4b1b">
   <meta property="og:image:alt" content="Isaac Lab views of Franka-Ability and dual Franka-Ability during two-object transport, a 45-degree yaw target, a 30-degree mid-path tilt target, and pick and place.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
   <meta name="twitter:description" content="dexreach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
-  <meta name="twitter:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg">
+  <meta name="twitter:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg?v=17b1a6ad4b1b">
   <meta name="twitter:image:alt" content="Isaac Lab views of Franka-Ability and dual Franka-Ability during two-object transport, a 45-degree yaw target, a 30-degree mid-path tilt target, and pick and place.">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
   <style>
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=bold-size-inherit-20261031">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
-  <link rel="stylesheet" href="./static/css/index.css?v=20261121">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261121b">
   <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
   <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
   <script>
@@ -67,8 +67,8 @@
       <p>We developed DexReach, an Apache-2.0 Python package for grasp and manipulation planning with a unified arm-hand configuration. The planner evaluates contact wrenches under friction and actuation limits, constructs whole-body motions from the evaluated grasp, and jointly plans object trajectories with fingertip and table-support forces. We evaluated complete manipulation sequences in Isaac Lab across arm-hand embodiments, object-waypoint tasks, and simultaneous dual-object manipulation.</p>
     </div>
     <figure class="gdf-overview dx-demo">
-<video aria-label="Isaac Lab views of Franka-Ability and dual Franka-Ability during two-object transport, a 45-degree yaw target, a 30-degree mid-path tilt target, and pick and place." autoplay="" controls="" controlslist="nodownload" loop="" muted="" playsinline="" poster="./static/videos/overview_poster.jpg" preload="metadata">
-<source src="./static/videos/overview.mp4" type="video/mp4"/>
+<video aria-label="Isaac Lab views of Franka-Ability and dual Franka-Ability during two-object transport, a 45-degree yaw target, a 30-degree mid-path tilt target, and pick and place." autoplay="" controls="" controlslist="nodownload" loop="" muted="" playsinline="" poster="./static/videos/overview_poster.jpg?v=17b1a6ad4b1b" preload="metadata">
+<source src="./static/videos/overview.mp4?v=0c66c3493ab8" type="video/mp4"/>
 <a href="./static/videos/overview.mp4">Open the MP4 overview.</a>
 </video>
 <figcaption>Isaac Lab simulation of planned manipulation with Franka-Ability and dual Franka-Ability: two-object manipulation, object yaw, mid-path tilt, and pick-and-place.</figcaption>
@@ -135,47 +135,36 @@
     </div>
     <div class="dx-gallery" role="group" aria-label="Recorded grasps rendered in Isaac Lab">
       <figure>
-        <video width="1536" height="864" controls muted playsinline preload="none" poster="./static/videos/xarm7_l6_mustard_poster.jpg" aria-label="xArm7 with an L6 hand grasping a mustard bottle">
-          <source src="./static/videos/xarm7_l6_mustard.mp4" type="video/mp4">
+        <video width="1536" height="864" controls muted playsinline preload="metadata" poster="./static/videos/xarm7_l6_mustard_poster.jpg?v=ab1fde67d675" aria-label="xArm7 with an L6 hand grasping a mustard bottle">
+          <source src="./static/videos/xarm7_l6_mustard.mp4?v=92e59851e221" type="video/mp4">
           <a href="./static/videos/xarm7_l6_mustard.mp4">Open the recording.</a>
         </video>
         <figcaption><strong>xArm7-L6</strong><span>Mustard bottle</span></figcaption>
       </figure>
       <figure>
-        <video width="1536" height="864" controls muted playsinline preload="none" poster="./static/videos/franka_leap_soup_poster.jpg" aria-label="Franka arm with a LEAP Hand grasping a soup can">
-          <source src="./static/videos/franka_leap_soup.mp4" type="video/mp4">
+        <video width="1536" height="864" controls muted playsinline preload="metadata" poster="./static/videos/franka_leap_soup_poster.jpg?v=28ca230ed6a7" aria-label="Franka arm with a LEAP Hand grasping a soup can">
+          <source src="./static/videos/franka_leap_soup.mp4?v=23aed2617e19" type="video/mp4">
           <a href="./static/videos/franka_leap_soup.mp4">Open the recording.</a>
         </video>
         <figcaption><strong>Franka-LEAP</strong><span>Soup can</span></figcaption>
       </figure>
       <figure>
-        <video width="2560" height="1360" controls muted playsinline preload="none" poster="./static/videos/franka_ability_soup_poster.jpg" aria-label="Franka arm with an Ability Hand grasping a soup can">
-          <source src="./static/videos/franka_ability_soup.mp4" type="video/mp4">
+        <video width="2560" height="1360" controls muted playsinline preload="metadata" poster="./static/videos/franka_ability_soup_poster.jpg?v=eb3772f4b96d" aria-label="Franka arm with an Ability Hand grasping a soup can">
+          <source src="./static/videos/franka_ability_soup.mp4?v=58f3d9b99273" type="video/mp4">
           <a href="./static/videos/franka_ability_soup.mp4">Open the recording.</a>
         </video>
         <figcaption><strong>Franka-Ability</strong><span>Soup can</span></figcaption>
       </figure>
       <figure>
-        <video width="1920" height="1080" controls muted playsinline preload="none" poster="./static/videos/g1_dex3_box_poster.jpg" aria-label="Unitree G1 with a Dex3 hand lifting a box">
-          <source src="./static/videos/g1_dex3_box.mp4" type="video/mp4">
+        <video width="1920" height="1080" controls muted playsinline preload="metadata" poster="./static/videos/g1_dex3_box_poster.jpg?v=d309aea74db8" aria-label="Unitree G1 with a Dex3 hand lifting a box">
+          <source src="./static/videos/g1_dex3_box.mp4?v=33b53fd89e22" type="video/mp4">
           <a href="./static/videos/g1_dex3_box.mp4">Open the recording.</a>
         </video>
         <figcaption><strong>G1-Dex3</strong><span>Box</span></figcaption>
       </figure>
     </div>
     <p><a href="./static/videos/gallery-isaac.json">Recording Sources and Checksums</a></p>
-    <figure class="gdf-overview dx-sequence">
-      <ol aria-label="Pick-and-place phases">
-        <li><img src="./static/media/franka-ability-soup-approach.png" width="1280" height="1280" loading="lazy" alt="Franka-Ability during approach"><span>Approach</span></li>
-        <li><img src="./static/media/franka-ability-soup-acquisition.png" width="1280" height="1280" loading="lazy" alt="Franka-Ability during acquisition"><span>Acquisition</span></li>
-        <li><img src="./static/media/franka-ability-soup-lift.png" width="1280" height="1280" loading="lazy" alt="Franka-Ability during lift"><span>Lift</span></li>
-        <li><img src="./static/media/franka-ability-soup-transport.png" width="1280" height="1280" loading="lazy" alt="Franka-Ability during transport"><span>Transport</span></li>
-        <li><img src="./static/media/franka-ability-soup-release.png" width="1280" height="1280" loading="lazy" alt="Franka-Ability during release"><span>Release</span></li>
-        <li><img src="./static/media/franka-ability-soup-retreat.png" width="1280" height="1280" loading="lazy" alt="Franka-Ability during retreat"><span>Retreat</span></li>
-      </ol>
-      <figcaption><strong>Franka-Ability Pick-and-Place Sequence.</strong> Chronological snapshots of a soup-can execution show approach, acquisition, lift, transport, release after placement, and retreat.</figcaption>
-    </figure>
-    <p><a href="./static/videos/franka_ability_soup_sequence.mp4">Watch the complete sequence</a> · <a href="./static/videos/franka_ability_soup_sequence.json">Sequence Sources and Checksums</a></p>
+    <p><a href="./static/videos/franka_ability_soup_sequence.mp4">Watch the complete Franka-Ability soup-can sequence</a> · <a href="./static/videos/franka_ability_soup_sequence.json">Sequence Sources and Checksums</a></p>
 
     <h3 class="gdf-h3" id="xarm7-leap">xArm7–LEAP Pick and Place</h3>
     <div class="gdf-prose">

@@ -4,13 +4,13 @@
   "media": [
     {
       "name": "overview.mp4",
-      "sha256": "258b502ee54a34e20f0b5f923cad94f3207c8179be7bad6d1da5cd77eb6b53b7",
-      "bytes": 12964744
+      "sha256": "0c66c3493ab866008a2f5361a94d804b5fce74cd26f9b435eba41cd72452e476",
+      "bytes": 13853822
     },
     {
       "name": "overview_poster.jpg",
-      "sha256": "6e8af23d74bb15175a94a681f73758609d2360f8ff29c6692c3b103898901670",
-      "bytes": 214130
+      "sha256": "17b1a6ad4b1b1d0819181181e2bec445c0396bf98b55429e068f4b97cc5dd666",
+      "bytes": 241660
     }
   ],
   "native_capture": {
@@ -60,7 +60,8 @@
       "median_surface_distance_m": 0.0005094408161807177,
       "p99_surface_distance_m": 0.006386555302272876,
       "source": "MuJoCoDex/assets/misc/objects/ycb/005_tomato_soup_can/meshes"
-    }
+    },
+    "appearance_preset": "presentation"
   },
   "historical_identification": {
     "prior_website_video_sha256": "14685bb177015ee40c6147f7f38784353433f706acc82c5442b5cafb91662c83",
@@ -235,9 +236,8 @@
       "embodiment": "dual_franka_ability",
       "title": "Two Arms, Two Objects",
       "measured_angles": {},
-      "captured_renderer_sha256": "89eba182deb75d9b267672aafadb29c4455ab7de5c6caba13d3f2fad59387a32",
       "reproduction_renderer": "scripts/render_rollout.py",
-      "reproduction_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "reproduction_renderer_sha256": "4a6058eed28658e48504d29f78ce18a7b01d9c745848f9b028ea3ddcd2043787",
       "object_count": 2,
       "source_format": "Isaac Lab evaluator output. Active robot joints and measured rigid-body root positions and scalar-first quaternions, replayed kinematically.",
       "source_indices_zero_based": [
@@ -245,7 +245,9 @@
         543
       ],
       "source_stride": 1,
-      "final_sample_held_for_output_frames": 0
+      "final_sample_held_for_output_frames": 0,
+      "appearance_preset": "presentation",
+      "camera_record_sha256": "e074102fff6143cb7a8dd3d6fb376be132527cc6f127632fd0e73c90c9b52139"
     },
     {
       "case": "yaw",
@@ -318,9 +320,8 @@
         "yaw_final_relative_to_initial_deg": 45.486,
         "rotation_definition": "Unwrapped ZYX Euler yaw of R(t) R(0)^T, from the measured root quaternion."
       },
-      "captured_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
       "reproduction_renderer": "scripts/render_rollout.py",
-      "reproduction_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "reproduction_renderer_sha256": "4a6058eed28658e48504d29f78ce18a7b01d9c745848f9b028ea3ddcd2043787",
       "object_count": 1,
       "source_format": "Isaac Lab evaluator output. Active robot joints and measured rigid-body root positions and scalar-first quaternions, replayed kinematically.",
       "source_indices_zero_based": [
@@ -328,7 +329,9 @@
         330
       ],
       "source_stride": 1,
-      "final_sample_held_for_output_frames": 213
+      "final_sample_held_for_output_frames": 213,
+      "appearance_preset": "presentation",
+      "camera_record_sha256": "771921b69abbecace8e81a895a9bfae16aa11aed7d189e016f42c9c33b8f5931"
     },
     {
       "case": "tilt",
@@ -403,9 +406,8 @@
         "peak_source_index": 213,
         "rotation_definition": "Angle between the world vertical and the initial vertical transformed by R(t) R(0)^T. The carry quaternion path specifies the planned value."
       },
-      "captured_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
       "reproduction_renderer": "scripts/render_rollout.py",
-      "reproduction_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "reproduction_renderer_sha256": "4a6058eed28658e48504d29f78ce18a7b01d9c745848f9b028ea3ddcd2043787",
       "object_count": 1,
       "source_format": "Isaac Lab evaluator output. Active robot joints and measured rigid-body root positions and scalar-first quaternions, replayed kinematically.",
       "source_indices_zero_based": [
@@ -413,7 +415,9 @@
         337
       ],
       "source_stride": 1,
-      "final_sample_held_for_output_frames": 206
+      "final_sample_held_for_output_frames": 206,
+      "appearance_preset": "presentation",
+      "camera_record_sha256": "b6132556e76f747ca1be9b5daaaff0e6a1b4a3e48b55a5c456fbfb343c97cfa2"
     },
     {
       "case": "place",
@@ -482,9 +486,8 @@
       "embodiment": "franka_ability",
       "title": "Pick and Place",
       "measured_angles": {},
-      "captured_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
       "reproduction_renderer": "scripts/render_rollout.py",
-      "reproduction_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "reproduction_renderer_sha256": "4a6058eed28658e48504d29f78ce18a7b01d9c745848f9b028ea3ddcd2043787",
       "object_count": 1,
       "source_format": "Isaac Lab evaluator output. Active robot joints and measured rigid-body root positions and scalar-first quaternions, replayed kinematically.",
       "source_indices_zero_based": [
@@ -492,14 +495,21 @@
         308
       ],
       "source_stride": 1,
-      "final_sample_held_for_output_frames": 235
+      "final_sample_held_for_output_frames": 235,
+      "appearance_preset": "presentation",
+      "camera_record_sha256": "c7564cccdd3d040743676682e712f975677ac873199b12c245e7f02639854de2"
     }
   ],
   "reproduction": {
     "script": "DexReach scripts/render_rollout.py",
-    "script_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
-    "dual_capture_script_sha256": "89eba182deb75d9b267672aafadb29c4455ab7de5c6caba13d3f2fad59387a32",
-    "dual_implementation": "The original dual capture used the studio renderer with a local extension permitting one registered scan for multiple byte-identical mesh instances. The repository version includes the same capability."
+    "script_sha256": "4a6058eed28658e48504d29f78ce18a7b01d9c745848f9b028ea3ddcd2043787",
+    "options": [
+      "--studio",
+      "--presentation",
+      "--rendering_mode",
+      "quality",
+      "--enable_cameras"
+    ]
   },
   "checks": {
     "decoded": 544,
@@ -518,114 +528,114 @@
       {
         "frame": 0,
         "rgb_mae_8bit": [
-          0.942,
-          0.677,
-          0.675,
-          0.678
+          1.345,
+          1.239,
+          1.242,
+          1.242
         ]
       },
       {
         "frame": 60,
         "rgb_mae_8bit": [
-          0.954,
-          0.724,
-          0.723,
-          0.727
+          1.369,
+          1.277,
+          1.279,
+          1.277
         ]
       },
       {
         "frame": 144,
         "rgb_mae_8bit": [
-          0.98,
-          0.664,
-          0.666,
-          0.667
+          1.365,
+          1.233,
+          1.232,
+          1.23
         ]
       },
       {
         "frame": 180,
         "rgb_mae_8bit": [
-          0.97,
-          0.717,
-          0.69,
-          0.691
+          1.379,
+          1.267,
+          1.267,
+          1.268
         ]
       },
       {
         "frame": 208,
         "rgb_mae_8bit": [
-          0.923,
-          0.687,
-          0.696,
-          0.686
+          1.36,
+          1.29,
+          1.29,
+          1.289
         ]
       },
       {
         "frame": 213,
         "rgb_mae_8bit": [
-          0.907,
-          0.697,
-          0.752,
-          0.694
+          1.355,
+          1.294,
+          1.293,
+          1.28
         ]
       },
       {
         "frame": 260,
         "rgb_mae_8bit": [
-          0.903,
-          0.648,
-          0.689,
-          0.724
+          1.345,
+          1.228,
+          1.269,
+          1.239
         ]
       },
       {
         "frame": 307,
         "rgb_mae_8bit": [
-          0.919,
-          0.666,
-          0.783,
-          0.649
+          1.375,
+          1.227,
+          1.244,
+          1.199
         ]
       },
       {
         "frame": 330,
         "rgb_mae_8bit": [
-          0.915,
-          0.692,
-          0.691,
-          0.658
+          1.382,
+          1.206,
+          1.219,
+          1.211
         ]
       },
       {
         "frame": 420,
         "rgb_mae_8bit": [
-          0.91,
-          0.691,
-          0.659,
-          0.658
+          1.381,
+          1.203,
+          1.214,
+          1.21
         ]
       },
       {
         "frame": 502,
         "rgb_mae_8bit": [
-          0.89,
-          0.654,
-          0.633,
-          0.636
+          1.334,
+          1.178,
+          1.191,
+          1.188
         ]
       },
       {
         "frame": 543,
         "rgb_mae_8bit": [
-          0.967,
-          0.655,
-          0.633,
-          0.636
+          1.381,
+          1.178,
+          1.191,
+          1.189
         ]
       }
     ],
     "poster_source": 213,
-    "poster_vs_movie_rgb_mae": 1.255727194954829,
+    "poster_vs_movie_rgb_mae": 1.0874093766075104,
     "environment": {
       "dual": {
         "isaac_lab_version": "0.54.2",
@@ -648,6 +658,6 @@
         "gpu": "NVIDIA GeForce RTX 5070 Ti"
       }
     },
-    "bytes": 12964744
+    "bytes": 13853822
   }
 }

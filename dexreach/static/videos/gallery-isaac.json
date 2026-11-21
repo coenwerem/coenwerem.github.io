@@ -18,9 +18,25 @@
         864
       ],
       "media_sha256": {
-        "xarm7_l6_mustard.mp4": "4fd64b8377862ee5a969745e25ccdbaa058639bb833884ce8795e50802de6726",
-        "xarm7_l6_mustard_poster.jpg": "f901ea78d889dd3b16ff4b7457dad62ef3827fee8ed14c679edd50c1cc801314"
-      }
+        "xarm7_l6_mustard.mp4": "92e59851e2212cbfdfbe5fb3f42b477e2aea6f01899f32e1bd91ebc178123c2b",
+        "xarm7_l6_mustard_poster.jpg": "ab1fde67d6754ed399e3f901f82e072d5aac4bb21487cc4d07c6860136d249ac"
+      },
+      "camera": {
+        "eye": [
+          1.171,
+          -1.278,
+          0.661
+        ],
+        "target": [
+          0.324,
+          0.109,
+          0.294
+        ],
+        "width": 1536,
+        "height": 864
+      },
+      "poster_source_index": 180,
+      "robot_urdf_sha256": "9a0f2a5c886135aae8c8e1a71dab36beaba137629959da7d60aec7105f1984a5"
     },
     {
       "embodiment": "franka_leap",
@@ -36,9 +52,25 @@
         864
       ],
       "media_sha256": {
-        "franka_leap_soup.mp4": "f4dcb5b8c0826ad6cd9c5c2a0c21403b657ce82c65bc7ecd2ead4bb48fa4e719",
-        "franka_leap_soup_poster.jpg": "9dc5f7c9156acf39683043d4032df6f3be55a6f8e3a31095398e6294f86b1c0b"
-      }
+        "franka_leap_soup.mp4": "23aed2617e19db56dafa59b2ddc859d0fe44df576873a372b06e6c7c8a1ca610",
+        "franka_leap_soup_poster.jpg": "28ca230ed6a7676976787a7141f405872649415a02c08aa006fc1e371d308683"
+      },
+      "camera": {
+        "eye": [
+          1.205,
+          -1.491,
+          0.79
+        ],
+        "target": [
+          0.226,
+          0.072,
+          0.394
+        ],
+        "width": 1536,
+        "height": 864
+      },
+      "poster_source_index": 209,
+      "robot_urdf_sha256": "7c36cab6bb93ef85602069ad84799342a5c510a76ad40ed0988e305c4f2c437c"
     },
     {
       "embodiment": "franka_ability",
@@ -54,9 +86,35 @@
         1360
       ],
       "media_sha256": {
-        "franka_ability_soup.mp4": "e6d672fc0e7bbf3833243fcd0696261db67c624f1e29ad8e5d89d0bdf3cbcc7a",
-        "franka_ability_soup_poster.jpg": "cd12875eebce9cc8aa6e3617397c3022b9710e14aa88c1fbaf79af2932db5704"
-      }
+        "franka_ability_soup.mp4": "58f3d9b99273e6abaeffdc6ee6bb056a8f3973b9d798cf0e543ccaaad4f4ae49",
+        "franka_ability_soup_poster.jpg": "eb3772f4b96dc10abdd61e08f8d8832cd941728b3676aad4d092686fee11983d"
+      },
+      "camera": {
+        "eye": [
+          0.82,
+          -0.82,
+          0.64
+        ],
+        "target": [
+          0.17,
+          0.04,
+          0.38
+        ],
+        "width": 1280,
+        "height": 1360,
+        "detail_eye": [
+          0.809,
+          -0.227,
+          0.382
+        ],
+        "detail_target": [
+          0.49,
+          0.094,
+          0.148
+        ]
+      },
+      "poster_source_index": 198,
+      "robot_urdf_sha256": "a44aeb0b2f008996e221bd64e740f8e6074096f6ae7540e669f45f6988f82c66"
     },
     {
       "embodiment": "g1_dex3_right",
@@ -72,9 +130,47 @@
         1080
       ],
       "media_sha256": {
-        "g1_dex3_box.mp4": "12dc4086c415e05fa51cea20893e3df609aea180b629a31a38f11fe4e94c6755",
-        "g1_dex3_box_poster.jpg": "29dbf9a8392ca0b9aed2b9a23dd98e39485442b1cf39e661cf26e4aabb8b13e8"
-      }
+        "g1_dex3_box.mp4": "33b53fd89e2251abcc5cd3b0d2c2352ee1b5502fd26c5fef27943bac6211430f",
+        "g1_dex3_box_poster.jpg": "d309aea74db8a756f532987e5a55891742183b3f8730d34ddbed9bf4cfacf293"
+      },
+      "camera": {
+        "eye": [
+          1.15,
+          -0.79,
+          1.24
+        ],
+        "target": [
+          0.11,
+          -0.015,
+          0.997
+        ],
+        "width": 1920,
+        "height": 1080,
+        "detail_eye": [
+          0.7,
+          -0.33,
+          1.065
+        ],
+        "detail_target": [
+          0.33,
+          -0.02,
+          0.867
+        ]
+      },
+      "poster_source_index": 260,
+      "robot_urdf_sha256": "83955d22fa1ddb160a5a2315a225213d5325403fc07e13d4686d6bdc5a58127f",
+      "detail_view_frames": [
+        110,
+        239
+      ]
     }
-  ]
+  ],
+  "capture": {
+    "source_commit": "12674aec11256cae030cfd4942181916630af740",
+    "script": "scripts/render_rollout.py",
+    "appearance_preset": "presentation",
+    "source_indices": "Every recorded sample in order",
+    "isaac_lab_version": "0.54.2",
+    "isaac_sim_version": "5.1.0.0"
+  }
 }
