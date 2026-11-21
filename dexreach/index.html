@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=bold-size-inherit-20261031">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
-  <link rel="stylesheet" href="./static/css/index.css?v=20261120">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261120-gallery">
   <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
   <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
   <script>
@@ -129,12 +129,40 @@
   <div class="gdf-wrap">
     <h2 class="gdf-h2">Embodiment Models</h2>
     <div class="gdf-prose">
-      <p>An embodiment model combines arm-hand kinematics, fingertip contact geometry, actuation limits, and finger couplings. The two Franka models below show the grasp geometry of each hand around a lifted soup can.</p>
+      <p>An embodiment model combines arm-hand kinematics, fingertip contact geometry, actuation limits, and finger couplings. The recordings show four arm-hand models grasping tabletop objects. Isaac Lab renders the robot and object poses recorded during each trial.</p>
     </div>
-    <ul class="dx-models" aria-label="Additional arm-hand and object pairs">
-      <li><strong>xArm7-L6</strong><span>Mustard bottle</span></li>
-      <li><strong>G1-Dex3</strong><span>Box</span></li>
-    </ul>
+    <div class="dx-gallery" role="group" aria-label="Recorded grasps rendered in Isaac Lab">
+      <figure>
+        <video controls muted playsinline preload="none" poster="./static/videos/xarm7_l6_mustard_poster.jpg" aria-label="xArm7 with an L6 hand grasping a mustard bottle">
+          <source src="./static/videos/xarm7_l6_mustard.mp4" type="video/mp4">
+          <a href="./static/videos/xarm7_l6_mustard.mp4">Open the recording.</a>
+        </video>
+        <figcaption><strong>xArm7-L6</strong><span>Mustard bottle</span></figcaption>
+      </figure>
+      <figure>
+        <video controls muted playsinline preload="none" poster="./static/videos/franka_leap_soup_poster.jpg" aria-label="Franka arm with a LEAP Hand grasping a soup can">
+          <source src="./static/videos/franka_leap_soup.mp4" type="video/mp4">
+          <a href="./static/videos/franka_leap_soup.mp4">Open the recording.</a>
+        </video>
+        <figcaption><strong>Franka-LEAP</strong><span>Soup can</span></figcaption>
+      </figure>
+      <figure>
+        <video controls muted playsinline preload="none" poster="./static/videos/franka_ability_soup_poster.jpg" aria-label="Franka arm with an Ability Hand grasping a soup can">
+          <source src="./static/videos/franka_ability_soup.mp4" type="video/mp4">
+          <a href="./static/videos/franka_ability_soup.mp4">Open the recording.</a>
+        </video>
+        <figcaption><strong>Franka-Ability</strong><span>Soup can</span></figcaption>
+      </figure>
+      <figure>
+        <video controls muted playsinline preload="none" poster="./static/videos/g1_dex3_box_poster.jpg" aria-label="Unitree G1 with a Dex3 hand lifting a box">
+          <source src="./static/videos/g1_dex3_box.mp4" type="video/mp4">
+          <a href="./static/videos/g1_dex3_box.mp4">Open the recording.</a>
+        </video>
+        <figcaption><strong>G1-Dex3</strong><span>Box</span></figcaption>
+      </figure>
+    </div>
+    <p><a href="./static/videos/gallery-isaac.json">Recording Sources and Checksums</a></p>
+    <h3 class="gdf-h3">Soup-Can Grasp Geometry</h3>
     <div class="dx-grasp-models" role="group" aria-label="Static soup-can grasp geometry">
       <figure>
         <img src="./static/media/franka-leap-soup-geometry.png" width="1200" height="1000" loading="lazy" alt="Franka arm with a LEAP Hand holding a soup can">

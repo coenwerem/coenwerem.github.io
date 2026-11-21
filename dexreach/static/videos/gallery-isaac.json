@@ -1,0 +1,80 @@
+{
+  "source_repository": "coenwerem/dexreach",
+  "renderer": "Isaac Lab RGB cameras with NVIDIA RTX",
+  "state_source": "Recorded Isaac Lab evaluation states",
+  "fps": 30,
+  "recordings": [
+    {
+      "embodiment": "xarm7_l6",
+      "object": "mustard bottle",
+      "trial_key": 80000,
+      "evaluation": "bench/archive/rt/xarm7_l6_mustard_meas_eval.pt",
+      "evaluation_sha256": "b4d111afc10f0164f140e9de72db572da3de33d61c50f50b6cf46bc14cacfabe",
+      "evaluation_input": "bench/archive/rt/xarm7_l6_mustard_meas_in.pt",
+      "evaluation_input_sha256": "43a8d54fb43f01f6409d1f010c1326e490af4d120c1567778c995d9af5a363d9",
+      "frames": 296,
+      "resolution": [
+        1536,
+        864
+      ],
+      "media_sha256": {
+        "xarm7_l6_mustard.mp4": "4fd64b8377862ee5a969745e25ccdbaa058639bb833884ce8795e50802de6726",
+        "xarm7_l6_mustard_poster.jpg": "f901ea78d889dd3b16ff4b7457dad62ef3827fee8ed14c679edd50c1cc801314"
+      }
+    },
+    {
+      "embodiment": "franka_leap",
+      "object": "tomato soup can",
+      "trial_key": 0,
+      "evaluation": "bench/archive/rt/franka_leap_soup_meas_eval.pt",
+      "evaluation_sha256": "5add1b0f0fdad7fe144e070666add819f1ac62ce7388a126c7b3439413e0d405",
+      "evaluation_input": "bench/archive/rt/franka_leap_soup_meas_in.pt",
+      "evaluation_input_sha256": "a7a06fbd8f64a1476c50e98a0c169aac402b0c6bc0ac71895b319e4f6601a749",
+      "frames": 308,
+      "resolution": [
+        1536,
+        864
+      ],
+      "media_sha256": {
+        "franka_leap_soup.mp4": "f4dcb5b8c0826ad6cd9c5c2a0c21403b657ce82c65bc7ecd2ead4bb48fa4e719",
+        "franka_leap_soup_poster.jpg": "9dc5f7c9156acf39683043d4032df6f3be55a6f8e3a31095398e6294f86b1c0b"
+      }
+    },
+    {
+      "embodiment": "franka_ability",
+      "object": "tomato soup can",
+      "trial_key": 5596,
+      "evaluation": "results/ability_soup_seq_sim.pt",
+      "evaluation_sha256": "feaa3fb09d567022a1bff3ffb361645ef41e49cf36f5fbfd89d2cb87b018e01c",
+      "evaluation_input": "results/ability_soup_seq_sim_input.pt",
+      "evaluation_input_sha256": "c35af05705c47d1ed376a0d3eeb7b670feaf7550df6bdb47fc0388fad20e3b62",
+      "frames": 309,
+      "resolution": [
+        1536,
+        864
+      ],
+      "media_sha256": {
+        "franka_ability_soup.mp4": "9d366bd351fe2964396452ae596202f8fcbf56ed386891579ba5344c4f463be6",
+        "franka_ability_soup_poster.jpg": "00cb2f0cc97825ceef11d623995b319194f2f3200646e6ee2b0f9815b189f408"
+      }
+    },
+    {
+      "embodiment": "g1_dex3_right",
+      "object": "box",
+      "grasp_id": 5530,
+      "evaluation": "results/g1_box_mp_sim_a.pt",
+      "evaluation_sha256": "9152e927dead43dd02bdac50096c69258c7931c4099cfb90c14b6a0a0ff68988",
+      "evaluation_input": "results/g1_box_mp_sim_input.pt",
+      "evaluation_input_sha256": "22695efd71c64f5a5c2a440733d46c78e10f02b649ab19990f390218462ee013",
+      "frames": 347,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "media_sha256": {
+        "g1_dex3_box.mp4": "12dc4086c415e05fa51cea20893e3df609aea180b629a31a38f11fe4e94c6755",
+        "g1_dex3_box_poster.jpg": "29dbf9a8392ca0b9aed2b9a23dd98e39485442b1cf39e661cf26e4aabb8b13e8"
+      }
+    }
+  ]
+}
