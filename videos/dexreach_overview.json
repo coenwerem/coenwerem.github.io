@@ -1,0 +1,129 @@
+{
+  "title": "DexReach: GPU-Accelerated Whole-Body Grasp and Manipulation Planning",
+  "purpose": "Shared homepage and project-page overview",
+  "simulation": "Recorded Isaac Lab demonstrations",
+  "timeline": [
+    {
+      "label": "Franka\u2013Ability and Dual Franka\u2013Ability",
+      "start_frame": 0,
+      "end_frame_exclusive": 544,
+      "start_s": 0.0,
+      "end_s": 18.133333333333333,
+      "source": "dexreach/static/videos/overview.mp4",
+      "source_sha256": "0c66c3493ab866008a2f5361a94d804b5fce74cd26f9b435eba41cd72452e476",
+      "source_frames": 544,
+      "source_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2304,
+            "height": 2304,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "30/1",
+            "nb_frames": "544"
+          }
+        ],
+        "format": {
+          "duration": "18.133333",
+          "size": "13853822"
+        }
+      }
+    },
+    {
+      "label": "xArm7\u2013LEAP \u00b7 Pick and Place",
+      "start_frame": 544,
+      "end_frame_exclusive": 1481,
+      "start_s": 18.133333333333333,
+      "end_s": 49.36666666666667,
+      "source": "dexreach/static/media/xarm7-leap-isaac.mp4",
+      "source_sha256": "a26cef8fbf85276147f6f79fa7beb6142b3f080b71b4eeee22a79d928d3f0387",
+      "source_frames": 937,
+      "source_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2050,
+            "height": 1004,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "30/1",
+            "nb_frames": "937"
+          }
+        ],
+        "format": {
+          "duration": "31.233333",
+          "size": "9329975"
+        }
+      }
+    },
+    {
+      "label": "G1\u2013Dex3 \u00b7 Box Grasp and Lift",
+      "start_frame": 1481,
+      "end_frame_exclusive": 1828,
+      "start_s": 49.36666666666667,
+      "end_s": 60.93333333333333,
+      "source": "dexreach/static/videos/g1_dex3_box.mp4",
+      "source_sha256": "33b53fd89e2251abcc5cd3b0d2c2352ee1b5502fd26c5fef27943bac6211430f",
+      "source_frames": 347,
+      "source_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "30/1",
+            "nb_frames": "347"
+          }
+        ],
+        "format": {
+          "duration": "11.566667",
+          "size": "3599319"
+        }
+      }
+    }
+  ],
+  "editing": "Each source clip is shown in full and in order at its original 30 fps. Aspect ratios are preserved with padding. A platform label and simulation label occupy a separate header band. No experiment, numerical result, speed, or source frame was changed.",
+  "claim_sources": {
+    "GPU_acceleration_and_cuRobo": "DexReach README.md; https://github.com/NVlabs/curobo",
+    "overview": "dexreach/static/videos/overview-isaac.json",
+    "xarm7_leap": "dexreach/static/media/xarm7-leap-isaac.json",
+    "g1_dex3": "dexreach/static/videos/gallery-isaac.json"
+  },
+  "media": [
+    {
+      "name": "dexreach_overview.mp4",
+      "sha256": "a0368a940d2ba917de7555882bafa8028115ef6b6c82f94919377c98492d96b4",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "30/1",
+            "nb_frames": "1828"
+          }
+        ],
+        "format": {
+          "duration": "60.933333",
+          "size": "11323127"
+        }
+      }
+    },
+    {
+      "name": "dexreach_overview_poster.jpg",
+      "sha256": "ee196aa750783dececa4830a37172a28def51c69b67b31e3dcf4db5772500a1b",
+      "bytes": 107112
+    }
+  ],
+  "font": "CMU Sans Serif, matching the website",
+  "checks": {
+    "full_decode": "passed",
+    "source_frames": 1828,
+    "encoded_frames": 1828
+  }
+}

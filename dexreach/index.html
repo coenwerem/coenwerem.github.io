@@ -4,18 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DexReach | GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</title>
-  <meta name="description" content="dexreach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
+  <meta name="description" content="DexReach is a GPU-accelerated Python package built on cuRobo for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
+  <meta name="author" content="Clinton Enwerem, John S. Baras, Calin Belta">
   <link rel="canonical" href="https://clintonenwerem.com/dexreach/">
   <meta property="og:title" content="DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
-  <meta property="og:description" content="dexreach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
+  <meta property="og:description" content="DexReach is a GPU-accelerated Python package built on cuRobo for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/dexreach/">
-  <meta property="og:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg?v=17b1a6ad4b1b">
+  <meta property="og:image" content="https://clintonenwerem.com/videos/dexreach_overview_poster.jpg?v=ee196aa75078">
   <meta property="og:image:alt" content="Isaac Lab views of Franka-Ability and dual Franka-Ability during two-object transport, a 45-degree yaw target, a 30-degree mid-path tilt target, and pick and place.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
-  <meta name="twitter:description" content="dexreach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
-  <meta name="twitter:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg?v=17b1a6ad4b1b">
+  <meta name="twitter:description" content="DexReach is a GPU-accelerated Python package built on cuRobo for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
+  <meta name="twitter:image" content="https://clintonenwerem.com/videos/dexreach_overview_poster.jpg?v=ee196aa75078">
   <meta name="twitter:image:alt" content="Isaac Lab views of Franka-Ability and dual Franka-Ability during two-object transport, a 45-degree yaw target, a 30-degree mid-path tilt target, and pick and place.">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
   <style>
@@ -46,7 +47,7 @@
     <header class="gdf-hero">
       <h1 class="gdf-title">DexReach</h1>
       <h2 class="gdf-subtitle">GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</h2>
-      <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span></p>
+      <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span>, <span class="text-nowrap">John S. Baras</span>, &amp; <span class="text-nowrap">Calin Belta</span></p>
       <p class="gdf-affil">University of Maryland, College Park</p>
       <div class="gdf-btns">
         <a class="gdf-btn" href="#" data-coming-soon><i class="fab fa-github" aria-hidden="true"></i><span>Code (Coming Soon)</span></a>
@@ -64,16 +65,16 @@
 <section class="gdf-section dx-intro" aria-label="Overview">
   <div class="gdf-wrap">
     <div class="gdf-prose">
-      <p>We developed DexReach, an Apache-2.0 Python package for grasp and manipulation planning with a unified arm-hand configuration. The planner evaluates contact wrenches under friction and actuation limits, constructs whole-body motions from the evaluated grasp, and jointly plans object trajectories with fingertip and table-support forces. We evaluated complete manipulation sequences in Isaac Lab across arm-hand embodiments, object-waypoint tasks, and simultaneous dual-object manipulation.</p>
+      <p>We developed DexReach, a GPU-accelerated Python package built on <a href="https://github.com/NVlabs/curobo" target="_blank" rel="noopener">cuRobo</a> for grasp and manipulation planning with a unified arm-hand configuration. The planner evaluates contact wrenches under friction and actuation limits, constructs whole-body motions from the evaluated grasp, and jointly plans object trajectories with fingertip and table-support forces. We evaluated complete manipulation sequences in Isaac Lab across arm-hand embodiments, object-waypoint tasks, and simultaneous dual-object manipulation.</p>
     </div>
     <figure class="gdf-overview dx-demo">
-<video aria-label="Isaac Lab views of Franka-Ability and dual Franka-Ability during two-object transport, a 45-degree yaw target, a 30-degree mid-path tilt target, and pick and place." autoplay="" controls="" controlslist="nodownload" loop="" muted="" playsinline="" poster="./static/videos/overview_poster.jpg?v=17b1a6ad4b1b" preload="metadata">
-<source src="./static/videos/overview.mp4?v=0c66c3493ab8" type="video/mp4"/>
-<a href="./static/videos/overview.mp4">Open the MP4 overview.</a>
+<video aria-label="Isaac Lab demonstrations with Franka-Ability and dual Franka-Ability, xArm7–LEAP pick-and-place, and G1–Dex3 box grasping and lifting." autoplay="" controls="" controlslist="nodownload" loop="" muted="" playsinline="" poster="../videos/dexreach_overview_poster.jpg?v=ee196aa75078" preload="metadata">
+<source src="../videos/dexreach_overview.mp4?v=a0368a940d2b" type="video/mp4"/>
+<a href="../videos/dexreach_overview.mp4">Open the MP4 overview.</a>
 </video>
-<figcaption>Isaac Lab simulation of planned manipulation with Franka-Ability and dual Franka-Ability: two-object manipulation, object yaw, mid-path tilt, and pick-and-place.</figcaption>
+<figcaption>Isaac Lab demonstrations with Franka-Ability and dual Franka-Ability, xArm7–LEAP pick-and-place, and G1–Dex3 box grasping and lifting. The Franka-Ability overview includes two-object manipulation, a 45° yaw target, and a 30° mid-path tilt target.</figcaption>
 </figure>
-    <p class="dx-note"><a href="./static/videos/overview-isaac.json">Overview Sources and Checksums</a></p>
+    <p class="dx-note"><a href="../videos/dexreach_overview.json">Overview Sources and Checksums</a></p>
   </div>
 </section>
 
@@ -304,7 +305,7 @@
   <div class="gdf-wrap">
     <h2 class="gdf-h2">Software Resources</h2>
     <div class="gdf-prose">
-      <p>The <code>dexreach</code> package requires a CUDA-capable environment with NVIDIA cuRobo for planning and Isaac Lab for simulation evaluation.</p>
+      <p>The <code>dexreach</code> package is released under the Apache 2.0 license and requires a CUDA-capable environment with NVIDIA cuRobo for planning and Isaac Lab for simulation evaluation.</p>
     </div>
     <div class="gdf-btns dx-resource-links">
 <a class="gdf-btn" data-coming-soon="" href="#"><i aria-hidden="true" class="fab fa-github"></i><span>Code (Coming Soon)</span></a>
@@ -316,9 +317,9 @@
 <section class="gdf-section" id="citation"><div class="gdf-wrap">
 <h2 class="gdf-h2">Citation</h2>
 <pre><code>@software{enwerem2026dexreach,
-  title   = {DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and
-             Manipulation Planning},
-  author  = {Enwerem, Clinton},
+  title   = {{DexReach}: {GPU}-{Accelerated} {Whole}-{Body} {Dexterous} {Grasp} and
+             {Manipulation} {Planning}},
+  author  = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
   year    = {2026},
   version = {0.1.0},
   license = {Apache-2.0},
