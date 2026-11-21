@@ -1,0 +1,653 @@
+{
+  "title": "DexReach Franka–Ability Manipulation Overview",
+  "caption": "Isaac Lab simulation of planned manipulation with Franka-Ability and dual Franka-Ability: two-object manipulation, object yaw, mid-path tilt, and pick-and-place.",
+  "media": [
+    {
+      "name": "overview.mp4",
+      "sha256": "258b502ee54a34e20f0b5f923cad94f3207c8179be7bad6d1da5cd77eb6b53b7",
+      "bytes": 12964744
+    },
+    {
+      "name": "overview_poster.jpg",
+      "sha256": "6e8af23d74bb15175a94a681f73758609d2360f8ff29c6692c3b103898901670",
+      "bytes": 214130
+    }
+  ],
+  "native_capture": {
+    "isaac_lab": "0.54.2",
+    "isaac_sim": "5.1.0.0",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "camera": "Isaac Lab CameraCfg with native RTX RGB, 24 mm focal length and 24 mm horizontal aperture. Camera is fixed within each trial.",
+    "native_pane_width_height": [
+      1152,
+      1056
+    ],
+    "output_width_height": [
+      2304,
+      2304
+    ],
+    "fps": 30,
+    "frames": 544,
+    "duration_s": 18.133333333333333,
+    "recorded_sample_count": 1522,
+    "poster_frame": 213,
+    "poster_seconds": 7.1,
+    "pane_order": [
+      "top left",
+      "top right",
+      "bottom left",
+      "bottom right"
+    ],
+    "titles": [
+      "Two Arms, Two Objects",
+      "Object Yaw · 45° Target",
+      "Object Tilt · 30° Target",
+      "Pick and Place"
+    ],
+    "timing": "Each pane displays all its recorded samples once at the original 30 Hz. A completed pane holds its last sample until the 544-sample dual trial ends.",
+    "encoder": "H.264 High, level 5.1, libx264 CRF 15 fast, yuv420p BT.709, MP4 faststart.",
+    "studio_hand_meshes_bound": [
+      22,
+      11,
+      11,
+      11
+    ],
+    "texture_registration": {
+      "mesh_sha256": "eeb8fa37277c54cfecf31f205428f5743cb9f24b1f3068a81f9980674d376140",
+      "texture_sha256": "6ce547f2d3049fb3e6b1515009cb51671a0debd390ec466b335acb280bfc4350",
+      "registration": "Identity scan frame; UV projection onto coplanar subdivisions of archived evaluation triangles.",
+      "bounds_agreement_m": 5.599999991501292e-09,
+      "median_surface_distance_m": 0.0005094408161807177,
+      "p99_surface_distance_m": 0.006386555302272876,
+      "source": "MuJoCoDex/assets/misc/objects/ycb/005_tomato_soup_can/meshes"
+    }
+  },
+  "historical_identification": {
+    "prior_website_video_sha256": "14685bb177015ee40c6147f7f38784353433f706acc82c5442b5cafb91662c83",
+    "long_movie_reference_sha256": "da259511d67dd4ac2607d490894ac0728e39587001d6d05b2e71edd3d340e4d5",
+    "method": "Calibrated the previous fixed camera to its table and initial objects. Compared projected moving arm-flange, wrist and finger meshes against the original native 400 px pane edges among completed candidate logs. IDs are inferred from the imagery.",
+    "selected_projected_contour_mean_error_px": [
+      1.131,
+      1.452,
+      1.401,
+      1.434
+    ],
+    "next_distinct_grasp_px": [
+      1.784,
+      3.182,
+      2.549,
+      2.889
+    ],
+    "paper_still_samples": [
+      48,
+      144,
+      180,
+      208,
+      264,
+      308
+    ],
+    "closest_reference_montage_frames": [
+      30,
+      101,
+      115,
+      131,
+      167,
+      197
+    ],
+    "mean_absolute_8bit_rgb_differences": [
+      2.245,
+      2.285,
+      2.462,
+      2.314,
+      2.298,
+      2.28
+    ],
+    "paper_still_mean_contour_error_at_fixed_source_indices_px": {
+      "5633": 1.833,
+      "5596": 4.141
+    },
+    "pick_place_source_disambiguation": "The v0_way_translate 5633 series has similar kinematics. The historical paper strip shows the same pick-and-place motion and includes source index 308. The 309-sample v0_place_soup trial contains that sample."
+  },
+  "panes": [
+    {
+      "case": "dual",
+      "source": "results/v0_d4_dual_sim.pt",
+      "input": "results/v0_d4_dual_sim_input.pt",
+      "source_sha256": "f6fc303f5bf7dad1557fbf40d5cba7731e8225b74d006a3293c45fb71fdcf4b0",
+      "input_sha256": "e275f601fc528648a4d3548558b48093a66244935faa2d01e575f66ae0fe3854",
+      "urdf": "assets/dual_franka_ability/dual_franka_ability.urdf",
+      "urdf_sha256": "7e12605697414d0b3170c990925d48c8167d62ec6747b9c46ef38e197333dcc3",
+      "frames": 544,
+      "dt": 0.03333333333333333,
+      "joint_count": 26,
+      "outcomes": {
+        "dual": true,
+        "both_retreated": true,
+        "gates": {
+          "retreated": true
+        },
+        "scale": 1.0,
+        "injected": false,
+        "dt": 0.03333333333333333
+      },
+      "object_outcomes": {
+        "object_1": {
+          "gates": {
+            "lifted": true,
+            "carried": true,
+            "placed": true,
+            "released": true,
+            "settled": true,
+            "clear": true,
+            "retreated": true,
+            "undisturbed": true
+          },
+          "lifted": true,
+          "settled": true,
+          "clear": true,
+          "undisturbed": true,
+          "stopped_in": "",
+          "stop_frame": -1,
+          "goal_error_m": 0.0065486798994243145,
+          "height_error_m": 2.9838745831511915e-05,
+          "orientation_deg": 3.5236175060272217,
+          "gravity_tilt_deg": 0.251010000705719,
+          "drift_m": 2.702825838696299e-07,
+          "stage_errors": {
+            "lifted": 0.005411725956946611,
+            "carried": 0.005110348109155893,
+            "placed": 0.0052893031388521194,
+            "release": 0.006548359990119934
+          },
+          "phase_starts": {
+            "approach": 0,
+            "squeeze": 85,
+            "hold": 100,
+            "lift": 115,
+            "lifted": 132,
+            "carry": 141,
+            "carried": 165,
+            "place": 174,
+            "placed": 190,
+            "release": 199,
+            "retreat": 229,
+            "done": 242
+          }
+        },
+        "object_2": {
+          "gates": {
+            "lifted": true,
+            "carried": true,
+            "placed": true,
+            "released": true,
+            "settled": true,
+            "clear": true,
+            "retreated": true,
+            "undisturbed": true
+          },
+          "lifted": true,
+          "settled": true,
+          "clear": true,
+          "undisturbed": true,
+          "stopped_in": "",
+          "stop_frame": -1,
+          "goal_error_m": 0.006436494644731283,
+          "height_error_m": 1.4037723303772509e-05,
+          "orientation_deg": 3.4984235763549805,
+          "gravity_tilt_deg": 0.2804633677005768,
+          "drift_m": 3.430707238294417e-07,
+          "stage_errors": {
+            "lifted": 0.005593307316303253,
+            "carried": 0.005227237939834595,
+            "placed": 0.0053741950541734695,
+            "release": 0.00643675122410059
+          },
+          "phase_starts": {
+            "approach": 251,
+            "squeeze": 371,
+            "hold": 386,
+            "lift": 401,
+            "lifted": 418,
+            "carry": 427,
+            "carried": 451,
+            "place": 460,
+            "placed": 477,
+            "release": 486,
+            "retreat": 516,
+            "done": 535
+          }
+        }
+      },
+      "mesh_sha256": "6d161e118eac104ac59d427cb9b05022992ed554d32a3d37010f05d87ad8c1c8",
+      "eye": [
+        1.4399550862409651,
+        -0.1923845162781084,
+        1.0387291678114767
+      ],
+      "target": [
+        0.24479607996794656,
+        -0.026390340934595625,
+        0.2972876117579387
+      ],
+      "width": 1152,
+      "height": 1056,
+      "source_grasp_key": 0,
+      "embodiment": "dual_franka_ability",
+      "title": "Two Arms, Two Objects",
+      "measured_angles": {},
+      "captured_renderer_sha256": "89eba182deb75d9b267672aafadb29c4455ab7de5c6caba13d3f2fad59387a32",
+      "reproduction_renderer": "scripts/render_rollout.py",
+      "reproduction_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "object_count": 2,
+      "source_format": "Isaac Lab evaluator output. Active robot joints and measured rigid-body root positions and scalar-first quaternions, replayed kinematically.",
+      "source_indices_zero_based": [
+        0,
+        543
+      ],
+      "source_stride": 1,
+      "final_sample_held_for_output_frames": 0
+    },
+    {
+      "case": "yaw",
+      "source": "results/v0_way_yaw_sim.pt",
+      "input": "results/v0_way_yaw_sim_input.pt",
+      "source_sha256": "79f5723bec24556c19b7c2bb0106ed6fdf59baffca2383d50e560ed08e73bf6a",
+      "input_sha256": "634c706cb0df96eb766a280227721820f561f36d41241ab5a05ac25dd1b2d1b9",
+      "urdf": "assets/franka_ability/franka_ability.urdf",
+      "urdf_sha256": "a44aeb0b2f008996e221bd64e740f8e6074096f6ae7540e669f45f6988f82c66",
+      "frames": 331,
+      "dt": 0.03333333333333333,
+      "joint_count": 13,
+      "outcomes": {
+        "dt": 0.03333333333333333,
+        "phase_starts": {
+          "approach": 0,
+          "squeeze": 130,
+          "hold": 145,
+          "lift": 160,
+          "lifted": 177,
+          "carry": 186,
+          "carried": 232,
+          "place": 241,
+          "placed": 258,
+          "release": 267,
+          "retreat": 297,
+          "done": 321
+        },
+        "scale": 1.0,
+        "lifted": true,
+        "gates": {
+          "carried": true,
+          "placed": true,
+          "released": true,
+          "retreated": true
+        },
+        "stopped_in": "",
+        "goal_error_m": 0.0038695659022778273,
+        "height_error_m": 3.474867844488472e-05,
+        "orientation_deg": 0.5482248663902283,
+        "gravity_tilt_deg": 0.2586878836154938,
+        "drift_m": 4.775496904585452e-07,
+        "stage_errors": {
+          "lifted": 0.0025580711662769318,
+          "carried": 0.0025067462120205164,
+          "placed": 0.0026284141931682825,
+          "release": 0.0038692601956427097
+        },
+        "settled": true,
+        "injected": false
+      },
+      "mesh_sha256": "6d161e118eac104ac59d427cb9b05022992ed554d32a3d37010f05d87ad8c1c8",
+      "eye": [
+        1.1292389887096297,
+        0.9308753334095053,
+        0.6314879025391825
+      ],
+      "target": [
+        0.3088978573862515,
+        0.045279779788530074,
+        0.32385994332258955
+      ],
+      "width": 1152,
+      "height": 1056,
+      "source_grasp_key": 5633,
+      "embodiment": "franka_ability",
+      "title": "Object Yaw · 45° Target",
+      "measured_angles": {
+        "yaw_target_deg": 45.0,
+        "yaw_final_relative_to_initial_deg": 45.486,
+        "rotation_definition": "Unwrapped ZYX Euler yaw of R(t) R(0)^T, from the measured root quaternion."
+      },
+      "captured_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "reproduction_renderer": "scripts/render_rollout.py",
+      "reproduction_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "object_count": 1,
+      "source_format": "Isaac Lab evaluator output. Active robot joints and measured rigid-body root positions and scalar-first quaternions, replayed kinematically.",
+      "source_indices_zero_based": [
+        0,
+        330
+      ],
+      "source_stride": 1,
+      "final_sample_held_for_output_frames": 213
+    },
+    {
+      "case": "tilt",
+      "source": "results/v0_way_tilt_sim.pt",
+      "input": "results/v0_way_tilt_sim_input.pt",
+      "source_sha256": "a21b06be190eee8d3fd5365dae423d562908943dcb5e18c7de8945d7d274aca6",
+      "input_sha256": "63c17f8638d0e358058f4857b8ff70bdc072b600f4fb937f186ef2bae6a7648c",
+      "urdf": "assets/franka_ability/franka_ability.urdf",
+      "urdf_sha256": "a44aeb0b2f008996e221bd64e740f8e6074096f6ae7540e669f45f6988f82c66",
+      "frames": 338,
+      "dt": 0.03333333333333333,
+      "joint_count": 13,
+      "outcomes": {
+        "dt": 0.03333333333333333,
+        "phase_starts": {
+          "approach": 0,
+          "squeeze": 130,
+          "hold": 145,
+          "lift": 160,
+          "lifted": 177,
+          "carry": 186,
+          "carried": 239,
+          "place": 248,
+          "placed": 265,
+          "release": 274,
+          "retreat": 304,
+          "done": 328
+        },
+        "scale": 1.0,
+        "lifted": true,
+        "gates": {
+          "carried": true,
+          "placed": true,
+          "released": true,
+          "retreated": true
+        },
+        "stopped_in": "",
+        "goal_error_m": 0.004249782767146826,
+        "height_error_m": 1.1055817594751716e-06,
+        "orientation_deg": 0.6749238967895508,
+        "gravity_tilt_deg": 0.2811601758003235,
+        "drift_m": 5.21540641784668e-08,
+        "stage_errors": {
+          "lifted": 0.0023790146224200726,
+          "carried": 0.00235768873244524,
+          "placed": 0.0023729600943624973,
+          "release": 0.0042497823014855385
+        },
+        "settled": true,
+        "injected": false
+      },
+      "mesh_sha256": "6d161e118eac104ac59d427cb9b05022992ed554d32a3d37010f05d87ad8c1c8",
+      "eye": [
+        1.1216006559619773,
+        0.9215144066178454,
+        0.6332086765991465
+      ],
+      "target": [
+        0.28715842585374807,
+        0.020696050494450866,
+        0.32029252265899105
+      ],
+      "width": 1152,
+      "height": 1056,
+      "source_grasp_key": 5633,
+      "embodiment": "franka_ability",
+      "title": "Object Tilt · 30° Target",
+      "measured_angles": {
+        "waypoint_tilt_target_deg": 30.0,
+        "maximum_planned_tilt_deg": 29.995,
+        "maximum_measured_tilt_relative_to_initial_deg": 25.388,
+        "peak_source_index": 213,
+        "rotation_definition": "Angle between the world vertical and the initial vertical transformed by R(t) R(0)^T. The carry quaternion path specifies the planned value."
+      },
+      "captured_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "reproduction_renderer": "scripts/render_rollout.py",
+      "reproduction_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "object_count": 1,
+      "source_format": "Isaac Lab evaluator output. Active robot joints and measured rigid-body root positions and scalar-first quaternions, replayed kinematically.",
+      "source_indices_zero_based": [
+        0,
+        337
+      ],
+      "source_stride": 1,
+      "final_sample_held_for_output_frames": 206
+    },
+    {
+      "case": "place",
+      "source": "results/v0_place_soup_sim.pt",
+      "input": "results/v0_place_soup_sim_input.pt",
+      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
+      "input_sha256": "c7507d1265194928205d04d104e59eca9e7b251361f8952c1730c21e980f536d",
+      "urdf": "assets/franka_ability/franka_ability.urdf",
+      "urdf_sha256": "a44aeb0b2f008996e221bd64e740f8e6074096f6ae7540e669f45f6988f82c66",
+      "frames": 309,
+      "dt": 0.03333333333333333,
+      "joint_count": 13,
+      "outcomes": {
+        "dt": 0.03333333333333333,
+        "phase_starts": {
+          "approach": 0,
+          "squeeze": 130,
+          "hold": 145,
+          "lift": 160,
+          "lifted": 177,
+          "carry": 186,
+          "carried": 210,
+          "place": 219,
+          "placed": 236,
+          "release": 245,
+          "retreat": 275,
+          "done": 299
+        },
+        "scale": 1.0,
+        "lifted": true,
+        "gates": {
+          "carried": true,
+          "placed": true,
+          "released": true,
+          "retreated": true
+        },
+        "stopped_in": "",
+        "goal_error_m": 0.004682053811848164,
+        "height_error_m": 1.870468258857727e-05,
+        "orientation_deg": 0.8308601379394531,
+        "gravity_tilt_deg": 0.1327040195465088,
+        "drift_m": 3.875018137478037e-07,
+        "stage_errors": {
+          "lifted": 0.0025580711662769318,
+          "carried": 0.0021719401702284813,
+          "placed": 0.0025366446934640408,
+          "release": 0.004681942518800497
+        },
+        "settled": true,
+        "injected": false
+      },
+      "mesh_sha256": "6d161e118eac104ac59d427cb9b05022992ed554d32a3d37010f05d87ad8c1c8",
+      "eye": [
+        1.1217889749843217,
+        0.921745447793418,
+        0.6331662327979843
+      ],
+      "target": [
+        0.28714692467697095,
+        0.020711376649644016,
+        0.32017514390184537
+      ],
+      "width": 1152,
+      "height": 1056,
+      "source_grasp_key": 5633,
+      "embodiment": "franka_ability",
+      "title": "Pick and Place",
+      "measured_angles": {},
+      "captured_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "reproduction_renderer": "scripts/render_rollout.py",
+      "reproduction_renderer_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+      "object_count": 1,
+      "source_format": "Isaac Lab evaluator output. Active robot joints and measured rigid-body root positions and scalar-first quaternions, replayed kinematically.",
+      "source_indices_zero_based": [
+        0,
+        308
+      ],
+      "source_stride": 1,
+      "final_sample_held_for_output_frames": 235
+    }
+  ],
+  "reproduction": {
+    "script": "DexReach scripts/render_rollout.py",
+    "script_sha256": "2b3629a2693ea97f06f7a6b4d4ffbb5aad1020e31fe141183feb4b76b6cc84f4",
+    "dual_capture_script_sha256": "89eba182deb75d9b267672aafadb29c4455ab7de5c6caba13d3f2fad59387a32",
+    "dual_implementation": "The original dual capture used the studio renderer with a local extension permitting one registered scan for multiple byte-identical mesh instances. The repository version includes the same capability."
+  },
+  "checks": {
+    "decoded": 544,
+    "size": [
+      2304,
+      2304
+    ],
+    "fps": 30.0,
+    "source_frames": [
+      544,
+      331,
+      338,
+      309
+    ],
+    "state_checks": [
+      {
+        "frame": 0,
+        "rgb_mae_8bit": [
+          0.942,
+          0.677,
+          0.675,
+          0.678
+        ]
+      },
+      {
+        "frame": 60,
+        "rgb_mae_8bit": [
+          0.954,
+          0.724,
+          0.723,
+          0.727
+        ]
+      },
+      {
+        "frame": 144,
+        "rgb_mae_8bit": [
+          0.98,
+          0.664,
+          0.666,
+          0.667
+        ]
+      },
+      {
+        "frame": 180,
+        "rgb_mae_8bit": [
+          0.97,
+          0.717,
+          0.69,
+          0.691
+        ]
+      },
+      {
+        "frame": 208,
+        "rgb_mae_8bit": [
+          0.923,
+          0.687,
+          0.696,
+          0.686
+        ]
+      },
+      {
+        "frame": 213,
+        "rgb_mae_8bit": [
+          0.907,
+          0.697,
+          0.752,
+          0.694
+        ]
+      },
+      {
+        "frame": 260,
+        "rgb_mae_8bit": [
+          0.903,
+          0.648,
+          0.689,
+          0.724
+        ]
+      },
+      {
+        "frame": 307,
+        "rgb_mae_8bit": [
+          0.919,
+          0.666,
+          0.783,
+          0.649
+        ]
+      },
+      {
+        "frame": 330,
+        "rgb_mae_8bit": [
+          0.915,
+          0.692,
+          0.691,
+          0.658
+        ]
+      },
+      {
+        "frame": 420,
+        "rgb_mae_8bit": [
+          0.91,
+          0.691,
+          0.659,
+          0.658
+        ]
+      },
+      {
+        "frame": 502,
+        "rgb_mae_8bit": [
+          0.89,
+          0.654,
+          0.633,
+          0.636
+        ]
+      },
+      {
+        "frame": 543,
+        "rgb_mae_8bit": [
+          0.967,
+          0.655,
+          0.633,
+          0.636
+        ]
+      }
+    ],
+    "poster_source": 213,
+    "poster_vs_movie_rgb_mae": 1.255727194954829,
+    "environment": {
+      "dual": {
+        "isaac_lab_version": "0.54.2",
+        "isaac_sim_version": "5.1.0.0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti"
+      },
+      "yaw": {
+        "isaac_lab_version": "0.54.2",
+        "isaac_sim_version": "5.1.0.0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti"
+      },
+      "tilt": {
+        "isaac_lab_version": "0.54.2",
+        "isaac_sim_version": "5.1.0.0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti"
+      },
+      "place": {
+        "isaac_lab_version": "0.54.2",
+        "isaac_sim_version": "5.1.0.0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti"
+      }
+    },
+    "bytes": 12964744
+  }
+}

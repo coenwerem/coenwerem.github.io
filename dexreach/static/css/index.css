@@ -5,19 +5,15 @@
 .dexreach-page .dx-intro { padding-top: 1rem; }
 .dexreach-page .gdf-h3 { margin-top: 1.75rem; }
 .dexreach-page .dx-demo { margin: 1.75rem 0 0; }
-.dexreach-page .dx-demo video { display: block; width: 100%; max-width: 640px; height: auto; margin: 0 auto; background: #171a1d; }
+.dexreach-page .dx-demo video { display: block; width: 100%; height: auto; margin: 0 auto; background: #171a1d; }
 .dexreach-page .dx-demo figcaption,
 .dexreach-page .dx-note { margin-top: .85rem; line-height: 1.5; color: var(--text-secondary); text-align: center; }
 .dexreach-page .dx-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
 .dexreach-page .dx-gallery figure { margin: 0; }
-.dexreach-page .dx-gallery video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.dexreach-page .dx-gallery video { display: block; width: 100%; height: auto; object-fit: contain; }
 .dexreach-page .dx-gallery figcaption { margin-top: .45rem; text-align: center; }
 .dexreach-page .dx-gallery figcaption strong, .dexreach-page .dx-gallery figcaption span { display: block; }
-.dexreach-page .dx-grasp-models { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin: 1.5rem 0; }
-.dexreach-page .dx-grasp-models figure { margin: 0; }
-.dexreach-page .dx-grasp-models figcaption { text-align: center; }
 .dexreach-page .dx-sequence ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin: 0 0 .6rem; padding: 0; list-style: none; }
-.dexreach-page .dx-grasp-models img,
 .dexreach-page .dx-sequence img { display: block; width: 100%; height: auto; }
 .dexreach-page .dx-sequence li span { display: block; text-align: center; }
 .dexreach-page .dx-placeholder-box { display: flex; flex-direction: column; justify-content: center; gap: .5rem; aspect-ratio: 480 / 678; padding: 1rem; border: 2px dashed #c0392b; border-radius: 6px; text-align: center; font-size: .85rem; color: #c0392b; }

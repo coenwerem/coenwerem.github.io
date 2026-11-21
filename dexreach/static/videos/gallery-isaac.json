@@ -50,12 +50,12 @@
       "evaluation_input_sha256": "c35af05705c47d1ed376a0d3eeb7b670feaf7550df6bdb47fc0388fad20e3b62",
       "frames": 309,
       "resolution": [
-        1536,
-        864
+        2560,
+        1360
       ],
       "media_sha256": {
-        "franka_ability_soup.mp4": "9d366bd351fe2964396452ae596202f8fcbf56ed386891579ba5344c4f463be6",
-        "franka_ability_soup_poster.jpg": "00cb2f0cc97825ceef11d623995b319194f2f3200646e6ee2b0f9815b189f408"
+        "franka_ability_soup.mp4": "e6d672fc0e7bbf3833243fcd0696261db67c624f1e29ad8e5d89d0bdf3cbcc7a",
+        "franka_ability_soup_poster.jpg": "cd12875eebce9cc8aa6e3617397c3022b9710e14aa88c1fbaf79af2932db5704"
       }
     },
     {

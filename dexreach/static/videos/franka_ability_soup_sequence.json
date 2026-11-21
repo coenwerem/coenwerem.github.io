@@ -1,0 +1,156 @@
+{
+  "embodiment": "franka_ability",
+  "object": "YCB tomato soup can",
+  "renderer": "Isaac Lab RTX RGB cameras",
+  "evaluation": "results/v0_place_soup_sim.pt",
+  "evaluation_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
+  "evaluation_input": "results/v0_place_soup_sim_input.pt",
+  "evaluation_input_sha256": "c7507d1265194928205d04d104e59eca9e7b251361f8952c1730c21e980f536d",
+  "native_cameras": {
+    "fps": 30.0,
+    "dt": 0.03333333333333333,
+    "stride": 1,
+    "grasp": "5633",
+    "width": 1280,
+    "height": 1360,
+    "frame_count": 309,
+    "eye": [
+      0.942,
+      0.997,
+      0.665
+    ],
+    "target": [
+      0.18,
+      0.09,
+      0.34
+    ],
+    "isaac_lab_version": "0.54.2",
+    "isaac_sim_version": "5.1.0.0",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "detail_eye": [
+      0.6,
+      0.63,
+      0.267
+    ],
+    "detail_target": [
+      0.49,
+      0.19,
+      0.109
+    ]
+  },
+  "trial_key": 5633,
+  "encoded_resolution": [
+    2560,
+    1360
+  ],
+  "video": "franka_ability_soup_sequence.mp4",
+  "video_sha256": "f398662e68e56c461dc04f3d91ca2489fbcd7f85ed6344acf91243c12f32ceaa",
+  "poster": "franka_ability_soup_sequence_poster.jpg",
+  "poster_source_index": 198,
+  "poster_sha256": "34b8fb3c9b78fb1042fc04c0c2c22f1741fddac059eda87d1e0ecfb89e23e198",
+  "panels": [
+    {
+      "file": "../media/franka-ability-soup-approach.png",
+      "source": "results/v0_place_soup_sim.pt",
+      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
+      "trial_key": 5633,
+      "source_sample": 48,
+      "phase": "approach",
+      "camera": "wide",
+      "crop_ltrb": [
+        0,
+        40,
+        1280,
+        1320
+      ],
+      "native_frame_sha256": "11a86f283fa4fc9519ca73c9e8b3ad44bbdfbc3df95f9d3fd1573e5eb6270728",
+      "panel_sha256": "50aba67633039120738dec1f64c3424db9f3ccd877f722bb4cfc24970756c295"
+    },
+    {
+      "file": "../media/franka-ability-soup-acquisition.png",
+      "source": "results/v0_place_soup_sim.pt",
+      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
+      "trial_key": 5633,
+      "source_sample": 144,
+      "phase": "acquisition",
+      "camera": "detail",
+      "crop_ltrb": [
+        0,
+        40,
+        1280,
+        1320
+      ],
+      "native_frame_sha256": "8b4dd2f0e7ddabec58d9f65b37eb8761ff3cda9e44b0d6a21c341aaaee126d4d",
+      "panel_sha256": "a0f964d763a661a44814d1d80a504392983135c6ff72c92e787af6af39aeea95"
+    },
+    {
+      "file": "../media/franka-ability-soup-lift.png",
+      "source": "results/v0_place_soup_sim.pt",
+      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
+      "trial_key": 5633,
+      "source_sample": 180,
+      "phase": "lift",
+      "camera": "detail",
+      "crop_ltrb": [
+        0,
+        40,
+        1280,
+        1320
+      ],
+      "native_frame_sha256": "0063daf797876e35d6ca732a6e07cf6ada3be30141bb87cbe2c13bcc2b3af3f4",
+      "panel_sha256": "fd29e8033a74741b29a626d7ab5a541bb0bf181066741ae89fb3d4c3bf4df46a"
+    },
+    {
+      "file": "../media/franka-ability-soup-transport.png",
+      "source": "results/v0_place_soup_sim.pt",
+      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
+      "trial_key": 5633,
+      "source_sample": 208,
+      "phase": "transport",
+      "camera": "detail",
+      "crop_ltrb": [
+        0,
+        40,
+        1280,
+        1320
+      ],
+      "native_frame_sha256": "a72ca58e8f1c529f8285f7785e7e405fbc80536f173653c3ba8408477ab076ab",
+      "panel_sha256": "2890e06ebfec77b21755a47c235405aa3f55bfa8cb502970a8dda4755cdd188a"
+    },
+    {
+      "file": "../media/franka-ability-soup-release.png",
+      "source": "results/v0_place_soup_sim.pt",
+      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
+      "trial_key": 5633,
+      "source_sample": 264,
+      "phase": "release",
+      "camera": "detail",
+      "crop_ltrb": [
+        0,
+        40,
+        1280,
+        1320
+      ],
+      "native_frame_sha256": "c4cff17114e3fda2abd913c968a91e6e250238c67d4455ffde3ee8e923d68745",
+      "panel_sha256": "8f21eaaf352e2d0b4e0f667471966a8f1320a11659ad81dee09536f23e563f1e"
+    },
+    {
+      "file": "../media/franka-ability-soup-retreat.png",
+      "source": "results/v0_place_soup_sim.pt",
+      "source_sha256": "f052c3cdf9a689d5bdf4b08ce03f83b2cec976753c1666d3feb56128ff3da547",
+      "trial_key": 5633,
+      "source_sample": 308,
+      "phase": "retreat",
+      "camera": "detail",
+      "crop_ltrb": [
+        0,
+        40,
+        1280,
+        1320
+      ],
+      "native_frame_sha256": "c49ea7139dd540ace7d5cce2d46aed5c933a31727a8e686e5f612e1af3c7e403",
+      "panel_sha256": "8c0a13a2cc28f0c28e19c7707b9033f094f161c0a7ba8f187dd7dbaf0873ea4c"
+    }
+  ],
+  "source_repository": "coenwerem/dexreach"
+}
