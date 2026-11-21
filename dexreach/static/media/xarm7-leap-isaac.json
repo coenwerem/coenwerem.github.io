@@ -1,0 +1,428 @@
+{
+  "description": "Selected completed simulated trials",
+  "simulator": "Isaac Lab",
+  "renderer": "Native RGB cameras (RTX), saved simulation states at 30 Hz",
+  "robot_urdf": "assets/xarm7_leap/xarm7_leap.urdf",
+  "robot_urdf_sha256": "161da9e8473ec41817f326d4c0d58cec615f57dee5bdc9e4b848dccad131fe0f",
+  "source_directory": "results/paper_xarm7_leap_ycb_mount_20261121/xarm7_leap",
+  "coordinates": "Robot joint positions in sim_joint_names order; object root XYZ in meters relative to environment origin and object root WXYZ quaternion from Isaac Lab.",
+  "frames": 937,
+  "fps": 30,
+  "mp4_speed": 1,
+  "caption": {
+    "font_family": "CMU Sans Serif",
+    "size_px": 23,
+    "text": "Object name and motion phase",
+    "position": "Below both camera views"
+  },
+  "trial_selection": "Retain the previous recording's trial key if it completed all gates. Otherwise select the completed trial with the smallest key.",
+  "poster_movie_frame": 512,
+  "resolution": [
+    2050,
+    1004
+  ],
+  "trials": [
+    {
+      "object": "ycb_tomato_soup_can",
+      "label": "Tomato soup can",
+      "trial_id": 15000,
+      "frames": 291,
+      "dt_s": 0.03333333333333333,
+      "phase_starts": {
+        "approach": 0,
+        "squeeze": 125,
+        "hold": 140,
+        "lift": 155,
+        "lifted": 172,
+        "carry": 181,
+        "carried": 204,
+        "place": 213,
+        "placed": 230,
+        "release": 239,
+        "retreat": 269,
+        "done": 282
+      },
+      "gates": {
+        "lifted": true,
+        "carried": true,
+        "placed": true,
+        "released": true,
+        "retreated": true,
+        "settled": true,
+        "clear": true
+      },
+      "drift_after_release_m": 1.3457530201321788e-07,
+      "final_position_error_m": 0.002348688431084156,
+      "final_orientation_error_deg": 18.122913360595703,
+      "result_sha256": "7d7e2da4fb232018fc35cd2c321f909ea2abbad290b7767f75be715d9f73baf4",
+      "result": "ycb_tomato_soup_can/eval_kin_2000.pt",
+      "input_sha256": "84a8e2c63acf909e451532176312e7850e4177f510e09281ec2a3061b0e3d2e6",
+      "input": "ycb_tomato_soup_can/kin_2000_in.pt",
+      "source_directory": "results/paper_xarm7_leap_ycb_mount_20261121/xarm7_leap",
+      "geometry": "ycb_tomato_soup_can/mesh.obj",
+      "geometry_sha256": "7399d871fe1daec86e42363a07f97d6bbab12a265842061a1e865c76867d9934",
+      "texture_registration": {
+        "source": "005_tomato_soup_can/google_16k",
+        "mesh_sha256": "0da7d8ca01caefa1e85d1aad5eb198aa2298eca5c2a903dfb4c9d2fb0814c39d",
+        "texture_sha256": "221306ee224fa52e7d768999179c2442354ed8afd0475b89b463261dc6fc7990",
+        "translation_m": [
+          0.009331771353138122,
+          -0.08422979148257131,
+          -0.00012424479576772507
+        ],
+        "median_surface_distance_m": 2.1773648866464814e-05,
+        "p99_surface_distance_m": 0.002174311207440636
+      },
+      "appearance_preset": "presentation",
+      "software": {
+        "isaac_lab_version": "0.54.2",
+        "isaac_sim_version": "5.1.0.0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti"
+      },
+      "cameras": {
+        "eye": [
+          0.93,
+          -1.24,
+          0.72
+        ],
+        "target": [
+          0.25,
+          0.035,
+          0.29
+        ],
+        "detail_eye": [
+          0.406809,
+          0.62186,
+          0.300123
+        ],
+        "detail_target": [
+          0.498842,
+          0.099912,
+          0.100123
+        ],
+        "width": 1024,
+        "height": 960
+      },
+      "phase_sheet_source_indices": {
+        "transport": 192,
+        "withdrawal_complete": 290
+      },
+      "phase_sheet_source_png_sha256": {
+        "transport": "9eee62373e88a34b1762d4a351de8d65593a8e5be25f0c0700f3c92fd2c42083",
+        "withdrawal_complete": "f7f3b318da3663c1d5b410a06f5015d74c1d761b1b0658396637dc5341585a49"
+      },
+      "paper_crops_ltrb": {
+        "transport": [
+          82,
+          28,
+          942,
+          716
+        ],
+        "withdrawal_complete": [
+          82,
+          138,
+          942,
+          826
+        ]
+      },
+      "paper_panel_sha256": {
+        "tomato_soup_can-transport.png": "c3a34a8b58eb49a01731a48063de028c9afcc3fff7de99817fca4e78ddfd17ff",
+        "tomato_soup_can-withdrawal.png": "8a146ab3695894b527dc55fe895cf2d4666abe61f3bd3b37e5d066467daa6381"
+      }
+    },
+    {
+      "object": "ycb_sugar_box",
+      "label": "Sugar box",
+      "trial_id": 29000,
+      "frames": 329,
+      "dt_s": 0.03333333333333333,
+      "phase_starts": {
+        "approach": 0,
+        "squeeze": 153,
+        "hold": 168,
+        "lift": 183,
+        "lifted": 200,
+        "carry": 209,
+        "carried": 233,
+        "place": 242,
+        "placed": 259,
+        "release": 268,
+        "retreat": 298,
+        "done": 320
+      },
+      "gates": {
+        "lifted": true,
+        "carried": true,
+        "placed": true,
+        "released": true,
+        "retreated": true,
+        "settled": true,
+        "clear": true
+      },
+      "drift_after_release_m": 2.3853496600168e-07,
+      "final_position_error_m": 0.002934324322268367,
+      "final_orientation_error_deg": 6.6076250076293945,
+      "result_sha256": "c90baa0ea73b59479e75abc3aef1a5d20f2bbcf8c6e9144bb3cbeb2a4b5e7a25",
+      "result": "ycb_sugar_box/eval_kin_2000.pt",
+      "input_sha256": "24f79debe2506f13aac392ab1e53765367483eff9c9f9c1dc1e0cb30315856f5",
+      "input": "ycb_sugar_box/kin_2000_in.pt",
+      "source_directory": "results/paper_xarm7_leap_ycb_mount_20261121/xarm7_leap",
+      "geometry": "ycb_sugar_box/mesh.obj",
+      "geometry_sha256": "892018e12e26d36d178e8b1f53ad4e7f45b295ca16f3f31b25320d6a3ec0afca",
+      "texture_registration": {
+        "source": "004_sugar_box/google_16k",
+        "mesh_sha256": "b7333f94bf81703ea5d58b1403544cf5565a8e301f4c52791454c1391bab0be9",
+        "texture_sha256": "c91695e7efdf219dbf6310f827a329bd2f1e0b15524fce82ca41f27394ae77d9",
+        "translation_m": [
+          0.007697174930558852,
+          0.01705164442063481,
+          -4.130567371118943e-05
+        ],
+        "median_surface_distance_m": 1.1109465141184212e-05,
+        "p99_surface_distance_m": 0.0001957841282653086
+      },
+      "appearance_preset": "presentation",
+      "software": {
+        "isaac_lab_version": "0.54.2",
+        "isaac_sim_version": "5.1.0.0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti"
+      },
+      "cameras": {
+        "eye": [
+          0.93,
+          -1.24,
+          0.72
+        ],
+        "target": [
+          0.25,
+          0.035,
+          0.29
+        ],
+        "detail_eye": [
+          1.065,
+          -0.08835798740386963,
+          0.255
+        ],
+        "detail_target": [
+          0.505,
+          0.10164201259613037,
+          0.114
+        ],
+        "width": 1024,
+        "height": 960
+      },
+      "phase_sheet_source_indices": {
+        "transport": 221,
+        "withdrawal_complete": 328
+      },
+      "phase_sheet_source_png_sha256": {
+        "transport": "c07c0ccbc7aff86855e5f0e0f1ee045e07ee786a206ae1dc6d9774a6149915a3",
+        "withdrawal_complete": "f1654f811197f95dab33e2b794f611839642e61fa220c85e071dc340166803e9"
+      },
+      "paper_crops_ltrb": {
+        "transport": [
+          82,
+          28,
+          942,
+          716
+        ],
+        "withdrawal_complete": [
+          82,
+          28,
+          942,
+          716
+        ]
+      },
+      "paper_panel_sha256": {
+        "sugar_box-transport.png": "c46fe98fbc48a390d4d6b02d203021e8de17d2d2493520b1bd95336d8e478c98",
+        "sugar_box-withdrawal.png": "468524bd068386355725bac0eb0187c97f5d84719b1b5c23e3c7c59ffde0ca88"
+      }
+    },
+    {
+      "object": "ycb_mustard_bottle",
+      "label": "Mustard bottle",
+      "trial_id": 57000,
+      "frames": 317,
+      "dt_s": 0.03333333333333333,
+      "phase_starts": {
+        "approach": 0,
+        "squeeze": 146,
+        "hold": 161,
+        "lift": 176,
+        "lifted": 193,
+        "carry": 202,
+        "carried": 226,
+        "place": 235,
+        "placed": 252,
+        "release": 261,
+        "retreat": 291,
+        "done": 307
+      },
+      "gates": {
+        "lifted": true,
+        "carried": true,
+        "placed": true,
+        "released": true,
+        "retreated": true,
+        "settled": true,
+        "clear": true
+      },
+      "drift_after_release_m": 4.826228519050346e-07,
+      "final_position_error_m": 0.004346190486103296,
+      "final_orientation_error_deg": 2.8717188835144043,
+      "result_sha256": "8055798f90324a2f807ab468b9df033700650ae468cd8c4a67d3e6b110ae690e",
+      "result": "ycb_mustard_bottle/eval_kin_2000.pt",
+      "input_sha256": "12a5a70f74be6fdb9466c58684c6461cd82766c843934794f974311772975fd6",
+      "input": "ycb_mustard_bottle/kin_2000_in.pt",
+      "source_directory": "results/paper_xarm7_leap_ycb_mount_20261121/xarm7_leap",
+      "geometry": "ycb_mustard_bottle/mesh.obj",
+      "geometry_sha256": "b3d76d72962fa534ce9334f953b87c773f092f5ea1fe5a25bf2164d3883278e5",
+      "texture_registration": {
+        "source": "006_mustard_bottle/google_16k",
+        "mesh_sha256": "aa81d47a5c37431c7c0b602e78982091af97219bff03ad5a63dc0f7e94153b19",
+        "texture_sha256": "1e0114f5ce3c98fbf7e14f7bd8c46a995b992d0a92b7370cb5fbd046e0e2c63d",
+        "translation_m": [
+          0.015052171783639424,
+          0.023109355230864728,
+          0.003159239310426106
+        ],
+        "median_surface_distance_m": 1.5588398125510566e-05,
+        "p99_surface_distance_m": 0.001069726938550441
+      },
+      "appearance_preset": "presentation",
+      "software": {
+        "isaac_lab_version": "0.54.2",
+        "isaac_sim_version": "5.1.0.0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti"
+      },
+      "cameras": {
+        "eye": [
+          0.93,
+          -1.24,
+          0.72
+        ],
+        "target": [
+          0.25,
+          0.035,
+          0.29
+        ],
+        "detail_eye": [
+          0.636798,
+          0.412621,
+          0.345274
+        ],
+        "detail_target": [
+          0.499624,
+          -0.09932,
+          0.145274
+        ],
+        "width": 1024,
+        "height": 960
+      },
+      "phase_sheet_source_indices": {
+        "transport": 214,
+        "withdrawal_complete": 316
+      },
+      "phase_sheet_source_png_sha256": {
+        "transport": "bf5ef83ee75c1aca48b71e183325140694160847cd6d07f8a853f5753eea5727",
+        "withdrawal_complete": "f3320dc22c73f78a2539b5e09250bdd8daaaab35a81afb6cb4d5d70b79b6618e"
+      },
+      "paper_crops_ltrb": {
+        "transport": [
+          82,
+          28,
+          942,
+          716
+        ],
+        "withdrawal_complete": [
+          82,
+          136,
+          942,
+          824
+        ]
+      },
+      "withdrawal_sheet_camera": {
+        "eye": [
+          0.636571,
+          -0.051023,
+          0.525923
+        ],
+        "target": [
+          0.444853,
+          -0.279503,
+          0.099964
+        ]
+      },
+      "paper_panel_sha256": {
+        "mustard_bottle-transport.png": "dc9f7770b062c394c8d2ae80a175046d864bcb41abaeb998b2f13f47a2c0fd9b",
+        "mustard_bottle-withdrawal.png": "15f76ba6bd5dc4e87580b50336edecfb06443d35d3c8c31de66639a70eb04210"
+      }
+    }
+  ],
+  "source_record": {
+    "repository": "coenwerem/dexreach",
+    "file": "docs/data/planner_comparison/xarm7_leap_isaac_manifest.json",
+    "sha256": "cabacb1638a2bfc906ed20e3e68b72b813c3bf480ca49c794efdcaad2fb5faca"
+  },
+  "cohort_counts": {
+    "ycb_tomato_soup_can": {
+      "verified_grasps": 1491,
+      "full_planned_paths": 10,
+      "evaluated": 10,
+      "completed": 10,
+      "phase_counts": {
+        "lifted": 10,
+        "carried": 10,
+        "placed": 10,
+        "released": 10,
+        "settled": 10,
+        "clear": 10,
+        "retreated": 10
+      }
+    },
+    "ycb_sugar_box": {
+      "verified_grasps": 240,
+      "full_planned_paths": 10,
+      "evaluated": 10,
+      "completed": 7,
+      "phase_counts": {
+        "lifted": 10,
+        "carried": 10,
+        "placed": 9,
+        "released": 9,
+        "settled": 9,
+        "clear": 7,
+        "retreated": 7
+      }
+    },
+    "ycb_mustard_bottle": {
+      "verified_grasps": 307,
+      "full_planned_paths": 10,
+      "evaluated": 10,
+      "completed": 7,
+      "phase_counts": {
+        "lifted": 10,
+        "carried": 10,
+        "placed": 10,
+        "released": 9,
+        "settled": 8,
+        "clear": 7,
+        "retreated": 7
+      }
+    }
+  },
+  "cohort_sources": [
+    {
+      "repository_file": "docs/data/planner_comparison/xarm7_leap_ycb.json",
+      "sha256": "68f00fe07cbc8870ce25492ec7bb07defa799a1cff97d85331db49a497901925"
+    },
+    {
+      "repository_file": "docs/data/planner_comparison/xarm7_leap_rollouts.csv",
+      "sha256": "35dcdbc3aa110cce0c60df14532a42a766774b50db7eae281d533ab65036fdbb"
+    }
+  ],
+  "media_sha256": {
+    "xarm7-leap-isaac.mp4": "a26cef8fbf85276147f6f79fa7beb6142b3f080b71b4eeee22a79d928d3f0387",
+    "xarm7-leap-isaac.jpg": "c43b055d9aa93bbf80da14e3acd05d12f97f4057b0b2154fd6cefabf19c7745b"
+  }
+}

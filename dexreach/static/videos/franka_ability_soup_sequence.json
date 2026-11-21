@@ -36,7 +36,9 @@
       0.49,
       0.19,
       0.109
-    ]
+    ],
+    "robot_urdf_sha256": "a44aeb0b2f008996e221bd64e740f8e6074096f6ae7540e669f45f6988f82c66",
+    "appearance_preset": "presentation"
   },
   "trial_key": 5633,
   "encoded_resolution": [
@@ -44,89 +46,95 @@
     1360
   ],
   "video": "franka_ability_soup_sequence.mp4",
-  "video_sha256": "f398662e68e56c461dc04f3d91ca2489fbcd7f85ed6344acf91243c12f32ceaa",
+  "video_sha256": "89ec0b521e1d0fed2dbc25f45e50f9f3c9af3c7519755f78672f99f9f4cfc113",
   "poster": "franka_ability_soup_sequence_poster.jpg",
   "poster_source_index": 198,
-  "poster_sha256": "34b8fb3c9b78fb1042fc04c0c2c22f1741fddac059eda87d1e0ecfb89e23e198",
+  "poster_sha256": "3b29c3deeeafd350db241d2de0029a0cc212a5bfe4edc668879a027916a1cf67",
   "source_repository": "coenwerem/dexreach",
-  "paper_figure_samples": [
-    {
-      "phase": "approach",
-      "source_sample": 48,
-      "camera": "wide",
-      "crop_ltrb": [
-        0,
-        40,
-        1280,
-        1320
-      ],
-      "native_frame_sha256": "11a86f283fa4fc9519ca73c9e8b3ad44bbdfbc3df95f9d3fd1573e5eb6270728",
-      "panel_sha256": "50aba67633039120738dec1f64c3424db9f3ccd877f722bb4cfc24970756c295"
-    },
-    {
-      "phase": "acquisition",
-      "source_sample": 144,
-      "camera": "detail",
-      "crop_ltrb": [
-        0,
-        40,
-        1280,
-        1320
-      ],
-      "native_frame_sha256": "8b4dd2f0e7ddabec58d9f65b37eb8761ff3cda9e44b0d6a21c341aaaee126d4d",
-      "panel_sha256": "a0f964d763a661a44814d1d80a504392983135c6ff72c92e787af6af39aeea95"
-    },
-    {
-      "phase": "lift",
-      "source_sample": 180,
-      "camera": "detail",
-      "crop_ltrb": [
-        0,
-        40,
-        1280,
-        1320
-      ],
-      "native_frame_sha256": "0063daf797876e35d6ca732a6e07cf6ada3be30141bb87cbe2c13bcc2b3af3f4",
-      "panel_sha256": "fd29e8033a74741b29a626d7ab5a541bb0bf181066741ae89fb3d4c3bf4df46a"
-    },
-    {
-      "phase": "transport",
-      "source_sample": 208,
-      "camera": "detail",
-      "crop_ltrb": [
-        0,
-        40,
-        1280,
-        1320
-      ],
-      "native_frame_sha256": "a72ca58e8f1c529f8285f7785e7e405fbc80536f173653c3ba8408477ab076ab",
-      "panel_sha256": "2890e06ebfec77b21755a47c235405aa3f55bfa8cb502970a8dda4755cdd188a"
-    },
-    {
-      "phase": "release",
-      "source_sample": 264,
-      "camera": "detail",
-      "crop_ltrb": [
-        0,
-        40,
-        1280,
-        1320
-      ],
-      "native_frame_sha256": "c4cff17114e3fda2abd913c968a91e6e250238c67d4455ffde3ee8e923d68745",
-      "panel_sha256": "8f21eaaf352e2d0b4e0f667471966a8f1320a11659ad81dee09536f23e563f1e"
-    },
-    {
-      "phase": "retreat",
-      "source_sample": 308,
-      "camera": "detail",
-      "crop_ltrb": [
-        0,
-        40,
-        1280,
-        1320
-      ],
-      "native_frame_sha256": "c49ea7139dd540ace7d5cce2d46aed5c933a31727a8e686e5f612e1af3c7e403",
-      "panel_sha256": "8c0a13a2cc28f0c28e19c7707b9033f094f161c0a7ba8f187dd7dbaf0873ea4c"
-    }
-  ]
+  "paper_figure": {
+    "appearance_preset": "studio",
+    "archived_video_sha256": "f398662e68e56c461dc04f3d91ca2489fbcd7f85ed6344acf91243c12f32ceaa",
+    "archived_poster_sha256": "34b8fb3c9b78fb1042fc04c0c2c22f1741fddac059eda87d1e0ecfb89e23e198",
+    "samples": [
+      {
+        "phase": "approach",
+        "source_sample": 48,
+        "camera": "wide",
+        "crop_ltrb": [
+          0,
+          40,
+          1280,
+          1320
+        ],
+        "native_frame_sha256": "11a86f283fa4fc9519ca73c9e8b3ad44bbdfbc3df95f9d3fd1573e5eb6270728",
+        "panel_sha256": "50aba67633039120738dec1f64c3424db9f3ccd877f722bb4cfc24970756c295"
+      },
+      {
+        "phase": "acquisition",
+        "source_sample": 144,
+        "camera": "detail",
+        "crop_ltrb": [
+          0,
+          40,
+          1280,
+          1320
+        ],
+        "native_frame_sha256": "8b4dd2f0e7ddabec58d9f65b37eb8761ff3cda9e44b0d6a21c341aaaee126d4d",
+        "panel_sha256": "a0f964d763a661a44814d1d80a504392983135c6ff72c92e787af6af39aeea95"
+      },
+      {
+        "phase": "lift",
+        "source_sample": 180,
+        "camera": "detail",
+        "crop_ltrb": [
+          0,
+          40,
+          1280,
+          1320
+        ],
+        "native_frame_sha256": "0063daf797876e35d6ca732a6e07cf6ada3be30141bb87cbe2c13bcc2b3af3f4",
+        "panel_sha256": "fd29e8033a74741b29a626d7ab5a541bb0bf181066741ae89fb3d4c3bf4df46a"
+      },
+      {
+        "phase": "transport",
+        "source_sample": 208,
+        "camera": "detail",
+        "crop_ltrb": [
+          0,
+          40,
+          1280,
+          1320
+        ],
+        "native_frame_sha256": "a72ca58e8f1c529f8285f7785e7e405fbc80536f173653c3ba8408477ab076ab",
+        "panel_sha256": "2890e06ebfec77b21755a47c235405aa3f55bfa8cb502970a8dda4755cdd188a"
+      },
+      {
+        "phase": "release",
+        "source_sample": 264,
+        "camera": "detail",
+        "crop_ltrb": [
+          0,
+          40,
+          1280,
+          1320
+        ],
+        "native_frame_sha256": "c4cff17114e3fda2abd913c968a91e6e250238c67d4455ffde3ee8e923d68745",
+        "panel_sha256": "8f21eaaf352e2d0b4e0f667471966a8f1320a11659ad81dee09536f23e563f1e"
+      },
+      {
+        "phase": "retreat",
+        "source_sample": 308,
+        "camera": "detail",
+        "crop_ltrb": [
+          0,
+          40,
+          1280,
+          1320
+        ],
+        "native_frame_sha256": "c49ea7139dd540ace7d5cce2d46aed5c933a31727a8e686e5f612e1af3c7e403",
+        "panel_sha256": "8c0a13a2cc28f0c28e19c7707b9033f094f161c0a7ba8f187dd7dbaf0873ea4c"
+      }
+    ]
+  },
+  "renderer_source_commit": "12674aec11256cae030cfd4942181916630af740"
 }
