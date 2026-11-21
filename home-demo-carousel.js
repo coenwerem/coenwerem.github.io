@@ -47,7 +47,7 @@
   let lastFrame = 0;
   let resumeVideo = !reducedMotion.matches;
   let suspended = false;
-  const activeVideo = () => slides[index].querySelector('video');
+  const activeVideo = () => slides[index].querySelector('video:not([hidden])');
   const play = video => {
     if (video && visible && !document.hidden) video.play().catch(() => {});
   };
@@ -64,9 +64,20 @@
     const chapter = chapters[next];
     if (!chapter) return;
     const video = slide.querySelector('video');
+    const image = slide.querySelector('[data-demo-image]');
+    const isImage = chapter.dataset.demoType === 'image';
     chapterIndex.set(slide, next);
     chapters.forEach((button, i) => button.setAttribute('aria-pressed', String(i === next)));
+    elapsed = 0;
     video.pause();
+    video.hidden = isImage;
+    if (image) image.hidden = !isImage;
+    if (isImage) {
+      image.src = chapter.dataset.demoSource;
+      image.alt = chapter.dataset.demoAlt || chapter.textContent.trim();
+      video.dispatchEvent(new Event('timeupdate'));
+      return;
+    }
     if (video.getAttribute('src') !== chapter.dataset.demoSource) {
       video.src = chapter.dataset.demoSource;
       if (chapter.dataset.demoPoster) video.poster = chapter.dataset.demoPoster;
@@ -235,6 +246,17 @@
     }
   });
 
+  function updateProgress(slide, fraction) {
+    const chapters = chapterButtons(slide);
+    const current = chapterIndex.get(slide) || 0;
+    const durations = chapters.map(chapter => Number(chapter.dataset.demoDuration));
+    const total = durations.reduce((sum, duration) => sum + duration, 0);
+    const chapterProgress = total > 0 ?
+      (durations.slice(0, current).reduce((sum, duration) => sum + duration, 0) +
+       fraction * durations[current]) / total : fraction;
+    progress.style.width = `${Math.min(100, chapterProgress * 100)}%`;
+  }
+
   function tick(now) {
     const delta = lastFrame ? Math.min((now - lastFrame) / 1000, 0.25) : 0;
     lastFrame = now;
@@ -245,20 +267,21 @@
       const duration = Math.min(chapterEnd(slides[index]), video.duration) - start;
       const fraction = Number.isFinite(duration) && duration > 0 ?
         Math.max(0, Math.min(1, (video.currentTime - start) / duration)) : 0;
-      const chapters = chapterButtons(slides[index]);
-      const currentChapter = chapterIndex.get(slides[index]) || 0;
-      const durations = chapters.map(chapter => Number(chapter.dataset.demoDuration));
-      const total = durations.reduce((sum, duration) => sum + duration, 0);
-      const chapterProgress = total > 0 ?
-        (durations.slice(0, currentChapter).reduce((sum, duration) => sum + duration, 0) +
-         fraction * durations[currentChapter]) / total : fraction;
-      progress.style.width = `${Math.min(100, chapterProgress * 100)}%`;
+      updateProgress(slides[index], fraction);
       advanceAfterVideo();
-    } else if (rotating && visible && !document.hidden && !document.fullscreenElement) {
-      // The draft preview also contains a GIF with no media timeline.
-      elapsed += delta;
-      progress.style.width = `${Math.min(100, elapsed / 12 * 100)}%`;
-      if (elapsed >= 12) select((index + 1) % slides.length);
+    } else {
+      const slide = slides[index];
+      const duration = Number(currentChapter(slide)?.dataset.demoDuration || 12);
+      if (rotating && visible && !document.hidden && !document.fullscreenElement) {
+        elapsed += delta;
+        if (elapsed >= duration) {
+          const nextChapter = (chapterIndex.get(slide) || 0) + 1;
+          if (nextChapter < chapterButtons(slide).length) selectChapter(slide, nextChapter);
+          else select((index + 1) % slides.length);
+          return requestAnimationFrame(tick);
+        }
+      }
+      updateProgress(slide, Math.min(1, elapsed / duration));
     }
     requestAnimationFrame(tick);
   }

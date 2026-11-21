@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="stylesheet.css?v=demo-layout-20261113">
+  <link rel="stylesheet" href="stylesheet.css?v=grasp-planning-projects-20261121">
 </head>
 
 <body>
@@ -129,8 +129,18 @@
               <video class="home-demo-video"
                 src="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918"
                 controls muted playsinline preload="none" aria-label="EquiDexFlow pipeline and hardware demonstrations: grasp prediction, contact-based retargeting to the LEAP Hand, and refinement; grasp renders paired with box, cube, mustard bottle, meat can, cylinder, and tennis-ball hardware executions" controlslist="nodownload"></video>
+              <img class="home-demo-image" data-demo-image src="images/graspit-py-supported-hands.png" alt="GraspIt! grasps with the Barrett, Shadow, and Inspire hands, showing contacts and hand and object coordinate frames" loading="lazy" decoding="async" hidden>
             </div>
-            <figcaption>SE(3)-Equivariant, Reach-Aware Grasp Synthesis · <a href="equidexflow/#grasp-synthesis-and-hardware-execution">EquiDexFlow Project Page</a></figcaption>
+            <div class="home-demo-chapters" role="group" aria-label="Grasp Planning Demonstrations" hidden>
+              <button type="button" data-demo-source="videos/equidexflow_home_demo.mp4?v=dark-centered-raised-footer-20260918" data-demo-poster="videos/equidexflow_home_demo_poster.jpg?v=dark-centered-raised-footer-20260918" data-demo-duration="18.4" aria-pressed="true">EquiDexFlow</button>
+              <button id="dexreach-home-demo" type="button" data-demo-start-chapter="1" data-demo-source="dexreach/static/videos/overview.mp4?v=0c66c3493ab8" data-demo-poster="dexreach/static/videos/overview_poster.jpg?v=17b1a6ad4b1b" data-demo-duration="18.133333" aria-pressed="false">dexreach</button>
+              <button id="graspit-py-home-demo" type="button" data-demo-start-chapter="2" data-demo-type="image" data-demo-source="images/graspit-py-supported-hands.png" data-demo-alt="GraspIt! grasps with the Barrett, Shadow, and Inspire hands, showing contacts and hand and object coordinate frames" data-demo-duration="12" aria-pressed="false">graspit-py</button>
+            </div>
+            <figcaption>
+              <span data-demo-chapter="0" data-demo-caption-start="0">SE(3)-Equivariant, Reach-Aware Grasp Synthesis · <a href="equidexflow/#grasp-synthesis-and-hardware-execution">EquiDexFlow Project Page</a></span>
+              <span data-demo-chapter="1" data-demo-caption-start="0" hidden>Coupled Arm-Hand Grasp and Motion Planning · <a href="dexreach/">dexreach Project Page</a><br>Isaac Lab simulation of planned manipulation with Franka-Ability and dual Franka-Ability: two-object manipulation, object yaw, mid-path tilt, and pick-and-place.</span>
+              <span data-demo-chapter="2" data-demo-caption-start="0" hidden>Grasp Synthesis and Evaluation with graspit-py · <a href="https://clintonenwerem.com/graspit-py/">Documentation</a> · <a href="https://github.com/coenwerem/graspit-py" target="_blank" rel="noopener">GitHub</a><br>GraspIt! closures with the Barrett, Shadow, and Inspire hands, including contact locations, coordinate frames, and Ferrari–Canny grasp quality.</span>
+            </figcaption>
           </figure>
           <figure class="home-demo-slide" data-topic="Visuo-Tactile Manipulation">
             <div class="home-demo-media" id="task-wrench-demo">
@@ -208,7 +218,7 @@
           <h3 class="home-news-date"><time datetime="2026-11">Nov 2026</time></h3>
           <ul class="home-news-items" role="list">
             <li class="home-news-item"><p><span class="home-news-type home-news-type--preprint">Preprint</span> We introduced a completion-gain criterion for improving imitation policies with residual reinforcement learning. The criterion determines which action components to correct and how to allocate training episodes across task phases. Preprint: <a href="https://arxiv.org/abs/2611.25320" target="_blank" rel="noopener">arXiv</a>.</p></li>
-            <li class="home-news-item"><p><span class="home-news-type home-news-type--model">Software</span> We released <span class="text-monospace" style="font-size:0.875em;">graspit-py</span>, a Python interface to GraspIt! with MuJoCo model export support and custom utilities for planning and evaluating grasps under uncertain pose and friction. The source code is available on <a href="https://github.com/coenwerem/graspit-py" target="_blank" rel="noopener">GitHub</a>. For the technical documentation, see <a href="https://clintonenwerem.com/graspit-py/" target="_blank" rel="noopener">graspit-py</a>.</p></li>
+            <li class="home-news-item"><p><span class="home-news-type home-news-type--model">Software</span> We released <span class="text-monospace" style="font-size:0.875em;">graspit-py</span>, a Python interface to GraspIt! with MuJoCo model export support and custom utilities for planning and evaluating grasps under uncertain pose and friction. The source code is available on <a href="https://github.com/coenwerem/graspit-py" target="_blank" rel="noopener">GitHub</a>. For the technical documentation, see <a href="https://clintonenwerem.com/graspit-py/" class="text-monospace" style="font-size:0.875em;" target="_blank" rel="noopener">graspit-py</a>.</p></li>
           </ul>
         </div>
         <div class="home-news-group">
@@ -271,7 +281,7 @@
 <script src="scripts.js?v=video-controls-20261103"></script>
 
 <script src="coming-soon.js?v=20261004" defer></script>
-<script src="home-demo-carousel.js?v=compact-topics-20261028" defer></script>
+<script src="home-demo-carousel.js?v=grasp-planning-projects-20261121" defer></script>
 
 </body>
 </html>
