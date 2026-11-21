@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dexreach | GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</title>
+  <title>DexReach | GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</title>
   <meta name="description" content="dexreach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
   <link rel="canonical" href="https://clintonenwerem.com/dexreach/">
-  <meta property="og:title" content="dexreach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
+  <meta property="og:title" content="DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
   <meta property="og:description" content="dexreach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://clintonenwerem.com/dexreach/">
   <meta property="og:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg">
   <meta property="og:image:alt" content="Isaac Lab replay of a dual Franka-Ability robot moving two objects">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="dexreach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
+  <meta name="twitter:title" content="DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning">
   <meta name="twitter:description" content="dexreach is a GPU-accelerated Python package for whole-body dexterous grasp and manipulation planning, task-wrench feasibility analysis, and contact-force optimization.">
   <meta name="twitter:image" content="https://clintonenwerem.com/dexreach/static/videos/overview_poster.jpg">
   <link rel="icon" type="image/png" href="../images/favicon/favicon-32x32.png">
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="../stylesheet.css?v=bold-size-inherit-20261031">
   <link rel="stylesheet" href="../gdf/static/css/gdf.css?v=20260913b">
-  <link rel="stylesheet" href="./static/css/index.css?v=20261111b">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261120">
   <link rel="stylesheet" href="../gdf/static/css/control-diagrams.css?v=20261022">
   <link rel="stylesheet" href="../gdf/static/css/project-sections.css?v=20261022">
   <script>
@@ -43,7 +43,7 @@
   <div id="navbar-placeholder"></div>
   <div class="page-container"><div class="content-wrap">
     <header class="gdf-hero">
-      <h1 class="gdf-title">dexreach</h1>
+      <h1 class="gdf-title">DexReach</h1>
       <h2 class="gdf-subtitle">GPU-Accelerated Whole-Body Dexterous Grasp and Manipulation Planning</h2>
       <p class="gdf-authors"><span class="text-nowrap">Clinton Enwerem</span></p>
       <p class="gdf-affil">University of Maryland, College Park</p>
@@ -54,7 +54,8 @@
         <a class="gdf-btn" href="#embodiments"><i class="fas fa-robot" aria-hidden="true"></i><span>Embodiments</span></a>
         <a class="gdf-btn" href="#validation"><i class="fas fa-chart-line" aria-hidden="true"></i><span>Simulation Evaluation</span></a>
         <a class="gdf-btn" href="#two-arms">Bimanual Manipulation</a>
-        <a class="gdf-btn" href="#key-insertion">Viser Demo</a>
+        <a class="gdf-btn" href="#xarm7-leap">xArm7–LEAP Pick and Place</a>
+        <a class="gdf-btn" href="#key-insertion">Bimanual Key Insertion</a>
         <a class="gdf-btn" href="#citation">Citation</a>
       </div>
     </header>
@@ -62,7 +63,7 @@
 <section class="gdf-section dx-intro" aria-label="Overview">
   <div class="gdf-wrap">
     <div class="gdf-prose">
-      <p>We developed dexreach, an Apache-2.0 Python package for grasp and manipulation planning with a unified arm-hand configuration. The planner evaluates contact wrenches under friction and actuation limits, constructs whole-body motions from the evaluated grasp, and jointly plans object trajectories with fingertip and table-support forces. We evaluated complete manipulation sequences in Isaac Lab across arm-hand embodiments, object-waypoint tasks, and simultaneous dual-object manipulation.</p>
+      <p>We developed DexReach, an Apache-2.0 Python package for grasp and manipulation planning with a unified arm-hand configuration. The planner evaluates contact wrenches under friction and actuation limits, constructs whole-body motions from the evaluated grasp, and jointly plans object trajectories with fingertip and table-support forces. We evaluated complete manipulation sequences in Isaac Lab across arm-hand embodiments, object-waypoint tasks, and simultaneous dual-object manipulation.</p>
     </div>
     <figure class="gdf-overview dx-demo">
 <video aria-label="Isaac Lab replays of planned motions: two arms moving two objects, a 45-degree object yaw, a 30-degree mid-path tilt, and pick and place" autoplay="" controls="" controlslist="nodownload" loop="" muted="" playsinline="" poster="./static/videos/overview_poster.jpg" preload="metadata">
@@ -128,26 +129,46 @@
   <div class="gdf-wrap">
     <h2 class="gdf-h2">Embodiment Models</h2>
     <div class="gdf-prose">
-      <p>An embodiment model combines arm-hand kinematics, fingertip contact geometry, actuation limits, and finger couplings. The gallery shows kinematic planning demonstrations for xArm7-L6, Franka-LEAP, Franka-Ability, and G1-Dex3.</p>
+      <p>An embodiment model combines arm-hand kinematics, fingertip contact geometry, actuation limits, and finger couplings. The two Franka models below show the grasp geometry of each hand around a lifted soup can.</p>
     </div>
-    <div class="dx-gallery">
-<figure class="dx-tile">
-<video aria-label="xArm7 with a LinkerBot L6 hand grasping a mustard bottle in the dexreach viewer" autoplay="" class="zoomable" controlslist="nodownload" loop="" muted="" playsinline="" poster="./static/videos/xarm7_l6_mustard_poster.jpg" preload="metadata" src="./static/videos/xarm7_l6_mustard.mp4"></video>
-<figcaption><strong>xArm7-L6</strong><span>Mustard bottle</span></figcaption>
-</figure>
-<figure class="dx-tile">
-<video aria-label="Franka arm with a LEAP Hand grasping a soup can in the dexreach viewer" autoplay="" class="zoomable" controlslist="nodownload" loop="" muted="" playsinline="" poster="./static/videos/franka_leap_soup_poster.jpg" preload="metadata" src="./static/videos/franka_leap_soup.mp4"></video>
-<figcaption><strong>Franka-LEAP</strong><span>Soup can</span></figcaption>
-</figure>
-<figure class="dx-tile">
-<video aria-label="Franka arm with an Ability Hand grasping a soup can in the dexreach viewer" autoplay="" class="zoomable" controlslist="nodownload" loop="" muted="" playsinline="" poster="./static/videos/franka_ability_soup_poster.jpg" preload="metadata" src="./static/videos/franka_ability_soup.mp4"></video>
-<figcaption><strong>Franka-Ability</strong><span>Soup can</span></figcaption>
-</figure>
-<figure class="dx-tile">
-<video aria-label="Unitree G1 humanoid with a Dex3 hand grasping a box at a table in the dexreach viewer" autoplay="" class="zoomable" controlslist="nodownload" loop="" muted="" playsinline="" poster="./static/videos/g1_dex3_box_poster.jpg" preload="metadata" src="./static/videos/g1_dex3_box.mp4"></video>
-<figcaption><strong>G1-Dex3</strong><span>Box</span></figcaption>
-</figure>
-</div>
+    <ul class="dx-models" aria-label="Additional arm-hand and object pairs">
+      <li><strong>xArm7-L6</strong><span>Mustard bottle</span></li>
+      <li><strong>G1-Dex3</strong><span>Box</span></li>
+    </ul>
+    <div class="dx-grasp-models" role="group" aria-label="Static soup-can grasp geometry">
+      <figure>
+        <img src="./static/media/franka-leap-soup-geometry.png" width="1200" height="1000" loading="lazy" alt="Franka arm with a LEAP Hand holding a soup can">
+        <figcaption><strong>Franka-LEAP</strong> · Soup can</figcaption>
+      </figure>
+      <figure>
+        <img src="./static/media/franka-ability-soup-geometry.png" width="1200" height="1000" loading="lazy" alt="Franka arm with an Ability Hand holding a soup can">
+        <figcaption><strong>Franka-Ability</strong> · Soup can</figcaption>
+      </figure>
+    </div>
+
+    <figure class="gdf-overview dx-sequence">
+      <ol aria-label="Pick-and-place phases">
+        <li><img src="./static/media/franka-ability-soup-approach.png" width="400" height="400" loading="lazy" alt="Franka-Ability during approach"><span>Approach</span></li>
+        <li><img src="./static/media/franka-ability-soup-acquisition.png" width="400" height="400" loading="lazy" alt="Franka-Ability during acquisition"><span>Acquisition</span></li>
+        <li><img src="./static/media/franka-ability-soup-lift.png" width="400" height="400" loading="lazy" alt="Franka-Ability during lift"><span>Lift</span></li>
+        <li><img src="./static/media/franka-ability-soup-transport.png" width="400" height="400" loading="lazy" alt="Franka-Ability during transport"><span>Transport</span></li>
+        <li><img src="./static/media/franka-ability-soup-release.png" width="400" height="400" loading="lazy" alt="Franka-Ability during release"><span>Release</span></li>
+        <li><img src="./static/media/franka-ability-soup-retreat.png" width="400" height="400" loading="lazy" alt="Franka-Ability during retreat"><span>Retreat</span></li>
+      </ol>
+      <figcaption><strong>Franka-Ability Pick-and-Place Sequence.</strong> Chronological snapshots of a soup-can execution show approach, acquisition, lift, transport, release after placement, and retreat.</figcaption>
+    </figure>
+
+    <h3 class="gdf-h3" id="xarm7-leap">xArm7–LEAP Pick and Place</h3>
+    <div class="gdf-prose">
+      <p>The <code>xarm7_leap</code> model pairs the seven-joint UFACTORY xArm7 with a right LEAP Hand with 16 actuated joints. We evaluated ten planned pick-and-place trajectories per object in Isaac Lab. The robot completed all ten trials with the tomato soup can, seven with the sugar box, and nine with the mustard bottle.</p>
+    </div>
+    <figure class="gdf-overview">
+      <video controls muted playsinline preload="none" poster="./static/media/xarm7-leap-isaac.jpg" aria-labelledby="xarm7-leap-caption">
+        <source src="./static/media/xarm7-leap-isaac.mp4" type="video/mp4">
+        <a href="./static/media/xarm7-leap-isaac.mp4">Open the xArm7–LEAP recording.</a>
+      </video>
+      <figcaption id="xarm7-leap-caption">The xArm7 and LEAP Hand grasp, lift, transport, and place each YCB object before releasing it and withdrawing. The recording shows one completed Isaac Lab trial per object.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -257,13 +278,16 @@
   <div class="gdf-wrap">
     <h2 class="gdf-h2">Bimanual Key Insertion</h2>
     <div class="gdf-prose">
-      <p>This Viser recording replays a MuJoCo trial in which the left A7-L6 hand stabilized a free housing while the right hand lifted and inserted a free key. A 3 N lateral load acted on the housing during insertion.</p>
+      <p>The left A7-L6 hand stabilized a free housing while the right hand lifted and inserted a free key. A 3 N lateral load acted on the housing during insertion.</p>
     </div>
     <figure class="gdf-overview">
-      <iframe src="./static/media/a7-key-insertion-viser.html" loading="lazy" title="Interactive Viser recording of simulated A7-L6 key insertion under a 3 N load" style="width:100%;aspect-ratio:16/10;border:0" allowfullscreen></iframe>
-      <figcaption>Rotate the view and scrub the timeline to inspect the recorded simulation. Player: <a href="https://github.com/viser-project/viser">Viser</a> (<a href="./static/media/viser-LICENSE.txt">Apache-2.0</a>).</figcaption>
+      <video controls muted playsinline preload="none" poster="./static/media/a7-key-insertion-isaac.jpg" aria-labelledby="a7-insertion-caption">
+        <source src="./static/media/a7-key-insertion-isaac.mp4" type="video/mp4">
+        <track kind="chapters" src="./static/media/a7-key-insertion-isaac.vtt" srclang="en" label="Assembly phases" default>
+        <a href="./static/media/a7-key-insertion-isaac.mp4">Open the bimanual key insertion recording.</a>
+      </video>
+      <figcaption id="a7-insertion-caption">Isaac Lab renders the arm, hand, key, and housing poses recorded during the MuJoCo trial.</figcaption>
     </figure>
-    <p><a class="gdf-btn" style="min-height:44px" href="./static/media/a7-key-insertion-viser.html">Open the Full-Size Interactive Recording</a></p>
   </div>
 </section>
 
@@ -271,7 +295,7 @@
   <div class="gdf-wrap">
     <h2 class="gdf-h2">Software Resources</h2>
     <div class="gdf-prose">
-      <p>dexreach requires a CUDA-capable environment with NVIDIA cuRobo for planning and Isaac Lab for simulation evaluation.</p>
+      <p>The <code>dexreach</code> package requires a CUDA-capable environment with NVIDIA cuRobo for planning and Isaac Lab for simulation evaluation.</p>
     </div>
     <div class="gdf-btns dx-resource-links">
 <a class="gdf-btn" data-coming-soon="" href="#"><i aria-hidden="true" class="fab fa-github"></i><span>Code (Coming Soon)</span></a>
@@ -283,7 +307,7 @@
 <section class="gdf-section" id="citation"><div class="gdf-wrap">
 <h2 class="gdf-h2">Citation</h2>
 <pre><code>@software{enwerem2026dexreach,
-  title   = {dexreach: GPU-Accelerated Whole-Body Dexterous Grasp and
+  title   = {DexReach: GPU-Accelerated Whole-Body Dexterous Grasp and
              Manipulation Planning},
   author  = {Enwerem, Clinton},
   year    = {2026},
