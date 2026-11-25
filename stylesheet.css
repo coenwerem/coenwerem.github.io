@@ -1620,7 +1620,7 @@ body, p, td, th, tr, a, li {
 .dark-mode .home-availability-highlight {
   background-image: linear-gradient(hsla(210, 65%, 65%, 0.22) 0 100%);
 }
-/* Group announcements by month; type is secondary metadata, not a badge. */
+/* Group announcements by month and align each type with its news paragraph. */
 .home-news-title { margin: 0; font-weight: 400; }
 .home-news-feed { margin: 0; }
 .home-news-group {
@@ -1642,12 +1642,31 @@ body, p, td, th, tr, a, li {
   white-space: nowrap;
 }
 .home-news-items { min-width: 0; list-style: none; padding: 0; margin: 0; }
-.home-news-item { padding: 0; margin: 0 0 0.5rem; }
+.home-news-item {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
 .home-news-item:last-child { margin-bottom: 0; }
-.home-news-item p { margin: 0; line-height: 1.35; text-align: left; overflow-wrap: anywhere; }
+.home-news-item > p {
+  min-width: 0;
+  margin: 0;
+  line-height: 1.35;
+  text-align: justify;
+  text-align-last: left;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
 .home-news-type {
-  display: inline-block;
-  margin-right: 0.45rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0.18rem;
   padding: 0.12em 0.4em;
   border-radius: 3px;
   font-size: 0.75rem;
@@ -1672,6 +1691,10 @@ body, p, td, th, tr, a, li {
 @media (max-width: 768px) {
   .home-news-group { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
   .home-news-date { font-weight: 700; }
+}
+@media (max-width: 420px) {
+  .home-news-item { grid-template-columns: minmax(0, 1fr); row-gap: 0.35rem; }
+  .home-news-type { width: 5.5rem; margin-top: 0; }
 }
 /* Consistent section spacing */
 #news {
